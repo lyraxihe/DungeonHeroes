@@ -1,0 +1,30 @@
+# Ignore build artifacts
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+
+# Ignore user-specific files
+*.userprefs
+*.csproj
+*.pidb
+*.sln
+
+# Ignore build output (DLLs, PDBs, etc.)
+*.dll
+*.pdb
+
+# Ignore Unity generated files
+*_Data/
+*_BuildReport.txt
+*_x86_Data/
+*_x64_Data/
+*_Data/Managed/
+*_Data/Resources/
+*_Data/StreamingAssets/
+
+# Ignore Visual Studio files
+.vs/
+.vscode/
+
+# Ignore macOS files
+.DS_Store
