@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -204,3 +204,4 @@ MonoBehaviour:
   PrefabCofre: {fileID: 3143285100055704912, guid: 8ba3a6163a893ce4e93f4f17cb22ed73, type: 3}
   PrefabJefe: {fileID: 824576691445757552, guid: 6729b3648bdbdc343826f33488d955df, type: 3}
   canvas: {fileID: 4922802617977693337}
+  money: 0

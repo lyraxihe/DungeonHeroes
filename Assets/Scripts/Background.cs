@@ -12,10 +12,10 @@ public class Background : MonoBehaviour
     public GameObject PrefabJefe; // Prefab sala del medio - jefe
     public RectTransform canvas;
 
-    //private int money;
-    //private int ataque_1;
-    //private string MoneyName= "money";
-    //private string atq_1= "ataque_1";
+    public int money; //usar este al terminar la batalla para que le de al jugador (sumarle 100 como ejemplo)
+    private int ataque_1;
+    private string MoneyName = "money";
+    private string atq_1 = "ataque_1";
 
     private float[] PositionsX = { 0, -3.5f, 0, 3.5f, 0 }; // Array de posiciones Coordenadas X del prefab CombatPosition
     private float[] PositionsY = { 3.5f, 0, 0, 0, -3.5f };  // Array de posiciones Coordenadas Y del prefab CombatPosition
@@ -48,7 +48,7 @@ public class Background : MonoBehaviour
     //private void LoadData()
     //{
     //    money = PlayerPrefs.GetInt();
-    //    ataque_1 = PlayerPrefs
+    //    ataque_1 = PlayerPrefs.GetInt();
     //}
 
 
