@@ -26,6 +26,7 @@ public class EnemyHealer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         // Establece los atributos del personaje
         VidaTotal = 100;
         VidaActual = VidaTotal;
