@@ -29,7 +29,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 32, y: 15, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5772309905632061613}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17241f1f389d5a54fa96aed23484a639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CombatBackground: {fileID: 0}
+  Canvas: {fileID: 5772309905632061613}
   CombatPosition: {fileID: 7913850259681220213, guid: 5975a7846d90355489f2e1f3e3b65e5a, type: 3}
   PrefabEnemyKnight: {fileID: 3473415735690536374, guid: d1cb23b826a826b489508a29a8f9d631, type: 3}
   PrefabPlayerKnight: {fileID: 3473415735690536374, guid: cd320ef45ee420d4fa679dd162b89df2, type: 3}
@@ -108,6 +111,119 @@ MonoBehaviour:
   PrefabPlayerMage: {fileID: 5656641225117751915, guid: 54eb431e3c7531347afc2893b73ce645, type: 3}
   PrefabStartBattleButton: {fileID: 6540450087425340010, guid: 30036d076ded0ee429d5df605a682773, type: 3}
   PrefabTextoTurno: {fileID: 37847271984968078, guid: 4cb7ba8c17581d44a822e0b2642f17fe, type: 3}
+  PrefabVictoriaDerrota: {fileID: 8250509885632589376, guid: bf25c096909cd16438f8fcb455c97382, type: 3}
+  PrefabVictoriaDerrotaBorder: {fileID: 8687905349629884412, guid: 4ea705507b9a658469729508af8b9ea5, type: 3}
+  PrefabButtonVictoriaDerrota: {fileID: 9181417631684566114, guid: 2b19f66be6590c24d995ae50db7941e5, type: 3}
+  Aliados: []
   Positions: []
   StartBattle: 0
   TurnoBatalla: 
+  EnemigoParaAtacar: 0
+  ContHabilidadSlime: 0
+  ContHabilidadMage: 0
+  CharacterInterface: []
+  ContEnemigos: 0
+  ContAliados: 0
+  Victoria: 0
+  Derrota: 0
+  VictoriaDerrotaCreado: 0
+--- !u!1 &4797352747746911221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5772309905632061613}
+  - component: {fileID: 7822828206120878050}
+  - component: {fileID: 7369628823703014843}
+  - component: {fileID: 7896181411396661207}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5772309905632061613
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797352747746911221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4360310465955596605}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!223 &7822828206120878050
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797352747746911221}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &7369628823703014843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797352747746911221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!114 &7896181411396661207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797352747746911221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
