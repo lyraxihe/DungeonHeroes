@@ -14,15 +14,13 @@ public class GeneralPlayer : MonoBehaviour
     public GameObject[] Enemies;                       // Array de enemigos del combate
     public GameObject[] Aliados;                       // Array de aliados del combate
 
-    public GameObject[] CharacterInterface;            // Array de todos los componentes de la interfaz de cada personaje
-
     public GameObject PrefabCharacterBattleInfoBorder; // Prefab Character Battle Info Broder
     public GameObject PrefabCharacterBattleInfo;       // Prefab Character Battle Info
     public GameObject PrefabCharacterImage;            // Prefab Character Image
     public GameObject PrefabMove;                      // Prefab Button Move
     public GameObject PrefabAbility1;                  // Prefab Button Ability 1
     public GameObject PrefabAbility2;                  // Prefab Button Ability 2
-    public GameObject PrefabTexto;                     // Prefab del texto de Momver, habilidad 1 y habilidad 2
+    public GameObject PrefabTexto;                     // Prefab del texto de Mover, habilidad 1 y habilidad 2
 
     private GameObject ClonCharacterBattleInfoBorder;  // Clon del prefab Character Battle Info Broder
     private GameObject ClonCharacterBattleInfo;        // Clon del prefab Character Battle Info
@@ -83,65 +81,71 @@ public class GeneralPlayer : MonoBehaviour
      ****************************************************************************************/
     private void OnMouseDown()
     {
+        GameObject[] arrayInfo = _CombatBackground.GetComponent<CombatBackground>().CharacterInterface;
+
         if(Action == 0)
         {
             if (_StartBattle && !ClickOnce)                                                        // Si el combate está iniciado
             {
                 // Elimina la interfaz del personaje anterior si selecciona otro nuevo
-                for (int i = 0; i < CharacterInterface.Length; i++)                                // Recorre el array de la interfaz del personaje
+                for (int i = 0; i < arrayInfo.Length; i++)                                                         // Recorre el array de la interfaz del personaje
                 {
-                    if (i == 0)
-                        if (CharacterInterface[i] != null)
-                            CharacterInterface[i].transform.localScale = MinTam;
+                    if (arrayInfo[i] != null)
+                        if (i == 0)                                                                                // La primera posición corresponde al personaje de la interfaz
+                            arrayInfo[i].transform.localScale = arrayInfo[i].GetComponent<GeneralPlayer>().MinTam; // Lo devuelve a su tamaño original
                         else
-                            Destroy(CharacterInterface[i]);                                            // Elimina el elemento de la interfaz del personaje
+                            Destroy(arrayInfo[i]);                                                                 // Elimina el elemento de la interfaz del personaje
                 }
 
 
                 transform.localScale = MaxTam;                              // Aumenta el tamaño del spriteclonHealthbar.GetComponent<RectTransform>().position = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
 
                 // Crea la interfaz del personaje actual
-                CharacterInterface[0] = Character;                                                 // Almacena el prefab del personaje
+
+                _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[0] = Character;   // Almacena el personaje en el array de info del Personaje del Jugador
+
 
                 ClonCharacterBattleInfoBorder = Instantiate(PrefabCharacterBattleInfoBorder);      // Crea el borde de la interfaz de movimientos durante el turno del jugador
-                ClonCharacterBattleInfoBorder.transform.position = new Vector3(-11, 0.05f, 2);     // Lo posiciona
-                CharacterInterface[1] = ClonCharacterBattleInfoBorder;                             // Lo almacena en el array de la interfaz
+                ClonCharacterBattleInfoBorder.transform.position = new Vector3(-9.5f, 0.05f, 2);   // Lo posiciona
+                ClonCharacterBattleInfoBorder.transform.localScale = new Vector3(5.5f, 12, 1);     // Lo redimensiona
+                _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[1] = ClonCharacterBattleInfoBorder; // Lo alamcena en el array de info del Personaje del Jugador 
 
                 ClonCharacterBattleInfo = Instantiate(PrefabCharacterBattleInfo);                  // Crea la caja de la interfaz de movimientos durante el turno del jugador
-                ClonCharacterBattleInfo.transform.position = new Vector3(-11, 0.05f, 1);           // Lo posiciona
-                CharacterInterface[2] = ClonCharacterBattleInfo;                                   // Lo almacena en el array de la interfaz
+                ClonCharacterBattleInfo.transform.position = new Vector3(-9.5f, 0.05f, 1);         // Lo posiciona
+                ClonCharacterBattleInfo.transform.localScale = new Vector3(5.2f, 11.5f, 1);        // Lo redimensiona
+                _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[2] = ClonCharacterBattleInfo; // Lo alamcena en el array de info del Personaje del Jugador
 
                 ClonCharacterImage = Instantiate(PrefabCharacterImage);                            // Crea la imagen del peronsaje seleccionado para realizar una acción
-                ClonCharacterImage.transform.position = new Vector3(-11, 4, 0);                    // Lo posiciona
-                CharacterInterface[3] = ClonCharacterImage;                                        // Lo almacena en el array de la interfaz
+                ClonCharacterImage.transform.position = new Vector3(-9.5f, 4, 0);                  // Lo posiciona
+                _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[3] = ClonCharacterImage; // Lo alamcena en el array de info del Personaje del Jugador
 
                 ClonMove = Instantiate(PrefabMove);                                                // Crea el botón de movimiento del personaje
-                ClonMove.transform.position = new Vector3(-13, 0, 0);                              // Lo posiciona
+                ClonMove.transform.position = new Vector3(-11.5f, 0, 0);                           // Lo posiciona
                 ClonMove.GetComponent<MoveButton>().CharacterPosition = CharacterPosition;         // Almacena en el botón la posición actual del personaje
                 ClonMove.GetComponent<MoveButton>().Positions = Positions;                         // Almacena en el botón el array de posiciones del combate
                 ClonMove.GetComponent<MoveButton>().Character = Character;                         // Almacena el personaje
-                CharacterInterface[4] = ClonMove;                                                  // Lo almacena en el array de la interfaz
+                _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[4] = ClonMove; // Lo alamcena en el array de info del Personaje del Jugador
 
                 ClonTextoMover = Instantiate(PrefabTexto);                                         // Crea el Texto Mover
-                ClonTextoMover.transform.position = new Vector3(-11.4f, -0.1f, 0);                 // Lo coloca en la interfaz
+                ClonTextoMover.transform.position = new Vector3(-10.3f, -0.15f, 0);                // Lo coloca en la interfaz
                 ClonTextoMover.GetComponent<TextoTurno>().ChangeText("Mover");                     // Cambia el texto a "Mover"
-                ClonTextoMover.GetComponent<TextoTurno>().ChangeFontSize(0.7f);                    // Cambio el tamaño de la fuente del texto
+                ClonTextoMover.GetComponent<TextoTurno>().ChangeFontSize(0.6f);                    // Cambio el tamaño de la fuente del texto
                 ClonTextoMover.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);                    // Cambia el color del texto a blanco
-                CharacterInterface[5] = ClonTextoMover;                                            // Lo almacena en el array de la interfaz
+                _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[5] = ClonTextoMover; // Lo alamcena en el array de info del Personaje del Jugador
 
                 ClonAbility1 = Instantiate(PrefabAbility1);                                        // Crea el botón de la habilidad 1 del personaje
-                ClonAbility1.transform.position = new Vector3(-13, -2, 0);                         // Lo posiciona
+                ClonAbility1.transform.position = new Vector3(-11.5f, -2, 0);                      // Lo posiciona
                 ClonAbility1.GetComponent<Ability1Button>().CharacterPosition = CharacterPosition; // Almacena en el botón la posición actual del personaje
                 ClonAbility1.GetComponent<Ability1Button>().Enemies = Enemies;                     // Almacena el array de enemigos 
                 ClonAbility1.GetComponent<Ability1Button>().Positions = Positions;                 // Almacena en el botón el array de posiciones del combate
                 ClonAbility1.GetComponent<Ability1Button>().Character = Character;                 // Almacena el personaje
-                CharacterInterface[5] = ClonAbility1;                                              // Lo almacena en el array de la interfaz
+                _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[6] = ClonAbility1; // Lo alamcena en el array de info del Personaje del Jugador
 
                 ClonTextoAbility1 = Instantiate(PrefabTexto);                                      // Crea el Texto Ability 1
                 if(CharacterType == 2)                                                             // Si es un Healer
-                    ClonTextoAbility1.transform.position = new Vector3(-10.2f, -2.1f, 0);          // Lo coloca en la interfaz
+                    ClonTextoAbility1.transform.position = new Vector3(-9.3f, -2.15f, 0);          // Lo coloca en la interfaz
                 else
-                    ClonTextoAbility1.transform.position = new Vector3(-10.1f, -2.1f, 0);          // Lo coloca en la interfaz
+                    ClonTextoAbility1.transform.position = new Vector3(-9.2f, -2.15f, 0);          // Lo coloca en la interfaz
 
                 if (CharacterType == 1)       // Si es un Knight
                     ClonTextoAbility1.GetComponent<TextoTurno>().ChangeText("Atacar (ATK: " + Character.GetComponent<PlayerKnight>().AtaqueActual + "p)"); // Cambia el texto a "Atacar + AtaqueActual"
@@ -152,12 +156,12 @@ public class GeneralPlayer : MonoBehaviour
                 else                         // Si es un Mage
                     ClonTextoAbility1.GetComponent<TextoTurno>().ChangeText("Atacar (ATK: " + Character.GetComponent<PlayerMage>().AtaqueActual + "p)");   // Cambia el texto a "Atacar + AtaqueActual"
 
-                ClonTextoAbility1.GetComponent<TextoTurno>().ChangeFontSize(0.7f);                 // Cambio el tamaño de la fuente del texto
+                ClonTextoAbility1.GetComponent<TextoTurno>().ChangeFontSize(0.6f);                 // Cambio el tamaño de la fuente del texto
                 ClonTextoAbility1.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);                 // Cambia el color del texto a blanco
-                CharacterInterface[7] = ClonTextoAbility1;                                         // Lo almacena en el array de la interfaz
+                _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[7] = ClonTextoAbility1; // Lo alamcena en el array de info del Personaje del Jugador
 
                 ClonAbility2 = Instantiate(PrefabAbility2);                                        // Crea el botón de la habilidad 2 del personaje
-                ClonAbility2.transform.position = new Vector3(-13, -4, 0);                         // Lo posiciona
+                ClonAbility2.transform.position = new Vector3(-11.5f, -4, 0);                      // Lo posiciona
                 ClonAbility2.GetComponent<Ability2Button>().CharacterPosition = CharacterPosition; // Almacena en el botón la posición actual del personaje
                 ClonAbility2.GetComponent<Ability2Button>().Enemies = Enemies;                     // Almacena el array de enemigos 
                 ClonAbility2.GetComponent<Ability2Button>().Aliados = _CombatBackground.GetComponent<CombatBackground>().Aliados; // Almacena el array de aliados
@@ -189,7 +193,7 @@ public class GeneralPlayer : MonoBehaviour
                     }
                 }
 
-                CharacterInterface[8] = ClonAbility2;                                              // Lo almacena en el array de la interfaz
+                _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[8] = ClonAbility2; // Lo alamcena en el array de info del Personaje del Jugador
 
                 ClonTextoAbility2 = Instantiate(PrefabTexto);                                      // Crea el Texto Ability 2
 
@@ -197,30 +201,30 @@ public class GeneralPlayer : MonoBehaviour
                 {
                     if (Character.GetComponent<PlayerKnight>().Invencible == true)                     // Si el Knight está en modo invencible
                     {
-                        ClonTextoAbility2.transform.position = new Vector3(-10.3f, -4.1f, 0);         // Lo coloca en la interfaz
+                        ClonTextoAbility2.transform.position = new Vector3(-9.35f, -4.15f, 0);        // Lo coloca en la interfaz
                         ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Invencible (" + (3 - Character.GetComponent<PlayerKnight>().PlayerKnightInvencibleCont) + " t.)"); // Cambia el texto
                     }
                     else                                                                              // Si no
                     {
-                        ClonTextoAbility2.transform.position = new Vector3(-10.3f, -4.1f, 0);         // Lo coloca en la interfaz
+                        ClonTextoAbility2.transform.position = new Vector3(-9.35f, -4.15f, 0);        // Lo coloca en la interfaz
                         ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Invencible (3 t.)"); // Cambia el texto
                     }
                 }
-                else if (CharacterType == 2)                                                          // Si es el Healer
+                else if (CharacterType == 2)                                                         // Si es el Healer
                 {
-                    ClonTextoAbility2.transform.position = new Vector3(-10.4f, -4.1f, 0);             // Lo coloca en la interfaz
-                    ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Curar (+20 hp)");        // Cambia el texto
+                    ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4.15f, 0);           // Lo coloca en la interfaz
+                    ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Curar (+20 hp)");       // Cambia el texto
                 }
                 else if (CharacterType == 3)                                                         // Si es el Slime
                 {
                     if (Character.GetComponent<PlayerSlime>().UsedAbility == true)                   // Si el Slime ha usado su habilidad
                     {
-                        ClonTextoAbility2.transform.position = new Vector3(-10.4f, -4.1f, 0);        // Lo coloca en la interfaz
+                        ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4.15f, 0);        // Lo coloca en la interfaz
                         ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Red. Def. (" + (3 - _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime) + " t.)"); // Cambia el texto
                     }
                     else                                                                             // Si no
                     {
-                        ClonTextoAbility2.transform.position = new Vector3(-10.4f, -4.1f, 0);        // Lo coloca en la interfaz
+                        ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4.15f, 0);        // Lo coloca en la interfaz
                         ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Red. Def. (3 t.)"); // Cambia el texto
                     }
                 }
@@ -228,19 +232,19 @@ public class GeneralPlayer : MonoBehaviour
                 {
                     if (Character.GetComponent<PlayerMage>().UsedAbility == true)                    // Si el Slime ha usado su habilidad
                     {
-                        ClonTextoAbility2.transform.position = new Vector3(-10.4f, -4.1f, 0);        // Lo coloca en la interfaz
+                        ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4.15f, 0);        // Lo coloca en la interfaz
                         ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Aum. Def. (" + (3 - _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage) + " t.)"); // Cambia el texto
                     }
                     else
                     {
-                        ClonTextoAbility2.transform.position = new Vector3(-10.4f, -4.1f, 0);        // Lo coloca en la interfaz
+                        ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4.15f, 0);        // Lo coloca en la interfaz
                         ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Aum. Def. (3 t.)"); // Cambia el texto
                     }
                 }
 
-                ClonTextoAbility2.GetComponent<TextoTurno>().ChangeFontSize(0.7f);                 // Cambio el tamaño de la fuente del texto
+                ClonTextoAbility2.GetComponent<TextoTurno>().ChangeFontSize(0.6f);                 // Cambio el tamaño de la fuente del texto
                 ClonTextoAbility2.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);                 // Cambia el color del texto a blanco
-                CharacterInterface[9] = ClonTextoAbility2;                                         // Lo almacena en el array de la interfaz
+                _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[9] = ClonTextoAbility2; // Lo alamcena en el array de info del Personaje del Jugador
 
                 ClickOnce = true;                                                                  // Booleano para controlar que la interfaz sólo se cree una vez al clicar en el personaje
             }

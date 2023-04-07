@@ -8,25 +8,34 @@ using UnityEngine.UI;
 public class CombatBackground : MonoBehaviour
 {
     public GameObject _CombatBackground;        // Combate
-    
+    public RectTransform Canvas;                // Canva
+
     // PREFABS
-    public GameObject CombatPosition;           // Prefab CombatPosition
-    public GameObject PrefabEnemyKnight;        // Prefab Personaje 1 - Caballero Enemigo
-    public GameObject PrefabPlayerKnight;       // Prefab Personaje 1 - Caballero del Jugador
-    public GameObject PrefabEnemyHealer;        // Prefab Personaje 2 - Healer Enemigo
-    public GameObject PrefabPlayerHealer;       // Prefab Personaje 2 - Healer del Jugador
-    public GameObject PrefabEnemySlime;         // Prefab Personaje 3 - Slime Enemigo
-    public GameObject PrefabPlayerSlime;        // Prefab Personaje 3 - Slime del Jugador
-    public GameObject PrefabEnemyMage;          // Prefab Personaje 4 - Mago Enemigo
-    public GameObject PrefabPlayerMage;         // Prefab Personaje 4 - Mago del Jugador
-    public GameObject PrefabStartBattleButton;  // Prefab StartBattleButton
-    public GameObject PrefabTextoTurno;         // Prefab Texto del turno
+    public GameObject CombatPosition;              // Prefab CombatPosition
+    public GameObject PrefabEnemyKnight;           // Prefab Personaje 1 - Caballero Enemigo
+    public GameObject PrefabPlayerKnight;          // Prefab Personaje 1 - Caballero del Jugador
+    public GameObject PrefabEnemyHealer;           // Prefab Personaje 2 - Healer Enemigo
+    public GameObject PrefabPlayerHealer;          // Prefab Personaje 2 - Healer del Jugador
+    public GameObject PrefabEnemySlime;            // Prefab Personaje 3 - Slime Enemigo
+    public GameObject PrefabPlayerSlime;           // Prefab Personaje 3 - Slime del Jugador
+    public GameObject PrefabEnemyMage;             // Prefab Personaje 4 - Mago Enemigo
+    public GameObject PrefabPlayerMage;            // Prefab Personaje 4 - Mago del Jugador
+    public GameObject PrefabStartBattleButton;     // Prefab StartBattleButton
+    public GameObject PrefabTextoTurno;            // Prefab Texto del turno
+    public GameObject PrefabVictoriaDerrota;       // Prefab del cartel de Victoria o Derrota
+    public GameObject PrefabVictoriaDerrotaBorder; // Prefab del borde del cartel de Victoria o Derrota
+    //public GameObject PrefabTextoVictoriaDerrota;    // Prefab del texto de Victoria o Derrota
+    public GameObject PrefabButtonVictoriaDerrota; // Prefab del botón de Vitoria o Derrota
 
     // CLONES
-    private GameObject[] Enemies;               // Array de clones de los enemigos
-    public GameObject[] Aliados;               // Array de clones de los personajes del jugador
-    private GameObject ClonStartBattleButton;   // Clon del botón de ¡Comenzar Batalla!
-    private GameObject ClonTextoTurno;          // Clon del texto "Turno de Batalla"
+    private GameObject[] Enemies;                 // Array de clones de los enemigos
+    public GameObject[] Aliados;                  // Array de clones de los personajes del jugador
+    private GameObject ClonStartBattleButton;     // Clon del botón de ¡Comenzar Batalla!
+    private GameObject ClonTextoTurno;            // Clon del texto "Turno de Batalla"
+    private GameObject ClonVictoriaDerrota;       // Clon del cartel de Victoria o Derrota
+    private GameObject ClonVictoriaDerrotaBorder; // Clon del borde del cartel de Victoria o Derrota
+    //private TMP_Text ClonTextoVictoriaDerrota;    // Clon del texto de Victoria o Derrota
+    private GameObject ClonButtonVictoriaDerrota; // Clon del botón de Vitoria o Derrota
 
     // POSICIONES
     private float[] PositionsX = {0, -5.5f, -1.5f, 1.5f, 5.5f, -2.5f, 2.5f, 0, -3.5f, 3.5f}; // Array de posiciones Coordenadas X del prefab CombatPosition
@@ -44,21 +53,32 @@ public class CombatBackground : MonoBehaviour
     private bool[] AliadosPositionStatus = { false, false, false, false }; // Array de booleanos para ver que todos los aliados han sido colocados en el mapa de combate
     private bool CambiarTurno = true;
     public bool EnemigoParaAtacar = false;
-    public GameObject[] CharacterInterface;                                // Array de elementos del personaje del jugador
     public int ContHabilidadSlime;                                         // Contador para saber cuántos turnos faltan para que termine la habilidad del Slime
     public int ContHabilidadMage;                                          // Contador para saber cuántos turnos faltan para que termine la habilidad del Mage
+    public GameObject[] CharacterInterface;                                // Array de info del Personaje del Jugador
+    public int ContEnemigos;                                               // Contador de los enemigos en combate
+    public int ContAliados;                                                // Contador de los enemigos en combate
+    public bool Victoria;                                                  // Booleano que controla si hay condición de victoria
+    public bool Derrota;                                                   // Booleano que controla si hay condición de derrota
+    public bool VictoriaDerrotaCreado;                                     // Booleano que controla que la interfaz de Victoria o Derrota se cree una vez
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         Positions = new GameObject[PositionsX.Length]; // Crea el array de prefabs CombatPosition en base al tamaño del array de Coordenadas
         Aliados = new GameObject[4];                   // Crea el array de personajes del jugador con tamaño 4 
         StartBattle = false;                           // El combate se incializa primero en fase de planificación
         TurnoBatalla = "Jugador";                      // Establece que el primer turno de la batalla será para el jugador
         BoolTurnoBatalla = false;                      // De momento se puede crear el Texto "Turno de Batalla"
-        CharacterInterface = new GameObject[10];        // Crea el array de la inerfaz de los personajes del jugador
+        CharacterInterface = new GameObject[10];            // Incializa el array de info del Personaje del JUgador
 
         ContHabilidadSlime = 0;
+
+        ContEnemigos = 0;
+        ContAliados = 0;
+        Victoria = false;
+        Derrota = false;
+        VictoriaDerrotaCreado = false;
 
         SetPositions(PositionsX.Length);               // Coloca las posiciones donde irán los personajes en pantalla
         SetArrayPositions();                           // Almacena en cada posición el array de posiciones
@@ -89,6 +109,9 @@ public class CombatBackground : MonoBehaviour
 
         if (TurnoBatalla == "Enemigo")
             EnemyTurn();                               // Realiza las acciones de la IA cuando es el turno del enemigo
+
+        StatusPartida();                               // Comprueba si hay condición de victoria o de derrota
+        InterfazVictoriaDerrota();                     // Crea la interfaz de Victoria o derrota
     }
 
     /****************************************************************************************
@@ -162,6 +185,7 @@ public class CombatBackground : MonoBehaviour
         int i;
 
         Enemies = new GameObject[numEnemies];                      // Crea el array de enemigos con tamaño en base al número de enemigos creados aleatoriamente
+        ContEnemigos = numEnemies;                                 // Almacena el número de enemigos en combate
 
         for(i = 0; i < numEnemies; i++) // Bucle for desde 0 hasta el número de enemigos que habrá en el combate
         {
@@ -282,10 +306,9 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
                 aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 1;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterInterface = CharacterInterface;      // Almacena el array de la interfaz del personaje
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
-                aliadoColocar.GetComponent<PlayerKnight>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                aliadoColocar.GetComponent<PlayerKnight>()._CombatBackground = _CombatBackground;         // Almacena el combate
                 Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
             }
             else if (i == 1)                                                                              // Si el enemigo es un Healer
@@ -296,10 +319,9 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
                 aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 2;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterInterface = CharacterInterface;      // Almacena el array de la interfaz del personaje
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
-                aliadoColocar.GetComponent<PlayerHealer>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                aliadoColocar.GetComponent<PlayerHealer>()._CombatBackground = _CombatBackground;         // Almacena el combate
                 Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
             }
             else if (i == 2)                                                                              // Si el enemigo es un Slime
@@ -310,10 +332,9 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
                 aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 3;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterInterface = CharacterInterface;      // Almacena el array de la interfaz del personaje
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
-                aliadoColocar.GetComponent<PlayerSlime>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                aliadoColocar.GetComponent<PlayerSlime>()._CombatBackground = _CombatBackground;          // Almacena el combate
                 Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
             }
             else                                                                                          // Si el enemigo es un Mage
@@ -324,12 +345,13 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
                 aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 4;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterInterface = CharacterInterface;      // Almacena el array de la interfaz del personaje
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
-                aliadoColocar.GetComponent<PlayerMage>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                aliadoColocar.GetComponent<PlayerMage>()._CombatBackground = _CombatBackground;           // Almacena el combate
                 Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
             }
+
+            ContAliados++;                                                                                // Aumenta el contador de aliados en combate
         }
     }
 
@@ -634,8 +656,9 @@ public class CombatBackground : MonoBehaviour
                     {
                         Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
                         Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
-                        Destroy(Enemies[i].GetComponent<EnemyKnight>().ClonHealthbar);                                        // Destruye su Healthbar asociada
+                        Destroy(Enemies[i].GetComponent<EnemyKnight>().ClonHealthbar);                                          // Destruye su Healthbar asociada
                         Destroy(Enemies[i]);                                          // Lo destruye
+                        ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
                     }
                 }
                 else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 2)          // Si es un Healer
@@ -646,6 +669,7 @@ public class CombatBackground : MonoBehaviour
                         Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
                         Destroy(Enemies[i].GetComponent<EnemyHealer>().ClonHealthbar);                                        // Destruye su Healthbar asociada
                         Destroy(Enemies[i]);                                          // Lo destruye
+                        ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
                     }
                 }
                 else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 3)          // Si es un Slime
@@ -656,6 +680,7 @@ public class CombatBackground : MonoBehaviour
                         Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
                         Destroy(Enemies[i].GetComponent<EnemySlime>().ClonHealthbar);                                        // Destruye su Healthbar asociada
                         Destroy(Enemies[i]);                                          // Lo destruye
+                        ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
                     }
                 }
                 else                                                                  // Si es un Mage
@@ -666,6 +691,7 @@ public class CombatBackground : MonoBehaviour
                         Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
                         Destroy(Enemies[i].GetComponent<EnemyMage>().ClonHealthbar);                                        // Destruye su Healthbar asociada
                         Destroy(Enemies[i]);                                          // Lo destruye
+                        ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
                     }
                 }
             }
@@ -683,6 +709,7 @@ public class CombatBackground : MonoBehaviour
                         Aliados[i].GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
                         Destroy(Aliados[i].GetComponent<PlayerKnight>().ClonHealthbar);                                              // Destruye su Healthbar asociada
                         Destroy(Aliados[i]);                                          // Lo destruye
+                        ContAliados--;                                                // Reduce el´contador de personajes del Jugador en Combate
                     }
                 }
                 else if (Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 2) // Si es un Healer
@@ -693,6 +720,7 @@ public class CombatBackground : MonoBehaviour
                         Aliados[i].GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
                         Destroy(Aliados[i].GetComponent<PlayerHealer>().ClonHealthbar);                                              // Destruye su Healthbar asociada
                         Destroy(Aliados[i]);                                          // Lo destruye
+                        ContAliados--;                                                // Reduce el´contador de personajes del Jugador en Combate
                     }
                 }
                 else if (Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 3) // Si es un Slime
@@ -703,6 +731,7 @@ public class CombatBackground : MonoBehaviour
                         Aliados[i].GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
                         Destroy(Aliados[i].GetComponent<PlayerSlime>().ClonHealthbar);                                              // Destruye su Healthbar asociada
                         Destroy(Aliados[i]);                                          // Lo destruye
+                        ContAliados--;                                                // Reduce el´contador de personajes del Jugador en Combate
                     }
                 }
                 else                                                                  // Si es un Mage
@@ -713,8 +742,73 @@ public class CombatBackground : MonoBehaviour
                         Aliados[i].GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
                         Destroy(Aliados[i].GetComponent<PlayerMage>().ClonHealthbar);                                              // Destruye su Healthbar asociada
                         Destroy(Aliados[i]);                                          // Lo destruye
+                        ContAliados--;                                                // Reduce el´contador de personajes del Jugador en Combate
                     }
                 }
+            }
+        }
+    }
+
+    /****************************************************************************************
+     * Función: StatusPartida                                                               *
+     * Uso: Comprueba si se cumple la condición de victoria o derrota                       *
+     * Variables entrada: Ninguno                                                           *
+     * Return:                                                                              *
+     ****************************************************************************************/
+    public void StatusPartida()
+    {
+        if (ContAliados <= 0)
+            Derrota = true;
+
+        if (ContEnemigos <= 0)
+            Victoria = true;
+    }
+
+    /****************************************************************************************
+     * Función: InterfazVictoriaDerrota                                                     *
+     * Uso: Crea la interfaz de Vicotira o derrota si se cumple alguna de las condiciones   *
+     * Variables entrada: Ninguno                                                           *
+     * Return:                                                                              *
+     ****************************************************************************************/
+    public void InterfazVictoriaDerrota()
+    {
+        if (Victoria)
+        {
+            if (!VictoriaDerrotaCreado)
+            {
+                ClonVictoriaDerrotaBorder = Instantiate(PrefabVictoriaDerrotaBorder);
+                ClonVictoriaDerrotaBorder.transform.position = new Vector3(0, 0, 0);
+                ClonVictoriaDerrotaBorder.transform.localScale = new Vector2(10, 5);
+
+                ClonVictoriaDerrota = Instantiate(PrefabVictoriaDerrota);
+                ClonVictoriaDerrota.transform.position = new Vector3(0, 0, -1);
+                ClonVictoriaDerrota.transform.localScale = new Vector2(9.5f, 4.5f);
+
+                //ClonTextoTurno = Instantiate(PrefabTextoVictoriaDerrota);
+
+                ClonButtonVictoriaDerrota = Instantiate(PrefabButtonVictoriaDerrota);
+
+                VictoriaDerrotaCreado = true;
+            }
+        }
+
+        if (Derrota)
+        {
+            if (!VictoriaDerrotaCreado)
+            {
+                ClonVictoriaDerrotaBorder = Instantiate(PrefabVictoriaDerrotaBorder);
+                ClonVictoriaDerrotaBorder.transform.position = new Vector3(0, 0, 0);
+                ClonVictoriaDerrotaBorder.transform.localScale = new Vector2(10, 5);
+
+                ClonVictoriaDerrota = Instantiate(PrefabVictoriaDerrota);
+                ClonVictoriaDerrota.transform.position = new Vector3(0, 0, -1);
+                ClonVictoriaDerrota.transform.localScale = new Vector2(9.5f, 4.5f);
+
+                //ClonTextoTurno = Instantiate(PrefabTextoVictoriaDerrota);
+
+                ClonButtonVictoriaDerrota = Instantiate(PrefabButtonVictoriaDerrota);
+
+                VictoriaDerrotaCreado = true;
             }
         }
     }
