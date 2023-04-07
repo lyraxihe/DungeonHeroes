@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ShopScene : MonoBehaviour
+public class ControlScenes : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,16 @@ public class ShopScene : MonoBehaviour
     {
         
     }
-    public void EscenaTienda()
+    public void CombatRoom()
+    {
+        SceneManager.LoadScene("Combat"); //abre la escena
+    }
+
+    public void Map()
+    {
+        SceneManager.LoadScene("Main"); //abre la escena
+    }
+    public void ShopRoom()
     {
         SceneManager.LoadScene("Shop"); //abre la escena
     }

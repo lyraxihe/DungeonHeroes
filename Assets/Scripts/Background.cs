@@ -12,10 +12,14 @@ public class Background : MonoBehaviour
     public GameObject PrefabJefe; // Prefab sala del medio - jefe
     public RectTransform canvas;
 
-    public int money; //usar este al terminar la batalla para que le de al jugador (sumarle 100 como ejemplo)
-    private int ataque_1;
-    private string MoneyName = "money";
-    private string atq_1 = "ataque_1";
+
+    // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+    //public int Money; //usar este al terminar la batalla para que le de al jugador (sumarle 100 como ejemplo)
+    //public string MoneyName = "Money";
+    //public int HpKnight;
+    //public string HpName = "HpKnight"
+    // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+
 
     private float[] PositionsX = { 0, -3.5f, 0, 3.5f, 0 }; // Array de posiciones Coordenadas X del prefab CombatPosition
     private float[] PositionsY = { 3.5f, 0, 0, 0, -3.5f };  // Array de posiciones Coordenadas Y del prefab CombatPosition
@@ -28,6 +32,7 @@ public class Background : MonoBehaviour
 
         SetPositions(PositionsX.Length);              // Coloca las posiciones donde irán los personajes en pantalla
         SetRooms(5);                             // Coloca los enemigos en las posiciones del combate
+        //RefreshUI();
     }
 
     // Update is called once per frame
@@ -36,21 +41,37 @@ public class Background : MonoBehaviour
 
     }
 
+    // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+   // private void awake() //carga los datos guardados
+   // {
+   //     LoadData();
+   // }
 
+   // private void OnDestroy()
+   // {
+   //     SaveData();
+   // }
+   //private void RefreshUI()
+   // {
+   //     userInterface.RefreshMoney(Money);
+   //     userInterface.RefreshHpKnight(HpKnight);
+   // }
 
-    //private void SaveData()
-    //{
-        
-    //    PlayerPrefs.SetInt(MoneyName, money);
-    //    PlayerPrefs.SetInt(atq_1, ataque_1);
-    //}
+   // private void SaveData()
+   // {
 
-    //private void LoadData()
-    //{
-    //    money = PlayerPrefs.GetInt();
-    //    ataque_1 = PlayerPrefs.GetInt();
-    //}
+   //     PlayerPrefs.SetInt(MoneyName, Money); //(primero el string y luego el int)
+   //     PlayerPrefs.SetInt(HpName, HpKnight);
 
+   // }
+
+   // private void LoadData()
+   // {
+   //     Money = PlayerPrefs.GetInt();
+   //     HpKnight = PlayerPrefs.GetInt();
+
+   // }
+    // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
     private void SetPositions(int numPositions)
     {

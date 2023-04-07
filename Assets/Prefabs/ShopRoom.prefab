@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6212407063030524768}
   - component: {fileID: 6212407063030524769}
   - component: {fileID: 6212407063030524774}
-  - component: {fileID: 5125368702168622901}
+  - component: {fileID: 2757838037865614079}
   m_Layer: 5
   m_Name: ShopRoom
   m_TagString: Untagged
@@ -122,9 +122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5125368702168622901}
-        m_TargetAssemblyTypeName: ShopEscene, Assembly-CSharp
-        m_MethodName: EscenaTienda
+      - m_Target: {fileID: 2757838037865614079}
+        m_TargetAssemblyTypeName: ControlScenes, Assembly-CSharp
+        m_MethodName: ShopRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5125368702168622901
+--- !u!114 &2757838037865614079
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,6 +143,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6212407063030524772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43cb5fc5c6797c94a91cc11516382759, type: 3}
+  m_Script: {fileID: 11500000, guid: 031081aca67b7cd4ba97c96340e5a0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
