@@ -44,9 +44,9 @@ public class CombatBackground : MonoBehaviour
     private bool[] AliadosPositionStatus = { false, false, false, false }; // Array de booleanos para ver que todos los aliados han sido colocados en el mapa de combate
     private bool CambiarTurno = true;
     public bool EnemigoParaAtacar = false;
-    public GameObject[] CharacterInterface;                                // Array de elementos del personaje del jugador
     public int ContHabilidadSlime;                                         // Contador para saber cuántos turnos faltan para que termine la habilidad del Slime
     public int ContHabilidadMage;                                          // Contador para saber cuántos turnos faltan para que termine la habilidad del Mage
+    public GameObject[] CharacterInterface;                                     // Array de info del Personaje del Jugador
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +56,7 @@ public class CombatBackground : MonoBehaviour
         StartBattle = false;                           // El combate se incializa primero en fase de planificación
         TurnoBatalla = "Jugador";                      // Establece que el primer turno de la batalla será para el jugador
         BoolTurnoBatalla = false;                      // De momento se puede crear el Texto "Turno de Batalla"
-        CharacterInterface = new GameObject[10];        // Crea el array de la inerfaz de los personajes del jugador
+        CharacterInterface = new GameObject[10];            // Incializa el array de info del Personaje del JUgador
 
         ContHabilidadSlime = 0;
 
@@ -282,7 +282,6 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
                 aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 1;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterInterface = CharacterInterface;      // Almacena el array de la interfaz del personaje
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
                 aliadoColocar.GetComponent<PlayerKnight>()._CombatBackground = _CombatBackground;        // Almacena el combate
@@ -296,7 +295,6 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
                 aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 2;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterInterface = CharacterInterface;      // Almacena el array de la interfaz del personaje
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
                 aliadoColocar.GetComponent<PlayerHealer>()._CombatBackground = _CombatBackground;        // Almacena el combate
@@ -310,7 +308,6 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
                 aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 3;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterInterface = CharacterInterface;      // Almacena el array de la interfaz del personaje
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
                 aliadoColocar.GetComponent<PlayerSlime>()._CombatBackground = _CombatBackground;        // Almacena el combate
@@ -324,7 +321,6 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
                 aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 4;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterInterface = CharacterInterface;      // Almacena el array de la interfaz del personaje
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
                 aliadoColocar.GetComponent<PlayerMage>()._CombatBackground = _CombatBackground;        // Almacena el combate
