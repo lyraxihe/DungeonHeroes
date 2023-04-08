@@ -24,18 +24,19 @@ public class CombatBackground : MonoBehaviour
     public GameObject PrefabTextoTurno;            // Prefab Texto del turno
     public GameObject PrefabVictoriaDerrota;       // Prefab del cartel de Victoria o Derrota
     public GameObject PrefabVictoriaDerrotaBorder; // Prefab del borde del cartel de Victoria o Derrota
-    //public GameObject PrefabTextoVictoriaDerrota;    // Prefab del texto de Victoria o Derrota
     public GameObject PrefabButtonVictoriaDerrota; // Prefab del botón de Vitoria o Derrota
 
     // CLONES
     private GameObject[] Enemies;                 // Array de clones de los enemigos
-    public GameObject[] Aliados;                  // Array de clones de los personajes del jugador
+    public  GameObject[] Aliados;                 // Array de clones de los personajes del jugador
     private GameObject ClonStartBattleButton;     // Clon del botón de ¡Comenzar Batalla!
     private GameObject ClonTextoTurno;            // Clon del texto "Turno de Batalla"
     private GameObject ClonVictoriaDerrota;       // Clon del cartel de Victoria o Derrota
     private GameObject ClonVictoriaDerrotaBorder; // Clon del borde del cartel de Victoria o Derrota
-    //private TMP_Text ClonTextoVictoriaDerrota;    // Clon del texto de Victoria o Derrota
+    private GameObject ClonTextoVictoriaDerrota;    // Clon del texto de Victoria o Derrota
     private GameObject ClonButtonVictoriaDerrota; // Clon del botón de Vitoria o Derrota
+    private GameObject ClonTextoRecompensa;       // Clon del texto de Victoria "Recompensa"
+    private GameObject ClonTextoDerrotado;        // Clon del texto de Derrota "Has sido derrotado"
 
     // POSICIONES
     private float[] PositionsX = {0, -5.5f, -1.5f, 1.5f, 5.5f, -2.5f, 2.5f, 0, -3.5f, 3.5f}; // Array de posiciones Coordenadas X del prefab CombatPosition
@@ -586,52 +587,59 @@ public class CombatBackground : MonoBehaviour
         int position; // Posición en rango del enemigo
         int a;
 
-        do
+        if(!Victoria && !Derrota)
         {
             do
             {
-                a = Random.Range(0, Enemies.Length);
-            } while (Enemies[a] == null);
+                do
+                {
+                    a = Random.Range(0, Enemies.Length);
+                } while (Enemies[a] == null);
 
-            enemySelected = Enemies[a]; // Selecciona un enemigo al azar con el que hacer la acción
+                enemySelected = Enemies[a]; // Selecciona un enemigo al azar con el que hacer la acción
 
-            for (int i = 0; i < 4; i++)                                                                                                // Recorre el array de posiciones en rango de la del enemigo
+                for (int i = 0; i < 4; i++)                                                                                                // Recorre el array de posiciones en rango de la del enemigo
+                {
+                    position = enemySelected.GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
+                    if (Positions[position].GetComponent<CombatPosition>().CharacterType == 2)                                             // Si la posición seleccionada está ocupada por un personaje del Jugador
+                        cont++;                                                                                                            // Aumenta el contador
+                }
+
+            } while (cont == 0); // Repite hasta que un enemigo con opción en rango de un personaje del Jugador sea seleccionado
+
+            if (EnemigoParaAtacar)
             {
-                position = enemySelected.GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
-                if (Positions[position].GetComponent<CombatPosition>().CharacterType == 2)                                             // Si la posición seleccionada está ocupada por un personaje del Jugador
-                    cont++;                                                                                                            // Aumenta el contador
+                if (enemySelected.GetComponent<GeneralEnemy>().Index == 1)      // Si el enemigo seleccionado es un Knight
+                {
+                    enemySelected.GetComponent<EnemyKnight>().EnemyAtack();
+                    EnemigoParaAtacar = false;
+                }
+                else if (enemySelected.GetComponent<GeneralEnemy>().Index == 2) // Si el enemigo seleccionado es un Healer
+                {
+                    enemySelected.GetComponent<EnemyHealer>().EnemyAtack();
+                    EnemigoParaAtacar = false;
+                }
+                else if (enemySelected.GetComponent<GeneralEnemy>().Index == 3) // Si el enemigo seleccionado es un Slime
+                {
+                    enemySelected.GetComponent<EnemySlime>().EnemyAtack();
+                    EnemigoParaAtacar = false;
+                }
+                else                                                            // Si el enemigo seleccionado es un Mage
+                {
+                    enemySelected.GetComponent<EnemyMage>().EnemyAtack();
+                    EnemigoParaAtacar = false;
+                }
             }
 
-        } while (cont == 0); // Repite hasta que un enemigo con opción en rango de un personaje del Jugador sea seleccionado
-
-        if (EnemigoParaAtacar)
-        {
-            if (enemySelected.GetComponent<GeneralEnemy>().Index == 1)      // Si el enemigo seleccionado es un Knight
+            if (CambiarTurno)                   // Si CambiarTurno es true
             {
-                enemySelected.GetComponent<EnemyKnight>().EnemyAtack();
-                EnemigoParaAtacar = false;
-            }
-            else if (enemySelected.GetComponent<GeneralEnemy>().Index == 2) // Si el enemigo seleccionado es un Healer
-            {
-                enemySelected.GetComponent<EnemyHealer>().EnemyAtack();
-                EnemigoParaAtacar = false;
-            }
-            else if (enemySelected.GetComponent<GeneralEnemy>().Index == 3) // Si el enemigo seleccionado es un Slime
-            {
-                enemySelected.GetComponent<EnemySlime>().EnemyAtack();
-                EnemigoParaAtacar = false;
-            }
-            else                                                            // Si el enemigo seleccionado es un Mage
-            {
-                enemySelected.GetComponent<EnemyMage>().EnemyAtack();
-                EnemigoParaAtacar = false;
+                ChangeTurn();                   // Cambia de turno
+                CambiarTurno = false;           // Pone CmabiarTurno a false
             }
         }
-
-        if (CambiarTurno)                   // Si CambiarTurno es true
+        else
         {
-            ChangeTurn();                   // Cambia de turno
-            CambiarTurno = false;           // Pone CmabiarTurno a false
+            TurnoBatalla = "Enemigo"; // Cambia de turno
         }
     }
 
@@ -784,7 +792,17 @@ public class CombatBackground : MonoBehaviour
                 ClonVictoriaDerrota.transform.position = new Vector3(0, 0, -1);
                 ClonVictoriaDerrota.transform.localScale = new Vector2(9.5f, 4.5f);
 
-                //ClonTextoTurno = Instantiate(PrefabTextoVictoriaDerrota);
+                ClonTextoVictoriaDerrota = Instantiate(PrefabTextoTurno);                          // Crea el texto Victoria
+                ClonTextoVictoriaDerrota.transform.position = new Vector3(0, 1, -1);               // Lo coloca en la interfaz
+                ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeText("Victoria!");       // Cambia el texto a "Mover"
+                ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeFontSize(1);             // Cambio el tamaño de la fuente del texto
+                ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeColor(0, 1, 0);          // Cambia el color del texto a verde
+
+                ClonTextoRecompensa = Instantiate(PrefabTextoTurno);                              // Crea el texto Recompensa
+                ClonTextoRecompensa.transform.position = new Vector3(0, -0.2f, -1);                   // Lo coloca en la interfaz
+                ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeText("Recompensa: 100 oro"); // Cambia el texto a "Mover"
+                ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeFontSize(0.6f);              // Cambio el tamaño de la fuente del texto
+                ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);              // Cambia el color del texto a blanco
 
                 ClonButtonVictoriaDerrota = Instantiate(PrefabButtonVictoriaDerrota);
 
@@ -804,7 +822,17 @@ public class CombatBackground : MonoBehaviour
                 ClonVictoriaDerrota.transform.position = new Vector3(0, 0, -1);
                 ClonVictoriaDerrota.transform.localScale = new Vector2(9.5f, 4.5f);
 
-                //ClonTextoTurno = Instantiate(PrefabTextoVictoriaDerrota);
+                ClonTextoVictoriaDerrota = Instantiate(PrefabTextoTurno);                           // Crea el texto Victoria
+                ClonTextoVictoriaDerrota.transform.position = new Vector3(0, 1, -1);                // Lo coloca en la interfaz
+                ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeText("Derrota!");         // Cambia el texto a "Mover"
+                ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeFontSize(1);              // Cambio el tamaño de la fuente del texto
+                ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeColor(1, 0, 0);           // Cambia el color del texto a rojo
+
+                ClonTextoDerrotado = Instantiate(PrefabTextoTurno);                              // Crea el texto Derrotado
+                ClonTextoDerrotado.transform.position = new Vector3(0, -0.2f, -1);                   // Lo coloca en la interfaz
+                ClonTextoDerrotado.GetComponent<TextoTurno>().ChangeText("Has sido derrotado."); // Cambia el texto a "Mover"
+                ClonTextoDerrotado.GetComponent<TextoTurno>().ChangeFontSize(0.6f);              // Cambio el tamaño de la fuente del texto
+                ClonTextoDerrotado.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);              // Cambia el color del texto a blanco
 
                 ClonButtonVictoriaDerrota = Instantiate(PrefabButtonVictoriaDerrota);
 

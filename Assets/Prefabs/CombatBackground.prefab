@@ -113,6 +113,7 @@ MonoBehaviour:
   PrefabTextoTurno: {fileID: 37847271984968078, guid: 4cb7ba8c17581d44a822e0b2642f17fe, type: 3}
   PrefabVictoriaDerrota: {fileID: 8250509885632589376, guid: bf25c096909cd16438f8fcb455c97382, type: 3}
   PrefabVictoriaDerrotaBorder: {fileID: 8687905349629884412, guid: 4ea705507b9a658469729508af8b9ea5, type: 3}
+  PrefabTextoVictoriaDerrota: {fileID: 37847271984968078, guid: 4cb7ba8c17581d44a822e0b2642f17fe, type: 3}
   PrefabButtonVictoriaDerrota: {fileID: 9181417631684566114, guid: 2b19f66be6590c24d995ae50db7941e5, type: 3}
   Aliados: []
   Positions: []
@@ -183,7 +184,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
