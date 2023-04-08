@@ -38,7 +38,7 @@ public class Background : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
