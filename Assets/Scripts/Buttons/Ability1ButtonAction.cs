@@ -29,10 +29,13 @@ public class Ability1ButtonAction : MonoBehaviour
         {
             for(int i = 0; i < Enemies.Length; i++)                    // Blucle para que, al no tener rango de ataque, todos los enemigos del combate sean seleccionados para ser atacados
             {
-                Enemies[i].GetComponent<GeneralEnemy>().Action = 1;                                                               // Indica que la acción es la de atacar
-                Enemies[i].GetComponent<GeneralEnemy>().SelectedToAttack = true;                                                  // Indica que el enemigo puede ser atacado
-                Enemies[i].GetComponent<GeneralEnemy>().Vibrate = true;                                                           // Indica que el enemigo puede vibrar
-                Enemies[i].GetComponent<GeneralEnemy>().PlayerAttacking = Character.GetComponent<GeneralPlayer>().Character;      // Indica el personaje del Jugador que le puede atacar
+                if (Enemies[i] != null)
+                {
+                    Enemies[i].GetComponent<GeneralEnemy>().Action = 1;                                                               // Indica que la acción es la de atacar
+                    Enemies[i].GetComponent<GeneralEnemy>().SelectedToAttack = true;                                                  // Indica que el enemigo puede ser atacado
+                    Enemies[i].GetComponent<GeneralEnemy>().Vibrate = true;                                                           // Indica que el enemigo puede vibrar
+                    Enemies[i].GetComponent<GeneralEnemy>().PlayerAttacking = Character.GetComponent<GeneralPlayer>().Character;      // Indica el personaje del Jugador que le puede atacar
+                }
             }
         }
         else                                                           // Para el resto de personajes que tienen rango de ataque
