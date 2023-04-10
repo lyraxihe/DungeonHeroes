@@ -89,6 +89,11 @@ public class GeneralPlayer : MonoBehaviour
             {
                 if (_StartBattle && !ClickOnce)                                                        // Si el combate está iniciado
                 {
+                    // TEXTO EXPLICACIÓN
+                    /************************************************************************************************************************/
+                    _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona que accion quieres que realice tu heroe");
+                    /************************************************************************************************************************/
+
                     // Elimina la interfaz del personaje anterior si selecciona otro nuevo
                     for (int i = 0; i < arrayInfo.Length; i++)                                                         // Recorre el array de la interfaz del personaje
                     {
@@ -126,6 +131,7 @@ public class GeneralPlayer : MonoBehaviour
                     ClonMove.GetComponent<MoveButton>().CharacterPosition = CharacterPosition;         // Almacena en el botón la posición actual del personaje
                     ClonMove.GetComponent<MoveButton>().Positions = Positions;                         // Almacena en el botón el array de posiciones del combate
                     ClonMove.GetComponent<MoveButton>().Character = Character;                         // Almacena el personaje
+                    ClonMove.GetComponent<MoveButton>()._CombatBackground = _CombatBackground;         // Almacena el combate
                     _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[4] = ClonMove; // Lo alamcena en el array de info del Personaje del Jugador
 
                     ClonTextoMover = Instantiate(PrefabTexto);                                         // Crea el Texto Mover
@@ -141,6 +147,7 @@ public class GeneralPlayer : MonoBehaviour
                     ClonAbility1.GetComponent<Ability1Button>().Enemies = Enemies;                     // Almacena el array de enemigos 
                     ClonAbility1.GetComponent<Ability1Button>().Positions = Positions;                 // Almacena en el botón el array de posiciones del combate
                     ClonAbility1.GetComponent<Ability1Button>().Character = Character;                 // Almacena el personaje
+                    ClonAbility1.GetComponent<Ability1Button>()._CombatBackground = _CombatBackground; // Almacena el combate
                     _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[6] = ClonAbility1; // Lo alamcena en el array de info del Personaje del Jugador
 
                     ClonTextoAbility1 = Instantiate(PrefabTexto);                                      // Crea el Texto Ability 1
@@ -169,6 +176,7 @@ public class GeneralPlayer : MonoBehaviour
                     ClonAbility2.GetComponent<Ability2Button>().Aliados = _CombatBackground.GetComponent<CombatBackground>().Aliados; // Almacena el array de aliados
                     ClonAbility2.GetComponent<Ability2Button>().Positions = Positions;                 // Almacena en el botón el array de posiciones del combate
                     ClonAbility2.GetComponent<Ability2Button>().Character = Character;                 // Almacena el personaje
+                    ClonAbility2.GetComponent<Ability2Button>()._CombatBackground = _CombatBackground; // Almacena el combate
 
                     if (CharacterType == 1)                                                                                                                   // Si es un Knight
                     {

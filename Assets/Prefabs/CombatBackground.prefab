@@ -101,6 +101,7 @@ MonoBehaviour:
   _CombatBackground: {fileID: 0}
   Canvas: {fileID: 5772309905632061613}
   CombatPosition: {fileID: 7913850259681220213, guid: 5975a7846d90355489f2e1f3e3b65e5a, type: 3}
+  CombatLine: {fileID: 7261162675529264814, guid: 5115d0b42dbe7de46b22616bc541fc9d, type: 3}
   PrefabEnemyKnight: {fileID: 3473415735690536374, guid: d1cb23b826a826b489508a29a8f9d631, type: 3}
   PrefabPlayerKnight: {fileID: 3473415735690536374, guid: cd320ef45ee420d4fa679dd162b89df2, type: 3}
   PrefabEnemyHealer: {fileID: 8545878255188267697, guid: 48d1de52d55606b43b20f4fee8ed27a9, type: 3}
@@ -113,7 +114,6 @@ MonoBehaviour:
   PrefabTextoTurno: {fileID: 37847271984968078, guid: 4cb7ba8c17581d44a822e0b2642f17fe, type: 3}
   PrefabVictoriaDerrota: {fileID: 8250509885632589376, guid: bf25c096909cd16438f8fcb455c97382, type: 3}
   PrefabVictoriaDerrotaBorder: {fileID: 8687905349629884412, guid: 4ea705507b9a658469729508af8b9ea5, type: 3}
-  PrefabTextoVictoriaDerrota: {fileID: 37847271984968078, guid: 4cb7ba8c17581d44a822e0b2642f17fe, type: 3}
   PrefabButtonVictoriaDerrota: {fileID: 9181417631684566114, guid: 2b19f66be6590c24d995ae50db7941e5, type: 3}
   Aliados: []
   Positions: []

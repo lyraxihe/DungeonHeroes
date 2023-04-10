@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Ability2Button : MonoBehaviour
 {
+    public GameObject _CombatBackground; // Combate
     public GameObject[] Positions;       // Array de posiciones del combate
     public GameObject[] Enemies;         // Array de enemigos del combate
     public GameObject[] Aliados;         // Array de aliados del combate
@@ -21,5 +22,6 @@ public class Ability2Button : MonoBehaviour
         _Button.GetComponent<Ability2ButtonAction>().Aliados = Aliados;                     // Almacena el array de aliados del combate
         _Button.GetComponent<Ability2ButtonAction>().Positions = Positions;                 // Almacena en el botón el array de posiciones del combate
         _Button.GetComponent<Ability2ButtonAction>().Character = Character;                 // Almacena el personaje
+        _Button.GetComponent<Ability2ButtonAction>()._CombatBackground= _CombatBackground;  // Almacena el combate
     }
 }

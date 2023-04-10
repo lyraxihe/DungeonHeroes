@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveButtonAction : MonoBehaviour
 {
+    public GameObject _CombatBackground; // Combate
     public GameObject[] Positions;       // Array de posiciones del combate
     public GameObject CharacterPosition; // Posición actual del personaje
     public GameObject Character;         // Personaje asociado
@@ -23,6 +24,11 @@ public class MoveButtonAction : MonoBehaviour
      ****************************************************************************************/
     public void OnClicked()
     {
+        // TEXTO EXPLICACIÓN
+        /************************************************************************************************************************/
+        _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona una posicion a la que moverte");
+        /************************************************************************************************************************/
+
         for (int i = 0; i < PositionsToMove.Length; i++) // Recorre el array de posiciones conectadas a la posición actual del personaje
         {
             if (Positions[PositionsToMove[i]].GetComponent<CombatPosition>().Occupied == false)           // Si la posición no está ocupada

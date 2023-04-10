@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ability2ButtonAction : MonoBehaviour
 {
+    public GameObject _CombatBackground; // Combate
     public GameObject[] Positions;       // Array de posiciones del combate
     public GameObject[] Enemies;         // Array de enemigos del combate
     public GameObject[] Aliados;         // Array de aliados del combate
@@ -40,6 +41,11 @@ public class Ability2ButtonAction : MonoBehaviour
         }
         else if (Character.GetComponent<GeneralPlayer>().CharacterType == 2)                                                         // Si el personaje es un Healer
         {
+            // TEXTO EXPLICACIÓN
+            /************************************************************************************************************************/
+            _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona un heroe aliado al que curar");
+            /************************************************************************************************************************/
+
             if (Character.GetComponent<PlayerHealer>().UsedAbility != true)                                                          // Si puede usar su habilidad
             {
                 for (int i = 0; i < Aliados.Length; i++)                                                                             // Bucle para recorrer los aliados del combate
@@ -53,6 +59,11 @@ public class Ability2ButtonAction : MonoBehaviour
         }
         else if(Character.GetComponent<GeneralPlayer>().CharacterType == 3) // Si el personaje es un Slime
         {
+            // TEXTO EXPLICACIÓN
+            /************************************************************************************************************************/
+            _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona un enemigo al que bajarle la defensa");
+            /************************************************************************************************************************/
+
             if (Character.GetComponent<PlayerSlime>().UsedAbility != true)
             {
                 for (int i = 0; i < Enemies.Length; i++)                    // Blucle que hace seleccionables a todos los enemigos del combate
@@ -69,6 +80,11 @@ public class Ability2ButtonAction : MonoBehaviour
         }
         else                                                                                                                         // Si el personaje es un Mage
         {
+            // TEXTO EXPLICACIÓN
+            /************************************************************************************************************************/
+            _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona un heroe aliado al que aumentarle la defensa");
+            /************************************************************************************************************************/
+
             if (Character.GetComponent<PlayerMage>().UsedAbility != true)                                                          // Si puede usar su habilidad
             {
                 for (int i = 0; i < Aliados.Length; i++)                                                                             // Bucle para recorrer los aliados del combate

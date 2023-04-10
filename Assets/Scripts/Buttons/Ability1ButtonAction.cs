@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class Ability1ButtonAction : MonoBehaviour
 {
+    public GameObject _CombatBackground; // Combate
     public GameObject[] Positions;       // Array de posiciones del combate
     public GameObject[] Enemies;         // Array de enemigos del combate
     public GameObject CharacterPosition; // Posición actual del personaje
@@ -25,7 +27,12 @@ public class Ability1ButtonAction : MonoBehaviour
      ****************************************************************************************/
     public void OnClicked()
     {
-        if(Character.GetComponent<GeneralPlayer>().CharacterType == 4) // Si el personaje seleccionado es el mago no habrá rango de ataque
+        // TEXTO EXPLICACIÓN
+        /************************************************************************************************************************/
+        _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona un enemigo al que atacar");
+        /************************************************************************************************************************/
+
+        if (Character.GetComponent<GeneralPlayer>().CharacterType == 4) // Si el personaje seleccionado es el mago no habrá rango de ataque
         {
             for(int i = 0; i < Enemies.Length; i++)                    // Blucle para que, al no tener rango de ataque, todos los enemigos del combate sean seleccionados para ser atacados
             {

@@ -12,6 +12,7 @@ public class CombatBackground : MonoBehaviour
 
     // PREFABS
     public GameObject CombatPosition;              // Prefab CombatPosition
+    public GameObject CombatLine;                  // Prefab CombatLine
     public GameObject PrefabEnemyKnight;           // Prefab Personaje 1 - Caballero Enemigo
     public GameObject PrefabPlayerKnight;          // Prefab Personaje 1 - Caballero del Jugador
     public GameObject PrefabEnemyHealer;           // Prefab Personaje 2 - Healer Enemigo
@@ -37,11 +38,20 @@ public class CombatBackground : MonoBehaviour
     private GameObject ClonButtonVictoriaDerrota; // Clon del botón de Vitoria o Derrota
     private GameObject ClonTextoRecompensa;       // Clon del texto de Victoria "Recompensa"
     private GameObject ClonTextoDerrotado;        // Clon del texto de Derrota "Has sido derrotado"
+    public GameObject ClonTextoExplicacion;       // Clon del texto que explica las acciones del jugador
 
     // POSICIONES
     private float[] PositionsX = {0, -5.5f, -1.5f, 1.5f, 5.5f, -2.5f, 2.5f, 0, -3.5f, 3.5f}; // Array de posiciones Coordenadas X del prefab CombatPosition
     private float[] PositionsY = {3.5f, 1.5f, 1.5f, 1.5f, 1.5f, 0, 0, -1.5f, -3.5f, -3.5f};  // Array de posiciones Coordenadas Y del prefab CombatPosition
     public GameObject[] Positions;                                                           // Array de prefabs CombatPosition
+
+    // CAMINOS
+    private float[] LinesX = { -3.5f, -2.8f, 2.8f, 3.5f, 0, 0, -2, 2, -1.3f, 1.3f, -0.8f, 0.8f, -4, 4, -3, 3, 1.7f, -1.7f, 4.5f, -4.5f};
+    private float[] LinesY = {1.5f, 2.5f, 2.5f, 1.5f, -3.5f, 1.5f, 0.8f, 0.8f, -0.7f, -0.7f, 2.5f, 2.5f, 0.8f, 0.8f, -1.7f, -1.7f, -2.5f, -2.5f, -1, -1};
+    private float[] LinesScaleX = {4f, 5.8f, 5.8f, 4, 7, 3, 1.8f, 1.8f, 3, 3, 2.4f, 2.4f, 3.2f, 3.2f, 3.6f, 3.6f, 4, 4, 5.6f, 5.6f};
+    private float LinesScaleY = 0.2f;
+    private float[] LinesRotationZ = {0, 20, -20, 0, 0, 0, 56, -56, -30, 30, 53, -53, -28, 28, 74, -74, -30, 30, 67, -67};
+    private GameObject[] Lines;                   // Array de caminos de las posiciones
 
     // PERSONAJES JUGADOR
     private float[] AliadoColocarX = {9, 9, 9, 9};     // Array de coordenadas X de la interfaz para colocar los personajes del jugador
@@ -67,11 +77,12 @@ public class CombatBackground : MonoBehaviour
     void Start()
     {   
         Positions = new GameObject[PositionsX.Length]; // Crea el array de prefabs CombatPosition en base al tamaño del array de Coordenadas
+        Lines = new GameObject[LinesX.Length];         // Crea el array de prefabs CombatLine en base al tamaño del array de Coordenadas
         Aliados = new GameObject[4];                   // Crea el array de personajes del jugador con tamaño 4 
         StartBattle = false;                           // El combate se incializa primero en fase de planificación
         TurnoBatalla = "Jugador";                      // Establece que el primer turno de la batalla será para el jugador
         BoolTurnoBatalla = false;                      // De momento se puede crear el Texto "Turno de Batalla"
-        CharacterInterface = new GameObject[10];            // Incializa el array de info del Personaje del JUgador
+        CharacterInterface = new GameObject[10];       // Incializa el array de info del Personaje del JUgador
 
         ContHabilidadSlime = 0;
 
@@ -81,7 +92,16 @@ public class CombatBackground : MonoBehaviour
         Derrota = false;
         VictoriaDerrotaCreado = false;
 
+        // TEXTO EXPLICATIVO
+        /******************************************************************************************************/
+        ClonTextoExplicacion = Instantiate(PrefabTextoTurno);
+        ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Arrastra a tus heroes al mapa de combate");
+        ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeFontSize(0.7f);
+        ClonTextoExplicacion.transform.position = new Vector3(10, 6, 2);
+        /******************************************************************************************************/
+
         SetPositions(PositionsX.Length);               // Coloca las posiciones donde irán los personajes en pantalla
+        SetLines();                                    // Coloca las líneas del combate
         SetArrayPositions();                           // Almacena en cada posición el array de posiciones
         SetPositionsToMove();                          // Establece las posiciones a las que se puede mover cada posición
         SetEnemies(2, 4);                              // Coloca los enemigos en las posiciones del combate
@@ -129,9 +149,27 @@ public class CombatBackground : MonoBehaviour
             GameObject clon = Instantiate(CombatPosition);                             // Crea un clon del prefab CombatPosition
             clon.transform.position = new Vector3(PositionsX[i], PositionsY[i], 2);    // Coloca el clon en la primera posición que hay en los arrays de Coordenadas
             clon.GetComponent<CombatPosition>()._CombatBackground = _CombatBackground; // Almacena el combate
-            clon.GetComponent<CombatPosition>()._Position = clon;                      // Almacena la posición en si misma par aluego tener accesos
+            clon.GetComponent<CombatPosition>()._Position = clon;                      // Almacena la posición en si misma para luego tener accesos
             Positions[i] = clon;                                                       // Añade el clon al array de prefabs CombatPosition
         }
+    }
+
+    /****************************************************************************************
+     * Función: SetLines                                                                    *
+     * Uso: Coloca los caminos que unen las posiciones                                      *
+     * Variables entrada:                                                                   *
+     * Return: Nada                                                                         *
+     ****************************************************************************************/
+    private void SetLines()
+    {
+        for(int i = 0; i < Lines.Length; i++)
+        {
+            GameObject clon = Instantiate(CombatLine);                                 // Crea un clon del prefab CombatLine
+            clon.transform.position = new Vector3(LinesX[i], LinesY[i], 2);            // Coloca el clon en la primera posición que hay en los arrays de Coordenadas
+            clon.transform.localScale = new Vector3(LinesScaleX[i], LinesScaleY, 1);   // Configura su tamaño
+            clon.transform.eulerAngles = new Vector3(0, 0, LinesRotationZ[i]);         // Lo rota
+        }
+
     }
 
     /****************************************************************************************
@@ -382,10 +420,21 @@ public class CombatBackground : MonoBehaviour
             for (int i = 0; i < Aliados.Length; i++)                            // Recorre el array de personajes del Jugador
                 if (Aliados[i] != null)
                     Aliados[i].GetComponent<GeneralPlayer>().ClickOnce = false; // Para que puedan volver a crear la interfaz de movimientos
+
+            // TEXTO EXPLICACIÓN
+            /************************************************************************************************************************/
+            _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("");
+            /************************************************************************************************************************/
+
             TurnoBatalla = "Enemigo";                                           // El turno pasa a ser del Enemigo
         }
         else                                                                    // Si turno actual era del Enemigo
         {
+            // TEXTO EXPLICACIÓN
+            /************************************************************************************************************************/
+            _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Haz click en alguno de tus heroes para realizar una accion");
+            /************************************************************************************************************************/
+
             TurnoBatalla = "Jugador";                                           // El turno pasa a ser del Jugador
             
             // Actualiza el contador de invulnerabilidad del Knight del Jugador
@@ -483,6 +532,11 @@ public class CombatBackground : MonoBehaviour
         {
             if (!BoolTurnoBatalla)
             {
+                // TEXTO EXPLICACIÓN
+                /************************************************************************************************************************/
+                ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Haz click en alguno de tus heroes para realizar una accion");
+                /************************************************************************************************************************/
+
                 Destroy(ClonStartBattleButton);                                    // Elimina el botón de ¡Comenzar Batalla!
 
                 for (int i = 0; i < Aliados.Length; i++)                           // Recorre el array de los personajes del jugador
