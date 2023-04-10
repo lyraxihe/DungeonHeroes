@@ -33,6 +33,7 @@ public class Background : MonoBehaviour
         SetPositions(PositionsX.Length);              // Coloca las posiciones donde irán los personajes en pantalla
         SetRooms(5);                             // Coloca los enemigos en las posiciones del combate
         //RefreshUI();
+
     }
 
     // Update is called once per frame

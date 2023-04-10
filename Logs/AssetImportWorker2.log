@@ -1,0 +1,244 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.2f1 (d6360bedb9a0) revision 14038539'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'es' Physical Memory: 16005 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity 2021.3.2f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/lyrax/OneDrive/Escritorio/jueguito/DungeonHeroes
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+54896
+Successfully changed project path to: C:/Users/lyrax/OneDrive/Escritorio/jueguito/DungeonHeroes
+C:/Users/lyrax/OneDrive/Escritorio/jueguito/DungeonHeroes
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 82.07 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.2f1 (d6360bedb9a0)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity 2021.3.2f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/lyrax/OneDrive/Escritorio/jueguito/DungeonHeroes/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Laptop GPU (ID=0x2520)
+    Vendor:   NVIDIA
+    VRAM:     6023 MB
+    Driver:   30.0.15.1278
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity 2021.3.2f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity 2021.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity 2021.3.2f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56700
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity 2021.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003340 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 64.60 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.503 seconds
+Domain Reload Profiling:
+	ReloadAssembly (504ms)
+		BeginReloadAssembly (64ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (356ms)
+			LoadAssemblies (63ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (75ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (22ms)
+			SetupLoadedEditorAssemblies (221ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (65ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (113ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007965 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\lyrax\OneDrive\Escritorio\jueguito\DungeonHeroes\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\lyrax\OneDrive\Escritorio\jueguito\DungeonHeroes\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 64.32 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.868 seconds
+Domain Reload Profiling:
+	ReloadAssembly (868ms)
+		BeginReloadAssembly (87ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (14ms)
+		EndReloadAssembly (689ms)
+			LoadAssemblies (73ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (175ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (361ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (64ms)
+				BeforeProcessingInitializeOnLoad (72ms)
+				ProcessInitializeOnLoadAttributes (180ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.53 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4093 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (56.1 KB). Loaded Objects now: 4551.
+Memory consumption went from 154.0 MB to 153.9 MB.
+Total: 3.549900 ms (FindLiveObjects: 0.243900 ms CreateObjectMapping: 0.134200 ms MarkObjects: 3.101800 ms  DeleteObjects: 0.068700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 462582.933790 seconds.
+  path: Assets/Prefabs/CombatBackground.prefab
+  artifactKey: Guid(fe0a8d8a8641a994f991bab48bd24148) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/CombatBackground.prefab using Guid(fe0a8d8a8641a994f991bab48bd24148) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c74f150a29c23c3028c96134ea41a23') in 0.167265 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 24.186389 seconds.
+  path: Assets/Scripts/Buttons/VictoriaDerrotaButton.cs
+  artifactKey: Guid(35edfceb638725843959f63cae95bf1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Buttons/VictoriaDerrotaButton.cs using Guid(35edfceb638725843959f63cae95bf1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fc35aa7d5170ff41197b48769c84aab') in 0.022106 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.890555 seconds.
+  path: Assets/Scripts/Buttons/VictoriaDerrotaButtonAction.cs
+  artifactKey: Guid(0084ef9c9b729704eb75b12f374b77c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Buttons/VictoriaDerrotaButtonAction.cs using Guid(0084ef9c9b729704eb75b12f374b77c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de75f777e923ee4b0eacdb24a037d2a3') in 0.010054 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.333823 seconds.
+  path: Assets/Scripts/Buttons/MoveButtonAction.cs
+  artifactKey: Guid(f2bb1b9cd344bcc44a75685dae28c618) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Buttons/MoveButtonAction.cs using Guid(f2bb1b9cd344bcc44a75685dae28c618) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '433672061aab1ae43901c525c31317c1') in 0.010560 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.137403 seconds.
+  path: Assets/Scripts/Buttons/Ability1Button.cs
+  artifactKey: Guid(1431fa88a0d57a240b3414c4c4d6c802) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Buttons/Ability1Button.cs using Guid(1431fa88a0d57a240b3414c4c4d6c802) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c0eef6bddcd61c5f376bf16f77ebb6d') in 0.011649 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.498654 seconds.
+  path: Assets/Scripts/Buttons/Ability1ButtonAction.cs
+  artifactKey: Guid(28a4b6c2e7ef88a40a2cffd64f8c970b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Buttons/Ability1ButtonAction.cs using Guid(28a4b6c2e7ef88a40a2cffd64f8c970b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5eba418af45cbae15cabfbd64913e446') in 0.010993 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.650189 seconds.
+  path: Assets/Scripts/Buttons/Ability2Button.cs
+  artifactKey: Guid(6b4b55ba937e7cb42bd5e70e99bdcc1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Buttons/Ability2Button.cs using Guid(6b4b55ba937e7cb42bd5e70e99bdcc1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02049933a5d6343878c3b2ddd138c08b') in 0.006070 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.488781 seconds.
+  path: Assets/Scripts/Buttons/Ability2ButtonAction.cs
+  artifactKey: Guid(3c9adff364c2ef144bb3a0e3c4378dad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Buttons/Ability2ButtonAction.cs using Guid(3c9adff364c2ef144bb3a0e3c4378dad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '853bcff2dfc2237976a5f4d7128305d2') in 0.010738 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.366126 seconds.
+  path: Assets/Scripts/Buttons/MoveButton.cs
+  artifactKey: Guid(fce35d2cff05c364e9e860e7b42eddbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Buttons/MoveButton.cs using Guid(fce35d2cff05c364e9e860e7b42eddbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a8ba51cfc967a47efb8684a7e815aad') in 0.010387 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 23.011681 seconds.
+  path: Assets/Scripts/Background.cs
+  artifactKey: Guid(e4ffa7f8e7e6b5149b5fff7edcccf5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Background.cs using Guid(e4ffa7f8e7e6b5149b5fff7edcccf5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19de0ba02f7443f8c31fea79fd9bcd18') in 0.002416 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 57.703831 seconds.
+  path: Assets/Scripts/CombatBackground.cs
+  artifactKey: Guid(17241f1f389d5a54fa96aed23484a639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/CombatBackground.cs using Guid(17241f1f389d5a54fa96aed23484a639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '858f805a4b31d891ceaa56ba0af51f8f') in 0.004386 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.985221 seconds.
+  path: Assets/Scripts/Control.cs
+  artifactKey: Guid(d98b7a90638c26646abd6bcdd01c9d78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Control.cs using Guid(d98b7a90638c26646abd6bcdd01c9d78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d003fb5d8e835a27a143cb9a6b1e74e') in 0.009096 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 57302.833466 seconds.
+  path: Assets/Scripts/modificarvida.cs
+  artifactKey: Guid(9a2a9a9a80c9f704daaae0018e092917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/modificarvida.cs using Guid(9a2a9a9a80c9f704daaae0018e092917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25f6dcb977efc9b037d70c4574ff6881') in 0.013729 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 945.976525 seconds.
+  path: Assets/Scenes/Shop.unity
+  artifactKey: Guid(ca9d57ae995c67a4ab55bbec0e76a720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Shop.unity using Guid(ca9d57ae995c67a4ab55bbec0e76a720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6741dba7e4ecc9dbf7fce7953945bee3') in 0.010163 seconds 

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class modificarvida : MonoBehaviour
 {
+    public Text Moneytxt; //creo un public text para poder modificar el valor en pantalla
+
     
     public int HpCost = 10; //declaro las variables del costo de corazones para curar
     public int HpHeal = 25; //declaro las variables de la cantidad de cura
@@ -12,6 +14,7 @@ public class modificarvida : MonoBehaviour
     void Start()
     {
         //RefreshUI();
+        Moneytxt.text = Control.Instance.Money.ToString(); //llamo la clase de "control" para poder usar el valor de "money" y mostrarlo en pantalla
     }
 
     // Update is called once per frame
@@ -19,15 +22,15 @@ public class modificarvida : MonoBehaviour
     {
         
     }
-    //public void masvida() //suma vida y resta dinero
-    //{
-    //    if (Money>=HpCost)
-    //    {
-    //        HpKnight += HpHeal;
-    //        Money -= HpCost;
-    //    }
+    public void masvida() //suma vida y resta dinero
+    {
+        if (Money >= HpCost)
+        {
+            HpKnight += HpHeal;
+            Money -= HpCost;
+        }
 
-    //}
+    }
 
 
     //private void awake() //carga los datos guardados

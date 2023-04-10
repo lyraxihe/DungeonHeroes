@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class Control : MonoBehaviour
 {
+    private static Control instance = null;
+    public static Control Instance { get { return instance; } } //creo el Singletons
 
-    //public static Control Instance { get, private set;  }
+    public int Money;
+    public int HpKnight;
 
-    //public int Money;
-    //public int HpKnight;
+    private void Awake()
+    {
+        if (Instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-    //void awake ()
-    //{
-    //    if (Control.Instance == null)
-    //    {
-    //        Control.Instance = this;
-    //        DontDestroyOnLoad(gameObject)
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject)
-    //    }
-    //}
-    //Control.instance
+        instance = this;
+        DontDestroyOnLoad( this.gameObject );
+    }
+
 }
