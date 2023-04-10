@@ -39,7 +39,11 @@ public class Background : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // SALIR DEL JUEGO
+        /***********************************/
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+        /***********************************/
     }
 
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //

@@ -117,7 +117,13 @@ public class CombatBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!BoolTurnoBatalla)
+        // SALIR DEL JUEGO
+        /***********************************/
+        if(Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+        /***********************************/
+
+        if (!BoolTurnoBatalla)
             StartBattle = ClonStartBattleButton.GetComponent<StartBattleButton>().GetStartBattleStatus();
 
         BattlePhase();                                 // Actualiza el estado del Combate

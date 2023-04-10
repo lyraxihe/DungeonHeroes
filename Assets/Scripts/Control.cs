@@ -22,4 +22,12 @@ public class Control : MonoBehaviour
         DontDestroyOnLoad( this.gameObject );
     }
 
+    public void Update()
+    {
+        // SALIR DEL JUEGO
+        /***********************************/
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+        /***********************************/
+    }
 }
