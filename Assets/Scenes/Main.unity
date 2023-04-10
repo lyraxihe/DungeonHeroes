@@ -303,6 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98b7a90638c26646abd6bcdd01c9d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Money: 100
+  HpKnight: 100
 --- !u!4 &444170790
 Transform:
   m_ObjectHideFlags: 0

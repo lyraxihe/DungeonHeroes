@@ -14,10 +14,10 @@ public class Background : MonoBehaviour
 
 
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-    //public int Money; //usar este al terminar la batalla para que le de al jugador (sumarle 100 como ejemplo)
-    //public string MoneyName = "Money";
-    //public int HpKnight;
-    //public string HpName = "HpKnight"
+    public int Money; //usar este al terminar la batalla para que le de al jugador (sumarle 100 como ejemplo)
+    public string MoneyName = "Money";
+    public int HpKnight;
+    public string HpName = "HpKnight";
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
 
@@ -43,35 +43,35 @@ public class Background : MonoBehaviour
     }
 
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-   // private void awake() //carga los datos guardados
-   // {
-   //     LoadData();
-   // }
+    private void awake() //carga los datos guardados
+    {
+        LoadData();
+    }
 
-   // private void OnDestroy()
-   // {
-   //     SaveData();
-   // }
-   //private void RefreshUI()
-   // {
-   //     userInterface.RefreshMoney(Money);
-   //     userInterface.RefreshHpKnight(HpKnight);
-   // }
+    private void OnDestroy()
+    {
+        SaveData();
+    }
+    private void RefreshUI()
+    {
+        //userInterface.RefreshMoney(Money);
+        //userInterface.RefreshHpKnight(HpKnight);
+    }
 
-   // private void SaveData()
-   // {
+    private void SaveData()
+    {
 
-   //     PlayerPrefs.SetInt(MoneyName, Money); //(primero el string y luego el int)
-   //     PlayerPrefs.SetInt(HpName, HpKnight);
+        PlayerPrefs.SetInt(MoneyName, Money); //(primero el string y luego el int)
+        PlayerPrefs.SetInt(HpName, HpKnight);
 
-   // }
+    }
 
-   // private void LoadData()
-   // {
-   //     Money = PlayerPrefs.GetInt();
-   //     HpKnight = PlayerPrefs.GetInt();
+    private void LoadData()
+    {
+        Money = PlayerPrefs.GetInt(MoneyName, Money);
+        HpKnight = PlayerPrefs.GetInt(HpName, HpKnight);
 
-   // }
+    }
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
     private void SetPositions(int numPositions)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class modificarvida : MonoBehaviour
 {
     public Text Moneytxt; //creo un public text para poder modificar el valor en pantalla
 
+    public GameObject _Control;
     
     public int HpCost = 10; //declaro las variables del costo de corazones para curar
     public int HpHeal = 25; //declaro las variables de la cantidad de cura
@@ -14,7 +16,8 @@ public class modificarvida : MonoBehaviour
     void Start()
     {
         //RefreshUI();
-        Moneytxt.text = Control.Instance.Money.ToString(); //llamo la clase de "control" para poder usar el valor de "money" y mostrarlo en pantalla
+        Moneytxt.text = "Money: 100";
+        //Moneytxt.text = Control.Instance.Money.ToString(); //llamo la clase de "control" para poder usar el valor de "money" y mostrarlo en pantalla
     }
 
     // Update is called once per frame
@@ -24,42 +27,42 @@ public class modificarvida : MonoBehaviour
     }
     public void masvida() //suma vida y resta dinero
     {
-        if (Money >= HpCost)
+        if (_Control.GetComponent<Control>().Money >= HpCost)
         {
-            HpKnight += HpHeal;
-            Money -= HpCost;
+            _Control.GetComponent<Control>().HpKnight += HpHeal;
+            _Control.GetComponent<Control>().Money -= HpCost;
         }
 
     }
 
 
-    //private void awake() //carga los datos guardados
-    //{
-    //    LoadData();
-    //}
+    private void awake() //carga los datos guardados
+    {
+        LoadData();
+    }
 
-    //private void OnDestroy()
-    //{
-    //    SaveData();
-    //}
-    //private void RefreshUI()
-    //{
-    //    userInterface.RefreshMoney(Money);
-    //    userInterface.RefreshHpKnight(HpKnight);
-    //}
+    private void OnDestroy()
+    {
+        SaveData();
+    }
+    private void RefreshUI()
+    {
+        //userInterface.RefreshMoney(GetComponent<Background>().Money);
+        //userInterface.RefreshHpKnight(GetComponent<Background>().HpKnight);
+    }
 
-    //private void SaveData()
-    //{
+    private void SaveData()
+    {
 
-    //    PlayerPrefs.SetInt(MoneyName, Money); //(primero el string y luego el int)
-    //    PlayerPrefs.SetInt(HpName, HpKnight);
+        PlayerPrefs.SetInt(GetComponent<Background>().MoneyName, GetComponent<Background>().Money); //(primero el string y luego el int)
+        PlayerPrefs.SetInt(GetComponent<Background>().HpName, GetComponent<Background>().HpKnight);
 
-    //}
+    }
 
-    //private void LoadData()
-    //{
-    //    Money = PlayerPrefs.GetInt();
-    //    HpKnight = PlayerPrefs.GetInt();
+    private void LoadData()
+    {
+        GetComponent<Background>().Money = PlayerPrefs.GetInt(GetComponent<Background>().MoneyName, GetComponent<Background>().Money);
+        GetComponent<Background>().HpKnight = PlayerPrefs.GetInt(GetComponent<Background>().HpName, GetComponent<Background>().HpKnight);
 
-    //}
+    }
 }

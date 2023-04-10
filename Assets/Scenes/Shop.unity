@@ -1209,6 +1209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2a9a9a80c9f704daaae0018e092917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Moneytxt: {fileID: 1176060144}
+  _Control: {fileID: 0}
   HpCost: 10
   HpHeal: 25
 --- !u!4 &569986044
@@ -1936,7 +1938,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2548,6 +2550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2a9a9a80c9f704daaae0018e092917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Moneytxt: {fileID: 0}
+  _Control: {fileID: 0}
   HpCost: 10
   HpHeal: 25
 --- !u!1001 &1104853819
