@@ -7,7 +7,7 @@ public class Control : MonoBehaviour
     private static Control instance = null;
     public static Control Instance { get { return instance; } } //creo el Singletons
 
-    public int Money;
+    public int Money=100; //modificar el valor luego
     public int HpKnight;
 
     private void Awake()

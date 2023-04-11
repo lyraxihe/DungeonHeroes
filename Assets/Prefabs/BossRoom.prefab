@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 824576691445757452}
   - component: {fileID: 824576691445757453}
   - component: {fileID: 824576691445757554}
+  - component: {fileID: 1923027079961384251}
   m_Layer: 5
   m_Name: BossRoom
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -86, y: -24.3}
-  m_SizeDelta: {x: 38.1073, y: 18.0142}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &824576691445757452
 CanvasRenderer:
@@ -120,4 +121,28 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 824576691445757453}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1923027079961384251}
+        m_TargetAssemblyTypeName: ControlScenes, Assembly-CSharp
+        m_MethodName: BossRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1923027079961384251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824576691445757552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031081aca67b7cd4ba97c96340e5a0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

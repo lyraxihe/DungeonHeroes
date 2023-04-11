@@ -96,8 +96,8 @@ public class CombatBackground : MonoBehaviour
         /******************************************************************************************************/
         ClonTextoExplicacion = Instantiate(PrefabTextoTurno);
         ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Arrastra a tus heroes al mapa de combate");
-        ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeFontSize(0.7f);
-        ClonTextoExplicacion.transform.position = new Vector3(10, 6, 2);
+        ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeFontSize(0.60f);
+        ClonTextoExplicacion.transform.position = new Vector3(8, 5, 2);
         /******************************************************************************************************/
 
         SetPositions(PositionsX.Length);               // Coloca las posiciones donde irán los personajes en pantalla

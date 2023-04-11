@@ -29,4 +29,12 @@ public class ControlScenes : MonoBehaviour
     {
         SceneManager.LoadScene("Shop"); //abre la escena
     }
+    public void BossRoom()
+    {
+        SceneManager.LoadScene("Boss"); //abre la escena
+    }
+    public void ChestRoom()
+    {
+        SceneManager.LoadScene("Chest"); //abre la escena
+    }
 }
