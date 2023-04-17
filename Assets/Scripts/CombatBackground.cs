@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class CombatBackground : MonoBehaviour
 {
+    public GameObject _Control;
+    
     public GameObject _CombatBackground;        // Combate
     public RectTransform Canvas;                // Canva
 
@@ -73,9 +75,35 @@ public class CombatBackground : MonoBehaviour
     public bool Derrota;                                                   // Booleano que controla si hay condición de derrota
     public bool VictoriaDerrotaCreado;                                     // Booleano que controla que la interfaz de Victoria o Derrota se cree una vez
 
+    // MENÚ PAUSA
+    public GameObject ClonMenuPausaBorder;
+    public GameObject ClonMenuPausaContainer;
+    public GameObject ClonContinuarButton;
+    public GameObject ClonSalirButton;
+
+    public TMP_Text PausaText;
+    public Button ContinuarButton;
+    public TMP_Text ContinuarButtonText;
+    public Button SalirButton;
+    public TMP_Text SalirButtonText;
+
+    public bool EscPressed;
+
     // Start is called before the first frame update
     void Start()
-    {   
+    {
+        // MENU PAUSA
+        ClonMenuPausaBorder = Instantiate(PrefabVictoriaDerrotaBorder);
+        ClonMenuPausaBorder.transform.position = new Vector3(0, 0, -1);
+        ClonMenuPausaBorder.transform.localScale = new Vector3(9, 10, 1);
+        ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = false;
+
+        ClonMenuPausaContainer = Instantiate(PrefabVictoriaDerrota);
+        ClonMenuPausaContainer.transform.position = new Vector3(0, 0, -2);
+        ClonMenuPausaContainer.transform.localScale = new Vector3(8.5f, 9.5f, 1);
+        ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = false;
+
+        // RESTO
         Positions = new GameObject[PositionsX.Length]; // Crea el array de prefabs CombatPosition en base al tamaño del array de Coordenadas
         Lines = new GameObject[LinesX.Length];         // Crea el array de prefabs CombatLine en base al tamaño del array de Coordenadas
         Aliados = new GameObject[4];                   // Crea el array de personajes del jugador con tamaño 4 
@@ -91,6 +119,7 @@ public class CombatBackground : MonoBehaviour
         Victoria = false;
         Derrota = false;
         VictoriaDerrotaCreado = false;
+        EscPressed = false;
 
         // TEXTO EXPLICATIVO
         /******************************************************************************************************/
@@ -117,28 +146,62 @@ public class CombatBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // SALIR DEL JUEGO
-        /***********************************/
-        if(Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
-        /***********************************/
+        // CONTROL
+        _Control.GetComponent<ControlPausa>()._CombatBackground = _CombatBackground;
 
-        if (!BoolTurnoBatalla)
-            StartBattle = ClonStartBattleButton.GetComponent<StartBattleButton>().GetStartBattleStatus();
+        _Control.GetComponent<ControlPausa>().ClonMenuPausaBorder = ClonMenuPausaBorder;
+        _Control.GetComponent<ControlPausa>().ClonMenuPausaContainer = ClonMenuPausaContainer;
 
-        BattlePhase();                                 // Actualiza el estado del Combate
-        UpdateTurn();                                  // Actualiza el turno del Combate
-        StatusAliadosPosition();                       // Comprueba que todos los personajes del Jugador han sido colocados en el mapa de combate
-        UpdateOtherScripts();                          // Actualiza constantemente otros scripts con variables
+        _Control.GetComponent<ControlPausa>().PausaText = PausaText;
+        _Control.GetComponent<ControlPausa>().ContinuarButton = ContinuarButton;
+        _Control.GetComponent<ControlPausa>().ContinuarButtonText = ContinuarButtonText;
+        _Control.GetComponent<ControlPausa>().SalirButton = SalirButton;
+        _Control.GetComponent<ControlPausa>().SalirButtonText = SalirButtonText;
         
-        if(StartBattle)
-            StatusCharacters();
+        // MENU DE PAUSA
+        /***********************************/
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!EscPressed)
+            {
+                MenuPausa();
+            }    
+            else
+            {
+                _CombatBackground.GetComponent<CombatBackground>().EscPressed = false;
 
-        if (TurnoBatalla == "Enemigo")
-            EnemyTurn();                               // Realiza las acciones de la IA cuando es el turno del enemigo
+                ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = false;
 
-        StatusPartida();                               // Comprueba si hay condición de victoria o de derrota
-        InterfazVictoriaDerrota();                     // Crea la interfaz de Victoria o derrota
+                ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = false;
+
+                PausaText.enabled = false;
+                ContinuarButton.image.enabled = false;
+                ContinuarButtonText.enabled = false;
+                SalirButton.image.enabled = false;
+                SalirButtonText.enabled = false;
+            }
+        }
+        /***********************************/
+
+        if (!EscPressed)
+        {
+            if (!BoolTurnoBatalla)
+                StartBattle = ClonStartBattleButton.GetComponent<StartBattleButton>().GetStartBattleStatus();
+
+            BattlePhase();                                 // Actualiza el estado del Combate
+            UpdateTurn();                                  // Actualiza el turno del Combate
+            StatusAliadosPosition();                       // Comprueba que todos los personajes del Jugador han sido colocados en el mapa de combate
+            UpdateOtherScripts();                          // Actualiza constantemente otros scripts con variables
+
+            if (StartBattle)
+                StatusCharacters();
+
+            if (TurnoBatalla == "Enemigo")
+                EnemyTurn();                               // Realiza las acciones de la IA cuando es el turno del enemigo
+
+            StatusPartida();                               // Comprueba si hay condición de victoria o de derrota
+            InterfazVictoriaDerrota();                     // Crea la interfaz de Victoria o derrota
+        }
     }
 
     /****************************************************************************************
@@ -353,6 +416,7 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 1;                            // Almacena el tipo de enemigo
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
                 aliadoColocar.GetComponent<PlayerKnight>()._CombatBackground = _CombatBackground;         // Almacena el combate
                 Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
             }
@@ -366,6 +430,7 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 2;                            // Almacena el tipo de enemigo
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
                 aliadoColocar.GetComponent<PlayerHealer>()._CombatBackground = _CombatBackground;         // Almacena el combate
                 Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
             }
@@ -379,6 +444,7 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 3;                            // Almacena el tipo de enemigo
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
                 aliadoColocar.GetComponent<PlayerSlime>()._CombatBackground = _CombatBackground;          // Almacena el combate
                 Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
             }
@@ -392,6 +458,7 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 4;                            // Almacena el tipo de enemigo
                 aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
                 aliadoColocar.GetComponent<PlayerMage>()._CombatBackground = _CombatBackground;           // Almacena el combate
                 Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
             }
@@ -899,5 +966,20 @@ public class CombatBackground : MonoBehaviour
                 VictoriaDerrotaCreado = true;
             }
         }
+    }
+
+    public void MenuPausa()
+    {
+        EscPressed = true;
+
+        ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = true;
+
+        ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = true;
+
+        PausaText.enabled = true;
+        ContinuarButton.image.enabled = true;
+        ContinuarButtonText.enabled = true;
+        SalirButton.image.enabled = true;
+        SalirButtonText.enabled = true;
     }
 }

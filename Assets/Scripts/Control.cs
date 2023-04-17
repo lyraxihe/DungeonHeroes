@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Control : MonoBehaviour
@@ -26,8 +27,8 @@ public class Control : MonoBehaviour
     {
         // SALIR DEL JUEGO
         /***********************************/
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //    Application.Quit();
         /***********************************/
     }
 }

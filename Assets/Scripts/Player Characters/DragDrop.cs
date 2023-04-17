@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public class DragDrop : MonoBehaviour
 {
+    public GameObject _CombatBackground;
+    
     private GameObject[] Positions;         // Array de posiciones del combate
     private GameObject PreviousPosition;    // Posición anterior en la que se hayaba el personaje
     private GameObject PreviousPositionAux; // Auziliar de la posición anterior en la que se hayaba el personaje
@@ -26,10 +28,13 @@ public class DragDrop : MonoBehaviour
 
     void Update()
     {
-        if (!dragging) // Si no está arrastrando al personaje no hace nada
-            return;
+        if(_CombatBackground.GetComponent<CombatBackground>().EscPressed == false)
+        {
+            if (!dragging) // Si no está arrastrando al personaje no hace nada
+                return;
 
-        transform.position = GetMousePos() - Offset; // Si lo está arrastrando coloca el sprite justo donde está en ratón
+            transform.position = GetMousePos() - Offset; // Si lo está arrastrando coloca el sprite justo donde está en ratón
+        }
     }
 
     /****************************************************************************************

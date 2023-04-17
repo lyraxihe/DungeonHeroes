@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc46eb3666dbc3438ceefa9c995b81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CombatBackground: {fileID: 0}
   VidaTotal: 0
   VidaActual: 0
   AtaqueActual: 0
@@ -107,6 +108,9 @@ MonoBehaviour:
   DefensaActual: 0
   DefensaMax: 0
   PrefabHealthbar: {fileID: 3672013936490356647, guid: 4a6377cec6ca47d49b2e48bcec0cbd18, type: 3}
+  ClonHealthbar: {fileID: 0}
+  UsedAbility: 0
+  HabilidadMage: 0
 --- !u!114 &-1030876764945616471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481859860ffa0d6448dd0b575761eea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CombatBackground: {fileID: 0}
   CharacterPosition: {fileID: 0}
   OriginalPosition: {x: 0, y: 0}
   CurrentPosition: {x: 0, y: 0}
@@ -134,8 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58841852b972248419da567a3dad99dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CombatBackground: {fileID: 0}
   Character: {fileID: 0}
   CharacterType: 0
+  Enemies: []
+  Aliados: []
   PrefabCharacterBattleInfoBorder: {fileID: 8687905349629884412, guid: 4ea705507b9a658469729508af8b9ea5, type: 3}
   PrefabCharacterBattleInfo: {fileID: 8250509885632589376, guid: bf25c096909cd16438f8fcb455c97382, type: 3}
   PrefabCharacterImage: {fileID: 6937644449267674102, guid: 4b763244627a85848ad9077f0e8fd990, type: 3}
@@ -146,7 +154,14 @@ MonoBehaviour:
   CharacterPosition: {fileID: 0}
   Positions: []
   _StartBattle: 0
+  MinTam: {x: 0, y: 0}
+  MaxTam: {x: 0, y: 0}
   ClickOnce: 0
+  Selected: 0
+  Down: 0
+  Vibrate: 0
+  Action: 0
+  PlayerUsingAbility: {fileID: 0}
 --- !u!61 &1790896403600860722
 BoxCollider2D:
   m_ObjectHideFlags: 0

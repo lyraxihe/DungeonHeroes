@@ -41,8 +41,8 @@ public class Background : MonoBehaviour
     {
         // SALIR DEL JUEGO
         /***********************************/
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //    Application.Quit();
         /***********************************/
     }
 
