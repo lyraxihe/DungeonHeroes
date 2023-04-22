@@ -23,12 +23,12 @@ public class MainCombat : MonoBehaviour
         GameObject clon = Instantiate(CombatBackground);                // Crea el fondo que tendrá el Combate
         clon.transform.position = new Vector3(0, 0, 3);                 // Coloca el fondo en (0, 0, 0)
         clon.GetComponent<CombatBackground>()._CombatBackground = clon; // Almacena el combate
-        clon.GetComponent<CombatBackground>()._Control = _Control;
-        clon.GetComponent<CombatBackground>().PausaText = PausaText;
-        clon.GetComponent<CombatBackground>().ContinuarButton = ContinuarButton;
-        clon.GetComponent<CombatBackground>().ContinuarButtonText = ContinuarButtonText;
-        clon.GetComponent<CombatBackground>().SalirButton = SalirButton;
-        clon.GetComponent<CombatBackground>().SalirButtonText = SalirButtonText;
+        //clon.GetComponent<CombatBackground>()._Control = _Control;
+        //clon.GetComponent<CombatBackground>().PausaText = PausaText;
+        //clon.GetComponent<CombatBackground>().ContinuarButton = ContinuarButton;
+        //clon.GetComponent<CombatBackground>().ContinuarButtonText = ContinuarButtonText;
+        //clon.GetComponent<CombatBackground>().SalirButton = SalirButton;
+        //clon.GetComponent<CombatBackground>().SalirButtonText = SalirButtonText;
     }
 
     // Update is called once per frame

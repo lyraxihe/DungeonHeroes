@@ -98,10 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17241f1f389d5a54fa96aed23484a639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Control: {fileID: 0}
   _CombatBackground: {fileID: 0}
   Canvas: {fileID: 5772309905632061613}
   CombatPosition: {fileID: 7913850259681220213, guid: 5975a7846d90355489f2e1f3e3b65e5a, type: 3}
   CombatLine: {fileID: 7261162675529264814, guid: 5115d0b42dbe7de46b22616bc541fc9d, type: 3}
+  PrefabBoss: {fileID: 5679135979035018070, guid: 6c43e74aafea8bc43b25f96d2c06457b, type: 3}
   PrefabEnemyKnight: {fileID: 3473415735690536374, guid: d1cb23b826a826b489508a29a8f9d631, type: 3}
   PrefabPlayerKnight: {fileID: 3473415735690536374, guid: cd320ef45ee420d4fa679dd162b89df2, type: 3}
   PrefabEnemyHealer: {fileID: 8545878255188267697, guid: 48d1de52d55606b43b20f4fee8ed27a9, type: 3}
@@ -116,6 +118,7 @@ MonoBehaviour:
   PrefabVictoriaDerrotaBorder: {fileID: 8687905349629884412, guid: 4ea705507b9a658469729508af8b9ea5, type: 3}
   PrefabButtonVictoriaDerrota: {fileID: 9181417631684566114, guid: 2b19f66be6590c24d995ae50db7941e5, type: 3}
   Aliados: []
+  ClonTextoExplicacion: {fileID: 0}
   Positions: []
   StartBattle: 0
   TurnoBatalla: 

@@ -18,23 +18,23 @@ public class ControlPausa : MonoBehaviour
     public Button SalirButton;
     public TMP_Text SalirButtonText;
 
-    public void ContinuarPausa()
-    {
-        _CombatBackground.GetComponent<CombatBackground>().EscPressed = false;
+    //public void ContinuarPausa()
+    //{
+    //    _CombatBackground.GetComponent<CombatBackground>().EscPressed = false;
 
-        ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = false;
+    //    ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = false;
 
-        ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = false;
+    //    ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = false;
 
-        PausaText.enabled = false;
-        ContinuarButton.image.enabled = false;
-        ContinuarButtonText.enabled = false;
-        SalirButton.image.enabled = false;
-        SalirButtonText.enabled = false;
-    }
+    //    PausaText.enabled = false;
+    //    ContinuarButton.image.enabled = false;
+    //    ContinuarButtonText.enabled = false;
+    //    SalirButton.image.enabled = false;
+    //    SalirButtonText.enabled = false;
+    //}
 
-    public void SalirPausa()
-    {
-        SceneManager.LoadScene("MainMenu"); //abre la escena
-    }
+    //public void SalirPausa()
+    //{
+    //    SceneManager.LoadScene("MainMenu"); //abre la escena
+    //}
 }

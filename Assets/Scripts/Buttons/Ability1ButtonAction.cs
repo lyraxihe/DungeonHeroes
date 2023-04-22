@@ -38,10 +38,20 @@ public class Ability1ButtonAction : MonoBehaviour
             {
                 if (Enemies[i] != null)
                 {
-                    Enemies[i].GetComponent<GeneralEnemy>().Action = 1;                                                               // Indica que la acción es la de atacar
-                    Enemies[i].GetComponent<GeneralEnemy>().SelectedToAttack = true;                                                  // Indica que el enemigo puede ser atacado
-                    Enemies[i].GetComponent<GeneralEnemy>().Vibrate = true;                                                           // Indica que el enemigo puede vibrar
-                    Enemies[i].GetComponent<GeneralEnemy>().PlayerAttacking = Character.GetComponent<GeneralPlayer>().Character;      // Indica el personaje del Jugador que le puede atacar
+                    if (!VariablesGlobales.instance.Boss)
+                    {
+                        Enemies[i].GetComponent<GeneralEnemy>().Action = 1;                                                               // Indica que la acción es la de atacar
+                        Enemies[i].GetComponent<GeneralEnemy>().SelectedToAttack = true;                                                  // Indica que el enemigo puede ser atacado
+                        Enemies[i].GetComponent<GeneralEnemy>().Vibrate = true;                                                           // Indica que el enemigo puede vibrar
+                        Enemies[i].GetComponent<GeneralEnemy>().PlayerAttacking = Character.GetComponent<GeneralPlayer>().Character;      // Indica el personaje del Jugador que le puede atacar
+                    }
+                    else
+                    {
+                        Enemies[i].GetComponent<Boss>().Action = 1;                                                               // Indica que la acción es la de atacar
+                        Enemies[i].GetComponent<Boss>().SelectedToAttack = true;                                                  // Indica que el enemigo puede ser atacado
+                        Enemies[i].GetComponent<Boss>().Vibrate = true;                                                           // Indica que el enemigo puede vibrar
+                        Enemies[i].GetComponent<Boss>().PlayerAttacking = Character.GetComponent<GeneralPlayer>().Character;      // Indica el personaje del Jugador que le puede atacar
+                    }
                 }
             }
         }
@@ -51,10 +61,20 @@ public class Ability1ButtonAction : MonoBehaviour
             {
                 if (Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().CharacterType == 1)
                 {
-                    Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<GeneralEnemy>().Action = 1;                                                          // Indica que la acción es la de atacar
-                    Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<GeneralEnemy>().SelectedToAttack = true;                                             // Indica que el enemigo puede ser atacado
-                    Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<GeneralEnemy>().Vibrate = true;                                                      // Indica que el enemigo puede vibrar
-                    Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<GeneralEnemy>().PlayerAttacking = Character.GetComponent<GeneralPlayer>().Character; // Indica el personaje del Jugador que le puede atacar
+                    if (!VariablesGlobales.instance.Boss)
+                    {
+                        Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<GeneralEnemy>().Action = 1;                                                          // Indica que la acción es la de atacar
+                        Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<GeneralEnemy>().SelectedToAttack = true;                                             // Indica que el enemigo puede ser atacado
+                        Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<GeneralEnemy>().Vibrate = true;                                                      // Indica que el enemigo puede vibrar
+                        Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<GeneralEnemy>().PlayerAttacking = Character.GetComponent<GeneralPlayer>().Character; // Indica el personaje del Jugador que le puede atacar
+                    }
+                    else
+                    {
+                        Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<Boss>().Action = 1;                                                          // Indica que la acción es la de atacar
+                        Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<Boss>().SelectedToAttack = true;                                             // Indica que el enemigo puede ser atacado
+                        Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<Boss>().Vibrate = true;                                                      // Indica que el enemigo puede vibrar
+                        Positions[PositionsToAttack[i]].GetComponent<CombatPosition>().Character.GetComponent<Boss>().PlayerAttacking = Character.GetComponent<GeneralPlayer>().Character; // Indica el personaje del Jugador que le puede atacar
+                    }
                 }
             }
         }

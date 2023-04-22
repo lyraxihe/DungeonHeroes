@@ -19,6 +19,7 @@ public class ControlScenes : MonoBehaviour
     public void CombatRoom()
     {
         SceneManager.LoadScene("Combat"); //abre la escena
+        VariablesGlobales.instance.Boss = false; // Indica que el combate será normal
     }
 
     public void Map()
@@ -31,7 +32,8 @@ public class ControlScenes : MonoBehaviour
     }
     public void BossRoom()
     {
-        SceneManager.LoadScene("Boss"); //abre la escena
+        SceneManager.LoadScene("Combat"); //abre la escena
+        VariablesGlobales.instance.Boss = true; // Indica que el combate será contra el boss
     }
     public void ChestRoom()
     {

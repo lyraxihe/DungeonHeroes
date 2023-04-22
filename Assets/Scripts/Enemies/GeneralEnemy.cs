@@ -17,8 +17,8 @@ public class GeneralEnemy : MonoBehaviour
     public bool SelectedToAttack = false;          // Booleano que indica si el enemigo es seleccionable para ser atacado
     public bool Down = false;                      // Blooleano que indica cuando puede empezar a reducir de tamaño el enemigo (Estética)
     public bool Vibrate = false;                   // Booleano que controla si el enemigo seleccionable para ser atacado puede vibrar o no (Estética)
-    private Vector2 MinTam;                        // Tamaño máximo que puede llegar a tener el enemigo
-    private Vector2 MaxTam;                        // Tamaño mínimo que puede llegar a tener el enemigo
+    public Vector2 MinTam;                        // Tamaño máximo que puede llegar a tener el enemigo
+    public Vector2 MaxTam;                        // Tamaño mínimo que puede llegar a tener el enemigo
 
     public GameObject PlayerAttacking;             // Tipo de personaje del Jugador atacando este enemigo
 

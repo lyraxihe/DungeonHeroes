@@ -121,7 +121,12 @@ public class CombatPosition : MonoBehaviour
                 for (i = 0; i < Enemies.Length; i++)
                 {
                     if (Enemies[i] != null)
-                        Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
+                    {
+                        if (!VariablesGlobales.instance.Boss)
+                            Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
+                        else
+                            Enemies[i].GetComponent<Boss>().Atacar = true;
+                    }
                 }
 
                 _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;

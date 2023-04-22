@@ -50,14 +50,8 @@ public class Background : MonoBehaviour
     private void Awake() //carga los datos guardados
     {
         LoadData();
-        if (Instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
+       
+      
     }
 
     private void OnDestroy()
@@ -186,8 +180,6 @@ public class Background : MonoBehaviour
         return false;                                                // Devuelve "false" si "Occupied" es "false" y por tanto está libre
     }
 
-    private static Background instance = null;
-    public static Background Instance { get { return instance; } } //creo el Singletons
-
+    
     
 }

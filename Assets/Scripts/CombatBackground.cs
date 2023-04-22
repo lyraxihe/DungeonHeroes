@@ -8,13 +8,15 @@ using UnityEngine.UI;
 public class CombatBackground : MonoBehaviour
 {
     public GameObject _Control;
-    
+
+
     public GameObject _CombatBackground;        // Combate
     public RectTransform Canvas;                // Canva
 
     // PREFABS
     public GameObject CombatPosition;              // Prefab CombatPosition
     public GameObject CombatLine;                  // Prefab CombatLine
+    public GameObject PrefabBoss;                  // Prefab Boss
     public GameObject PrefabEnemyKnight;           // Prefab Personaje 1 - Caballero Enemigo
     public GameObject PrefabPlayerKnight;          // Prefab Personaje 1 - Caballero del Jugador
     public GameObject PrefabEnemyHealer;           // Prefab Personaje 2 - Healer Enemigo
@@ -75,33 +77,33 @@ public class CombatBackground : MonoBehaviour
     public bool Derrota;                                                   // Booleano que controla si hay condición de derrota
     public bool VictoriaDerrotaCreado;                                     // Booleano que controla que la interfaz de Victoria o Derrota se cree una vez
 
-    // MENÚ PAUSA
-    public GameObject ClonMenuPausaBorder;
-    public GameObject ClonMenuPausaContainer;
-    public GameObject ClonContinuarButton;
-    public GameObject ClonSalirButton;
+    //// MENÚ PAUSA
+    //public GameObject ClonMenuPausaBorder;
+    //public GameObject ClonMenuPausaContainer;
+    //public GameObject ClonContinuarButton;
+    //public GameObject ClonSalirButton;
 
-    public TMP_Text PausaText;
-    public Button ContinuarButton;
-    public TMP_Text ContinuarButtonText;
-    public Button SalirButton;
-    public TMP_Text SalirButtonText;
+    //public TMP_Text PausaText;
+    //public Button ContinuarButton;
+    //public TMP_Text ContinuarButtonText;
+    //public Button SalirButton;
+    //public TMP_Text SalirButtonText;
 
-    public bool EscPressed;
+    //public bool EscPressed;
 
     // Start is called before the first frame update
     void Start()
     {
         // MENU PAUSA
-        ClonMenuPausaBorder = Instantiate(PrefabVictoriaDerrotaBorder);
-        ClonMenuPausaBorder.transform.position = new Vector3(0, 0, -1);
-        ClonMenuPausaBorder.transform.localScale = new Vector3(9, 10, 1);
-        ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = false;
+        //ClonMenuPausaBorder = Instantiate(PrefabVictoriaDerrotaBorder);
+        //ClonMenuPausaBorder.transform.position = new Vector3(0, 0, -1);
+        //ClonMenuPausaBorder.transform.localScale = new Vector3(9, 10, 1);
+        //ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = false;
 
-        ClonMenuPausaContainer = Instantiate(PrefabVictoriaDerrota);
-        ClonMenuPausaContainer.transform.position = new Vector3(0, 0, -2);
-        ClonMenuPausaContainer.transform.localScale = new Vector3(8.5f, 9.5f, 1);
-        ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = false;
+        //ClonMenuPausaContainer = Instantiate(PrefabVictoriaDerrota);
+        //ClonMenuPausaContainer.transform.position = new Vector3(0, 0, -2);
+        //ClonMenuPausaContainer.transform.localScale = new Vector3(8.5f, 9.5f, 1);
+        //ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = false;
 
         // RESTO
         Positions = new GameObject[PositionsX.Length]; // Crea el array de prefabs CombatPosition en base al tamaño del array de Coordenadas
@@ -119,7 +121,7 @@ public class CombatBackground : MonoBehaviour
         Victoria = false;
         Derrota = false;
         VictoriaDerrotaCreado = false;
-        EscPressed = false;
+        //EscPressed = false;
 
         // TEXTO EXPLICATIVO
         /******************************************************************************************************/
@@ -147,61 +149,58 @@ public class CombatBackground : MonoBehaviour
     void Update()
     {
         // CONTROL
-        _Control.GetComponent<ControlPausa>()._CombatBackground = _CombatBackground;
+        //_Control.GetComponent<ControlPausa>()._CombatBackground = _CombatBackground;
 
-        _Control.GetComponent<ControlPausa>().ClonMenuPausaBorder = ClonMenuPausaBorder;
-        _Control.GetComponent<ControlPausa>().ClonMenuPausaContainer = ClonMenuPausaContainer;
+        //_Control.GetComponent<ControlPausa>().ClonMenuPausaBorder = ClonMenuPausaBorder;
+        //_Control.GetComponent<ControlPausa>().ClonMenuPausaContainer = ClonMenuPausaContainer;
 
-        _Control.GetComponent<ControlPausa>().PausaText = PausaText;
-        _Control.GetComponent<ControlPausa>().ContinuarButton = ContinuarButton;
-        _Control.GetComponent<ControlPausa>().ContinuarButtonText = ContinuarButtonText;
-        _Control.GetComponent<ControlPausa>().SalirButton = SalirButton;
-        _Control.GetComponent<ControlPausa>().SalirButtonText = SalirButtonText;
-        
+        //_Control.GetComponent<ControlPausa>().PausaText = PausaText;
+        //_Control.GetComponent<ControlPausa>().ContinuarButton = ContinuarButton;
+        //_Control.GetComponent<ControlPausa>().ContinuarButtonText = ContinuarButtonText;
+        //_Control.GetComponent<ControlPausa>().SalirButton = SalirButton;
+        //_Control.GetComponent<ControlPausa>().SalirButtonText = SalirButtonText;
+
         // MENU DE PAUSA
         /***********************************/
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!EscPressed)
-            {
-                MenuPausa();
-            }    
-            else
-            {
-                _CombatBackground.GetComponent<CombatBackground>().EscPressed = false;
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (!EscPressed)
+        //    {
+        //        MenuPausa();
+        //    }    
+        //    else
+        //    {
+        //        _CombatBackground.GetComponent<CombatBackground>().EscPressed = false;
 
-                ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = false;
+        //        ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = false;
 
-                ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = false;
+        //        ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = false;
 
-                PausaText.enabled = false;
-                ContinuarButton.image.enabled = false;
-                ContinuarButtonText.enabled = false;
-                SalirButton.image.enabled = false;
-                SalirButtonText.enabled = false;
-            }
-        }
+        //        PausaText.enabled = false;
+        //        ContinuarButton.image.enabled = false;
+        //        ContinuarButtonText.enabled = false;
+        //        SalirButton.image.enabled = false;
+        //        SalirButtonText.enabled = false;
+        //    }
+        //}
         /***********************************/
 
-        if (!EscPressed)
-        {
-            if (!BoolTurnoBatalla)
-                StartBattle = ClonStartBattleButton.GetComponent<StartBattleButton>().GetStartBattleStatus();
+        if (!BoolTurnoBatalla)
+            StartBattle = ClonStartBattleButton.GetComponent<StartBattleButton>().GetStartBattleStatus();
 
-            BattlePhase();                                 // Actualiza el estado del Combate
-            UpdateTurn();                                  // Actualiza el turno del Combate
-            StatusAliadosPosition();                       // Comprueba que todos los personajes del Jugador han sido colocados en el mapa de combate
-            UpdateOtherScripts();                          // Actualiza constantemente otros scripts con variables
+        BattlePhase();                                 // Actualiza el estado del Combate
+        UpdateTurn();                                  // Actualiza el turno del Combate
+        StatusAliadosPosition();                       // Comprueba que todos los personajes del Jugador han sido colocados en el mapa de combate
+        UpdateOtherScripts();                          // Actualiza constantemente otros scripts con variables
 
-            if (StartBattle)
-                StatusCharacters();
+        if (StartBattle)
+            StatusCharacters();
 
-            if (TurnoBatalla == "Enemigo")
-                EnemyTurn();                               // Realiza las acciones de la IA cuando es el turno del enemigo
+        if (TurnoBatalla == "Enemigo")
+            EnemyTurn();                               // Realiza las acciones de la IA cuando es el turno del enemigo
 
-            StatusPartida();                               // Comprueba si hay condición de victoria o de derrota
-            InterfazVictoriaDerrota();                     // Crea la interfaz de Victoria o derrota
-        }
+        StatusPartida();                               // Comprueba si hay condición de victoria o de derrota
+        InterfazVictoriaDerrota();                     // Crea la interfaz de Victoria o derrota
     }
 
     /****************************************************************************************
@@ -292,91 +291,122 @@ public class CombatBackground : MonoBehaviour
         Vector3 positionVector;                                    // Coordenadas de una posición
         int i;
 
-        Enemies = new GameObject[numEnemies];                      // Crea el array de enemigos con tamaño en base al número de enemigos creados aleatoriamente
-        ContEnemigos = numEnemies;                                 // Almacena el número de enemigos en combate
-
-        for(i = 0; i < numEnemies; i++) // Bucle for desde 0 hasta el número de enemigos que habrá en el combate
+        if (!VariablesGlobales.instance.Boss) // Si es un combate normal
         {
-            enemyType = Random.Range(1, 5); // Elige aleatoriamente el tipo de enemigo a colocar
-            
+            Enemies = new GameObject[numEnemies];                      // Crea el array de enemigos con tamaño en base al número de enemigos creados aleatoriamente
+            ContEnemigos = numEnemies;                                 // Almacena el número de enemigos en combate
+
+            for (i = 0; i < numEnemies; i++) // Bucle for desde 0 hasta el número de enemigos que habrá en el combate
+            {
+                enemyType = Random.Range(1, 5); // Elige aleatoriamente el tipo de enemigo a colocar
+
+                do // Bucle While para controlar que la posición elegida aleatoriamente no esté ocupada, si lo está elige otra posición
+                {
+                    position = Positions[Random.Range(0, Positions.Length)]; // Selecciona una posición al azar del array de prefabs CombatPosition
+
+                } while (IsPositionOccupied(position)); // Si esa posición está ocupada (Occupied == true) vuelve a seleccionar otra, si no lo está, continua
+
+                // Almacena las coordenadas de la posición seleccionada sumándole a "Y" +0.5 por motivos estéticos
+                positionVector = new Vector3(position.transform.position.x, position.transform.position.y + 0.5f, (position.transform.position.z - 1));
+
+                if (enemyType == 1)                                              // Si el enemigo elegido es un Caballero
+                {
+                    GameObject clon = Instantiate(PrefabEnemyKnight);           // Crea un clon del prefab Knight
+                    clon.transform.position = positionVector;                   // Coloca el clon en la posición escogida aleatoriamente
+                    position.GetComponent<CombatPosition>().Occupied = true;    // Cambia esa posición a "ocupada"
+                    position.GetComponent<CombatPosition>().CharacterType = 1;  // Indica que la posición está ocupada por un enemigo
+                    position.GetComponent<CombatPosition>().Character = clon;   // Almacena el personaje en la posición en la que se ubicará
+                    clon.GetComponent<EnemyKnight>().EnemyPosition = position;  // Almacena la posición del enemigo
+                    clon.GetComponent<EnemyKnight>().Positions = Positions;     // Almacena el array de posiciones del combate
+                    clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
+                    clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
+                    clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
+                    clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
+                    clon.GetComponent<EnemyKnight>()._CombatBackground = _CombatBackground;  // Almacena el combate
+                    Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
+                }
+                else if (enemyType == 2)                                        // Si el enemigo elegido es un Healer
+                {
+                    GameObject clon = Instantiate(PrefabEnemyHealer);           // Crea un clon del prefab Healer
+                    clon.transform.position = positionVector;                   // Coloca el clon en la posición escogida aleatoriamente 
+                    position.GetComponent<CombatPosition>().Occupied = true;    // Cambia esa posición a "ocupada"
+                    position.GetComponent<CombatPosition>().CharacterType = 1;  // Indica que la posición está ocupada por un enemigo
+                    position.GetComponent<CombatPosition>().Character = clon;   // Almacena el personaje en la posición en la que se ubicará
+                    clon.GetComponent<EnemyHealer>().EnemyPosition = position;  // Almacena la posición del enemigo
+                    clon.GetComponent<EnemyHealer>().Positions = Positions;     // Almacena el array de posiciones del combate
+                    clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
+                    clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
+                    clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
+                    clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
+                    clon.GetComponent<EnemyHealer>()._CombatBackground = _CombatBackground;  // Almacena el combate
+                    Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
+                }
+                else if (enemyType == 3)                                        // Si el enemigo elegido es un Slime
+                {
+                    GameObject clon = Instantiate(PrefabEnemySlime);            // Crea un clon del prefab Slime
+                    clon.transform.position = positionVector;                   // Coloca el clon en la posición escogida aleatoriamente 
+                    position.GetComponent<CombatPosition>().Occupied = true;    // Cambia esa posición a "ocupada"
+                    position.GetComponent<CombatPosition>().CharacterType = 1;  // Indica que la posición está ocupada por un enemigo
+                    position.GetComponent<CombatPosition>().Character = clon;   // Almacena el personaje en la posición en la que se ubicará
+                    clon.GetComponent<EnemySlime>().EnemyPosition = position;   // Almacena la posición del enemigo
+                    clon.GetComponent<EnemySlime>().Positions = Positions;      // Almacena el array de posiciones del combate
+                    clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
+                    clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
+                    clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
+                    clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
+                    clon.GetComponent<EnemySlime>()._CombatBackground = _CombatBackground;   // Almacena el combate
+                    Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
+                }
+                else                                                            // Si el enemigo elegido es un Mage
+                {
+                    GameObject clon = Instantiate(PrefabEnemyMage);             // Crea un clon del prefab Mage
+                    clon.transform.position = positionVector;                   // Coloca el clon en la posición escogida aleatoriamente 
+                    position.GetComponent<CombatPosition>().Occupied = true;    // Cambia esa posición a "ocupada"
+                    position.GetComponent<CombatPosition>().CharacterType = 1;  // Indica que la posición está ocupada por un enemigo
+                    position.GetComponent<CombatPosition>().Character = clon;   // Almacena el personaje en la posición en la que se ubicará
+                    clon.GetComponent<EnemyMage>().EnemyPosition = position;    // Almacena la posición del enemigo
+                    clon.GetComponent<EnemyMage>().Positions = Positions;       // Almacena el array de posiciones del combate
+                    clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
+                    clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
+                    clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
+                    clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
+                    clon.GetComponent<EnemyMage>()._CombatBackground = _CombatBackground;    // Almacena el combate
+                    Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
+                }
+            }
+
+            // Bucle para almacenar en cada enemigo el array de enemigos
+            for (int j = 0; j < Enemies.Length; j++)
+                Enemies[j].GetComponent<GeneralEnemy>().Enemies = Enemies;
+        }
+        else // Si es el combate contra el boss
+        {
+            Enemies = new GameObject[1]; // Crea el array de enemigos con tamaño en base al número de enemigos creados aleatoriamente
+            ContEnemigos = 1;
+
             do // Bucle While para controlar que la posición elegida aleatoriamente no esté ocupada, si lo está elige otra posición
             {
                 position = Positions[Random.Range(0, Positions.Length)]; // Selecciona una posición al azar del array de prefabs CombatPosition
 
-            } while(IsPositionOccupied(position)); // Si esa posición está ocupada (Occupied == true) vuelve a seleccionar otra, si no lo está, continua
+            } while (IsPositionOccupied(position)); // Si esa posición está ocupada (Occupied == true) vuelve a seleccionar otra, si no lo está, continua
 
             // Almacena las coordenadas de la posición seleccionada sumándole a "Y" +0.5 por motivos estéticos
             positionVector = new Vector3(position.transform.position.x, position.transform.position.y + 0.5f, (position.transform.position.z - 1));
 
-            if(enemyType == 1)                                              // Si el enemigo elegido es un Caballero
-            {
-                GameObject clon = Instantiate(PrefabEnemyKnight);           // Crea un clon del prefab Knight
-                clon.transform.position = positionVector;                   // Coloca el clon en la posición escogida aleatoriamente
-                position.GetComponent<CombatPosition>().Occupied = true;    // Cambia esa posición a "ocupada"
-                position.GetComponent<CombatPosition>().CharacterType = 1;  // Indica que la posición está ocupada por un enemigo
-                position.GetComponent<CombatPosition>().Character = clon;   // Almacena el personaje en la posición en la que se ubicará
-                clon.GetComponent<EnemyKnight>().EnemyPosition = position;  // Almacena la posición del enemigo
-                clon.GetComponent<EnemyKnight>().Positions = Positions;     // Almacena el array de posiciones del combate
-                clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
-                clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
-                clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
-                clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
-                clon.GetComponent<EnemyKnight>()._CombatBackground = _CombatBackground;  // Almacena el combate
-                Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
-            }
-            else if (enemyType == 2)                                        // Si el enemigo elegido es un Healer
-            {
-                GameObject clon = Instantiate(PrefabEnemyHealer);           // Crea un clon del prefab Healer
-                clon.transform.position = positionVector;                   // Coloca el clon en la posición escogida aleatoriamente 
-                position.GetComponent<CombatPosition>().Occupied = true;    // Cambia esa posición a "ocupada"
-                position.GetComponent<CombatPosition>().CharacterType = 1;  // Indica que la posición está ocupada por un enemigo
-                position.GetComponent<CombatPosition>().Character = clon;   // Almacena el personaje en la posición en la que se ubicará
-                clon.GetComponent<EnemyHealer>().EnemyPosition = position;  // Almacena la posición del enemigo
-                clon.GetComponent<EnemyHealer>().Positions = Positions;     // Almacena el array de posiciones del combate
-                clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
-                clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
-                clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
-                clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
-                clon.GetComponent<EnemyHealer>()._CombatBackground = _CombatBackground;  // Almacena el combate
-                Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
-            }
-            else if (enemyType == 3)                                        // Si el enemigo elegido es un Slime
-            {
-                GameObject clon = Instantiate(PrefabEnemySlime);            // Crea un clon del prefab Slime
-                clon.transform.position = positionVector;                   // Coloca el clon en la posición escogida aleatoriamente 
-                position.GetComponent<CombatPosition>().Occupied = true;    // Cambia esa posición a "ocupada"
-                position.GetComponent<CombatPosition>().CharacterType = 1;  // Indica que la posición está ocupada por un enemigo
-                position.GetComponent<CombatPosition>().Character = clon;   // Almacena el personaje en la posición en la que se ubicará
-                clon.GetComponent<EnemySlime>().EnemyPosition = position;   // Almacena la posición del enemigo
-                clon.GetComponent<EnemySlime>().Positions = Positions;      // Almacena el array de posiciones del combate
-                clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
-                clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
-                clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
-                clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
-                clon.GetComponent<EnemySlime>()._CombatBackground = _CombatBackground;   // Almacena el combate
-                Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
-            }
-            else                                                            // Si el enemigo elegido es un Mage
-            {
-                GameObject clon = Instantiate(PrefabEnemyMage);             // Crea un clon del prefab Mage
-                clon.transform.position = positionVector;                   // Coloca el clon en la posición escogida aleatoriamente 
-                position.GetComponent<CombatPosition>().Occupied = true;    // Cambia esa posición a "ocupada"
-                position.GetComponent<CombatPosition>().CharacterType = 1;  // Indica que la posición está ocupada por un enemigo
-                position.GetComponent<CombatPosition>().Character = clon;   // Almacena el personaje en la posición en la que se ubicará
-                clon.GetComponent<EnemyMage>().EnemyPosition = position;    // Almacena la posición del enemigo
-                clon.GetComponent<EnemyMage>().Positions = Positions;       // Almacena el array de posiciones del combate
-                clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
-                clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
-                clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
-                clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
-                clon.GetComponent<EnemyMage>()._CombatBackground = _CombatBackground;    // Almacena el combate
-                Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
-            }
+            GameObject clon = Instantiate(PrefabBoss);                  // Crea un clon del prefab Boss
+            clon.transform.position = positionVector;                   // Coloca el clon en la posición escogida aleatoriamente
+            position.GetComponent<CombatPosition>().Occupied = true;    // Cambia esa posición a "ocupada"
+            position.GetComponent<CombatPosition>().CharacterType = 1;  // Indica que la posición está ocupada por un enemigo
+            position.GetComponent<CombatPosition>().Character = clon;   // Almacena el personaje en la posición en la que se ubicará
+            clon.GetComponent<Boss>().EnemyPosition = position;  // Almacena la posición del enemigo
+            clon.GetComponent<Boss>().Positions = Positions;     // Almacena el array de posiciones del combate
+            clon.GetComponent<Boss>().Index = 5;        // Almacena el tipo de enemigo que es
+            clon.GetComponent<Boss>().EnemyPosition = position; // Alamcena la posición del enemigo
+            clon.GetComponent<Boss>().Enemy = clon;             // Almacena el enemigo
+            clon.GetComponent<Boss>()._CombatBackground = _CombatBackground; // Almacena el combate
+            clon.GetComponent<Boss>()._CombatBackground = _CombatBackground;  // Almacena el combate
+            Enemies[0] = clon;
         }
-
-        // Bucle para almacenar en cada enemigo el array de enemigos
-        for (int j = 0; j < Enemies.Length; j++)
-            Enemies[j].GetComponent<GeneralEnemy>().Enemies = Enemies;
     }
 
     /****************************************************************************************
@@ -522,24 +552,32 @@ public class CombatBackground : MonoBehaviour
             {
                 if (Enemies[i] != null)
                 {
-                    if (Enemies[i].GetComponent<GeneralEnemy>().Index == 1)
+                    if (!VariablesGlobales.instance.Boss)
                     {
-                        if (Enemies[i].GetComponent<EnemyKnight>().HabilidadSlime == true)
-                            ContHabilidadSlime++;
-                    }
-                    else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 2)
-                    {
-                        if (Enemies[i].GetComponent<EnemyHealer>().HabilidadSlime == true)
-                            ContHabilidadSlime++;
-                    }
-                    else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 3)
-                    {
-                        if (Enemies[i].GetComponent<EnemySlime>().HabilidadSlime == true)
-                            ContHabilidadSlime++;
+                        if (Enemies[i].GetComponent<GeneralEnemy>().Index == 1)
+                        {
+                            if (Enemies[i].GetComponent<EnemyKnight>().HabilidadSlime == true)
+                                ContHabilidadSlime++;
+                        }
+                        else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 2)
+                        {
+                            if (Enemies[i].GetComponent<EnemyHealer>().HabilidadSlime == true)
+                                ContHabilidadSlime++;
+                        }
+                        else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 3)
+                        {
+                            if (Enemies[i].GetComponent<EnemySlime>().HabilidadSlime == true)
+                                ContHabilidadSlime++;
+                        }
+                        else
+                        {
+                            if (Enemies[i].GetComponent<EnemyMage>().HabilidadSlime == true)
+                                ContHabilidadSlime++;
+                        }
                     }
                     else
                     {
-                        if (Enemies[i].GetComponent<EnemyMage>().HabilidadSlime == true)
+                        if (Enemies[i].GetComponent<Boss>().HabilidadSlime == true)
                             ContHabilidadSlime++;
                     }
                 }
@@ -727,7 +765,11 @@ public class CombatBackground : MonoBehaviour
 
                 for (int i = 0; i < 4; i++)                                                                                                // Recorre el array de posiciones en rango de la del enemigo
                 {
-                    position = enemySelected.GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
+                    if (!VariablesGlobales.instance.Boss)
+                        position = enemySelected.GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
+                    else
+                        position = enemySelected.GetComponent<Boss>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
+
                     if (Positions[position].GetComponent<CombatPosition>().CharacterType == 2)                                             // Si la posición seleccionada está ocupada por un personaje del Jugador
                         cont++;                                                                                                            // Aumenta el contador
                 }
@@ -736,24 +778,32 @@ public class CombatBackground : MonoBehaviour
 
             if (EnemigoParaAtacar)
             {
-                if (enemySelected.GetComponent<GeneralEnemy>().Index == 1)      // Si el enemigo seleccionado es un Knight
+                if (!VariablesGlobales.instance.Boss)
                 {
-                    enemySelected.GetComponent<EnemyKnight>().EnemyAtack();
-                    EnemigoParaAtacar = false;
+                    if (enemySelected.GetComponent<GeneralEnemy>().Index == 1)      // Si el enemigo seleccionado es un Knight
+                    {
+                        enemySelected.GetComponent<EnemyKnight>().EnemyAtack();
+                        EnemigoParaAtacar = false;
+                    }
+                    else if (enemySelected.GetComponent<GeneralEnemy>().Index == 2) // Si el enemigo seleccionado es un Healer
+                    {
+                        enemySelected.GetComponent<EnemyHealer>().EnemyAtack();
+                        EnemigoParaAtacar = false;
+                    }
+                    else if (enemySelected.GetComponent<GeneralEnemy>().Index == 3) // Si el enemigo seleccionado es un Slime
+                    {
+                        enemySelected.GetComponent<EnemySlime>().EnemyAtack();
+                        EnemigoParaAtacar = false;
+                    }
+                    else                                                            // Si el enemigo seleccionado es un Mage
+                    {
+                        enemySelected.GetComponent<EnemyMage>().EnemyAtack();
+                        EnemigoParaAtacar = false;
+                    }
                 }
-                else if (enemySelected.GetComponent<GeneralEnemy>().Index == 2) // Si el enemigo seleccionado es un Healer
+                else
                 {
-                    enemySelected.GetComponent<EnemyHealer>().EnemyAtack();
-                    EnemigoParaAtacar = false;
-                }
-                else if (enemySelected.GetComponent<GeneralEnemy>().Index == 3) // Si el enemigo seleccionado es un Slime
-                {
-                    enemySelected.GetComponent<EnemySlime>().EnemyAtack();
-                    EnemigoParaAtacar = false;
-                }
-                else                                                            // Si el enemigo seleccionado es un Mage
-                {
-                    enemySelected.GetComponent<EnemyMage>().EnemyAtack();
+                    enemySelected.GetComponent<Boss>().EnemyAtack();
                     EnemigoParaAtacar = false;
                 }
             }
@@ -780,51 +830,66 @@ public class CombatBackground : MonoBehaviour
     public void StatusCharacters()
     {
         int i;
-        
-        for(i = 0; i < Enemies.Length; i++)                                       // Recorre el array de enemigos del combate
+
+
+        for (i = 0; i < Enemies.Length; i++)                                       // Recorre el array de enemigos del combate
         {
             if (Enemies[i] != null)
             {
-                if (Enemies[i].GetComponent<GeneralEnemy>().Index == 1)               // Si es un Knight
+                if (!VariablesGlobales.instance.Boss)
                 {
-                    if (Enemies[i].GetComponent<EnemyKnight>().VidaActual <= 0)       // Si tiene 0 o menos de vida actual
+                    if (Enemies[i].GetComponent<GeneralEnemy>().Index == 1)               // Si es un Knight
                     {
-                        Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
-                        Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
-                        Destroy(Enemies[i].GetComponent<EnemyKnight>().ClonHealthbar);                                          // Destruye su Healthbar asociada
-                        Destroy(Enemies[i]);                                          // Lo destruye
-                        ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
+                        if (Enemies[i].GetComponent<EnemyKnight>().VidaActual <= 0)       // Si tiene 0 o menos de vida actual
+                        {
+                            Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
+                            Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
+                            Destroy(Enemies[i].GetComponent<EnemyKnight>().ClonHealthbar);                                          // Destruye su Healthbar asociada
+                            Destroy(Enemies[i]);                                          // Lo destruye
+                            ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
+                        }
+                    }
+                    else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 2)          // Si es un Healer
+                    {
+                        if (Enemies[i].GetComponent<EnemyHealer>().VidaActual <= 0)       // Si tiene 0 o menos de vida actual
+                        {
+                            Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
+                            Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
+                            Destroy(Enemies[i].GetComponent<EnemyHealer>().ClonHealthbar);                                        // Destruye su Healthbar asociada
+                            Destroy(Enemies[i]);                                          // Lo destruye
+                            ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
+                        }
+                    }
+                    else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 3)          // Si es un Slime
+                    {
+                        if (Enemies[i].GetComponent<EnemySlime>().VidaActual <= 0)        // Si tiene 0 o menos de vida actual
+                        {
+                            Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
+                            Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
+                            Destroy(Enemies[i].GetComponent<EnemySlime>().ClonHealthbar);                                        // Destruye su Healthbar asociada
+                            Destroy(Enemies[i]);                                          // Lo destruye
+                            ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
+                        }
+                    }
+                    else                                                                  // Si es un Mage
+                    {
+                        if (Enemies[i].GetComponent<EnemyMage>().VidaActual <= 0)         // Si tiene 0 o menos de vida actual
+                        {
+                            Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
+                            Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
+                            Destroy(Enemies[i].GetComponent<EnemyMage>().ClonHealthbar);                                        // Destruye su Healthbar asociada
+                            Destroy(Enemies[i]);                                          // Lo destruye
+                            ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
+                        }
                     }
                 }
-                else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 2)          // Si es un Healer
+                else
                 {
-                    if (Enemies[i].GetComponent<EnemyHealer>().VidaActual <= 0)       // Si tiene 0 o menos de vida actual
+                    if (Enemies[i].GetComponent<Boss>().VidaActual <= 0)         // Si tiene 0 o menos de vida actual
                     {
-                        Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
-                        Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
-                        Destroy(Enemies[i].GetComponent<EnemyHealer>().ClonHealthbar);                                        // Destruye su Healthbar asociada
-                        Destroy(Enemies[i]);                                          // Lo destruye
-                        ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
-                    }
-                }
-                else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 3)          // Si es un Slime
-                {
-                    if (Enemies[i].GetComponent<EnemySlime>().VidaActual <= 0)        // Si tiene 0 o menos de vida actual
-                    {
-                        Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
-                        Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
-                        Destroy(Enemies[i].GetComponent<EnemySlime>().ClonHealthbar);                                        // Destruye su Healthbar asociada
-                        Destroy(Enemies[i]);                                          // Lo destruye
-                        ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
-                    }
-                }
-                else                                                                  // Si es un Mage
-                {
-                    if (Enemies[i].GetComponent<EnemyMage>().VidaActual <= 0)         // Si tiene 0 o menos de vida actual
-                    {
-                        Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
-                        Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
-                        Destroy(Enemies[i].GetComponent<EnemyMage>().ClonHealthbar);                                        // Destruye su Healthbar asociada
+                        Enemies[i].GetComponent<Boss>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
+                        Enemies[i].GetComponent<Boss>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
+                        Destroy(Enemies[i].GetComponent<Boss>().ClonHealthbar);                                        // Destruye su Healthbar asociada
                         Destroy(Enemies[i]);                                          // Lo destruye
                         ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
                     }
@@ -968,18 +1033,18 @@ public class CombatBackground : MonoBehaviour
         }
     }
 
-    public void MenuPausa()
-    {
-        EscPressed = true;
+    //public void MenuPausa()
+    //{
+    //    EscPressed = true;
 
-        ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = true;
+    //    ClonMenuPausaBorder.GetComponent<SpriteRenderer>().enabled = true;
 
-        ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = true;
+    //    ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = true;
 
-        PausaText.enabled = true;
-        ContinuarButton.image.enabled = true;
-        ContinuarButtonText.enabled = true;
-        SalirButton.image.enabled = true;
-        SalirButtonText.enabled = true;
-    }
+    //    PausaText.enabled = true;
+    //    ContinuarButton.image.enabled = true;
+    //    ContinuarButtonText.enabled = true;
+    //    SalirButton.image.enabled = true;
+    //    SalirButtonText.enabled = true;
+    //}
 }

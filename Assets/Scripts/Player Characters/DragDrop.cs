@@ -28,13 +28,10 @@ public class DragDrop : MonoBehaviour
 
     void Update()
     {
-        if(_CombatBackground.GetComponent<CombatBackground>().EscPressed == false)
-        {
-            if (!dragging) // Si no está arrastrando al personaje no hace nada
-                return;
+        if (!dragging) // Si no está arrastrando al personaje no hace nada
+            return;
 
-            transform.position = GetMousePos() - Offset; // Si lo está arrastrando coloca el sprite justo donde está en ratón
-        }
+        transform.position = GetMousePos() - Offset; // Si lo está arrastrando coloca el sprite justo donde está en ratón
     }
 
     /****************************************************************************************
@@ -88,7 +85,9 @@ public class DragDrop : MonoBehaviour
                 CharacterPosition = Positions[i];                                                                                                                     // Almacena la posición actual del personaje
                 colocado = true;                                                                                                                                      // Indica que el personaje ha sido colocado con éxito
 
-                if(PreviousPositionVector != OriginalPosition)                        // Si la posición previa del personaje era una posición del combate
+                Positions[i].GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterPosition = Positions[i];
+
+                if (PreviousPositionVector != OriginalPosition)                        // Si la posición previa del personaje era una posición del combate
                     PreviousPosition.GetComponent<CombatPosition>().Occupied = false; // Después de mover el personaje a su nueva posición indica que la posición previa deja de estar ocupada
             }
         }
