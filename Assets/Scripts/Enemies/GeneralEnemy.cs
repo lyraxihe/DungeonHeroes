@@ -105,6 +105,8 @@ public class GeneralEnemy : MonoBehaviour
                         EnemyAttacked(PlayerAttacking.GetComponent<PlayerSlime>().AtaqueActual);  // Quita el daño del atacante a la vida actual del enemigo atacado
                     else                                                                          // El personaje atacando es un Mage
                         EnemyAttacked(PlayerAttacking.GetComponent<PlayerMage>().AtaqueActual);   // Quita el daño del atacante a la vida actual del enemigo atacado
+
+                    PlayerAttacking.GetComponent<GeneralPlayer>().Atacando = false;
                 }
                 else if (Action == 2)                                                             // Si la acción es la habilidad del Slime
                 {
@@ -134,6 +136,7 @@ public class GeneralEnemy : MonoBehaviour
                     }
 
                     PlayerAttacking.GetComponent<PlayerSlime>().UsedAbility = true;
+                    PlayerAttacking.GetComponent<GeneralPlayer>().Habilidad2 = false;
                 }
 
                 SelectedToAttack = false;                                                                    // Hace que esta acción sólo se pueda realizar una vez

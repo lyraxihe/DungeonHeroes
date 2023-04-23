@@ -27,6 +27,8 @@ public class Ability2ButtonAction : MonoBehaviour
      ****************************************************************************************/
     public void OnClicked()
     {
+        Character.GetComponent<GeneralPlayer>().Habilidad2 = true;
+        
         if (Character.GetComponent<GeneralPlayer>().CharacterType == 1)     // Si el personaje es un Knight
         {
             if (Character.GetComponent<PlayerKnight>().Invencible != true)
@@ -37,6 +39,7 @@ public class Ability2ButtonAction : MonoBehaviour
                 Character.transform.localScale = Character.GetComponent<GeneralPlayer>().MinTam;                         // Devuelve al personaje a su tamaño original
                 Character.GetComponent<GeneralPlayer>().DestroyCharacterInfo();                                          // Destruye la interfaz de información del personaje
                 Character.GetComponent<GeneralPlayer>()._CombatBackground.GetComponent<CombatBackground>().ChangeTurn(); // Tras la acción, cambia el turno de la partida
+                Character.GetComponent<GeneralPlayer>().Habilidad2 = false;
             }
         }
         else if (Character.GetComponent<GeneralPlayer>().CharacterType == 2)                                                         // Si el personaje es un Healer

@@ -36,7 +36,7 @@ public class CombatPosition : MonoBehaviour
             if(Vibrate)                                                      // Si vibrar es true
                 ScaleUpPositionBecauseSelected();                            // Empieza la animación para indicar que el personaje se puede mover a esta posición
             
-            OnMouseOver();                                                   // Cuando se hace click en la posición, mueve al personaje
+            OnMouseDown();                                                   // Cuando se hace click en la posición, mueve al personaje
         }                   
     }
 
@@ -86,7 +86,7 @@ public class CombatPosition : MonoBehaviour
      * Variables entrada: Nada                                                              *
      * Return: Nada                                                                         *
      ****************************************************************************************/
-    public void OnMouseOver()
+    public void OnMouseDown()
     {
         int i;
         
@@ -115,6 +115,7 @@ public class CombatPosition : MonoBehaviour
                 CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Character = CharacterToMove;                 // Alamcena el personaje que acaba de ocupar esa posición
                 CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().CharacterType = 2;                           // Indica que en a nueva posición hay un aliado
                 SelectedToMove = false;                                                                                                                     // Hace que esta acción sólo se pueda realizar una vez
+                CharacterToMove.GetComponent<GeneralPlayer>().Moviendo = false;                                                                             // Indica que deja de moverse
                 CharacterToMove.GetComponent<GeneralPlayer>().DestroyCharacterInfo();                                                                       // Destruye la interfaz de información del personaje
                 _CombatBackground.GetComponent<CombatBackground>().ChangeTurn();                                                                            // Tras la acción del movimiento, cambia el turno de la partida
 

@@ -49,6 +49,11 @@ public class GeneralPlayer : MonoBehaviour
     public int Action;                    // 0 - ninguna acción, 1 - Habilidad Healer, 2 - Habilidad Mage
     public GameObject PlayerUsingAbility; // Tipo de personaje del Jugador usando su habilidad
 
+    //ACCIONES QUE ESTÁ REALIZANDO EL PERSONAJE
+    public bool Moviendo;   // Indica si el Jugador ha seleccionado que el personaje se mueva
+    public bool Atacando;   // Indica si el Jugador ha seleccionado que el personaje ataque normal
+    public bool Habilidad2; // Indica si el Jugador ha seleccionado que el personaje use su habilidad especial
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +61,10 @@ public class GeneralPlayer : MonoBehaviour
         MaxTam = new Vector2(transform.localScale.x * 2, transform.localScale.y * 2); // Establece el tamaño mínimo que puede llegar a tener la posición
 
         Aliados = _CombatBackground.GetComponent<CombatBackground>().Aliados;
+
+        Moviendo = false;
+        Atacando = false;
+        Habilidad2 = false;
     }
 
     // Update is called once per frame
@@ -102,7 +111,10 @@ public class GeneralPlayer : MonoBehaviour
                     {
                         if (arrayInfo[i] != null)
                             if (i == 0)                                                                                // La primera posición corresponde al personaje de la interfaz
+                            {
                                 arrayInfo[i].transform.localScale = arrayInfo[i].GetComponent<GeneralPlayer>().MinTam; // Lo devuelve a su tamaño original
+                                arrayInfo[i].GetComponent<GeneralPlayer>().ClickOnce = false;                          // Permite que pueda volver a ser seleccionado
+                            }
                             else
                                 Destroy(arrayInfo[i]);                                                                 // Elimina el elemento de la interfaz del personaje
                     }
@@ -406,6 +418,8 @@ public class GeneralPlayer : MonoBehaviour
 
                     PlayerUsingAbility.GetComponent<PlayerMage>().UsedAbility = true;
                 }
+
+                PlayerUsingAbility.GetComponent<GeneralPlayer>().Habilidad2 = false;
 
                 Selected = false;                                                                    // Hace que esta acción sólo se pueda realizar una vez
                 PlayerUsingAbility.transform.localScale = PlayerUsingAbility.GetComponent<GeneralPlayer>().MinTam; // Devuelve al atacante a su tamaño original

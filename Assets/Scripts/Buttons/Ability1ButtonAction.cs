@@ -32,6 +32,8 @@ public class Ability1ButtonAction : MonoBehaviour
         _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona un enemigo al que atacar");
         /************************************************************************************************************************/
 
+        Character.GetComponent<GeneralPlayer>().Atacando = true;
+
         if (Character.GetComponent<GeneralPlayer>().CharacterType == 4) // Si el personaje seleccionado es el mago no habrá rango de ataque
         {
             for(int i = 0; i < Enemies.Length; i++)                    // Blucle para que, al no tener rango de ataque, todos los enemigos del combate sean seleccionados para ser atacados

@@ -36,6 +36,7 @@ public class MoveButtonAction : MonoBehaviour
                 Positions[PositionsToMove[i]].GetComponent<CombatPosition>().SelectedToMove = true;       // Habilita la posición para que el personaje se pueda mover a ella
                 Positions[PositionsToMove[i]].GetComponent<CombatPosition>().Vibrate = true;              // Habilita que la posición vibre (Estética)
                 Positions[PositionsToMove[i]].GetComponent<CombatPosition>().CharacterToMove = Character; // Almacena el personaje que va a moverse a dicha posición
+                Character.GetComponent<GeneralPlayer>().Moviendo = true;                                  // Indica que el personaje se está moviendo
             }
         }
     }
