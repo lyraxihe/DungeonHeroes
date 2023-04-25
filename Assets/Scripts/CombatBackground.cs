@@ -9,7 +9,6 @@ public class CombatBackground : MonoBehaviour
 {
     public GameObject _Control;
 
-
     public GameObject _CombatBackground;        // Combate
     public RectTransform Canvas;                // Canva
 
@@ -32,7 +31,7 @@ public class CombatBackground : MonoBehaviour
     public GameObject PrefabButtonVictoriaDerrota; // Prefab del botón de Vitoria o Derrota
 
     // CLONES
-    private GameObject[] Enemies;                 // Array de clones de los enemigos
+    public GameObject[] Enemies;                 // Array de clones de los enemigos
     public  GameObject[] Aliados;                 // Array de clones de los personajes del jugador
     private GameObject ClonStartBattleButton;     // Clon del botón de ¡Comenzar Batalla!
     private GameObject ClonTextoTurno;            // Clon del texto "Turno de Batalla"
@@ -754,27 +753,45 @@ public class CombatBackground : MonoBehaviour
 
         if(!Victoria && !Derrota)
         {
+            //do
+            //{
+            //    do
+            //    {
+            //        a = Random.Range(0, Enemies.Length);
+            //    } while (Enemies[a] == null);
+
+            //    enemySelected = Enemies[a]; // Selecciona un enemigo al azar con el que hacer la acción
+
+            //    for (int i = 0; i < 4; i++)                                                                                                // Recorre el array de posiciones en rango de la del enemigo
+            //    {
+            //        if (!VariablesGlobales.instance.Boss)
+            //            position = enemySelected.GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
+            //        else
+            //            position = enemySelected.GetComponent<Boss>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
+
+            //        if (Positions[position].GetComponent<CombatPosition>().CharacterType == 2)                                             // Si la posición seleccionada está ocupada por un personaje del Jugador
+            //            cont++;                                                                                                            // Aumenta el contador
+            //    }
+
+            //} while (cont == 0); // Repite hasta que un enemigo con opción en rango de un personaje del Jugador sea seleccionado
+
             do
             {
-                do
-                {
-                    a = Random.Range(0, Enemies.Length);
-                } while (Enemies[a] == null);
+                a = Random.Range(0, Enemies.Length);
+            } while (Enemies[a] == null);
 
-                enemySelected = Enemies[a]; // Selecciona un enemigo al azar con el que hacer la acción
+            enemySelected = Enemies[a]; // Selecciona un enemigo al azar con el que hacer la acción
 
-                for (int i = 0; i < 4; i++)                                                                                                // Recorre el array de posiciones en rango de la del enemigo
-                {
-                    if (!VariablesGlobales.instance.Boss)
-                        position = enemySelected.GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
-                    else
-                        position = enemySelected.GetComponent<Boss>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
+            for (int i = 0; i < 4; i++)                                                                                                // Recorre el array de posiciones en rango de la del enemigo
+            {
+                if (!VariablesGlobales.instance.Boss)
+                    position = enemySelected.GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
+                else
+                    position = enemySelected.GetComponent<Boss>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
 
-                    if (Positions[position].GetComponent<CombatPosition>().CharacterType == 2)                                             // Si la posición seleccionada está ocupada por un personaje del Jugador
-                        cont++;                                                                                                            // Aumenta el contador
-                }
-
-            } while (cont == 0); // Repite hasta que un enemigo con opción en rango de un personaje del Jugador sea seleccionado
+                if (Positions[position].GetComponent<CombatPosition>().CharacterType == 2)                                             // Si la posición seleccionada está ocupada por un personaje del Jugador
+                    cont++;                                                                                                            // Aumenta el contador
+            }
 
             if (EnemigoParaAtacar)
             {
@@ -997,6 +1014,7 @@ public class CombatBackground : MonoBehaviour
                 ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);              // Cambia el color del texto a blanco
 
                 ClonButtonVictoriaDerrota = Instantiate(PrefabButtonVictoriaDerrota);
+                ClonButtonVictoriaDerrota.GetComponent<VictoriaDerrotaButton>()._Combatbackground = _CombatBackground; // Almacena el combate
 
                 VictoriaDerrotaCreado = true;
             }

@@ -35,12 +35,12 @@ public class GeneralEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SelectedToAttack)                                                // Si el enemigo puede ser atacado
+        if (SelectedToAttack && PlayerAttacking.GetComponent<GeneralPlayer>().Atacando)                                                // Si el enemigo puede ser atacado
         {
             if (Vibrate)                                                     // Si vibrar es true
                 ScaleUpPositionBecauseSelected();                            // Empieza la animación para indicar que el enemjigo puede ser atacado
 
-            OnMouseOver();                                                   // Cuando se hace click en el enemigo, este es atacado
+            //OnMouseOver();                                                   // Cuando se hace click en el enemigo, este es atacado
         }
     }
 
@@ -72,12 +72,13 @@ public class GeneralEnemy : MonoBehaviour
      * Variables entrada: Nada                                                              *
      * Return: Nada                                                                         *
      ****************************************************************************************/
-    public void OnMouseOver()
+    public void OnMouseDown()
     {
         int i;
 
-        if (Input.GetMouseButtonDown(0))
+        if (SelectedToAttack)
         {
+
             for (i = 0; i < Enemies.Length; i++)                                   // Recorre el array de enemigos
             {
                 if (Enemies[i] != null)
@@ -89,72 +90,72 @@ public class GeneralEnemy : MonoBehaviour
                     }
                 }
             }
+        }
 
-            if (SelectedToAttack)                                                                 // Para el enemigo que el Jugador ha elegido para atacar
+        if (SelectedToAttack && PlayerAttacking.GetComponent<GeneralPlayer>().Atacando)                                                                 // Para el enemigo que el Jugador ha elegido para atacar
+        {
+            Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
+            transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
+
+            if (Action == 1)                                                                  // Si la acción es la de atacar
             {
-                Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
-                transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
+                if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType == 1)         // El personaje atacando es un Knight
+                    EnemyAttacked(PlayerAttacking.GetComponent<PlayerKnight>().AtaqueActual); // Quita el daño del atacante a la vida actual del enemigo atacado
+                else if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType == 2)    // El personaje atacando es un Healer
+                    EnemyAttacked(PlayerAttacking.GetComponent<PlayerHealer>().AtaqueActual); // Quita el daño del atacante a la vida actual del enemigo atacado
+                else if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType == 3)    // El personaje atacando es un Slime
+                    EnemyAttacked(PlayerAttacking.GetComponent<PlayerSlime>().AtaqueActual);  // Quita el daño del atacante a la vida actual del enemigo atacado
+                else                                                                          // El personaje atacando es un Mage
+                    EnemyAttacked(PlayerAttacking.GetComponent<PlayerMage>().AtaqueActual);   // Quita el daño del atacante a la vida actual del enemigo atacado
 
-                if (Action == 1)                                                                  // Si la acción es la de atacar
-                {
-                    if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType == 1)         // El personaje atacando es un Knight
-                        EnemyAttacked(PlayerAttacking.GetComponent<PlayerKnight>().AtaqueActual); // Quita el daño del atacante a la vida actual del enemigo atacado
-                    else if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType == 2)    // El personaje atacando es un Healer
-                        EnemyAttacked(PlayerAttacking.GetComponent<PlayerHealer>().AtaqueActual); // Quita el daño del atacante a la vida actual del enemigo atacado
-                    else if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType == 3)    // El personaje atacando es un Slime
-                        EnemyAttacked(PlayerAttacking.GetComponent<PlayerSlime>().AtaqueActual);  // Quita el daño del atacante a la vida actual del enemigo atacado
-                    else                                                                          // El personaje atacando es un Mage
-                        EnemyAttacked(PlayerAttacking.GetComponent<PlayerMage>().AtaqueActual);   // Quita el daño del atacante a la vida actual del enemigo atacado
-
-                    PlayerAttacking.GetComponent<GeneralPlayer>().Atacando = false;
-                }
-                else if (Action == 2)                                                             // Si la acción es la habilidad del Slime
-                {
-                    if(Index == 1)       // Si el enemigo elegido es un Knight
-                    {
-                        Enemy.GetComponent<EnemyKnight>().DefensaActual -= 3;
-                        Enemy.GetComponent<EnemyKnight>().HabilidadSlime = true;
-                        _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
-                    }
-                    else if (Index == 2) // Si el enemigo elegido es un Healer
-                    {
-                        Enemy.GetComponent<EnemyHealer>().DefensaActual -= 3;
-                        Enemy.GetComponent<EnemyHealer>().HabilidadSlime = true;
-                        _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
-                    }
-                    else if (Index == 3) // Si el enemigo elegido es un Slime
-                    {
-                        Enemy.GetComponent<EnemySlime>().DefensaActual -= 3;
-                        Enemy.GetComponent<EnemySlime>().HabilidadSlime = true;
-                        _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
-                    }
-                    else                 // Si el enemigo elegido es un Mage
-                    {
-                        Enemy.GetComponent<EnemyMage>().DefensaActual -= 3;
-                        Enemy.GetComponent<EnemyMage>().HabilidadSlime = true;
-                        _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
-                    }
-
-                    PlayerAttacking.GetComponent<PlayerSlime>().UsedAbility = true;
-                    PlayerAttacking.GetComponent<GeneralPlayer>().Habilidad2 = false;
-                }
-
-                SelectedToAttack = false;                                                                    // Hace que esta acción sólo se pueda realizar una vez
-                PlayerAttacking.transform.localScale = PlayerAttacking.GetComponent<GeneralPlayer>().MinTam; // Devuelve al atacante a su tamaño original
-                transform.localScale = MinTam;                                                               // Devuelve al enemigo a su tamaño original
-
-                PlayerAttacking.GetComponent<GeneralPlayer>().DestroyCharacterInfo();         // Destruye la interfaz de información del personaje
-                _CombatBackground.GetComponent<CombatBackground>().ChangeTurn();              // Tras la acción del movimiento, cambia el turno de la partida
-
-                for (i = 0; i < Enemies.Length; i++)
-                {
-                    if (Enemies[i] != null)
-                        Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
-                }
-
-                Action = 0;                                                                        // Indica que ya no se realiza ninguna acción
-                _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
+                PlayerAttacking.GetComponent<GeneralPlayer>().Atacando = false;
             }
+            else if (Action == 2)                                                             // Si la acción es la habilidad del Slime
+            {
+                if (Index == 1)       // Si el enemigo elegido es un Knight
+                {
+                    Enemy.GetComponent<EnemyKnight>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemyKnight>().HabilidadSlime = true;
+                    _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
+                }
+                else if (Index == 2) // Si el enemigo elegido es un Healer
+                {
+                    Enemy.GetComponent<EnemyHealer>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemyHealer>().HabilidadSlime = true;
+                    _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
+                }
+                else if (Index == 3) // Si el enemigo elegido es un Slime
+                {
+                    Enemy.GetComponent<EnemySlime>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemySlime>().HabilidadSlime = true;
+                    _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
+                }
+                else                 // Si el enemigo elegido es un Mage
+                {
+                    Enemy.GetComponent<EnemyMage>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemyMage>().HabilidadSlime = true;
+                    _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
+                }
+
+                PlayerAttacking.GetComponent<PlayerSlime>().UsedAbility = true;
+                PlayerAttacking.GetComponent<GeneralPlayer>().Habilidad2 = false;
+            }
+
+            SelectedToAttack = false;                                                                    // Hace que esta acción sólo se pueda realizar una vez
+            PlayerAttacking.transform.localScale = PlayerAttacking.GetComponent<GeneralPlayer>().MinTam; // Devuelve al atacante a su tamaño original
+            transform.localScale = MinTam;                                                               // Devuelve al enemigo a su tamaño original
+
+            PlayerAttacking.GetComponent<GeneralPlayer>().DestroyCharacterInfo();         // Destruye la interfaz de información del personaje
+            _CombatBackground.GetComponent<CombatBackground>().ChangeTurn();              // Tras la acción del movimiento, cambia el turno de la partida
+
+            for (i = 0; i < Enemies.Length; i++)
+            {
+                if (Enemies[i] != null)
+                    Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
+            }
+
+            Action = 0;                                                                        // Indica que ya no se realiza ninguna acción
+            _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
         }
     }
 

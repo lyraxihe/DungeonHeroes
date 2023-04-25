@@ -26,12 +26,12 @@ public class PlayerHealer : MonoBehaviour
     void Start()
     {
         // Establece los atributos del personaje
-        VidaTotal = 100;
-        VidaActual = VidaTotal;
-        AtaqueActual = 5;
-        AtaqueMax = 50;
-        DefensaActual = 5;
-        DefensaMax = 10;                   
+        VidaTotal = VariablesGlobales.instance.HealerVidaTotal;
+        VidaActual = VariablesGlobales.instance.HealerVidaActual;
+        AtaqueActual = VariablesGlobales.instance.HealerAtaqueActual;
+        AtaqueMax = VariablesGlobales.instance.HealerAtaqueMax;
+        DefensaActual = VariablesGlobales.instance.HealerDefensaActual;
+        DefensaMax = VariablesGlobales.instance.HealerDefensaMax;
 
         CreateHealthbar(); // Crea la barra de vida del personaje
     }

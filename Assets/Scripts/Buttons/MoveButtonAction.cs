@@ -24,6 +24,9 @@ public class MoveButtonAction : MonoBehaviour
      ****************************************************************************************/
     public void OnClicked()
     {
+        GameObject[] Enemies = _CombatBackground.GetComponent<CombatBackground>().Enemies;
+        GameObject[] Aliados = _CombatBackground.GetComponent<CombatBackground>().Aliados;
+        
         // TEXTO EXPLICACIÓN
         /************************************************************************************************************************/
         _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona una posicion a la que moverte");
@@ -37,6 +40,29 @@ public class MoveButtonAction : MonoBehaviour
                 Positions[PositionsToMove[i]].GetComponent<CombatPosition>().Vibrate = true;              // Habilita que la posición vibre (Estética)
                 Positions[PositionsToMove[i]].GetComponent<CombatPosition>().CharacterToMove = Character; // Almacena el personaje que va a moverse a dicha posición
                 Character.GetComponent<GeneralPlayer>().Moviendo = true;                                  // Indica que el personaje se está moviendo
+                Character.GetComponent<GeneralPlayer>().Atacando = false;                                 // Indica que el personaje deja de atacar
+                for (int j = 0; j < _CombatBackground.GetComponent<CombatBackground>().Enemies.Length; j++)
+                    if (_CombatBackground.GetComponent<CombatBackground>().Enemies[j] != null)
+                    {
+                        if (!VariablesGlobales.instance.Boss)
+                        {
+                            _CombatBackground.GetComponent<CombatBackground>().Enemies[j].GetComponent<GeneralEnemy>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[j].GetComponent<GeneralEnemy>().MinTam;
+                        }
+                        else
+                        {
+                            _CombatBackground.GetComponent<CombatBackground>().Enemies[j].GetComponent<Boss>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[j].GetComponent<Boss>().MinTam;
+                        }
+                    }
+                Character.GetComponent<GeneralPlayer>().Habilidad2 = false;                               // Indica que el personaje deja de usar su habilidad
+                for (int k = 0; k < _CombatBackground.GetComponent<CombatBackground>().Aliados.Length; k++)
+                {
+                    if (_CombatBackground.GetComponent<CombatBackground>().Aliados[k]!= null)
+                    {
+                        if (_CombatBackground.GetComponent<CombatBackground>().Aliados[k] != Character)
+                            _CombatBackground.GetComponent<CombatBackground>().Aliados[k].GetComponent<GeneralPlayer>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Aliados[k].GetComponent<GeneralPlayer>().MinTam;
+                    }
+                }
+                    
             }
         }
     }

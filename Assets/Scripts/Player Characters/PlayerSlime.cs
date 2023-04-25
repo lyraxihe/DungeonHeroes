@@ -26,12 +26,12 @@ public class PlayerSlime : MonoBehaviour
     void Start()
     {
         // Establece los atributos del personaje
-        VidaTotal = 150;
-        VidaActual = VidaTotal;
-        AtaqueActual = 20;
-        AtaqueMax = 50;
-        DefensaActual = 2;
-        DefensaMax = 10;
+        VidaTotal = VariablesGlobales.instance.SlimeVidaTotal;
+        VidaActual = VariablesGlobales.instance.SlimeVidaActual;
+        AtaqueActual = VariablesGlobales.instance.SlimeAtaqueActual;
+        AtaqueMax = VariablesGlobales.instance.SlimeAtaqueMax;
+        DefensaActual = VariablesGlobales.instance.SlimeDefensaActual;
+        DefensaMax = VariablesGlobales.instance.SlimeDefensaMax;
 
         UsedAbility = false;
 

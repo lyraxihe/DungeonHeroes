@@ -8,7 +8,7 @@ public class Background : MonoBehaviour
     public GameObject CombatPosition;   // Prefab CombatPosition
     public GameObject PrefabCombate;     // Prefab sala 1 - combate
     public GameObject PrefabTienda;     // Prefab sala 2 - tienda
-    public GameObject PrefabCofre;      // Prefab sala 3 - cofre
+    //public GameObject PrefabCofre;      // Prefab sala 3 - cofre
     public GameObject PrefabJefe; // Prefab sala del medio - jefe
     public RectTransform canvas;
 
@@ -103,7 +103,7 @@ public class Background : MonoBehaviour
     {
         GameObject position, position_aux;
         int RoomType;                                         // Almacena el tipo de sala                                // Coordenadas de una posición
-        int[] RoomsAmount = { 2, 1, 1 };
+        int[] RoomsAmount = { 3, 1,};
 
         position_aux = Positions[2];
 
@@ -122,7 +122,7 @@ public class Background : MonoBehaviour
         {
             do
             {
-                RoomType = Random.Range(0, 3); // Elige aleatoriamente el tipo de sala para asignar
+                RoomType = Random.Range(0, 2); // Elige aleatoriamente el tipo de sala para asignar
             } while (RoomsAmount[RoomType] == 0);
 
             do // Bucle While para controlar que la posición elegida aleatoriamente no esté ocupada, si lo está elige otra posición
@@ -142,7 +142,7 @@ public class Background : MonoBehaviour
                 position.GetComponent<RoomsPosition>().Occupied = true; // Cambia esa posición a "ocupada"
                 RoomsAmount[0] -= 1;
             }
-            else if (RoomType == 1)                                     // Si la sala es tienda
+            else /*(RoomType == 1)*/                                     // Si la sala es tienda
             {
 
                 GameObject clon = Instantiate(PrefabTienda);             // Crea un clon del prefab tienda
@@ -151,14 +151,14 @@ public class Background : MonoBehaviour
                 position.GetComponent<RoomsPosition>().Occupied = true; // Cambia esa posición a "ocupada"
                 RoomsAmount[1] -= 1;
             }
-            else                                     // Si el enemigo elegido es un Slime
-            {
-                GameObject clon = Instantiate(PrefabCofre);              // Crea un clon del prefab cofre
-                clon.transform.parent = canvas;
-                clon.transform.position = Camera.main.WorldToScreenPoint(position.transform.position);                   // Coloca el clon en la posición escogida aleatoriamente 
-                position.GetComponent<RoomsPosition>().Occupied = true; // Cambia esa posición a "ocupada"
-                RoomsAmount[2] -= 1;
-            }
+            //else                                     // Si el enemigo elegido es un Slime
+            //{
+            //    GameObject clon = Instantiate(PrefabCofre);              // Crea un clon del prefab cofre
+            //    clon.transform.parent = canvas;
+            //    clon.transform.position = Camera.main.WorldToScreenPoint(position.transform.position);                   // Coloca el clon en la posición escogida aleatoriamente 
+            //    position.GetComponent<RoomsPosition>().Occupied = true; // Cambia esa posición a "ocupada"
+            //    RoomsAmount[2] -= 1;
+            //}
 
         }
     }

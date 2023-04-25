@@ -109,5 +109,25 @@ public class Ability2ButtonAction : MonoBehaviour
                 }
             }
         }
+
+        Character.GetComponent<GeneralPlayer>().Habilidad2 = true;                              // Indica que el personaje está usando si habilidad
+        Character.GetComponent<GeneralPlayer>().Moviendo = false;                               // Indica que el personaje deja de moverse
+        for (int j = 0; j < _CombatBackground.GetComponent<CombatBackground>().Positions.Length; j++)
+            _CombatBackground.GetComponent<CombatBackground>().Positions[j].GetComponent<CombatPosition>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Positions[j].GetComponent<CombatPosition>().MinTam;
+        Character.GetComponent<GeneralPlayer>().Atacando = false;                               // Indica que el personaje deja de atacar
+        for (int k = 0; k < _CombatBackground.GetComponent<CombatBackground>().Enemies.Length; k++)
+        {
+            if (_CombatBackground.GetComponent<CombatBackground>().Enemies[k] != null)
+            {
+                if (!VariablesGlobales.instance.Boss)
+                {
+                    _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().MinTam;
+                }
+                else
+                {
+                    _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().MinTam;
+                }
+            }
+        }
     }
 }

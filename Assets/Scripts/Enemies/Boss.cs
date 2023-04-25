@@ -36,8 +36,8 @@ public class Boss : MonoBehaviour
     public bool SelectedToAttack = false;          // Booleano que indica si el enemigo es seleccionable para ser atacado
     public bool Vibrate = false;                   // Booleano que controla si el enemigo seleccionable para ser atacado puede vibrar o no (Estética)
     public bool Down = false;                      // Blooleano que indica cuando puede empezar a reducir de tamaño el enemigo (Estética)
-    private Vector2 MinTam;                        // Tamaño máximo que puede llegar a tener el enemigo
-    private Vector2 MaxTam;                        // Tamaño mínimo que puede llegar a tener el enemigo
+    public Vector2 MinTam;                        // Tamaño máximo que puede llegar a tener el enemigo
+    public Vector2 MaxTam;                        // Tamaño mínimo que puede llegar a tener el enemigo
     public int Action;                             // 0 - ninguna acción, 1 - ataque, 2 - habilidad del Slime
 
     // Start is called before the first frame update

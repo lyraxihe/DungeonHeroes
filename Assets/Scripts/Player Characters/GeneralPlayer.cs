@@ -70,18 +70,15 @@ public class GeneralPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (VariablesGlobales.instance.EscPressed == false)
+        if (GetComponent<DragDrop>().enabled == true)                       // Si el script DragDrop está activo
+            CharacterPosition = GetComponent<DragDrop>().CharacterPosition; // Almacena la posición actual del personaje
+
+        if (Selected && PlayerUsingAbility.GetComponent<GeneralPlayer>().Habilidad2)                                                       // Si el enemigo puede ser atacado
         {
-            if (GetComponent<DragDrop>().enabled == true)                       // Si el script DragDrop está activo
-                CharacterPosition = GetComponent<DragDrop>().CharacterPosition; // Almacena la posición actual del personaje
+            if (Vibrate)                                                    // Si vibrar es true
+                ScaleUpPositionBecauseSelected();                           // Empieza la animación para indicar que el enemjigo puede ser atacado
 
-            if (Selected)                                                       // Si el enemigo puede ser atacado
-            {
-                if (Vibrate)                                                    // Si vibrar es true
-                    ScaleUpPositionBecauseSelected();                           // Empieza la animación para indicar que el enemjigo puede ser atacado
-
-                OnMouseOver();                                                  // Cuando se hace click en el enemigo, este es atacado
-            }
+            //OnMouseOver();                                                  // Cuando se hace click en el enemigo, este es atacado
         }
     }
 
@@ -94,6 +91,7 @@ public class GeneralPlayer : MonoBehaviour
     private void OnMouseDown()
     {
         GameObject[] arrayInfo = _CombatBackground.GetComponent<CombatBackground>().CharacterInterface;
+        int i;
 
         if (_CombatBackground.GetComponent<CombatBackground>().Victoria == false && _CombatBackground.GetComponent<CombatBackground>().Derrota == false)
         {
@@ -107,7 +105,7 @@ public class GeneralPlayer : MonoBehaviour
                     /************************************************************************************************************************/
 
                     // Elimina la interfaz del personaje anterior si selecciona otro nuevo
-                    for (int i = 0; i < arrayInfo.Length; i++)                                                         // Recorre el array de la interfaz del personaje
+                    for (i = 0; i < arrayInfo.Length; i++)                                                         // Recorre el array de la interfaz del personaje
                     {
                         if (arrayInfo[i] != null)
                             if (i == 0)                                                                                // La primera posición corresponde al personaje de la interfaz
@@ -117,6 +115,24 @@ public class GeneralPlayer : MonoBehaviour
                             }
                             else
                                 Destroy(arrayInfo[i]);                                                                 // Elimina el elemento de la interfaz del personaje
+                    }
+
+                    for (i = 0; i < Enemies.Length; i++)
+                    {
+                        if (Enemies[i] != null)
+                        {
+                            if (!VariablesGlobales.instance.Boss)
+                            {
+                                Enemies[i].GetComponent<GeneralEnemy>().SelectedToAttack = false;
+                                Enemies[i].transform.localScale = Enemies[i].GetComponent<GeneralEnemy>().MinTam;
+                            }
+                        }
+                    }
+
+                    for (i = 0; i < Positions.Length; i++)
+                    {
+                        Positions[i].GetComponent<CombatPosition>().SelectedToMove = false;
+                        Positions[i].transform.localScale = Positions[i].GetComponent<CombatPosition>().MinTam;
                     }
 
 
@@ -274,6 +290,105 @@ public class GeneralPlayer : MonoBehaviour
                     ClickOnce = true;                                                                  // Booleano para controlar que la interfaz sólo se cree una vez al clicar en el personaje
                 }
             }
+            else
+            {
+                for (i = 0; i < Aliados.Length; i++)                                                           // Recorre el array de aliados
+                {
+                    if (Aliados[i] != null)
+                    {
+                        if (Aliados[i].GetComponent<GeneralPlayer>().Character != Character)                   // Para el resto de aliados que no son este
+                        {
+                            Aliados[i].GetComponent<GeneralPlayer>().Selected = false;                         // Inhabilita que el personaje pueda seleccionarlos
+                            Aliados[i].transform.localScale = Aliados[i].GetComponent<GeneralPlayer>().MinTam; // Dichos personajes modificados vuelven a su tamaño original después de vibrar
+                        }
+                    }
+                }
+
+                if (Selected && PlayerUsingAbility.GetComponent<GeneralPlayer>().Habilidad2)                                                                         // Para el enemigo que el Jugador ha elegido para atacar
+                {
+                    Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
+                    transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
+
+                    if (Action == 1)                                                                  // Si la acción es la habilidad del Healer
+                    {
+                        if (CharacterType == 1)
+                        {
+                            Character.GetComponent<PlayerKnight>().VidaActual += 20;
+                        }
+                        else if (CharacterType == 2)
+                        {
+                            Character.GetComponent<PlayerHealer>().VidaActual += 20;
+                        }
+                        else if (CharacterType == 3)
+                        {
+                            Character.GetComponent<PlayerSlime>().VidaActual += 20;
+                        }
+                        else
+                        {
+                            Character.GetComponent<PlayerMage>().VidaActual += 20;
+                        }
+                    }
+                    else if (Action == 2)                                                             // Si la acción es la habilidad del Mage
+                    {
+                        if (CharacterType == 1) // Si el personaje elegido es un Knight
+                        {
+                            Character.GetComponent<PlayerKnight>().DefensaActual += 2;
+                            Character.GetComponent<PlayerKnight>().HabilidadMage = true;
+                            _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage = 0;
+                        }
+                        else if (CharacterType == 2) // Si el enemigo elegido es un Healer
+                        {
+                            Character.GetComponent<PlayerHealer>().DefensaActual += 2;
+                            Character.GetComponent<PlayerHealer>().HabilidadMage = true;
+                            _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage = 0;
+                        }
+                        else if (CharacterType == 3) // Si el enemigo elegido es un Slime
+                        {
+                            Character.GetComponent<PlayerSlime>().DefensaActual += 2;
+                            Character.GetComponent<PlayerSlime>().HabilidadMage = true;
+                            _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage = 0;
+                        }
+                        else                 // Si el enemigo elegido es un Mage
+                        {
+                            Character.GetComponent<PlayerMage>().DefensaActual += 2;
+                            Character.GetComponent<PlayerMage>().HabilidadMage = true;
+                            _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage = 0;
+                        }
+
+                        PlayerUsingAbility.GetComponent<PlayerMage>().UsedAbility = true;
+                    }
+
+                    PlayerUsingAbility.GetComponent<GeneralPlayer>().Habilidad2 = false;
+
+                    Selected = false;                                                                    // Hace que esta acción sólo se pueda realizar una vez
+                    PlayerUsingAbility.transform.localScale = PlayerUsingAbility.GetComponent<GeneralPlayer>().MinTam; // Devuelve al atacante a su tamaño original
+                    transform.localScale = MinTam;                                                               // Devuelve al enemigo a su tamaño original
+
+                    PlayerUsingAbility.GetComponent<GeneralPlayer>().DestroyCharacterInfo();         // Destruye la interfaz de información del personaje
+                    _CombatBackground.GetComponent<CombatBackground>().ChangeTurn();              // Tras la acción del movimiento, cambia el turno de la partida
+
+                    for (i = 0; i < Enemies.Length; i++)
+                    {
+                        if (Enemies[i] != null)
+                        {
+                            if (!VariablesGlobales.instance.Boss)
+                                Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
+                            else
+                                Enemies[i].GetComponent<Boss>().Atacar = true;
+
+                        }
+                    }
+
+                    for (i = 0; i < Aliados.Length; i++)
+                    {
+                        if (Aliados[i] != null)
+                            Aliados[i].GetComponent<GeneralPlayer>().Action = 0;                       // Indica que ya no se realiza ninguna acción
+                    }
+
+                    PlayerUsingAbility.GetComponent<GeneralPlayer>().Action = 0;                       // Indica que ya no se realiza ninguna acción
+                    _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
+                }
+            }
         }
     }
 
@@ -339,116 +454,5 @@ public class GeneralPlayer : MonoBehaviour
             transform.localScale = Vector2.Lerp(transform.localScale, MaxTam, velocidad * Time.deltaTime);  // Aumenta el tamaño progresivamente hasta el tamaño máximo
         else                                                                                                // Si puede reducir de tamaño
             transform.localScale = Vector2.Lerp(transform.localScale, MinTam, velocidad * Time.deltaTime);  // Reduce el tamaño progresivamentehasta el tamaño mínimo
-    }
-
-    /****************************************************************************************
-     * Función: OnMouseOver                                                                 *
-     * Uso: Al hacer click en el personaje realiza una serie de acciones                    *
-     * Variables entrada: Nada                                                              *
-     * Return: Nada                                                                         *
-     ****************************************************************************************/
-    public void OnMouseOver()
-    {
-        int i;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            for (i = 0; i < Aliados.Length; i++)                                                           // Recorre el array de aliados
-            {
-                if (Aliados[i] != null)
-                {
-                    if (Aliados[i].GetComponent<GeneralPlayer>().Character != Character)                   // Para el resto de aliados que no son este
-                    {
-                        Aliados[i].GetComponent<GeneralPlayer>().Selected = false;                         // Inhabilita que el personaje pueda seleccionarlos
-                        Aliados[i].transform.localScale = Aliados[i].GetComponent<GeneralPlayer>().MinTam; // Dichos personajes modificados vuelven a su tamaño original después de vibrar
-                    }
-                }
-            }
-
-            if (Selected)                                                                         // Para el enemigo que el Jugador ha elegido para atacar
-            {
-                Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
-                transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
-
-                if (Action == 1)                                                                  // Si la acción es la habilidad del Healer
-                {
-                    if (CharacterType == 1)
-                    {
-                        Character.GetComponent<PlayerKnight>().VidaActual += 20;
-                    }
-                    else if (CharacterType == 2)
-                    {
-                        Character.GetComponent<PlayerHealer>().VidaActual += 20;
-                    }
-                    else if (CharacterType == 3)
-                    {
-                        Character.GetComponent<PlayerSlime>().VidaActual += 20;
-                    }
-                    else
-                    {
-                        Character.GetComponent<PlayerMage>().VidaActual += 20;
-                    }
-                }
-                else if (Action == 2)                                                             // Si la acción es la habilidad del Mage
-                {
-                    if (CharacterType == 1) // Si el personaje elegido es un Knight
-                    {
-                        Character.GetComponent<PlayerKnight>().DefensaActual += 2;
-                        Character.GetComponent<PlayerKnight>().HabilidadMage = true;
-                        _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage = 0;
-                    }
-                    else if (CharacterType == 2) // Si el enemigo elegido es un Healer
-                    {
-                        Character.GetComponent<PlayerHealer>().DefensaActual += 2;
-                        Character.GetComponent<PlayerHealer>().HabilidadMage = true;
-                        _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage = 0;
-                    }
-                    else if (CharacterType == 3) // Si el enemigo elegido es un Slime
-                    {
-                        Character.GetComponent<PlayerSlime>().DefensaActual += 2;
-                        Character.GetComponent<PlayerSlime>().HabilidadMage = true;
-                        _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage = 0;
-                    }
-                    else                 // Si el enemigo elegido es un Mage
-                    {
-                        Character.GetComponent<PlayerMage>().DefensaActual += 2;
-                        Character.GetComponent<PlayerMage>().HabilidadMage = true;
-                        _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage = 0;
-                    }
-
-                    PlayerUsingAbility.GetComponent<PlayerMage>().UsedAbility = true;
-                }
-
-                PlayerUsingAbility.GetComponent<GeneralPlayer>().Habilidad2 = false;
-
-                Selected = false;                                                                    // Hace que esta acción sólo se pueda realizar una vez
-                PlayerUsingAbility.transform.localScale = PlayerUsingAbility.GetComponent<GeneralPlayer>().MinTam; // Devuelve al atacante a su tamaño original
-                transform.localScale = MinTam;                                                               // Devuelve al enemigo a su tamaño original
-
-                PlayerUsingAbility.GetComponent<GeneralPlayer>().DestroyCharacterInfo();         // Destruye la interfaz de información del personaje
-                _CombatBackground.GetComponent<CombatBackground>().ChangeTurn();              // Tras la acción del movimiento, cambia el turno de la partida
-
-                for (i = 0; i < Enemies.Length; i++)
-                {
-                    if (Enemies[i] != null)
-                    {
-                        if (!VariablesGlobales.instance.Boss)
-                            Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
-                        else
-                            Enemies[i].GetComponent<Boss>().Atacar = true;
-
-                    }
-                }
-
-                for (i = 0; i < Aliados.Length; i++)
-                {
-                    if (Aliados[i] != null)
-                        Aliados[i].GetComponent<GeneralPlayer>().Action = 0;                       // Indica que ya no se realiza ninguna acción
-                }
-
-                PlayerUsingAbility.GetComponent<GeneralPlayer>().Action = 0;                       // Indica que ya no se realiza ninguna acción
-                _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
-            }
-        }
     }
 }

@@ -18,7 +18,7 @@ public class CombatPosition : MonoBehaviour
     public bool SelectedToMove = false;            // Booleano que indica si la posición es seleccionable para que el personaje se mueva a ella
     public bool Down = false;                      // Blooleano que indica cuando puede empezar a reducir de tamaño la posición (Estética)
     public bool Vibrate = false;                   // Booleano que controla si la posición seleccionable para que el jugador se mueva puede vibrar o no (Estética)
-    private Vector2 MinTam;                        // Tamaño máximo que puede llegar a tener la posición
+    public Vector2 MinTam;                        // Tamaño máximo que puede llegar a tener la posición
     private Vector2 MaxTam;                        // Tamaño mínimo que puede llegar a tener la posición
 
     // Start is called before the first frame update
@@ -31,12 +31,12 @@ public class CombatPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SelectedToMove)                                                  // Si el personaje puede moverse a esta posición
+        if (SelectedToMove && CharacterToMove.GetComponent<GeneralPlayer>().Moviendo)                                                  // Si el personaje puede moverse a esta posición
         {
             if(Vibrate)                                                      // Si vibrar es true
                 ScaleUpPositionBecauseSelected();                            // Empieza la animación para indicar que el personaje se puede mover a esta posición
             
-            OnMouseDown();                                                   // Cuando se hace click en la posición, mueve al personaje
+            //OnMouseDown();                                                   // Cuando se hace click en la posición, mueve al personaje
         }                   
     }
 
@@ -89,49 +89,46 @@ public class CombatPosition : MonoBehaviour
     public void OnMouseDown()
     {
         int i;
-        
-        if (Input.GetMouseButtonDown(0))
+
+        for (i = 0; i < Positions.Length; i++)                                   // Recorre el array de posiciones
         {
-            for(i = 0; i < Positions.Length; i++)                                   // Recorre el array de posiciones
+            if (Positions[i].transform.position != transform.position)              // Para el resto de posiciones que no son esta
             {
-                if (Positions[i].transform.position != transform.position)              // Para el resto de posiciones que no son esta
+                Positions[i].GetComponent<CombatPosition>().SelectedToMove = false; // Inhabilita que el personaje pueda moverse a ellas
+                Positions[i].transform.localScale = MinTam;                         // Dichas posiciones modificadas vuelven a su tamaño original después de vibrar
+            }
+        }
+
+        if (SelectedToMove && CharacterToMove.GetComponent<GeneralPlayer>().Moviendo)                                                         // Para la posición que el Jugador ha elegido para moverse
+        {
+            Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
+            transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
+            CharacterToMove.transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);                                        // Mueve el personaje a esta posición
+            CharacterToMove.transform.localScale = new Vector2(CharacterToMove.transform.localScale.x / 2, CharacterToMove.transform.localScale.y / 2); // Vuelve el personaje a su tamaño original
+            CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Occupied = false;                            // Indica que la posición pasa a estar vacía
+            CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Character = null;                            // Indica que ya no hay un personaje asociado a esa posición
+            CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().CharacterType = 0;                           // Indica que la ya no hay ningún personaje en esa posición
+            CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition = _Position;                                                                // Almacena y actualiza la posición actual del personaje
+            CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Occupied = true;                             // Indica que la posición pasa a estar ocupada
+            CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Character = CharacterToMove;                 // Alamcena el personaje que acaba de ocupar esa posición
+            CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().CharacterType = 2;                           // Indica que en a nueva posición hay un aliado
+            SelectedToMove = false;                                                                                                                     // Hace que esta acción sólo se pueda realizar una vez
+            CharacterToMove.GetComponent<GeneralPlayer>().Moviendo = false;                                                                             // Indica que deja de moverse
+            CharacterToMove.GetComponent<GeneralPlayer>().DestroyCharacterInfo();                                                                       // Destruye la interfaz de información del personaje
+            _CombatBackground.GetComponent<CombatBackground>().ChangeTurn();                                                                            // Tras la acción del movimiento, cambia el turno de la partida
+
+            for (i = 0; i < Enemies.Length; i++)
+            {
+                if (Enemies[i] != null)
                 {
-                    Positions[i].GetComponent<CombatPosition>().SelectedToMove = false; // Inhabilita que el personaje pueda moverse a ellas
-                    Positions[i].transform.localScale = MinTam;                         // Dichas posiciones modificadas vuelven a su tamaño original después de vibrar
+                    if (!VariablesGlobales.instance.Boss)
+                        Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
+                    else
+                        Enemies[i].GetComponent<Boss>().Atacar = true;
                 }
             }
 
-            if (SelectedToMove)                                                         // Para la posición que el Jugador ha elegido para moverse
-            {
-                Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
-                transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
-                CharacterToMove.transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);                                        // Mueve el personaje a esta posición
-                CharacterToMove.transform.localScale = new Vector2(CharacterToMove.transform.localScale.x / 2, CharacterToMove.transform.localScale.y / 2); // Vuelve el personaje a su tamaño original
-                CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Occupied = false;                            // Indica que la posición pasa a estar vacía
-                CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Character = null;                            // Indica que ya no hay un personaje asociado a esa posición
-                CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().CharacterType = 0;                           // Indica que la ya no hay ningún personaje en esa posición
-                CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition = _Position;                                                                // Almacena y actualiza la posición actual del personaje
-                CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Occupied = true;                             // Indica que la posición pasa a estar ocupada
-                CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().Character = CharacterToMove;                 // Alamcena el personaje que acaba de ocupar esa posición
-                CharacterToMove.GetComponent<GeneralPlayer>().CharacterPosition.GetComponent<CombatPosition>().CharacterType = 2;                           // Indica que en a nueva posición hay un aliado
-                SelectedToMove = false;                                                                                                                     // Hace que esta acción sólo se pueda realizar una vez
-                CharacterToMove.GetComponent<GeneralPlayer>().Moviendo = false;                                                                             // Indica que deja de moverse
-                CharacterToMove.GetComponent<GeneralPlayer>().DestroyCharacterInfo();                                                                       // Destruye la interfaz de información del personaje
-                _CombatBackground.GetComponent<CombatBackground>().ChangeTurn();                                                                            // Tras la acción del movimiento, cambia el turno de la partida
-
-                for (i = 0; i < Enemies.Length; i++)
-                {
-                    if (Enemies[i] != null)
-                    {
-                        if (!VariablesGlobales.instance.Boss)
-                            Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
-                        else
-                            Enemies[i].GetComponent<Boss>().Atacar = true;
-                    }
-                }
-
-                _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
-            }
+            _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
         }
     }
 }

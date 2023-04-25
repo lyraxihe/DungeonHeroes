@@ -7,4 +7,10 @@ using UnityEngine.UI;
 public class VictoriaDerrotaButton : MonoBehaviour
 {
     public Button _Button;               // Botón asociado al Canva "MoveButton"
+    public GameObject _Combatbackground; // Combate
+
+    public void Start()
+    {
+        _Button.GetComponent<VictoriaDerrotaButtonAction>()._CombatBackground= _Combatbackground;
+    }
 }

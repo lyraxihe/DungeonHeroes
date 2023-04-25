@@ -26,12 +26,12 @@ public class PlayerMage : MonoBehaviour
     void Start()
     {
         // Establece los atributos del personaje
-        VidaTotal = 100;
-        VidaActual = VidaTotal;
-        AtaqueActual = 10;
-        AtaqueMax = 50;
-        DefensaActual = 7;
-        DefensaMax = 10;
+        VidaTotal = VariablesGlobales.instance.MageVidaTotal;
+        VidaActual = VariablesGlobales.instance.MageVidaActual;
+        AtaqueActual = VariablesGlobales.instance.MageVidaActual;
+        AtaqueMax = VariablesGlobales.instance.MageAtaqueMax;
+        DefensaActual = VariablesGlobales.instance.MageDefensaActual;
+        DefensaMax = VariablesGlobales.instance.MageDefensaMax;
 
         CreateHealthbar();                    // Crea la barra de vida del personaje
     }

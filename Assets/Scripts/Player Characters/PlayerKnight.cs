@@ -27,12 +27,12 @@ public class PlayerKnight : MonoBehaviour
     void Start()
     {
         // Establece los atributos del personaje
-        VidaTotal = 75;
-        VidaActual = VidaTotal;
-        AtaqueActual = 30;
-        AtaqueMax = 50;
-        DefensaActual = 5;
-        DefensaMax = 10;
+        VidaTotal = VariablesGlobales.instance.KnightVidaTotal;
+        VidaActual = VariablesGlobales.instance.KnightVidaActual;
+        AtaqueActual = VariablesGlobales.instance.KnightAtaqueActual;
+        AtaqueMax = VariablesGlobales.instance.KnightAtaqueMax;
+        DefensaActual = VariablesGlobales.instance.KnightDefensaActual;
+        DefensaMax = VariablesGlobales.instance.KnightDefensaMax;
 
         Invencible = false;
         PlayerKnightInvencibleCont = 0;
