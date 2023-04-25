@@ -851,9 +851,9 @@ public class CombatBackground : MonoBehaviour
 
         for (i = 0; i < Enemies.Length; i++)                                       // Recorre el array de enemigos del combate
         {
-            if (Enemies[i] != null)
+            if (!VariablesGlobales.instance.Boss)
             {
-                if (!VariablesGlobales.instance.Boss)
+                if (Enemies[i] != null)
                 {
                     if (Enemies[i].GetComponent<GeneralEnemy>().Index == 1)               // Si es un Knight
                     {
@@ -900,7 +900,10 @@ public class CombatBackground : MonoBehaviour
                         }
                     }
                 }
-                else
+            }
+            else
+            {
+                if (Enemies[i] != null)
                 {
                     if (Enemies[i].GetComponent<Boss>().VidaActual <= 0)         // Si tiene 0 o menos de vida actual
                     {

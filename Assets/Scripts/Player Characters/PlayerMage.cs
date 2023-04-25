@@ -28,7 +28,7 @@ public class PlayerMage : MonoBehaviour
         // Establece los atributos del personaje
         VidaTotal = VariablesGlobales.instance.MageVidaTotal;
         VidaActual = VariablesGlobales.instance.MageVidaActual;
-        AtaqueActual = VariablesGlobales.instance.MageVidaActual;
+        AtaqueActual = VariablesGlobales.instance.MageAtaqueActual;
         AtaqueMax = VariablesGlobales.instance.MageAtaqueMax;
         DefensaActual = VariablesGlobales.instance.MageDefensaActual;
         DefensaMax = VariablesGlobales.instance.MageDefensaMax;

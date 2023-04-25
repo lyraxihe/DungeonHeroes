@@ -88,30 +88,43 @@ public class EnemyKnight : MonoBehaviour
         int damage = AtaqueActual; // El daño es el ataque actual del enemigo
         bool attack;
         int index;
-        int[] indexNotValid = new int[Positions.Length];
+        int[] indexNotValid = new int[4];
         bool repeatIndex;
         bool noPositions;
+        bool fail = false;
         int i;
+        int cont;
 
         if (GetComponent<GeneralEnemy>().Atacar)
         {
             do
             {
                 attack = false;
-                repeatIndex = true;
                 noPositions = false;
+                cont = 0;
 
                 do
                 {
+                    repeatIndex = true;
                     index = EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[Random.Range(0, EnemyPosition.GetComponent<CombatPosition>().PositionsToMove.Length)];
                     for (i = 0; i < indexNotValid.Length; i++)
                     {
                         if (index == (indexNotValid[i] - 1))
                             repeatIndex = false;
                     }
-                } while (!repeatIndex);
+
+                    for(i = 0; i < indexNotValid.Length; i++)
+                    {
+                        if (indexNotValid[i] != 0)
+                            cont++;
+                    }
+
+                    if (cont == 4)
+                        fail = true;
+                } while (!repeatIndex && !fail);
 
                 position = Positions[index];                           // Selecciona una posición aleatoria de las accesibles desde la posición del enemigo
+
                 if (position.GetComponent<CombatPosition>().CharacterType == 2) // Si la posición están ocuapada por un personaje del Jugador
                 {
                     attack = true;
@@ -134,9 +147,9 @@ public class EnemyKnight : MonoBehaviour
                         noPositions = true;
                 }
 
-            } while (!attack && !noPositions);                                                                                 // Repite hasta que la posción seleccionada esté ocupada por un personaje del Jugador
+            } while (!attack && !noPositions && !fail);                                                                                 // Repite hasta que la posción seleccionada esté ocupada por un personaje del Jugador
 
-            if (!noPositions)
+            if (!noPositions && !fail)
             {
                 if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)      // Si el objetivo es un Knight
                     position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().DefensePercentage() * damage) / 100));
