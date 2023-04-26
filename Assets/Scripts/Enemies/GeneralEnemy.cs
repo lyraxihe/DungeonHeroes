@@ -35,7 +35,7 @@ public class GeneralEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SelectedToAttack && PlayerAttacking.GetComponent<GeneralPlayer>().Atacando)                                                // Si el enemigo puede ser atacado
+        if (SelectedToAttack && (PlayerAttacking.GetComponent<GeneralPlayer>().Atacando || PlayerAttacking.GetComponent<GeneralPlayer>().Habilidad2))                                                // Si el enemigo puede ser atacado
         {
             if (Vibrate)                                                     // Si vibrar es true
                 ScaleUpPositionBecauseSelected();                            // Empieza la animación para indicar que el enemjigo puede ser atacado
@@ -92,7 +92,7 @@ public class GeneralEnemy : MonoBehaviour
             }
         }
 
-        if (SelectedToAttack && PlayerAttacking.GetComponent<GeneralPlayer>().Atacando)                                                                 // Para el enemigo que el Jugador ha elegido para atacar
+        if (SelectedToAttack && (PlayerAttacking.GetComponent<GeneralPlayer>().Atacando || PlayerAttacking.GetComponent<GeneralPlayer>().Habilidad2))                                                // Si el enemigo puede ser atacado
         {
             Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
             transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
@@ -151,7 +151,12 @@ public class GeneralEnemy : MonoBehaviour
             for (i = 0; i < Enemies.Length; i++)
             {
                 if (Enemies[i] != null)
-                    Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
+                {
+                    if (!VariablesGlobales.instance.Boss)
+                        Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
+                    else
+                        Enemies[i].GetComponent<Boss>().Atacar = true;
+                }
             }
 
             Action = 0;                                                                        // Indica que ya no se realiza ninguna acción

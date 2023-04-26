@@ -47,7 +47,6 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void SalirJuego()
@@ -57,7 +56,7 @@ public class MainMenu : MonoBehaviour
 
     public void Creditos()
     {
-        Titulo.text = "Créditos";
+        Titulo.text = "Creditos";
 
         // Deshabilitar
         EmpezarPartidaButton.image.enabled = false;

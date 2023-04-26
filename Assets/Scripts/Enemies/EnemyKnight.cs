@@ -130,7 +130,21 @@ public class EnemyKnight : MonoBehaviour
                     attack = true;
                     if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)    // Si la posición está ocupada por un Knight
                         if (position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().Invencible == true) // Si está en modo invencible
+                        {
+                            for (i = 0; i < 4; i++)
+                            {
+                                if (indexNotValid[i] == 0)
+                                {
+                                    indexNotValid[i] = index + 1;
+                                    break;
+                                }
+                            }
+
+                            if (i == 3)
+                                noPositions = true;
+
                             attack = false;                                                                                    // No puede atacar esa posición
+                        }
                 }
                 else
                 {

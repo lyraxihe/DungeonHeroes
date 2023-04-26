@@ -782,7 +782,7 @@ public class CombatBackground : MonoBehaviour
 
             enemySelected = Enemies[a]; // Selecciona un enemigo al azar con el que hacer la acción
 
-            for (int i = 0; i < 4; i++)                                                                                                // Recorre el array de posiciones en rango de la del enemigo
+            for (int i = 0; i < 4; i++)                                                                                                // Recorre el array de posiciones en rango del enemigo
             {
                 if (!VariablesGlobales.instance.Boss)
                     position = enemySelected.GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().PositionsToMove[i]; // Comprueba la primera posicicón en rango del enemigo
@@ -996,30 +996,61 @@ public class CombatBackground : MonoBehaviour
         {
             if (!VictoriaDerrotaCreado)
             {
-                ClonVictoriaDerrotaBorder = Instantiate(PrefabVictoriaDerrotaBorder);
-                ClonVictoriaDerrotaBorder.transform.position = new Vector3(0, 0, 0);
-                ClonVictoriaDerrotaBorder.transform.localScale = new Vector2(10, 5);
+                if (!VariablesGlobales.instance.Boss)
+                {
+                    ClonVictoriaDerrotaBorder = Instantiate(PrefabVictoriaDerrotaBorder);
+                    ClonVictoriaDerrotaBorder.transform.position = new Vector3(0, 0, 0);
+                    ClonVictoriaDerrotaBorder.transform.localScale = new Vector2(10, 5);
 
-                ClonVictoriaDerrota = Instantiate(PrefabVictoriaDerrota);
-                ClonVictoriaDerrota.transform.position = new Vector3(0, 0, -1);
-                ClonVictoriaDerrota.transform.localScale = new Vector2(9.5f, 4.5f);
+                    ClonVictoriaDerrota = Instantiate(PrefabVictoriaDerrota);
+                    ClonVictoriaDerrota.transform.position = new Vector3(0, 0, -1);
+                    ClonVictoriaDerrota.transform.localScale = new Vector2(9.5f, 4.5f);
 
-                ClonTextoVictoriaDerrota = Instantiate(PrefabTextoTurno);                          // Crea el texto Victoria
-                ClonTextoVictoriaDerrota.transform.position = new Vector3(0, 1, -1);               // Lo coloca en la interfaz
-                ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeText("Victoria!");       // Cambia el texto a "Mover"
-                ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeFontSize(1);             // Cambio el tamaño de la fuente del texto
-                ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeColor(0, 1, 0);          // Cambia el color del texto a verde
+                    ClonTextoVictoriaDerrota = Instantiate(PrefabTextoTurno);                          // Crea el texto Victoria
+                    ClonTextoVictoriaDerrota.transform.position = new Vector3(0, 1, -1);               // Lo coloca en la interfaz
+                    ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeText("Victoria!");       // Cambia el texto a "Mover"
+                    ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeFontSize(1);             // Cambio el tamaño de la fuente del texto
+                    ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeColor(0, 1, 0);          // Cambia el color del texto a verde
 
-                ClonTextoRecompensa = Instantiate(PrefabTextoTurno);                              // Crea el texto Recompensa
-                ClonTextoRecompensa.transform.position = new Vector3(0, -0.2f, -1);                   // Lo coloca en la interfaz
-                ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeText("Recompensa: 100 oro"); // Cambia el texto a "Mover"
-                ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeFontSize(0.6f);              // Cambio el tamaño de la fuente del texto
-                ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);              // Cambia el color del texto a blanco
+                    ClonTextoRecompensa = Instantiate(PrefabTextoTurno);                              // Crea el texto Recompensa
+                    ClonTextoRecompensa.transform.position = new Vector3(0, -0.2f, -1);                   // Lo coloca en la interfaz
+                    ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeText("Recompensa: 100 oro"); // Cambia el texto a "Mover"
+                    ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeFontSize(0.6f);              // Cambio el tamaño de la fuente del texto
+                    ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);              // Cambia el color del texto a blanco
 
-                ClonButtonVictoriaDerrota = Instantiate(PrefabButtonVictoriaDerrota);
-                ClonButtonVictoriaDerrota.GetComponent<VictoriaDerrotaButton>()._Combatbackground = _CombatBackground; // Almacena el combate
+                    ClonButtonVictoriaDerrota = Instantiate(PrefabButtonVictoriaDerrota);
+                    ClonButtonVictoriaDerrota.GetComponent<VictoriaDerrotaButton>()._Combatbackground = _CombatBackground; // Almacena el combate
 
-                VictoriaDerrotaCreado = true;
+                    VictoriaDerrotaCreado = true;
+                }
+                else
+                {
+                    ClonVictoriaDerrotaBorder = Instantiate(PrefabVictoriaDerrotaBorder);
+                    ClonVictoriaDerrotaBorder.transform.position = new Vector3(0, 0, 0);
+                    ClonVictoriaDerrotaBorder.transform.localScale = new Vector2(10, 5);
+
+                    ClonVictoriaDerrota = Instantiate(PrefabVictoriaDerrota);
+                    ClonVictoriaDerrota.transform.position = new Vector3(0, 0, -1);
+                    ClonVictoriaDerrota.transform.localScale = new Vector2(9.5f, 4.5f);
+
+                    ClonTextoVictoriaDerrota = Instantiate(PrefabTextoTurno);                          // Crea el texto Victoria
+                    ClonTextoVictoriaDerrota.transform.position = new Vector3(0, 1, -1);               // Lo coloca en la interfaz
+                    ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeText("Victoria!");       // Cambia el texto a "Mover"
+                    ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeFontSize(1);             // Cambio el tamaño de la fuente del texto
+                    ClonTextoVictoriaDerrota.GetComponent<TextoTurno>().ChangeColor(0, 1, 0);          // Cambia el color del texto a verde
+
+                    ClonTextoRecompensa = Instantiate(PrefabTextoTurno);                              // Crea el texto Recompensa
+                    ClonTextoRecompensa.transform.position = new Vector3(0, -0.2f, -1);               // Lo coloca en la interfaz
+                    ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeText("Has derrotado al jefe de la zona."); // Cambia el texto a "Mover"
+                    ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeFontSize(0.6f);              // Cambio el tamaño de la fuente del texto
+                    ClonTextoRecompensa.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);              // Cambia el color del texto a blanco
+
+                    ClonButtonVictoriaDerrota = Instantiate(PrefabButtonVictoriaDerrota);
+                    ClonButtonVictoriaDerrota.GetComponent<VictoriaDerrotaButton>()._Button.GetComponent<VictoriaDerrotaButtonAction>().Texto.text = "Continuar";
+                    ClonButtonVictoriaDerrota.GetComponent<VictoriaDerrotaButton>()._Combatbackground = _CombatBackground; // Almacena el combate
+
+                    VictoriaDerrotaCreado = true;
+                }
             }
         }
 
@@ -1048,6 +1079,8 @@ public class CombatBackground : MonoBehaviour
                 ClonTextoDerrotado.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);              // Cambia el color del texto a blanco
 
                 ClonButtonVictoriaDerrota = Instantiate(PrefabButtonVictoriaDerrota);
+                ClonButtonVictoriaDerrota.GetComponent<VictoriaDerrotaButton>()._Button.GetComponent<VictoriaDerrotaButtonAction>().Texto.text = "Volver al Menu Principal";
+                ClonButtonVictoriaDerrota.GetComponent<VictoriaDerrotaButton>()._Combatbackground = _CombatBackground; // Almacena el combate
 
                 VictoriaDerrotaCreado = true;
             }

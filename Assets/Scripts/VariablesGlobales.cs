@@ -10,7 +10,8 @@ public class VariablesGlobales : MonoBehaviour
     public static VariablesGlobales instance;
 
     public GameObject canvas;
-    
+    public GameObject canvasCreditos;
+
     //// MENÚ PAUSA
     //public GameObject PrefabMenuPausaBorder;
     //public GameObject PrefabMenuPausaContainer;

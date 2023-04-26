@@ -27,8 +27,35 @@ public class Ability2ButtonAction : MonoBehaviour
      ****************************************************************************************/
     public void OnClicked()
     {
-        Character.GetComponent<GeneralPlayer>().Habilidad2 = true;
+        Character.GetComponent<GeneralPlayer>().Habilidad2 = true;                              // Indica que el personaje está usando si habilidad
         
+        Character.GetComponent<GeneralPlayer>().Moviendo = false;                               // Indica que el personaje deja de moverse
+        for (int j = 0; j < _CombatBackground.GetComponent<CombatBackground>().Positions.Length; j++)
+            _CombatBackground.GetComponent<CombatBackground>().Positions[j].GetComponent<CombatPosition>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Positions[j].GetComponent<CombatPosition>().MinTam;
+        Character.GetComponent<GeneralPlayer>().Atacando = false;                               // Indica que el personaje deja de atacar
+        for (int k = 0; k < _CombatBackground.GetComponent<CombatBackground>().Enemies.Length; k++)
+        {
+            if (_CombatBackground.GetComponent<CombatBackground>().Enemies[k] != null)
+            {
+                if (!VariablesGlobales.instance.Boss)
+                {
+                    Enemies[k].GetComponent<GeneralEnemy>().Action = 0;
+                    Enemies[k].GetComponent<GeneralEnemy>().SelectedToAttack = false;                                                  // Indica que el enemigo puede ser atacado
+                    Enemies[k].GetComponent<GeneralEnemy>().Vibrate = false;
+                    Enemies[k].GetComponent<GeneralEnemy>().PlayerAttacking = null;
+                    _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().MinTam;
+                }
+                else
+                {
+                    Enemies[k].GetComponent<Boss>().Action = 0;
+                    Enemies[k].GetComponent<Boss>().SelectedToAttack = true;                                                  // Indica que el enemigo puede ser atacado
+                    Enemies[k].GetComponent<Boss>().Vibrate = true;
+                    Enemies[k].GetComponent<Boss>().PlayerAttacking = null;
+                    _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().MinTam;
+                }
+            }
+        }
+
         if (Character.GetComponent<GeneralPlayer>().CharacterType == 1)     // Si el personaje es un Knight
         {
             if (Character.GetComponent<PlayerKnight>().Invencible != true)
@@ -38,6 +65,19 @@ public class Ability2ButtonAction : MonoBehaviour
 
                 Character.transform.localScale = Character.GetComponent<GeneralPlayer>().MinTam;                         // Devuelve al personaje a su tamaño original
                 Character.GetComponent<GeneralPlayer>().DestroyCharacterInfo();                                          // Destruye la interfaz de información del personaje
+
+                for (int i = 0; i < Enemies.Length; i++)
+                {
+                    if (Enemies[i] != null)
+                    {
+                        if (!VariablesGlobales.instance.Boss)
+                            Enemies[i].GetComponent<GeneralEnemy>().Atacar = true;
+                        else
+                            Enemies[i].GetComponent<Boss>().Atacar = true;
+                    }
+                }
+                _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
+
                 Character.GetComponent<GeneralPlayer>()._CombatBackground.GetComponent<CombatBackground>().ChangeTurn(); // Tras la acción, cambia el turno de la partida
                 Character.GetComponent<GeneralPlayer>().Habilidad2 = false;
             }
@@ -106,26 +146,6 @@ public class Ability2ButtonAction : MonoBehaviour
                     Aliados[i].GetComponent<GeneralPlayer>().Selected = true;                                                        // Indica que el personaje puede ser atacado
                     Aliados[i].GetComponent<GeneralPlayer>().Vibrate = true;                                                         // Indica que el personaje puede vibrar
                     Aliados[i].GetComponent<GeneralPlayer>().PlayerUsingAbility = Character.GetComponent<GeneralPlayer>().Character; // Indica el personaje del Jugador que le ha seleccionado
-                }
-            }
-        }
-
-        Character.GetComponent<GeneralPlayer>().Habilidad2 = true;                              // Indica que el personaje está usando si habilidad
-        Character.GetComponent<GeneralPlayer>().Moviendo = false;                               // Indica que el personaje deja de moverse
-        for (int j = 0; j < _CombatBackground.GetComponent<CombatBackground>().Positions.Length; j++)
-            _CombatBackground.GetComponent<CombatBackground>().Positions[j].GetComponent<CombatPosition>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Positions[j].GetComponent<CombatPosition>().MinTam;
-        Character.GetComponent<GeneralPlayer>().Atacando = false;                               // Indica que el personaje deja de atacar
-        for (int k = 0; k < _CombatBackground.GetComponent<CombatBackground>().Enemies.Length; k++)
-        {
-            if (_CombatBackground.GetComponent<CombatBackground>().Enemies[k] != null)
-            {
-                if (!VariablesGlobales.instance.Boss)
-                {
-                    _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().MinTam;
-                }
-                else
-                {
-                    _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().MinTam;
                 }
             }
         }

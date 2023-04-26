@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4723077985902461801}
   - component: {fileID: 3491393661615670818}
   - component: {fileID: 8945293646798626527}
+  - component: {fileID: 2964970429219286684}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -103,6 +104,7 @@ MonoBehaviour:
   Enemies: []
   Enemy: {fileID: 0}
   Index: 0
+  Atacar: 0
   PlayerAttacking: {fileID: 0}
   VidaTotal: 0
   VidaActual: 0
@@ -116,4 +118,32 @@ MonoBehaviour:
   SelectedToAttack: 0
   Vibrate: 0
   Down: 0
+  MinTam: {x: 0, y: 0}
+  MaxTam: {x: 0, y: 0}
   Action: 0
+--- !u!61 &2964970429219286684
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679135979035018070}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8828125, y: 1}
+    newSize: {x: 0.8828125, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8828125, y: 1}
+  m_EdgeRadius: 0

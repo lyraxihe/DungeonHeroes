@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 //using TMPro.EditorUtilities;
@@ -33,6 +34,47 @@ public class Ability1ButtonAction : MonoBehaviour
         /************************************************************************************************************************/
 
         Character.GetComponent<GeneralPlayer>().Atacando = true;
+        
+        Character.GetComponent<GeneralPlayer>().Moviendo = false;                                 // Indica que el personaje deja de moverse
+        for (int j = 0; j < _CombatBackground.GetComponent<CombatBackground>().Positions.Length; j++)
+            _CombatBackground.GetComponent<CombatBackground>().Positions[j].GetComponent<CombatPosition>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Positions[j].GetComponent<CombatPosition>().MinTam;
+        Character.GetComponent<GeneralPlayer>().Habilidad2 = false;                               // Indica que el personaje deja de usar su habilidad
+        if (Character.GetComponent<GeneralPlayer>().CharacterType == 3)
+        {
+            for (int k = 0; k < _CombatBackground.GetComponent<CombatBackground>().Enemies.Length; k++)
+            {
+                if (!VariablesGlobales.instance.Boss)
+                {
+                    Enemies[k].GetComponent<GeneralEnemy>().Action = 0;
+                    Enemies[k].GetComponent<GeneralEnemy>().SelectedToAttack = false;                                                  // Indica que el enemigo puede ser atacado
+                    Enemies[k].GetComponent<GeneralEnemy>().Vibrate = false;
+                    Enemies[k].GetComponent<GeneralEnemy>().PlayerAttacking = null;
+                    _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().MinTam;
+                }
+                else
+                {
+                    Enemies[k].GetComponent<Boss>().Action = 0;
+                    Enemies[k].GetComponent<Boss>().SelectedToAttack = true;                                                  // Indica que el enemigo puede ser atacado
+                    Enemies[k].GetComponent<Boss>().Vibrate = true;
+                    Enemies[k].GetComponent<Boss>().PlayerAttacking = null;
+                    _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().MinTam;
+                }
+            }
+        }
+        else
+        {
+            for (int k = 0; k < _CombatBackground.GetComponent<CombatBackground>().Aliados.Length; k++)
+            {
+                if (_CombatBackground.GetComponent<CombatBackground>().Aliados[k] != null)
+                {
+                    if (_CombatBackground.GetComponent<CombatBackground>().Aliados[k] != Character)
+                    {
+                        _CombatBackground.GetComponent<CombatBackground>().Aliados[k].GetComponent<GeneralPlayer>().Action = 0;
+                        _CombatBackground.GetComponent<CombatBackground>().Aliados[k].GetComponent<GeneralPlayer>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Aliados[k].GetComponent<GeneralPlayer>().MinTam;
+                    }
+                }
+            }
+        }
 
         if (Character.GetComponent<GeneralPlayer>().CharacterType == 4) // Si el personaje seleccionado es el mago no habrá rango de ataque
         {
@@ -80,19 +122,6 @@ public class Ability1ButtonAction : MonoBehaviour
                 }
             }
         }
-
-        Character.GetComponent<GeneralPlayer>().Atacando = true;                                  // Indica que el personaje está atacando
-        Character.GetComponent<GeneralPlayer>().Moviendo = false;                                 // Indica que el personaje deja de moverse
-        for (int j = 0; j < _CombatBackground.GetComponent<CombatBackground>().Positions.Length; j++)
-            _CombatBackground.GetComponent<CombatBackground>().Positions[j].GetComponent<CombatPosition>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Positions[j].GetComponent<CombatPosition>().MinTam;
-        Character.GetComponent<GeneralPlayer>().Habilidad2 = false;                               // Indica que el personaje deja de usar su habilidad
-        for (int k = 0; k < _CombatBackground.GetComponent<CombatBackground>().Aliados.Length; k++)
-        {
-            if(_CombatBackground.GetComponent<CombatBackground>().Aliados[k] != null)
-            {
-                if (_CombatBackground.GetComponent<CombatBackground>().Aliados[k] != Character)
-                    _CombatBackground.GetComponent<CombatBackground>().Aliados[k].GetComponent<GeneralPlayer>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Aliados[k].GetComponent<GeneralPlayer>().MinTam;
-            }
-        }
+        Character.GetComponent<GeneralPlayer>().Action = 0;
     }
 }

@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class VictoriaDerrotaButtonAction : MonoBehaviour
 {
     public GameObject _CombatBackground;
+    public TMP_Text Texto;
 
     /****************************************************************************************
       * Función: OnClicked                                                                   *
@@ -58,6 +61,20 @@ public class VictoriaDerrotaButtonAction : MonoBehaviour
 
         //VariablesGlobales.instance.KnightVidaActual = 30;
 
-        SceneManager.LoadScene("Main"); //abre la escena
+        if (VariablesGlobales.instance.Boss && _CombatBackground.GetComponent<CombatBackground>().Victoria)
+        {
+            VariablesGlobales.instance.Boss = false;
+            VariablesGlobales.instance.canvasCreditos.SetActive(!VariablesGlobales.instance.canvasCreditos.activeSelf);
+            //SceneManager.LoadScene("MainMenu"); //abre la escena
+        }
+        else if (_CombatBackground.GetComponent<CombatBackground>().Derrota)
+        {
+            VariablesGlobales.instance.Boss = false;
+            SceneManager.LoadScene("MainMenu"); //abre la escena
+        }
+        else
+        {
+            SceneManager.LoadScene("Main");
+        }
     }
 }
