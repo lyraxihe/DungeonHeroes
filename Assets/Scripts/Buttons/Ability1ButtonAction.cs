@@ -12,6 +12,9 @@ public class Ability1ButtonAction : MonoBehaviour
     public GameObject CharacterPosition; // Posición actual del personaje
     public GameObject Character;         // Personaje asociado
 
+    public GameObject UIAtacarConRango;
+    public GameObject UIAtacarSinRango;
+
     public int[] PositionsToAttack;        // Array de posiciones conectadas a la posición actual del personaje
 
     // Start is called before the first frame update
@@ -123,5 +126,19 @@ public class Ability1ButtonAction : MonoBehaviour
             }
         }
         Character.GetComponent<GeneralPlayer>().Action = 0;
+    }
+
+    public void OnMouseEnter()
+    {
+        if (Character.GetComponent<GeneralPlayer>().CharacterType != 4)
+            UIAtacarConRango.SetActive(true);
+        else
+            UIAtacarSinRango.SetActive(true);
+    }
+
+    public void OnMouseExit()
+    {
+        UIAtacarConRango.SetActive(false);
+        UIAtacarSinRango.SetActive(false);
     }
 }

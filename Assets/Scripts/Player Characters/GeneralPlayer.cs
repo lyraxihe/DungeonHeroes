@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,22 @@ public class GeneralPlayer : MonoBehaviour
 
     public GameObject Character;                       // Personaje
     public int CharacterType;                          // Indica el tipo de personaje
+
+    public GameObject UIEstadisticasPersonaje;
+    public TMP_Text TextoVida;
+    public TMP_Text TextoAtaque;
+    public TMP_Text TextoDefensa;
+    public Image VidaImagen;
+    public Image AtaqueImagen;
+    public Image DefensaImagen;
+
+    public GameObject UIMover;
+    public GameObject UIAtacarConRango;
+    public GameObject UIAtacarSinRango;
+    public GameObject UIHabilidadKnight;
+    public GameObject UIHabilidadHealer;
+    public GameObject UIHabilidadSlime;
+    public GameObject UIHabilidadMage;
 
     public GameObject[] Enemies;                       // Array de enemigos del combate
     public GameObject[] Aliados;                       // Array de aliados del combate
@@ -142,6 +159,219 @@ public class GeneralPlayer : MonoBehaviour
 
                     _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[0] = Character;   // Almacena el personaje en el array de info del Personaje del Jugador
 
+                    UIEstadisticasPersonaje.SetActive(true);
+                    if(CharacterType == 1)
+                    {
+                        // Estadística Vida
+                        if (Character.GetComponent<PlayerKnight>().VidaActual <= ((20 * Character.GetComponent<PlayerKnight>().VidaTotal) / 100))
+                        {
+                            TextoVida.text = "<b><color=red>" + Character.GetComponent<PlayerKnight>().VidaActual + "</color> / " + Character.GetComponent<PlayerKnight>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerKnight>().VidaActual <= ((50 * Character.GetComponent<PlayerKnight>().VidaTotal) / 100))
+                        {
+                            TextoVida.text = "<b><color=yellow>" + Character.GetComponent<PlayerKnight>().VidaActual + "</color> / " + Character.GetComponent<PlayerKnight>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.yellow;
+                        }
+                        else
+                        {
+                            TextoVida.text = "<b>" + Character.GetComponent<PlayerKnight>().VidaActual + " / " + Character.GetComponent<PlayerKnight>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.white;
+                        }
+
+                        // Estadística Ataque
+                        if (Character.GetComponent<PlayerKnight>().AtaqueActual < Character.GetComponent<PlayerKnight>().AtaqueOriginal)
+                        {
+                            TextoAtaque.text = "<b><color=red>" + Character.GetComponent<PlayerKnight>().AtaqueActual + "</color> / " + Character.GetComponent<PlayerKnight>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerKnight>().AtaqueActual > Character.GetComponent<PlayerKnight>().AtaqueOriginal)
+                        {
+                            TextoAtaque.text = "<b><color=green>" + Character.GetComponent<PlayerKnight>().AtaqueActual + "</color> / " + Character.GetComponent<PlayerKnight>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.green;
+                        }
+                        else
+                        {
+                            TextoAtaque.text = "<b>" + Character.GetComponent<PlayerKnight>().AtaqueActual + " / " + Character.GetComponent<PlayerKnight>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.white;
+                        }
+
+                        // Estadística Defensa
+                        if (Character.GetComponent<PlayerKnight>().DefensaActual < Character.GetComponent<PlayerKnight>().DefensaOriginal)
+                        {
+                            TextoDefensa.text = "<b><color=red>" + Character.GetComponent<PlayerKnight>().DefensePercentage() + "%</color> / 50%</b>";
+                            DefensaImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerKnight>().DefensaActual > Character.GetComponent<PlayerKnight>().DefensaOriginal)
+                        {
+                            TextoDefensa.text = "<b><color=green>" + Character.GetComponent<PlayerKnight>().DefensePercentage() + "%</color> / 50%</b>";
+                            DefensaImagen.color = Color.green;
+                        }
+                        else
+                        {
+                            TextoDefensa.text = "<b>" + Character.GetComponent<PlayerKnight>().DefensePercentage() + "% / 50%</b>";
+                            DefensaImagen.color = Color.white;
+                        }
+                    }
+                    else if (CharacterType == 2)
+                    {
+                        // Estadística Vida
+                        if (Character.GetComponent<PlayerHealer>().VidaActual <= ((20 * Character.GetComponent<PlayerHealer>().VidaTotal) / 100))
+                        {
+                            TextoVida.text = "<b><color=red>" + Character.GetComponent<PlayerHealer>().VidaActual + "</color> / " + Character.GetComponent<PlayerHealer>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerHealer>().VidaActual <= ((50 * Character.GetComponent<PlayerHealer>().VidaTotal) / 100))
+                        {
+                            TextoVida.text = "<b><color=yellow>" + Character.GetComponent<PlayerHealer>().VidaActual + "</color> / " + Character.GetComponent<PlayerHealer>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.yellow;
+                        }
+                        else
+                        {
+                            TextoVida.text = "<b>" + Character.GetComponent<PlayerHealer>().VidaActual + " / " + Character.GetComponent<PlayerHealer>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.white;
+                        }
+
+                        // Estadística Ataque
+                        if (Character.GetComponent<PlayerHealer>().AtaqueActual < Character.GetComponent<PlayerHealer>().AtaqueOriginal)
+                        {
+                            TextoAtaque.text = "<b><color=red>" + Character.GetComponent<PlayerHealer>().AtaqueActual + "</color> / " + Character.GetComponent<PlayerHealer>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerHealer>().AtaqueActual > Character.GetComponent<PlayerHealer>().AtaqueOriginal)
+                        {
+                            TextoAtaque.text = "<b><color=green>" + Character.GetComponent<PlayerHealer>().AtaqueActual + "</color> / " + Character.GetComponent<PlayerHealer>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.green;
+                        }
+                        else
+                        {
+                            TextoAtaque.text = "<b>" + Character.GetComponent<PlayerHealer>().AtaqueActual + " / " + Character.GetComponent<PlayerHealer>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.white;
+                        }
+
+                        // Estadística Defensa
+                        if (Character.GetComponent<PlayerHealer>().DefensaActual < Character.GetComponent<PlayerHealer>().DefensaOriginal)
+                        {
+                            TextoDefensa.text = "<b><color=red>" + Character.GetComponent<PlayerHealer>().DefensePercentage() + "%</color> / 50%</b>";
+                            DefensaImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerHealer>().DefensaActual > Character.GetComponent<PlayerHealer>().DefensaOriginal)
+                        {
+                            TextoDefensa.text = "<b><color=green>" + Character.GetComponent<PlayerHealer>().DefensePercentage() + "%</color> / 50%</b>";
+                            DefensaImagen.color = Color.green;
+                        }
+                        else
+                        {
+                            TextoDefensa.text = "<b>" + Character.GetComponent<PlayerHealer>().DefensePercentage() + "% / 50%</b>";
+                            DefensaImagen.color = Color.white;
+                        }
+                    }
+                    else if (CharacterType == 3)
+                    {
+                        // Estadística Vida
+                        if (Character.GetComponent<PlayerSlime>().VidaActual <= ((20 * Character.GetComponent<PlayerSlime>().VidaTotal) / 100))
+                        {
+                            TextoVida.text = "<b><color=red>" + Character.GetComponent<PlayerSlime>().VidaActual + "</color> / " + Character.GetComponent<PlayerSlime>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerSlime>().VidaActual <= ((50 * Character.GetComponent<PlayerSlime>().VidaTotal) / 100))
+                        {
+                            TextoVida.text = "<b><color=yellow>" + Character.GetComponent<PlayerSlime>().VidaActual + "</color> / " + Character.GetComponent<PlayerSlime>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.yellow;
+                        }
+                        else
+                        {
+                            TextoVida.text = "<b>" + Character.GetComponent<PlayerSlime>().VidaActual + " / " + Character.GetComponent<PlayerSlime>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.white;
+                        }
+
+                        // Estadística Ataque
+                        if (Character.GetComponent<PlayerSlime>().AtaqueActual < Character.GetComponent<PlayerSlime>().AtaqueOriginal)
+                        {
+                            TextoAtaque.text = "<b><color=red>" + Character.GetComponent<PlayerSlime>().AtaqueActual + "</color> / " + Character.GetComponent<PlayerSlime>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerSlime>().AtaqueActual > Character.GetComponent<PlayerSlime>().AtaqueOriginal)
+                        {
+                            TextoAtaque.text = "<b><color=green>" + Character.GetComponent<PlayerSlime>().AtaqueActual + "</color> / " + Character.GetComponent<PlayerSlime>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.green;
+                        }
+                        else
+                        {
+                            TextoAtaque.text = "<b>" + Character.GetComponent<PlayerSlime>().AtaqueActual + " / " + Character.GetComponent<PlayerSlime>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.white;
+                        }
+
+                        // Estadística Defensa
+                        if (Character.GetComponent<PlayerSlime>().DefensaActual < Character.GetComponent<PlayerSlime>().DefensaOriginal)
+                        {
+                            TextoDefensa.text = "<b><color=red>" + Character.GetComponent<PlayerSlime>().DefensePercentage() + "%</color> / 50%</b>";
+                            DefensaImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerSlime>().DefensaActual > Character.GetComponent<PlayerSlime>().DefensaOriginal)
+                        {
+                            TextoDefensa.text = "<b><color=green>" + Character.GetComponent<PlayerSlime>().DefensePercentage() + "%</color> / 50%</b>";
+                            DefensaImagen.color = Color.green;
+                        }
+                        else
+                        {
+                            TextoDefensa.text = "<b>" + Character.GetComponent<PlayerSlime>().DefensePercentage() + "% / 50%</b>";
+                            DefensaImagen.color = Color.white;
+                        }
+                    }
+                    else
+                    {
+                        // Estadística Vida
+                        if (Character.GetComponent<PlayerMage>().VidaActual <= ((20 * Character.GetComponent<PlayerMage>().VidaTotal) / 100))
+                        {
+                            TextoVida.text = "<b><color=red>" + Character.GetComponent<PlayerMage>().VidaActual + "</color> / " + Character.GetComponent<PlayerMage>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerMage>().VidaActual <= ((50 * Character.GetComponent<PlayerMage>().VidaTotal) / 100))
+                        {
+                            TextoVida.text = "<b><color=yellow>" + Character.GetComponent<PlayerMage>().VidaActual + "</color> / " + Character.GetComponent<PlayerMage>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.yellow;
+                        }
+                        else
+                        {
+                            TextoVida.text = "<b>" + Character.GetComponent<PlayerMage>().VidaActual + " / " + Character.GetComponent<PlayerMage>().VidaTotal + "</b>";
+                            VidaImagen.color = Color.white;
+                        }
+
+                        // Estadística Ataque
+                        if (Character.GetComponent<PlayerMage>().AtaqueActual < Character.GetComponent<PlayerMage>().AtaqueOriginal)
+                        {
+                            TextoAtaque.text = "<b><color=red>" + Character.GetComponent<PlayerMage>().AtaqueActual + "</color> / " + Character.GetComponent<PlayerMage>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerMage>().AtaqueActual > Character.GetComponent<PlayerMage>().AtaqueOriginal)
+                        {
+                            TextoAtaque.text = "<b><color=green>" + Character.GetComponent<PlayerMage>().AtaqueActual + "</color> / " + Character.GetComponent<PlayerMage>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.green;
+                        }
+                        else
+                        {
+                            TextoAtaque.text = "<b>" + Character.GetComponent<PlayerMage>().AtaqueActual + " / " + Character.GetComponent<PlayerMage>().AtaqueMax + "</b>";
+                            AtaqueImagen.color = Color.white;
+                        }
+
+                        // Estadística Defensa
+                        if (Character.GetComponent<PlayerMage>().DefensaActual < Character.GetComponent<PlayerMage>().DefensaOriginal)
+                        {
+                            TextoDefensa.text = "<b><color=red>" + Character.GetComponent<PlayerMage>().DefensePercentage() + "%</color> / 50%</b>";
+                            DefensaImagen.color = Color.red;
+                        }
+                        else if (Character.GetComponent<PlayerMage>().DefensaActual > Character.GetComponent<PlayerMage>().DefensaOriginal)
+                        {
+                            TextoDefensa.text = "<b><color=green>" + Character.GetComponent<PlayerMage>().DefensePercentage() + "%</color> / 50%</b>";
+                            DefensaImagen.color = Color.green;
+                        }
+                        else
+                        {
+                            TextoDefensa.text = "<b>" + Character.GetComponent<PlayerMage>().DefensePercentage() + "% / 50%</b>";
+                            DefensaImagen.color = Color.white;
+                        }
+                    }
 
                     ClonCharacterBattleInfoBorder = Instantiate(PrefabCharacterBattleInfoBorder);      // Crea el borde de la interfaz de movimientos durante el turno del jugador
                     ClonCharacterBattleInfoBorder.transform.position = new Vector3(-9.5f, 0.05f, 2);   // Lo posiciona
@@ -162,6 +392,7 @@ public class GeneralPlayer : MonoBehaviour
                     ClonMove.GetComponent<MoveButton>().CharacterPosition = CharacterPosition;         // Almacena en el botón la posición actual del personaje
                     ClonMove.GetComponent<MoveButton>().Positions = Positions;                         // Almacena en el botón el array de posiciones del combate
                     ClonMove.GetComponent<MoveButton>().Character = Character;                         // Almacena el personaje
+                    ClonMove.GetComponent<MoveButton>().UIMover = UIMover;
                     ClonMove.GetComponent<MoveButton>()._CombatBackground = _CombatBackground;         // Almacena el combate
                     _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[4] = ClonMove; // Lo alamcena en el array de info del Personaje del Jugador
 
@@ -178,6 +409,8 @@ public class GeneralPlayer : MonoBehaviour
                     ClonAbility1.GetComponent<Ability1Button>().Enemies = Enemies;                     // Almacena el array de enemigos 
                     ClonAbility1.GetComponent<Ability1Button>().Positions = Positions;                 // Almacena en el botón el array de posiciones del combate
                     ClonAbility1.GetComponent<Ability1Button>().Character = Character;                 // Almacena el personaje
+                    ClonAbility1.GetComponent<Ability1Button>().UIAtacarConRango = UIAtacarConRango;
+                    ClonAbility1.GetComponent<Ability1Button>().UIAtacarSinRango = UIAtacarSinRango;
                     ClonAbility1.GetComponent<Ability1Button>()._CombatBackground = _CombatBackground; // Almacena el combate
                     _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[6] = ClonAbility1; // Lo alamcena en el array de info del Personaje del Jugador
 
@@ -207,6 +440,11 @@ public class GeneralPlayer : MonoBehaviour
                     ClonAbility2.GetComponent<Ability2Button>().Aliados = _CombatBackground.GetComponent<CombatBackground>().Aliados; // Almacena el array de aliados
                     ClonAbility2.GetComponent<Ability2Button>().Positions = Positions;                 // Almacena en el botón el array de posiciones del combate
                     ClonAbility2.GetComponent<Ability2Button>().Character = Character;                 // Almacena el personaje
+                    ClonAbility2.GetComponent<Ability2Button>().UIHabilidadKnight = UIHabilidadKnight;
+                    ClonAbility2.GetComponent<Ability2Button>().UIHabilidadHealer = UIHabilidadHealer;
+                    ClonAbility2.GetComponent<Ability2Button>().UIHabilidadSlime = UIHabilidadSlime;
+                    ClonAbility2.GetComponent<Ability2Button>().UIHabilidadMage = UIHabilidadMage;
+                    ClonAbility2.GetComponent<Ability2Button>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
                     ClonAbility2.GetComponent<Ability2Button>()._CombatBackground = _CombatBackground; // Almacena el combate
 
                     if (CharacterType == 1)                                                                                                                   // Si es un Knight
@@ -313,19 +551,19 @@ public class GeneralPlayer : MonoBehaviour
                     {
                         if (CharacterType == 1)
                         {
-                            Character.GetComponent<PlayerKnight>().VidaActual += 20;
+                            Character.GetComponent<PlayerKnight>().VidaActual += 30;
                         }
                         else if (CharacterType == 2)
                         {
-                            Character.GetComponent<PlayerHealer>().VidaActual += 20;
+                            Character.GetComponent<PlayerHealer>().VidaActual += 30;
                         }
                         else if (CharacterType == 3)
                         {
-                            Character.GetComponent<PlayerSlime>().VidaActual += 20;
+                            Character.GetComponent<PlayerSlime>().VidaActual += 30;
                         }
                         else
                         {
-                            Character.GetComponent<PlayerMage>().VidaActual += 20;
+                            Character.GetComponent<PlayerMage>().VidaActual += 30;
                         }
                     }
                     else if (Action == 2)                                                             // Si la acción es la habilidad del Mage
@@ -387,6 +625,8 @@ public class GeneralPlayer : MonoBehaviour
 
                     PlayerUsingAbility.GetComponent<GeneralPlayer>().Action = 0;                       // Indica que ya no se realiza ninguna acción
                     _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
+
+                    UIEstadisticasPersonaje.SetActive(false);
                 }
             }
         }

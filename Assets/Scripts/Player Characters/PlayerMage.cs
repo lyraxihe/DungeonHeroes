@@ -15,6 +15,9 @@ public class PlayerMage : MonoBehaviour
     public int DefensaActual;          // Defensa actual del personaje
     public int DefensaMax;             // Defensa máxima del personaje
 
+    public int AtaqueOriginal;
+    public int DefensaOriginal;
+
     public GameObject PrefabHealthbar; // Prefab Healthbar
     public GameObject ClonHealthbar;   // Clon del prefab Healthbar
 
@@ -32,6 +35,9 @@ public class PlayerMage : MonoBehaviour
         AtaqueMax = VariablesGlobales.instance.MageAtaqueMax;
         DefensaActual = VariablesGlobales.instance.MageDefensaActual;
         DefensaMax = VariablesGlobales.instance.MageDefensaMax;
+
+        AtaqueOriginal = AtaqueActual;
+        DefensaOriginal= DefensaActual;
 
         CreateHealthbar();                    // Crea la barra de vida del personaje
     }

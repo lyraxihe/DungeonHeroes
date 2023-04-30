@@ -21,6 +21,8 @@ public class CombatPosition : MonoBehaviour
     public Vector2 MinTam;                        // Tamaño máximo que puede llegar a tener la posición
     private Vector2 MaxTam;                        // Tamaño mínimo que puede llegar a tener la posición
 
+    public GameObject UIEstadisticasPersonaje;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -130,5 +132,6 @@ public class CombatPosition : MonoBehaviour
 
             _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
         }
+        UIEstadisticasPersonaje.SetActive(false);
     }
 }

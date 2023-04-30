@@ -13,6 +13,9 @@ public class Ability1Button : MonoBehaviour
     public Button _Button;               // Botón asociado al Canva "MoveButton"
     public GameObject Character;         // Personaje asociado
 
+    public GameObject UIAtacarConRango;
+    public GameObject UIAtacarSinRango;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -20,6 +23,8 @@ public class Ability1Button : MonoBehaviour
         _Button.GetComponent<Ability1ButtonAction>().Enemies = Enemies;                     // Almacena el array de enemigos del combate
         _Button.GetComponent<Ability1ButtonAction>().Positions = Positions;                 // Almacena en el botón el array de posiciones del combate
         _Button.GetComponent<Ability1ButtonAction>().Character = Character;                 // Almacena el personaje
+        _Button.GetComponent<Ability1ButtonAction>().UIAtacarConRango = UIAtacarConRango;
+        _Button.GetComponent<Ability1ButtonAction>().UIAtacarSinRango = UIAtacarSinRango;
         _Button.GetComponent<Ability1ButtonAction>()._CombatBackground= _CombatBackground;  // Almacena el combate
     }
 }

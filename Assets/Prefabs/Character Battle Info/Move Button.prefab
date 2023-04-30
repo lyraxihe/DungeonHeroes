@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &9181417631684566115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,10 +114,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce35d2cff05c364e9e860e7b42eddbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CombatBackground: {fileID: 0}
   Positions: []
   CharacterPosition: {fileID: 0}
   _Button: {fileID: 9181417631758805376}
   Character: {fileID: 0}
+  UIMover: {fileID: 0}
 --- !u!1 &9181417631758805628
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +133,7 @@ GameObject:
   - component: {fileID: 9181417631758805378}
   - component: {fileID: 9181417631758805376}
   - component: {fileID: 7287767756075905640}
+  - component: {fileID: 8274798292207872552}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -264,7 +267,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2bb1b9cd344bcc44a75685dae28c618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CombatBackground: {fileID: 0}
   Positions: []
   CharacterPosition: {fileID: 0}
   Character: {fileID: 0}
+  UIMover: {fileID: 0}
   PositionsToMove: 
+--- !u!61 &8274798292207872552
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9181417631758805628}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

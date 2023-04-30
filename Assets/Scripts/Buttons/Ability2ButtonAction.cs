@@ -11,6 +11,13 @@ public class Ability2ButtonAction : MonoBehaviour
     public GameObject CharacterPosition; // Posición actual del personaje
     public GameObject Character;         // Personaje asociado
 
+    public GameObject UIHabilidadKnight;
+    public GameObject UIHabilidadHealer;
+    public GameObject UIHabilidadSlime;
+    public GameObject UIHabilidadMage;
+
+    public GameObject UIEstadisticasPersonaje;
+
     public int[] PositionsToAttack;        // Array de posiciones conectadas a la posición actual del personaje
 
     // Start is called before the first frame update
@@ -80,6 +87,9 @@ public class Ability2ButtonAction : MonoBehaviour
 
                 Character.GetComponent<GeneralPlayer>()._CombatBackground.GetComponent<CombatBackground>().ChangeTurn(); // Tras la acción, cambia el turno de la partida
                 Character.GetComponent<GeneralPlayer>().Habilidad2 = false;
+
+                UIHabilidadKnight.SetActive(false);
+                UIEstadisticasPersonaje.SetActive(false);
             }
         }
         else if (Character.GetComponent<GeneralPlayer>().CharacterType == 2)                                                         // Si el personaje es un Healer
@@ -149,5 +159,25 @@ public class Ability2ButtonAction : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void OnMouseEnter()
+    {
+        if(Character.GetComponent<GeneralPlayer>().CharacterType == 1)
+            UIHabilidadKnight.SetActive(true);
+        else if (Character.GetComponent<GeneralPlayer>().CharacterType == 2)
+            UIHabilidadHealer.SetActive(true);
+        else if (Character.GetComponent<GeneralPlayer>().CharacterType == 3)
+            UIHabilidadSlime.SetActive(true);
+        else
+            UIHabilidadMage.SetActive(true);
+    }
+
+    public void OnMouseExit()
+    {
+        UIHabilidadKnight.SetActive(false);
+        UIHabilidadHealer.SetActive(false);
+        UIHabilidadSlime.SetActive(false);
+        UIHabilidadMage.SetActive(false);
     }
 }

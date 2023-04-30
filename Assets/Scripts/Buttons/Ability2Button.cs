@@ -14,6 +14,13 @@ public class Ability2Button : MonoBehaviour
     public Button _Button;               // Botón asociado al Canva "MoveButton"
     public GameObject Character;         // Personaje asociado
 
+    public GameObject UIHabilidadKnight;
+    public GameObject UIHabilidadHealer;
+    public GameObject UIHabilidadSlime;
+    public GameObject UIHabilidadMage;
+
+    public GameObject UIEstadisticasPersonaje;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -23,5 +30,10 @@ public class Ability2Button : MonoBehaviour
         _Button.GetComponent<Ability2ButtonAction>().Positions = Positions;                 // Almacena en el botón el array de posiciones del combate
         _Button.GetComponent<Ability2ButtonAction>().Character = Character;                 // Almacena el personaje
         _Button.GetComponent<Ability2ButtonAction>()._CombatBackground= _CombatBackground;  // Almacena el combate
+        _Button.GetComponent<Ability2ButtonAction>().UIHabilidadKnight = UIHabilidadKnight;
+        _Button.GetComponent<Ability2ButtonAction>().UIHabilidadHealer = UIHabilidadHealer;
+        _Button.GetComponent<Ability2ButtonAction>().UIHabilidadSlime = UIHabilidadSlime;
+        _Button.GetComponent<Ability2ButtonAction>().UIHabilidadMage = UIHabilidadMage;
+        _Button.GetComponent<Ability2ButtonAction>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
     }
 }

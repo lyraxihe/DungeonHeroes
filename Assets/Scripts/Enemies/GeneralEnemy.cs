@@ -24,6 +24,8 @@ public class GeneralEnemy : MonoBehaviour
 
     public int Action;                             // 0 - ninguna acción, 1 - ataque, 2 - habilidad del Slime
 
+    public GameObject UIEstadisticasPersonaje;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -162,6 +164,7 @@ public class GeneralEnemy : MonoBehaviour
             Action = 0;                                                                        // Indica que ya no se realiza ninguna acción
             _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
         }
+        UIEstadisticasPersonaje.SetActive(false);
     }
 
     /****************************************************************************************

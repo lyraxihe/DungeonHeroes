@@ -15,6 +15,9 @@ public class PlayerKnight : MonoBehaviour
     public int DefensaActual;          // Defensa actual del personaje
     public int DefensaMax;             // Defensa máxima del personaje
 
+    public int AtaqueOriginal;
+    public int DefensaOriginal;
+
     public bool Invencible;                // Bool para activar la invulnerabilidad al usar su habilidad especial
     public int PlayerKnightInvencibleCont; // Contador para saber cuantos turnos faltan para dejar de ser invencible       
 
@@ -33,6 +36,9 @@ public class PlayerKnight : MonoBehaviour
         AtaqueMax = VariablesGlobales.instance.KnightAtaqueMax;
         DefensaActual = VariablesGlobales.instance.KnightDefensaActual;
         DefensaMax = VariablesGlobales.instance.KnightDefensaMax;
+
+        AtaqueOriginal = AtaqueActual;
+        DefensaOriginal = DefensaActual;
 
         Invencible = false;
         PlayerKnightInvencibleCont = 0;

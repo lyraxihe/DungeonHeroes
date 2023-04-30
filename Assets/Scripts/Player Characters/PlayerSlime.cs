@@ -15,6 +15,9 @@ public class PlayerSlime : MonoBehaviour
     public int DefensaActual;          // Defensa actual del personaje
     public int DefensaMax;             // Defensa máxima del personaje
 
+    public int AtaqueOriginal;
+    public int DefensaOriginal;
+
     public GameObject PrefabHealthbar; // Prefab Healthbar
     public GameObject ClonHealthbar;   // Clon del prefab Healthbar
 
@@ -32,6 +35,9 @@ public class PlayerSlime : MonoBehaviour
         AtaqueMax = VariablesGlobales.instance.SlimeAtaqueMax;
         DefensaActual = VariablesGlobales.instance.SlimeDefensaActual;
         DefensaMax = VariablesGlobales.instance.SlimeDefensaMax;
+
+        AtaqueOriginal = AtaqueActual;
+        DefensaOriginal= DefensaActual;
 
         UsedAbility = false;
 

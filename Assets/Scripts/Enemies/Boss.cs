@@ -20,6 +20,8 @@ public class Boss : MonoBehaviour
 
     public GameObject PlayerAttacking;             // Tipo de personaje del Jugador atacando este enemigo
 
+    public GameObject UIEstadisticasPersonaje;
+
     // ESTADÍSTICAS DEL PERSONAJE
     public int VidaTotal;     // Vida máxima del personaje
     public int VidaActual;    // Vida actual del personaje
@@ -190,6 +192,7 @@ public class Boss : MonoBehaviour
             Action = 0;                                                                        // Indica que ya no se realiza ninguna acción
             _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
         }
+        UIEstadisticasPersonaje.SetActive(false);
     }
 
     /****************************************************************************************

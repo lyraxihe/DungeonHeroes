@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2143435963994113232}
   - component: {fileID: 2143435963994113234}
   - component: {fileID: 9210598466098508861}
+  - component: {fileID: 2619184441586733503}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -146,11 +147,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a4b6c2e7ef88a40a2cffd64f8c970b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CombatBackground: {fileID: 0}
   Positions: []
   Enemies: []
   CharacterPosition: {fileID: 0}
   Character: {fileID: 0}
+  UIAtacarConRango: {fileID: 0}
+  UIAtacarSinRango: {fileID: 0}
   PositionsToAttack: 
+--- !u!61 &2619184441586733503
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143435963994113838}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2143435964197269808
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -12.3463745, y: -0.094696045}
+  m_AnchoredPosition: {x: -12.3463745, y: -0.09472656}
   m_SizeDelta: {x: 978, y: 440}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2143435964197269811
@@ -235,7 +265,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2143435964197269809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,8 +295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1431fa88a0d57a240b3414c4c4d6c802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CombatBackground: {fileID: 0}
   Positions: []
   Enemies: []
   CharacterPosition: {fileID: 0}
   _Button: {fileID: 2143435963994113234}
   Character: {fileID: 0}
+  UIAtacarConRango: {fileID: 0}
+  UIAtacarSinRango: {fileID: 0}
