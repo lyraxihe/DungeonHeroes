@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,22 +18,30 @@ public class EnemyMage : MonoBehaviour
     public int AtaqueMax;     // Ataque máximo del personaje
     public int DefensaActual; // Defensa actual del personaje
     public int DefensaMax;    // Defensa máxima del personaje
+    public int DefensaActualPercentage; // Porcentaje de defensa del personaje
 
     public GameObject PrefabHealthbar; // Prefab Healthbar
     public GameObject ClonHealthbar;  // Clon del prefab Healthbar
 
     public bool HabilidadSlime;    // Booleano para controlar si la habilidad del Slime está activa sobre este personaje
 
+    //UI ENEMIGOS
+    public GameObject UIEnemigo;
+    public TMP_Text VidaEnemigo;
+    public TMP_Text AtaqueEnemigo;
+    public TMP_Text DefensaEnemigo;
+
     // Start is called before the first frame update
     void Start()
     {
         // Establece los atributos del personaje
-        VidaTotal = 100;
-        VidaActual = VidaTotal;
-        AtaqueActual = 10;
-        AtaqueMax = 50;
-        DefensaActual = 7;
-        DefensaMax = 10;
+        VidaTotal = VariablesGlobales.instance.MageVidaTotal;
+        VidaActual = VariablesGlobales.instance.MageVidaActual;
+        AtaqueActual = VariablesGlobales.instance.MageAtaqueActual;
+        AtaqueMax = VariablesGlobales.instance.MageAtaqueMax;
+        DefensaActual = VariablesGlobales.instance.MageDefensaActual;
+        DefensaMax = VariablesGlobales.instance.MageDefensaMax;
+        DefensaActualPercentage = VariablesGlobales.instance.MageDefensaActualPercentage;
 
         HabilidadSlime = false;
 
@@ -48,6 +57,7 @@ public class EnemyMage : MonoBehaviour
 
         ControlAtributos();                                                                 // Controla cada frame que los valores de los atributos sean correctos
         ControlSlimeAbility();                                                              // Controla la duración de la habilidad del Slime
+        ControlUI();
     }
 
     /****************************************************************************************
@@ -195,6 +205,48 @@ public class EnemyMage : MonoBehaviour
                         _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerSlime>().UsedAbility = false;
                 }
             }
+        }
+    }
+
+    private void ControlUI()
+    {
+        if (VidaActual <= (20 * VidaTotal) / 100)
+        {
+            VidaEnemigo.text = "<color=red>" + VidaActual + "</color> / " + VidaTotal;
+        }
+        else if (VidaActual <= (50 * VidaTotal) / 100)
+        {
+            VidaEnemigo.text = "<color=yellow>" + VidaActual + "</color> / " + VidaTotal;
+        }
+        else
+        {
+            VidaEnemigo.text = VidaActual + " / " + VidaTotal;
+        }
+
+        if (AtaqueActual < VariablesGlobales.instance.MageAtaqueActual)
+        {
+            AtaqueEnemigo.text = "<color=red>" + AtaqueActual + "</color> / " + AtaqueMax;
+        }
+        else if (AtaqueActual > VariablesGlobales.instance.MageAtaqueActual)
+        {
+            AtaqueEnemigo.text = "<color=green>" + AtaqueActual + "</color> / " + AtaqueMax;
+        }
+        else
+        {
+            AtaqueEnemigo.text = AtaqueActual + " / " + AtaqueMax;
+        }
+
+        if (DefensaActual < VariablesGlobales.instance.MageDefensaActual)
+        {
+            DefensaEnemigo.text = "<color=red>" + DefensaActualPercentage + "%</color> / 50%";
+        }
+        else if (DefensaActual > VariablesGlobales.instance.MageDefensaActual)
+        {
+            DefensaEnemigo.text = "<color=green>" + DefensaActualPercentage + "%</color> / 50%";
+        }
+        else
+        {
+            DefensaEnemigo.text = DefensaActualPercentage + "% / 50%";
         }
     }
 }

@@ -28,6 +28,10 @@ public class GeneralPlayer : MonoBehaviour
     public GameObject UIHabilidadSlime;
     public GameObject UIHabilidadMage;
 
+    public GameObject EstadisticaVida;
+    public GameObject EstadisticaAtaque;
+    public GameObject EstadisticaDefensa;
+
     public GameObject[] Enemies;                       // Array de enemigos del combate
     public GameObject[] Aliados;                       // Array de aliados del combate
 
@@ -372,6 +376,10 @@ public class GeneralPlayer : MonoBehaviour
                             DefensaImagen.color = Color.white;
                         }
                     }
+
+                    EstadisticaVida.SetActive(true);
+                    EstadisticaAtaque.SetActive(true);
+                    EstadisticaDefensa.SetActive(true);
 
                     ClonCharacterBattleInfoBorder = Instantiate(PrefabCharacterBattleInfoBorder);      // Crea el borde de la interfaz de movimientos durante el turno del jugador
                     ClonCharacterBattleInfoBorder.transform.position = new Vector3(-9.5f, 0.05f, 2);   // Lo posiciona

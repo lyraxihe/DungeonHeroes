@@ -37,36 +37,49 @@ public class VariablesGlobales : MonoBehaviour
     public bool Boss;
 
     // ESTADÍSTICAS DEL KNIGHT
-    public int KnightVidaTotal;              // Vida máxima del personaje
-    public int KnightVidaActual;             // Vida actual del personaje
-    public int KnightAtaqueActual;           // Ataque actual del personaje
-    public int KnightAtaqueMax;              // Ataque máximo del personaje
-    public int KnightDefensaActual;          // Defensa actual del personaje
-    public int KnightDefensaMax;             // Defensa máxima del personaje
+    public int KnightVidaTotal;               // Vida máxima del personaje
+    public int KnightVidaActual;              // Vida actual del personaje
+    public int KnightAtaqueActual;            // Ataque actual del personaje
+    public int KnightAtaqueMax;               // Ataque máximo del personaje
+    public int KnightDefensaActual;           // Defensa actual del personaje
+    public int KnightDefensaMax;              // Defensa máxima del personaje
+    public int KnightDefensaActualPercentage; // Porcentaje de defensa actual del personaje
 
     // ESTADÍSTICAS DEL HEALER
-    public int HealerVidaTotal;              // Vida máxima del personaje
-    public int HealerVidaActual;             // Vida actual del personaje
-    public int HealerAtaqueActual;           // Ataque actual del personaje
-    public int HealerAtaqueMax;              // Ataque máximo del personaje
-    public int HealerDefensaActual;          // Defensa actual del personaje
-    public int HealerDefensaMax;             // Defensa máxima del personaje
+    public int HealerVidaTotal;               // Vida máxima del personaje
+    public int HealerVidaActual;              // Vida actual del personaje
+    public int HealerAtaqueActual;            // Ataque actual del personaje
+    public int HealerAtaqueMax;               // Ataque máximo del personaje
+    public int HealerDefensaActual;           // Defensa actual del personaje
+    public int HealerDefensaMax;              // Defensa máxima del personaje
+    public int HealerDefensaActualPercentage; // Porcentaje de defensa actual del personaje
 
     // ESTADÍSTICAS DEL SLIME
-    public int SlimeVidaTotal;              // Vida máxima del personaje
-    public int SlimeVidaActual;             // Vida actual del personaje
-    public int SlimeAtaqueActual;           // Ataque actual del personaje
-    public int SlimeAtaqueMax;              // Ataque máximo del personaje
-    public int SlimeDefensaActual;          // Defensa actual del personaje
-    public int SlimeDefensaMax;             // Defensa máxima del personaje
+    public int SlimeVidaTotal;               // Vida máxima del personaje
+    public int SlimeVidaActual;              // Vida actual del personaje
+    public int SlimeAtaqueActual;            // Ataque actual del personaje
+    public int SlimeAtaqueMax;               // Ataque máximo del personaje
+    public int SlimeDefensaActual;           // Defensa actual del personaje
+    public int SlimeDefensaMax;              // Defensa máxima del personaje
+    public int SlimeDefensaActualPercentage; // Porcentaje de defensa actual del personaje
 
     // ESTADÍSTICAS DEL MAGE
-    public int MageVidaTotal;              // Vida máxima del personaje
-    public int MageVidaActual;             // Vida actual del personaje
-    public int MageAtaqueActual;           // Ataque actual del personaje
-    public int MageAtaqueMax;              // Ataque máximo del personaje
-    public int MageDefensaActual;          // Defensa actual del personaje
-    public int MageDefensaMax;             // Defensa máxima del personaje
+    public int MageVidaTotal;               // Vida máxima del personaje
+    public int MageVidaActual;              // Vida actual del personaje
+    public int MageAtaqueActual;            // Ataque actual del personaje
+    public int MageAtaqueMax;               // Ataque máximo del personaje
+    public int MageDefensaActual;           // Defensa actual del personaje
+    public int MageDefensaMax;              // Defensa máxima del personaje
+    public int MageDefensaActualPercentage; // Porcentaje de defensa actual del personaje
+
+    // ESTADÍSTICAS DEL BOSS
+    public int BossVidaTotal;               // Vida máxima del personaje
+    public int BossVidaActual;              // Vida actual del personaje
+    public int BossAtaqueActual;            // Ataque actual del personaje
+    public int BossAtaqueMax;               // Ataque máximo del personaje
+    public int BossDefensaActual;           // Defensa actual del personaje
+    public int BossDefensaMax;              // Defensa máxima del personaje
+    public int BossDefensaActualPercentage; // Porcentaje de defensa actual del personaje
 
     private void Awake() //carga los datos guardados
     {
@@ -94,6 +107,7 @@ public class VariablesGlobales : MonoBehaviour
         KnightAtaqueMax = 50;
         KnightDefensaActual = 5;
         KnightDefensaMax = 10;
+        KnightDefensaActualPercentage = KnightDefensaActual * 5;
 
         // Establece los atributos del Healer
         HealerVidaTotal = 100;
@@ -102,6 +116,7 @@ public class VariablesGlobales : MonoBehaviour
         HealerAtaqueMax = 50;
         HealerDefensaActual = 5;
         HealerDefensaMax = 10;
+        HealerDefensaActualPercentage = HealerDefensaActual * 5;
 
         // Establece los atributos del Slime
         SlimeVidaTotal = 150;
@@ -110,6 +125,7 @@ public class VariablesGlobales : MonoBehaviour
         SlimeAtaqueMax = 50;
         SlimeDefensaActual = 2;
         SlimeDefensaMax = 10;
+        SlimeDefensaActualPercentage = SlimeDefensaActual * 5;
 
         // Establece los atributos del Mage
         MageVidaTotal = 100;
@@ -118,6 +134,16 @@ public class VariablesGlobales : MonoBehaviour
         MageAtaqueMax = 50;
         MageDefensaActual = 7;
         MageDefensaMax = 10;
+        MageDefensaActualPercentage = MageDefensaActual * 5;
+
+        // Establece los atributos del Boss
+        BossVidaTotal = 200;
+        BossVidaActual = 200;
+        BossAtaqueActual = 30;
+        BossAtaqueMax = 50;
+        BossDefensaActual = 5;
+        BossDefensaMax = 10;
+        BossDefensaActualPercentage = MageDefensaActual * 5;
     }
     private void Update()
     {

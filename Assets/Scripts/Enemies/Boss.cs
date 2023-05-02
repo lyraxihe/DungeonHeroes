@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -23,12 +24,24 @@ public class Boss : MonoBehaviour
     public GameObject UIEstadisticasPersonaje;
 
     // ESTADÍSTICAS DEL PERSONAJE
-    public int VidaTotal;     // Vida máxima del personaje
-    public int VidaActual;    // Vida actual del personaje
-    public int AtaqueActual;  // Ataque actual del personaje
-    public int AtaqueMax;     // Ataque máximo del personaje
-    public int DefensaActual; // Defensa actual del personaje
-    public int DefensaMax;    // Defensa máxima del personaje
+    public int VidaTotal;               // Vida máxima del personaje
+    public int VidaActual;              // Vida actual del personaje
+    public int AtaqueActual;            // Ataque actual del personaje
+    public int AtaqueMax;               // Ataque máximo del personaje
+    public int DefensaActual;           // Defensa actual del personaje
+    public int DefensaMax;              // Defensa máxima del personaje
+    public int DefensaActualPercentage; // Porcentaje de defensa del personaje
+
+    //UI ENEMIGOS
+    public GameObject UIEnemigo;
+    public TMP_Text VidaEnemigo;
+    public TMP_Text AtaqueEnemigo;
+    public TMP_Text DefensaEnemigo;
+
+    public GameObject UIEnemigoImagen;
+    public GameObject UIEnemigoCorazon;
+    public GameObject UIEnemigoEspada;
+    public GameObject UIEnemigoEscudo;
 
     public GameObject PrefabHealthbar; // Prefab Healthbar
     public GameObject ClonHealthbar;  // Clon del prefab Healthbar
@@ -50,12 +63,13 @@ public class Boss : MonoBehaviour
         Action = 0;                                                                   // Ninguna acción
 
         // Establece los atributos del personaje
-        VidaTotal = 200;
-        VidaActual = VidaTotal;
-        AtaqueActual = 30;
-        AtaqueMax = 50;
-        DefensaActual = 5;
-        DefensaMax = 10;
+        VidaTotal = VariablesGlobales.instance.BossVidaTotal;
+        VidaActual = VariablesGlobales.instance.BossVidaActual;
+        AtaqueActual = VariablesGlobales.instance.BossAtaqueActual;
+        AtaqueMax = VariablesGlobales.instance.BossAtaqueMax;
+        DefensaActual = VariablesGlobales.instance.BossDefensaActual;
+        DefensaMax = VariablesGlobales.instance.BossDefensaMax;
+        DefensaActualPercentage = VariablesGlobales.instance.BossDefensaActualPercentage;
 
         HabilidadSlime = false;
 
@@ -77,6 +91,7 @@ public class Boss : MonoBehaviour
 
         ControlAtributos();                                                                 // Controla cada frame que los valores de los atributos sean correctos
         ControlSlimeAbility();                                                              // Controla la duración de la habilidad del Slime
+        ControlUI();
     }
 
     /****************************************************************************************
@@ -415,6 +430,48 @@ public class Boss : MonoBehaviour
                         _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerSlime>().UsedAbility = false;
                 }
             }
+        }
+    }
+
+    private void ControlUI()
+    {
+        if (VidaActual <= (20 * VidaTotal) / 100)
+        {
+            VidaEnemigo.text = "<color=red>" + VidaActual + "</color> / " + VidaTotal;
+        }
+        else if (VidaActual <= (50 * VidaTotal) / 100)
+        {
+            VidaEnemigo.text = "<color=yellow>" + VidaActual + "</color> / " + VidaTotal;
+        }
+        else
+        {
+            VidaEnemigo.text = VidaActual + " / " + VidaTotal;
+        }
+
+        if (AtaqueActual < VariablesGlobales.instance.BossAtaqueActual)
+        {
+            AtaqueEnemigo.text = "<color=red>" + AtaqueActual + "</color> / " + AtaqueMax;
+        }
+        else if (AtaqueActual > VariablesGlobales.instance.BossAtaqueActual)
+        {
+            AtaqueEnemigo.text = "<color=green>" + AtaqueActual + "</color> / " + AtaqueMax;
+        }
+        else
+        {
+            AtaqueEnemigo.text = AtaqueActual + " / " + AtaqueMax;
+        }
+
+        if (DefensaActual < VariablesGlobales.instance.BossDefensaActual)
+        {
+            DefensaEnemigo.text = "<color=red>" + DefensaActualPercentage + "%</color> / 50%";
+        }
+        else if (DefensaActual > VariablesGlobales.instance.BossDefensaActual)
+        {
+            DefensaEnemigo.text = "<color=green>" + DefensaActualPercentage + "%</color> / 50%";
+        }
+        else
+        {
+            DefensaEnemigo.text = DefensaActualPercentage + "% / 50%";
         }
     }
 }

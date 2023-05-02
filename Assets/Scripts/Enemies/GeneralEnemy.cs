@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -25,6 +26,11 @@ public class GeneralEnemy : MonoBehaviour
     public int Action;                             // 0 - ninguna acción, 1 - ataque, 2 - habilidad del Slime
 
     public GameObject UIEstadisticasPersonaje;
+
+    public GameObject UIEnemigoImagen;
+    public GameObject UIEnemigoCorazon;
+    public GameObject UIEnemigoEspada;
+    public GameObject UIEnemigoEscudo;
 
     // Start is called before the first frame update
     void Start()
