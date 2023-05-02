@@ -965,6 +965,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1411160520}
   canvasCreditos: {fileID: 1014908318}
+  RoomsPosition: {fileID: 3345182463548743953, guid: d0a8dea8667f9c44891d1d4819929331, type: 3}
+  PrefabCombate: {fileID: 3848581415733337236, guid: f6e99414fa5da77408a4f851ee88cdce, type: 3}
+  PrefabTienda: {fileID: 6212407063030524772, guid: bf9ef3653e1d4ce41951d07e33fbafe4, type: 3}
+  PrefabJefe: {fileID: 824576691445757552, guid: 6729b3648bdbdc343826f33488d955df, type: 3}
   EscPressed: 0
   Boss: 0
   KnightVidaTotal: 0
