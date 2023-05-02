@@ -83,7 +83,7 @@ public class GeneralEnemy : MonoBehaviour
     public void OnMouseDown()
     {
         int i;
-
+        
         if (SelectedToAttack)
         {
 
@@ -104,6 +104,9 @@ public class GeneralEnemy : MonoBehaviour
         {
             Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
             transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
+
+            if(PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType != 1)
+                PlayerAttacking.GetComponent<Animator>().SetTrigger("ataque");
 
             if (Action == 1)                                                                  // Si la acción es la de atacar
             {

@@ -143,6 +143,9 @@ public class Boss : MonoBehaviour
             Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
             transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
 
+            if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType != 1)
+                PlayerAttacking.GetComponent<Animator>().SetTrigger("ataque");
+
             if (Action == 1)                                                                  // Si la acción es la de atacar
             {
                 if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType == 1)         // El personaje atacando es un Knight
@@ -274,15 +277,26 @@ public class Boss : MonoBehaviour
                             attack = false;                                                                                    // No puede atacar esa posición
                 }
             } while (!attack);
-
+            
             if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)      // Si el objetivo es un Knight
+            {
                 position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().DefensePercentage() * damage) / 100));
+            }
             else if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 2) // Si el objeivo es un Healer
+            {
+                position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                 position.GetComponent<CombatPosition>().Character.GetComponent<PlayerHealer>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerHealer>().DefensePercentage() * damage) / 100));
+            }
             else if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 3) // Si el objetivo es un Slime
+            {
+                position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                 position.GetComponent<CombatPosition>().Character.GetComponent<PlayerSlime>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerSlime>().DefensePercentage() * damage) / 100));
+            }
             else                                                                                                         // Si el objetivo es un Mage
+            {
+                position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                 position.GetComponent<CombatPosition>().Character.GetComponent<PlayerMage>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerMage>().DefensePercentage() * damage) / 100));
+            }
 
             Atacar = false; // Indica que el enemigo no puede volver a atacar
         }

@@ -405,7 +405,7 @@ public class GeneralPlayer : MonoBehaviour
                     _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[4] = ClonMove; // Lo alamcena en el array de info del Personaje del Jugador
 
                     ClonTextoMover = Instantiate(PrefabTexto);                                         // Crea el Texto Mover
-                    ClonTextoMover.transform.position = new Vector3(-10.3f, -0.15f, 0);                // Lo coloca en la interfaz
+                    ClonTextoMover.transform.position = new Vector3(-10.3f, 0, 0);                     // Lo coloca en la interfaz
                     ClonTextoMover.GetComponent<TextoTurno>().ChangeText("Mover");                     // Cambia el texto a "Mover"
                     ClonTextoMover.GetComponent<TextoTurno>().ChangeFontSize(0.6f);                    // Cambio el tamaño de la fuente del texto
                     ClonTextoMover.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);                    // Cambia el color del texto a blanco
@@ -423,10 +423,10 @@ public class GeneralPlayer : MonoBehaviour
                     _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[6] = ClonAbility1; // Lo alamcena en el array de info del Personaje del Jugador
 
                     ClonTextoAbility1 = Instantiate(PrefabTexto);                                      // Crea el Texto Ability 1
-                    if (CharacterType == 2)                                                             // Si es un Healer
-                        ClonTextoAbility1.transform.position = new Vector3(-9.3f, -2.15f, 0);          // Lo coloca en la interfaz
+                    if (CharacterType == 2)                                                            // Si es un Healer
+                        ClonTextoAbility1.transform.position = new Vector3(-9.3f, -2, 0);              // Lo coloca en la interfaz
                     else
-                        ClonTextoAbility1.transform.position = new Vector3(-9.2f, -2.15f, 0);          // Lo coloca en la interfaz
+                        ClonTextoAbility1.transform.position = new Vector3(-9.2f, -2, 0);              // Lo coloca en la interfaz
 
                     if (CharacterType == 1)       // Si es un Knight
                         ClonTextoAbility1.GetComponent<TextoTurno>().ChangeText("Atacar (ATK: " + Character.GetComponent<PlayerKnight>().AtaqueActual + "p)"); // Cambia el texto a "Atacar + AtaqueActual"
@@ -484,48 +484,48 @@ public class GeneralPlayer : MonoBehaviour
 
                     ClonTextoAbility2 = Instantiate(PrefabTexto);                                      // Crea el Texto Ability 2
 
-                    if (CharacterType == 1)                                                                // Si es el Knight
+                    if (CharacterType == 1)                                                               // Si es el Knight
                     {
-                        if (Character.GetComponent<PlayerKnight>().Invencible == true)                     // Si el Knight está en modo invencible
+                        if (Character.GetComponent<PlayerKnight>().Invencible == true)                    // Si el Knight está en modo invencible
                         {
-                            ClonTextoAbility2.transform.position = new Vector3(-9.35f, -4.15f, 0);        // Lo coloca en la interfaz
+                            ClonTextoAbility2.transform.position = new Vector3(-9.35f, -4, 0);            // Lo coloca en la interfaz
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Invencible (" + (3 - Character.GetComponent<PlayerKnight>().PlayerKnightInvencibleCont) + " t.)"); // Cambia el texto
                         }
                         else                                                                              // Si no
                         {
-                            ClonTextoAbility2.transform.position = new Vector3(-9.35f, -4.15f, 0);        // Lo coloca en la interfaz
+                            ClonTextoAbility2.transform.position = new Vector3(-9.35f, -4, 0);            // Lo coloca en la interfaz
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Invencible (3 t.)"); // Cambia el texto
                         }
                     }
                     else if (CharacterType == 2)                                                         // Si es el Healer
                     {
-                        ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4.15f, 0);           // Lo coloca en la interfaz
+                        ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);               // Lo coloca en la interfaz
                         ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Curar (+20 hp)");       // Cambia el texto
                     }
                     else if (CharacterType == 3)                                                         // Si es el Slime
                     {
                         if (Character.GetComponent<PlayerSlime>().UsedAbility == true)                   // Si el Slime ha usado su habilidad
                         {
-                            ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4.15f, 0);        // Lo coloca en la interfaz
+                            ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);           // Lo coloca en la interfaz
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Red. Def. (" + (3 - _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime) + " t.)"); // Cambia el texto
                         }
                         else                                                                             // Si no
                         {
-                            ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4.15f, 0);        // Lo coloca en la interfaz
+                            ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);           // Lo coloca en la interfaz
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Red. Def. (3 t.)"); // Cambia el texto
                         }
                     }
                     else
                     {
-                        if (Character.GetComponent<PlayerMage>().UsedAbility == true)                    // Si el Slime ha usado su habilidad
+                        if (Character.GetComponent<PlayerMage>().UsedAbility == true)                     // Si el Slime ha usado su habilidad
                         {
-                            ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4.15f, 0);        // Lo coloca en la interfaz
+                            ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);            // Lo coloca en la interfaz
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Aum. Def. (" + (3 - _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage) + " t.)"); // Cambia el texto
                         }
                         else
                         {
-                            ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4.15f, 0);        // Lo coloca en la interfaz
-                            ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Aum. Def. (3 t.)"); // Cambia el texto
+                            ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);            // Lo coloca en la interfaz
+                            ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Aum. Def. (3 t.)");  // Cambia el texto
                         }
                     }
 
@@ -554,6 +554,8 @@ public class GeneralPlayer : MonoBehaviour
                 {
                     Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
                     transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
+
+                    PlayerUsingAbility.GetComponent<Animator>().SetTrigger("ataque");
 
                     if (Action == 1)                                                                  // Si la acción es la habilidad del Healer
                     {

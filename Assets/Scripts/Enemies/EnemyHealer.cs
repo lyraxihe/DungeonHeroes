@@ -173,17 +173,28 @@ public class EnemyHealer : MonoBehaviour
                 }
 
             } while (!attack && !noPositions && !fail);                                                                                // Repite hasta que la posción seleccionada esté ocupada por un personaje del Jugador
-
+            
             if (!noPositions && !fail)
             {
                 if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)      // Si el objetivo es un Knight
+                {
                     position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().DefensePercentage() * damage) / 100));
+                }
                 else if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 2) // Si el objeivo es un Healer
+                {
+                    position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                     position.GetComponent<CombatPosition>().Character.GetComponent<PlayerHealer>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerHealer>().DefensePercentage() * damage) / 100));
+                }
                 else if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 3) // Si el objetivo es un Slime
+                {
+                    position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                     position.GetComponent<CombatPosition>().Character.GetComponent<PlayerSlime>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerSlime>().DefensePercentage() * damage) / 100));
+                }
                 else                                                                                                                    // Si el objetivo es un Mage
+                {
+                    position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                     position.GetComponent<CombatPosition>().Character.GetComponent<PlayerMage>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerMage>().DefensePercentage() * damage) / 100));
+                }
             }
 
             GetComponent<GeneralEnemy>().Atacar = false; // Indica que el enemigo no puede volver a atacar
