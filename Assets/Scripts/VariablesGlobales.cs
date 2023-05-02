@@ -207,7 +207,7 @@ public class VariablesGlobales : MonoBehaviour
         //if (/*SceneManager.GetActiveScene().ToString()*/ escenaactual == "Main")
 
         string CurrentSceneName = SceneManager.GetActiveScene().name;
-     if (CurrentSceneName == "Main") //intento para que cuando la escena de mapa esté activa, se muestren los botones de las salas
+     if (CurrentSceneName == "Main") // comprueba si la escena actual es la del mapa
         {
             RoomCanvas.SetActive(true); //se activan y muestran los botones de las salas al no estar en la escena del mapa
         }
