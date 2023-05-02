@@ -147,6 +147,11 @@ public class GeneralPlayer : MonoBehaviour
                                 Enemies[i].GetComponent<GeneralEnemy>().SelectedToAttack = false;
                                 Enemies[i].transform.localScale = Enemies[i].GetComponent<GeneralEnemy>().MinTam;
                             }
+                            else
+                            {
+                                Enemies[i].GetComponent<Boss>().SelectedToAttack = false;
+                                Enemies[i].transform.localScale = Enemies[i].GetComponent<Boss>().MinTam;
+                            }
                         }
                     }
 

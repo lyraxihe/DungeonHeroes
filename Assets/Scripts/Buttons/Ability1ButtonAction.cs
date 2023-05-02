@@ -48,19 +48,25 @@ public class Ability1ButtonAction : MonoBehaviour
             {
                 if (!VariablesGlobales.instance.Boss)
                 {
-                    Enemies[k].GetComponent<GeneralEnemy>().Action = 0;
-                    Enemies[k].GetComponent<GeneralEnemy>().SelectedToAttack = false;                                                  // Indica que el enemigo puede ser atacado
-                    Enemies[k].GetComponent<GeneralEnemy>().Vibrate = false;
-                    Enemies[k].GetComponent<GeneralEnemy>().PlayerAttacking = null;
-                    _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().MinTam;
+                    if (Enemies[k] != null)
+                    {
+                        Enemies[k].GetComponent<GeneralEnemy>().Action = 0;
+                        Enemies[k].GetComponent<GeneralEnemy>().SelectedToAttack = false;                                                  // Indica que el enemigo puede ser atacado
+                        Enemies[k].GetComponent<GeneralEnemy>().Vibrate = false;
+                        Enemies[k].GetComponent<GeneralEnemy>().PlayerAttacking = null;
+                        _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<GeneralEnemy>().MinTam;
+                    }
                 }
                 else
                 {
-                    Enemies[k].GetComponent<Boss>().Action = 0;
-                    Enemies[k].GetComponent<Boss>().SelectedToAttack = true;                                                  // Indica que el enemigo puede ser atacado
-                    Enemies[k].GetComponent<Boss>().Vibrate = true;
-                    Enemies[k].GetComponent<Boss>().PlayerAttacking = null;
-                    _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().MinTam;
+                    if (Enemies[k] != null)
+                    {
+                        Enemies[k].GetComponent<Boss>().Action = 0;
+                        Enemies[k].GetComponent<Boss>().SelectedToAttack = true;                                                  // Indica que el enemigo puede ser atacado
+                        Enemies[k].GetComponent<Boss>().Vibrate = true;
+                        Enemies[k].GetComponent<Boss>().PlayerAttacking = null;
+                        _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().transform.localScale = _CombatBackground.GetComponent<CombatBackground>().Enemies[k].GetComponent<Boss>().MinTam;
+                    }
                 }
             }
         }

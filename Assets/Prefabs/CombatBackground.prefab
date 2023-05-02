@@ -144,6 +144,18 @@ MonoBehaviour:
   UIEnemigoCorazon: {fileID: 4521406855975428827, guid: cb54ad225e193e043949755ac11fd296, type: 3}
   UIEnemigoEspada: {fileID: 5305941905084028229, guid: 4a868b9114153f54da17b6f39ed2419c, type: 3}
   UIEnemigoEscudo: {fileID: 2679339544270785977, guid: 3c29f0b841e66944a930e5ffac4b1988, type: 3}
+  UIEstadisticaVidaEnemy1: {fileID: 0}
+  UIEstadisticaAtaqueEnemy1: {fileID: 0}
+  UIEstadisticaDefensaEnemy1: {fileID: 0}
+  UIEstadisticaVidaEnemy2: {fileID: 0}
+  UIEstadisticaAtaqueEnemy2: {fileID: 0}
+  UIEstadisticaDefensaEnemy2: {fileID: 0}
+  UIEstadisticaVidaEnemy3: {fileID: 0}
+  UIEstadisticaAtaqueEnemy3: {fileID: 0}
+  UIEstadisticaDefensaEnemy3: {fileID: 0}
+  UIEstadisticaVidaEnemy4: {fileID: 0}
+  UIEstadisticaAtaqueEnemy4: {fileID: 0}
+  UIEstadisticaDefensaEnemy4: {fileID: 0}
   CombatPosition: {fileID: 7913850259681220213, guid: 5975a7846d90355489f2e1f3e3b65e5a, type: 3}
   CombatLine: {fileID: 7261162675529264814, guid: 5115d0b42dbe7de46b22616bc541fc9d, type: 3}
   PrefabBoss: {fileID: 5679135979035018070, guid: 6c43e74aafea8bc43b25f96d2c06457b, type: 3}
@@ -159,7 +171,7 @@ MonoBehaviour:
   PrefabTextoTurno: {fileID: 37847271984968078, guid: 4cb7ba8c17581d44a822e0b2642f17fe, type: 3}
   PrefabVictoriaDerrota: {fileID: 8250509885632589376, guid: bf25c096909cd16438f8fcb455c97382, type: 3}
   PrefabVictoriaDerrotaBorder: {fileID: 8687905349629884412, guid: 4ea705507b9a658469729508af8b9ea5, type: 3}
-  PrefabButtonVictoriaDerrota: {fileID: 8120673568417212758, guid: 2b19f66be6590c24d995ae50db7941e5, type: 3}
+  PrefabButtonVictoriaDerrota: {fileID: 9181417631684566114, guid: 2b19f66be6590c24d995ae50db7941e5, type: 3}
   Enemies: []
   Aliados: []
   ClonTextoExplicacion: {fileID: 0}

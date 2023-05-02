@@ -81,10 +81,13 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SelectedToAttack && (PlayerAttacking.GetComponent<GeneralPlayer>().Atacando || PlayerAttacking.GetComponent<GeneralPlayer>().Habilidad2))                                                // Si el enemigo puede ser atacado
+        if (SelectedToAttack)                                                // Si el enemigo puede ser atacado
         {
-            if (Vibrate)                                                     // Si vibrar es true
-                ScaleUpPositionBecauseSelected();                            // Empieza la animación para indicar que el enemjigo puede ser atacado
+            if(PlayerAttacking.GetComponent<GeneralPlayer>().Atacando || PlayerAttacking.GetComponent<GeneralPlayer>().Habilidad2)
+            {
+                if (Vibrate)                                                     // Si vibrar es true
+                    ScaleUpPositionBecauseSelected();                            // Empieza la animación para indicar que el enemjigo puede ser atacado
+            }
         }
 
         UpdateHealthbarPosition();                                                          // Cada frame actualiza la posición de la barra de vida por si el personaje se mueve

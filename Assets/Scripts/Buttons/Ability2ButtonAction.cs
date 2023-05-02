@@ -94,6 +94,9 @@ public class Ability2ButtonAction : MonoBehaviour
         }
         else if (Character.GetComponent<GeneralPlayer>().CharacterType == 2)                                                         // Si el personaje es un Healer
         {
+            if (VariablesGlobales.instance.Boss)
+                Enemies[0].GetComponent<Boss>().SelectedToAttack = false;
+
             // TEXTO EXPLICACIÓN
             /************************************************************************************************************************/
             _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona un heroe aliado al que curar");
