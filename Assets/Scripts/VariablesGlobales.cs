@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.VisualScripting;
+using System;
+using Random = UnityEngine.Random;
 
 public class VariablesGlobales : MonoBehaviour
 {
@@ -100,11 +102,17 @@ public class VariablesGlobales : MonoBehaviour
     {
         instance = this;
 
-        if (instance != null && instance != this)
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("VariablesGlobales");
+
+        if (objs.Length > 1)
         {
-            Destroy(gameObject);
-            return;
+            Destroy(this.gameObject);
         }
+        //if (instance != null && instance != this)
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
 
 
         DontDestroyOnLoad(this.gameObject);
@@ -195,10 +203,11 @@ public class VariablesGlobales : MonoBehaviour
 
         //string ActualScene = SceneManager.GetActiveScene().ToString();
         //Scene ActualScene = SceneManager.GetActiveScene();
-       // string escenaactual = SceneManager.GetActiveScene().ToString();
-       //if (/*SceneManager.GetActiveScene().ToString()*/ escenaactual == "Main")
+        // string escenaactual = SceneManager.GetActiveScene().ToString();
+        //if (/*SceneManager.GetActiveScene().ToString()*/ escenaactual == "Main")
 
-     if (SceneManager.sceneCount==1) //intento para que cuando la escena de mapa esté activa, se muestren los botones de las salas
+        string CurrentSceneName = SceneManager.GetActiveScene().name;
+     if (CurrentSceneName == "Main") //intento para que cuando la escena de mapa esté activa, se muestren los botones de las salas
         {
             RoomCanvas.SetActive(true); //se activan y muestran los botones de las salas al no estar en la escena del mapa
         }
@@ -246,7 +255,7 @@ public class VariablesGlobales : MonoBehaviour
         {
             do
             {
-                RoomType = Random.Range(0, 2); // Elige aleatoriamente el tipo de sala para asignar
+                RoomType = UnityEngine.Random.Range(0, 2); // Elige aleatoriamente el tipo de sala para asignar
             } while (RoomsAmount[RoomType] == 0);
 
             do // Bucle While para controlar que la posición elegida aleatoriamente no esté ocupada, si lo está elige otra posición

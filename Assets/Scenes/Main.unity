@@ -945,8 +945,8 @@ GameObject:
   - component: {fileID: 584763271}
   - component: {fileID: 584763270}
   m_Layer: 0
-  m_Name: Variables Globales
-  m_TagString: Untagged
+  m_Name: VariablesGlobales
+  m_TagString: VariablesGlobales
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -979,24 +979,35 @@ MonoBehaviour:
   KnightAtaqueMax: 0
   KnightDefensaActual: 0
   KnightDefensaMax: 0
+  KnightDefensaActualPercentage: 0
   HealerVidaTotal: 0
   HealerVidaActual: 0
   HealerAtaqueActual: 0
   HealerAtaqueMax: 0
   HealerDefensaActual: 0
   HealerDefensaMax: 0
+  HealerDefensaActualPercentage: 0
   SlimeVidaTotal: 0
   SlimeVidaActual: 0
   SlimeAtaqueActual: 0
   SlimeAtaqueMax: 0
   SlimeDefensaActual: 0
   SlimeDefensaMax: 0
+  SlimeDefensaActualPercentage: 0
   MageVidaTotal: 0
   MageVidaActual: 0
   MageAtaqueActual: 0
   MageAtaqueMax: 0
   MageDefensaActual: 0
   MageDefensaMax: 0
+  MageDefensaActualPercentage: 0
+  BossVidaTotal: 0
+  BossVidaActual: 0
+  BossAtaqueActual: 0
+  BossAtaqueMax: 0
+  BossDefensaActual: 0
+  BossDefensaMax: 0
+  BossDefensaActualPercentage: 0
 --- !u!4 &584763271
 Transform:
   m_ObjectHideFlags: 0
