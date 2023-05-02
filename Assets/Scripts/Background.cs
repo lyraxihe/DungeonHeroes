@@ -47,14 +47,7 @@ public class Background : MonoBehaviour
     }
 
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-<<<<<<< Updated upstream
-    private void Awake() //carga los datos guardados
-    {
-        LoadData();
-       
-      
-    }
-=======
+
     //private void Awake() //carga los datos guardados
     //{
     //    LoadData();
@@ -67,7 +60,7 @@ public class Background : MonoBehaviour
     //    instance = this;
     //    DontDestroyOnLoad(this.gameObject);
     //}
->>>>>>> Stashed changes
+
 
     //private void OnDestroy()
     //{
@@ -192,16 +185,6 @@ public class Background : MonoBehaviour
     //    if (position.GetComponent<RoomsPosition>().Occupied == true) // Si la variable "Occupied" es "true" es que está ocupada
     //        return true;                                             // Devuelve "true" por que la posición está ocupada
 
-<<<<<<< Updated upstream
-    //    return false;                                                // Devuelve "false" si "Occupied" es "false" y por tanto está libre
-    //}
-=======
-        return false;                                                // Devuelve "false" si "Occupied" es "false" y por tanto está libre
-    }
-
-    //private static Background instance = null;
-    //public static Background Instance { get { return instance; } } //creo el Singletons
->>>>>>> Stashed changes
 
     
     

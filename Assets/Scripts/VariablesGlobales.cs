@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+using Unity.VisualScripting;
 
 public class VariablesGlobales : MonoBehaviour
 {
@@ -12,8 +12,10 @@ public class VariablesGlobales : MonoBehaviour
 
     public GameObject canvas;
     public GameObject canvasCreditos;
-    //public RectTransform _canvas;
-    public UnityEngine.Transform _canvas;
+    public RectTransform _canvas;
+    public GameObject RoomCanvas;
+   // private string SceneMain;
+    
 
     //// MENÚ PAUSA
     //public GameObject PrefabMenuPausaBorder;
@@ -155,6 +157,30 @@ public class VariablesGlobales : MonoBehaviour
             //    canvas.GetComponent<Canvas>().enabled = false;
             //}
         }
+
+        //Scene MainScene = UnityEngine.SceneManagement.Scene.name;
+        //    SceneManager.Main();
+        //bool GuardarEscena = false;
+        //if (!GuardarEscena)
+        //{
+        //    MainScene = SceneManager.GetActiveScene();
+        //    GuardarEscena = true;
+        //}
+
+        //string ActualScene = SceneManager.GetActiveScene().ToString();
+        //Scene ActualScene = SceneManager.GetActiveScene();
+       // string escenaactual = SceneManager.GetActiveScene().ToString();
+       //if (/*SceneManager.GetActiveScene().ToString()*/ escenaactual == "Main")
+
+     if (SceneManager.sceneCount==1) //intento para que cuando la escena de mapa esté activa, se muestren los botones de las salas
+        {
+            RoomCanvas.SetActive(true); //se activan y muestran los botones de las salas al no estar en la escena del mapa
+        }
+        else
+        {
+            RoomCanvas.SetActive(false); //se desactivan y muestran los botones de las salas al no estar en la escena del mapa
+        }
+      
     }
 
     public void ContinuarPausa()
