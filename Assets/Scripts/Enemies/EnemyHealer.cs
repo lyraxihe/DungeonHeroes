@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,23 +18,33 @@ public class EnemyHealer : MonoBehaviour
     public int AtaqueMax;     // Ataque máximo del personaje
     public int DefensaActual; // Defensa actual del personaje
     public int DefensaMax;    // Defensa máxima del personaje
+    public int DefensaActualPercentage; // Porcentaje de defensa del personaje
+    public int DefensaActualReal;
 
     public GameObject PrefabHealthbar; // Prefab Healthbar
     public GameObject ClonHealthbar;  // Clon del prefab Healthbar
 
     public bool HabilidadSlime;    // Booleano para controlar si la habilidad del Slime está activa sobre este personaje
 
+    //UI ENEMIGOS
+    public GameObject UIEnemigo;
+    public TMP_Text VidaEnemigo;
+    public TMP_Text AtaqueEnemigo;
+    public TMP_Text DefensaEnemigo;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
         // Establece los atributos del personaje
         VidaTotal = 100;
-        VidaActual = VidaTotal;
+        VidaActual = 100;
         AtaqueActual = 5;
         AtaqueMax = 50;
         DefensaActual = 5;
         DefensaMax = 10;
+        DefensaActualPercentage = DefensaActual * 5;
+        DefensaActualReal = DefensaActual;
 
         HabilidadSlime = false;
 
@@ -49,6 +60,7 @@ public class EnemyHealer : MonoBehaviour
 
         ControlAtributos();                                                                 // Controla cada frame que los valores de los atributos sean correctos
         ControlSlimeAbility();                                                              // Controla la duración de la habilidad del Slime
+        ControlUI();
     }
 
     /****************************************************************************************
@@ -163,17 +175,28 @@ public class EnemyHealer : MonoBehaviour
                 }
 
             } while (!attack && !noPositions && !fail);                                                                                // Repite hasta que la posción seleccionada esté ocupada por un personaje del Jugador
-
+            
             if (!noPositions && !fail)
             {
                 if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)      // Si el objetivo es un Knight
+                {
                     position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().DefensePercentage() * damage) / 100));
+                }
                 else if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 2) // Si el objeivo es un Healer
+                {
+                    position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                     position.GetComponent<CombatPosition>().Character.GetComponent<PlayerHealer>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerHealer>().DefensePercentage() * damage) / 100));
+                }
                 else if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 3) // Si el objetivo es un Slime
+                {
+                    position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                     position.GetComponent<CombatPosition>().Character.GetComponent<PlayerSlime>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerSlime>().DefensePercentage() * damage) / 100));
+                }
                 else                                                                                                                    // Si el objetivo es un Mage
+                {
+                    position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                     position.GetComponent<CombatPosition>().Character.GetComponent<PlayerMage>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerMage>().DefensePercentage() * damage) / 100));
+                }
             }
 
             GetComponent<GeneralEnemy>().Atacar = false; // Indica que el enemigo no puede volver a atacar
@@ -188,7 +211,9 @@ public class EnemyHealer : MonoBehaviour
      ****************************************************************************************/
     public int DefensePercentage()
     {
-        if (DefensaActual == 1)
+        if (DefensaActual == 0)
+            return 0;
+        else if (DefensaActual == 1)
             return 5;
         else if (DefensaActual == 2)
             return 10;
@@ -248,7 +273,8 @@ public class EnemyHealer : MonoBehaviour
             if (_CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime >= 3) // Si ya han pasado dos o más turnos
             {
                 HabilidadSlime = false;                                                     // Inhabilita la habilidad del Slime
-                DefensaActual += 3;                                                         // Devuelve la defensa perdida
+                DefensaActualReal += 3;
+                DefensaActual = DefensaActualReal;                                          // Devuelve la defensa perdida
                 _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;  // Reinicia el contador
                 
                 // Indica al Slime del Jugador que ya puede usar de nuevo su habilidad
@@ -258,6 +284,48 @@ public class EnemyHealer : MonoBehaviour
                         _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerSlime>().UsedAbility = false;
                 }
             }
+        }
+    }
+
+    private void ControlUI()
+    {
+        if (VidaActual <= (20 * VidaTotal) / 100)
+        {
+            VidaEnemigo.text = "<color=red>" + VidaActual + "</color> / " + VidaTotal;
+        }
+        else if (VidaActual <= (50 * VidaTotal) / 100)
+        {
+            VidaEnemigo.text = "<color=yellow>" + VidaActual + "</color> / " + VidaTotal;
+        }
+        else
+        {
+            VidaEnemigo.text = VidaActual + " / " + VidaTotal;
+        }
+
+        if (AtaqueActual < VariablesGlobales.instance.HealerAtaqueActual)
+        {
+            AtaqueEnemigo.text = "<color=red>" + AtaqueActual + "</color> / " + AtaqueMax;
+        }
+        else if (AtaqueActual > VariablesGlobales.instance.HealerAtaqueActual)
+        {
+            AtaqueEnemigo.text = "<color=green>" + AtaqueActual + "</color> / " + AtaqueMax;
+        }
+        else
+        {
+            AtaqueEnemigo.text = AtaqueActual + " / " + AtaqueMax;
+        }
+
+        if (DefensaActual < VariablesGlobales.instance.HealerDefensaActual)
+        {
+            DefensaEnemigo.text = "<color=red>" + DefensaActual * 5 + "%</color> / 50%";
+        }
+        else if (DefensaActual > VariablesGlobales.instance.HealerDefensaActual)
+        {
+            DefensaEnemigo.text = "<color=green>" + DefensaActual * 5 + "%</color> / 50%";
+        }
+        else
+        {
+            DefensaEnemigo.text = DefensaActual * 5 + "% / 50%";
         }
     }
 }

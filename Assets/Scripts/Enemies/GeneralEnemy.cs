@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -25,6 +26,11 @@ public class GeneralEnemy : MonoBehaviour
     public int Action;                             // 0 - ninguna acción, 1 - ataque, 2 - habilidad del Slime
 
     public GameObject UIEstadisticasPersonaje;
+
+    public GameObject UIEnemigoImagen;
+    public GameObject UIEnemigoCorazon;
+    public GameObject UIEnemigoEspada;
+    public GameObject UIEnemigoEscudo;
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +83,7 @@ public class GeneralEnemy : MonoBehaviour
     public void OnMouseDown()
     {
         int i;
-
+        
         if (SelectedToAttack)
         {
 
@@ -99,6 +105,9 @@ public class GeneralEnemy : MonoBehaviour
             Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
             transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
 
+            if(PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType != 1)
+                PlayerAttacking.GetComponent<Animator>().SetTrigger("ataque");
+
             if (Action == 1)                                                                  // Si la acción es la de atacar
             {
                 if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType == 1)         // El personaje atacando es un Knight
@@ -117,24 +126,28 @@ public class GeneralEnemy : MonoBehaviour
                 if (Index == 1)       // Si el enemigo elegido es un Knight
                 {
                     Enemy.GetComponent<EnemyKnight>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemyKnight>().DefensaActualReal -= 3;
                     Enemy.GetComponent<EnemyKnight>().HabilidadSlime = true;
                     _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                 }
                 else if (Index == 2) // Si el enemigo elegido es un Healer
                 {
                     Enemy.GetComponent<EnemyHealer>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemyHealer>().DefensaActualReal -= 3;
                     Enemy.GetComponent<EnemyHealer>().HabilidadSlime = true;
                     _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                 }
                 else if (Index == 3) // Si el enemigo elegido es un Slime
                 {
                     Enemy.GetComponent<EnemySlime>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemySlime>().DefensaActualReal -= 3;
                     Enemy.GetComponent<EnemySlime>().HabilidadSlime = true;
                     _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                 }
                 else                 // Si el enemigo elegido es un Mage
                 {
                     Enemy.GetComponent<EnemyMage>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemyMage>().DefensaActualReal -= 3;
                     Enemy.GetComponent<EnemyMage>().HabilidadSlime = true;
                     _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                 }

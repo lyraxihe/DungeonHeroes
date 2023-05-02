@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -23,12 +24,25 @@ public class Boss : MonoBehaviour
     public GameObject UIEstadisticasPersonaje;
 
     // ESTADÍSTICAS DEL PERSONAJE
-    public int VidaTotal;     // Vida máxima del personaje
-    public int VidaActual;    // Vida actual del personaje
-    public int AtaqueActual;  // Ataque actual del personaje
-    public int AtaqueMax;     // Ataque máximo del personaje
-    public int DefensaActual; // Defensa actual del personaje
-    public int DefensaMax;    // Defensa máxima del personaje
+    public int VidaTotal;               // Vida máxima del personaje
+    public int VidaActual;              // Vida actual del personaje
+    public int AtaqueActual;            // Ataque actual del personaje
+    public int AtaqueMax;               // Ataque máximo del personaje
+    public int DefensaActual;           // Defensa actual del personaje
+    public int DefensaMax;              // Defensa máxima del personaje
+    public int DefensaActualPercentage; // Porcentaje de defensa del personaje
+    public int DefensaActualReal;
+
+    //UI ENEMIGOS
+    public GameObject UIEnemigo;
+    public TMP_Text VidaEnemigo;
+    public TMP_Text AtaqueEnemigo;
+    public TMP_Text DefensaEnemigo;
+
+    public GameObject UIEnemigoImagen;
+    public GameObject UIEnemigoCorazon;
+    public GameObject UIEnemigoEspada;
+    public GameObject UIEnemigoEscudo;
 
     public GameObject PrefabHealthbar; // Prefab Healthbar
     public GameObject ClonHealthbar;  // Clon del prefab Healthbar
@@ -50,12 +64,14 @@ public class Boss : MonoBehaviour
         Action = 0;                                                                   // Ninguna acción
 
         // Establece los atributos del personaje
-        VidaTotal = 200;
-        VidaActual = VidaTotal;
-        AtaqueActual = 30;
-        AtaqueMax = 50;
-        DefensaActual = 5;
-        DefensaMax = 10;
+        VidaTotal = VariablesGlobales.instance.BossVidaTotal;
+        VidaActual = VariablesGlobales.instance.BossVidaActual;
+        AtaqueActual = VariablesGlobales.instance.BossAtaqueActual;
+        AtaqueMax = VariablesGlobales.instance.BossAtaqueMax;
+        DefensaActual = VariablesGlobales.instance.BossDefensaActual;
+        DefensaMax = VariablesGlobales.instance.BossDefensaMax;
+        DefensaActualPercentage = VariablesGlobales.instance.BossDefensaActualPercentage;
+        DefensaActualReal = VariablesGlobales.instance.BossDefensaActual;
 
         HabilidadSlime = false;
 
@@ -77,6 +93,8 @@ public class Boss : MonoBehaviour
 
         ControlAtributos();                                                                 // Controla cada frame que los valores de los atributos sean correctos
         ControlSlimeAbility();                                                              // Controla la duración de la habilidad del Slime
+        DefensePercentage();
+        ControlUI();
     }
 
     /****************************************************************************************
@@ -128,6 +146,9 @@ public class Boss : MonoBehaviour
             Vibrate = false;                                                                                                                            // El resto de posiciones dejan de vibrar
             transform.localScale = MinTam;                                                                                                              // La posición vuelve a su tamaño original
 
+            if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType != 1)
+                PlayerAttacking.GetComponent<Animator>().SetTrigger("ataque");
+
             if (Action == 1)                                                                  // Si la acción es la de atacar
             {
                 if (PlayerAttacking.GetComponent<GeneralPlayer>().CharacterType == 1)         // El personaje atacando es un Knight
@@ -148,24 +169,28 @@ public class Boss : MonoBehaviour
                     if (Index == 1)       // Si el enemigo elegido es un Knight
                     {
                         Enemy.GetComponent<EnemyKnight>().DefensaActual -= 3;
+                        Enemy.GetComponent<EnemyKnight>().DefensaActualReal -= 3;
                         Enemy.GetComponent<EnemyKnight>().HabilidadSlime = true;
                         _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                     }
                     else if (Index == 2) // Si el enemigo elegido es un Healer
                     {
                         Enemy.GetComponent<EnemyHealer>().DefensaActual -= 3;
+                        Enemy.GetComponent<EnemyHealer>().DefensaActualReal -= 3;
                         Enemy.GetComponent<EnemyHealer>().HabilidadSlime = true;
                         _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                     }
                     else if (Index == 3) // Si el enemigo elegido es un Slime
                     {
                         Enemy.GetComponent<EnemySlime>().DefensaActual -= 3;
+                        Enemy.GetComponent<EnemySlime>().DefensaActualReal -= 3;
                         Enemy.GetComponent<EnemySlime>().HabilidadSlime = true;
                         _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                     }
                     else                 // Si el enemigo elegido es un Mage
                     {
                         Enemy.GetComponent<EnemyMage>().DefensaActual -= 3;
+                        Enemy.GetComponent<EnemyMage>().DefensaActualReal -= 3;
                         Enemy.GetComponent<EnemyMage>().HabilidadSlime = true;
                         _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                     }
@@ -173,6 +198,7 @@ public class Boss : MonoBehaviour
                 else
                 {
                     Enemy.GetComponent<Boss>().DefensaActual -= 3;
+                    Enemy.GetComponent<Boss>().DefensaActualReal -= 3;
                     Enemy.GetComponent<Boss>().HabilidadSlime = true;
                     _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                 }
@@ -259,15 +285,26 @@ public class Boss : MonoBehaviour
                             attack = false;                                                                                    // No puede atacar esa posición
                 }
             } while (!attack);
-
+            
             if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)      // Si el objetivo es un Knight
+            {
                 position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().DefensePercentage() * damage) / 100));
+            }
             else if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 2) // Si el objeivo es un Healer
+            {
+                position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                 position.GetComponent<CombatPosition>().Character.GetComponent<PlayerHealer>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerHealer>().DefensePercentage() * damage) / 100));
+            }
             else if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 3) // Si el objetivo es un Slime
+            {
+                position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                 position.GetComponent<CombatPosition>().Character.GetComponent<PlayerSlime>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerSlime>().DefensePercentage() * damage) / 100));
+            }
             else                                                                                                         // Si el objetivo es un Mage
+            {
+                position.GetComponent<CombatPosition>().Character.GetComponent<Animator>().SetTrigger("danho");
                 position.GetComponent<CombatPosition>().Character.GetComponent<PlayerMage>().VidaActual -= (damage - ((position.GetComponent<CombatPosition>().Character.GetComponent<PlayerMage>().DefensePercentage() * damage) / 100));
+            }
 
             Atacar = false; // Indica que el enemigo no puede volver a atacar
         }
@@ -345,7 +382,9 @@ public class Boss : MonoBehaviour
      ****************************************************************************************/
     public int DefensePercentage()
     {
-        if (DefensaActual == 1)
+        if (DefensaActual == 0)
+            return 0;
+        else if (DefensaActual == 1)
             return 5;
         else if (DefensaActual == 2)
             return 10;
@@ -405,7 +444,8 @@ public class Boss : MonoBehaviour
             if (_CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime >= 3) // Si ya han pasado dos o más turnos
             {
                 HabilidadSlime = false;                                                     // Inhabilita la habilidad del Slime
-                DefensaActual += 3;                                                         // Devuelve la defensa perdida
+                DefensaActualReal += 3;
+                DefensaActual = DefensaActualReal;                                          // Devuelve la defensa perdida
                 _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;  // Reinicia el contador
 
                 // Indica al Slime del Jugador que ya puede usar de nuevo su habilidad
@@ -415,6 +455,48 @@ public class Boss : MonoBehaviour
                         _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerSlime>().UsedAbility = false;
                 }
             }
+        }
+    }
+
+    private void ControlUI()
+    {
+        if (VidaActual <= (20 * VidaTotal) / 100)
+        {
+            VidaEnemigo.text = "<color=red>" + VidaActual + "</color> / " + VidaTotal;
+        }
+        else if (VidaActual <= (50 * VidaTotal) / 100)
+        {
+            VidaEnemigo.text = "<color=yellow>" + VidaActual + "</color> / " + VidaTotal;
+        }
+        else
+        {
+            VidaEnemigo.text = VidaActual + " / " + VidaTotal;
+        }
+
+        if (AtaqueActual < VariablesGlobales.instance.BossAtaqueActual)
+        {
+            AtaqueEnemigo.text = "<color=red>" + AtaqueActual + "</color> / " + AtaqueMax;
+        }
+        else if (AtaqueActual > VariablesGlobales.instance.BossAtaqueActual)
+        {
+            AtaqueEnemigo.text = "<color=green>" + AtaqueActual + "</color> / " + AtaqueMax;
+        }
+        else
+        {
+            AtaqueEnemigo.text = AtaqueActual + " / " + AtaqueMax;
+        }
+
+        if (DefensaActual < VariablesGlobales.instance.BossDefensaActual)
+        {
+            DefensaEnemigo.text = "<color=red>" + DefensaActual * 5 + "%</color> / 50%";
+        }
+        else if (DefensaActual > VariablesGlobales.instance.BossDefensaActual)
+        {
+            DefensaEnemigo.text = "<color=green>" + DefensaActual * 5 + "%</color> / 50%";
+        }
+        else
+        {
+            DefensaEnemigo.text = DefensaActual * 5 + "% / 50%";
         }
     }
 }

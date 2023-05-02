@@ -28,6 +28,52 @@ public class CombatBackground : MonoBehaviour
     public GameObject UIHabilidadSlime;
     public GameObject UIHabilidadMage;
 
+    public GameObject EstadisticaVida;
+    public GameObject EstadisticaAtaque;
+    public GameObject EstadisticaDefensa;
+
+    //UI ENEMIGOS
+    public GameObject UIEnemigo1;
+    public TMP_Text VidaEnemigo1;
+    public TMP_Text AtaqueEnemigo1;
+    public TMP_Text DefensaEnemigo1;
+    public GameObject UIEnemigo2;
+    public TMP_Text VidaEnemigo2;
+    public TMP_Text AtaqueEnemigo2;
+    public TMP_Text DefensaEnemigo2;
+    public GameObject UIEnemigo3;
+    public TMP_Text VidaEnemigo3;
+    public TMP_Text AtaqueEnemigo3;
+    public TMP_Text DefensaEnemigo3;
+    public GameObject UIEnemigo4;
+    public TMP_Text VidaEnemigo4;
+    public TMP_Text AtaqueEnemigo4;
+    public TMP_Text DefensaEnemigo4;
+
+    public GameObject BorderUIEnemigo;
+    public GameObject ContainerUIEnemigo;
+    public GameObject UIEnemigoKnight;
+    public GameObject UIEnemigoHealer;
+    public GameObject UIEnemigoSlime;
+    public GameObject UIEnemigoMage;
+    public GameObject UIEnemigoBoss;
+    public GameObject UIEnemigoCorazon;
+    public GameObject UIEnemigoEspada;
+    public GameObject UIEnemigoEscudo;
+
+    public GameObject UIEstadisticaVidaEnemy1;
+    public GameObject UIEstadisticaAtaqueEnemy1;
+    public GameObject UIEstadisticaDefensaEnemy1;
+    public GameObject UIEstadisticaVidaEnemy2;
+    public GameObject UIEstadisticaAtaqueEnemy2;
+    public GameObject UIEstadisticaDefensaEnemy2;
+    public GameObject UIEstadisticaVidaEnemy3;
+    public GameObject UIEstadisticaAtaqueEnemy3;
+    public GameObject UIEstadisticaDefensaEnemy3;
+    public GameObject UIEstadisticaVidaEnemy4;
+    public GameObject UIEstadisticaAtaqueEnemy4;
+    public GameObject UIEstadisticaDefensaEnemy4;
+
     // PREFABS
     public GameObject CombatPosition;              // Prefab CombatPosition
     public GameObject CombatLine;                  // Prefab CombatLine
@@ -91,6 +137,7 @@ public class CombatBackground : MonoBehaviour
     public bool Victoria;                                                  // Booleano que controla si hay condición de victoria
     public bool Derrota;                                                   // Booleano que controla si hay condición de derrota
     public bool VictoriaDerrotaCreado;                                     // Booleano que controla que la interfaz de Victoria o Derrota se cree una vez
+    public int NumEnemigos;
 
     //// MENÚ PAUSA
     //public GameObject ClonMenuPausaBorder;
@@ -341,6 +388,52 @@ public class CombatBackground : MonoBehaviour
                     clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
                     clon.GetComponent<EnemyKnight>()._CombatBackground = _CombatBackground;  // Almacena el combate
                     Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
+
+                    //UI ENEMIGO
+                    if( i == 0)
+                    {
+                        VidaEnemigo1.text = VariablesGlobales.instance.KnightVidaActual + " / " + VariablesGlobales.instance.KnightVidaTotal;
+                        AtaqueEnemigo1.text = VariablesGlobales.instance.KnightAtaqueActual + " / " + VariablesGlobales.instance.KnightAtaqueMax;
+                        DefensaEnemigo1.text = VariablesGlobales.instance.KnightDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyKnight>().UIEnemigo = UIEnemigo1;
+                        clon.GetComponent<EnemyKnight>().VidaEnemigo = VidaEnemigo1;
+                        clon.GetComponent<EnemyKnight>().AtaqueEnemigo = AtaqueEnemigo1;
+                        clon.GetComponent<EnemyKnight>().DefensaEnemigo = DefensaEnemigo1;
+                    }
+                    else if (i == 1)
+                    {
+                        VidaEnemigo2.text = VariablesGlobales.instance.KnightVidaActual + " / " + VariablesGlobales.instance.KnightVidaTotal;
+                        AtaqueEnemigo2.text = VariablesGlobales.instance.KnightAtaqueActual + " / " + VariablesGlobales.instance.KnightAtaqueMax;
+                        DefensaEnemigo2.text = VariablesGlobales.instance.KnightDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyKnight>().UIEnemigo = UIEnemigo2;
+                        clon.GetComponent<EnemyKnight>().VidaEnemigo = VidaEnemigo2;
+                        clon.GetComponent<EnemyKnight>().AtaqueEnemigo = AtaqueEnemigo2;
+                        clon.GetComponent<EnemyKnight>().DefensaEnemigo = DefensaEnemigo2;
+                    }
+                    else if (i == 2)
+                    {
+                        VidaEnemigo3.text = VariablesGlobales.instance.KnightVidaActual + " / " + VariablesGlobales.instance.KnightVidaTotal;
+                        AtaqueEnemigo3.text = VariablesGlobales.instance.KnightAtaqueActual + " / " + VariablesGlobales.instance.KnightAtaqueMax;
+                        DefensaEnemigo3.text = VariablesGlobales.instance.KnightDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyKnight>().UIEnemigo = UIEnemigo3;
+                        clon.GetComponent<EnemyKnight>().VidaEnemigo = VidaEnemigo3;
+                        clon.GetComponent<EnemyKnight>().AtaqueEnemigo = AtaqueEnemigo3;
+                        clon.GetComponent<EnemyKnight>().DefensaEnemigo = DefensaEnemigo3;
+                    }
+                    else
+                    {
+                        VidaEnemigo4.text = VariablesGlobales.instance.KnightVidaActual + " / " + VariablesGlobales.instance.KnightVidaTotal;
+                        AtaqueEnemigo4.text = VariablesGlobales.instance.KnightAtaqueActual + " / " + VariablesGlobales.instance.KnightAtaqueMax;
+                        DefensaEnemigo4.text = VariablesGlobales.instance.KnightDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyKnight>().UIEnemigo = UIEnemigo4;
+                        clon.GetComponent<EnemyKnight>().VidaEnemigo = VidaEnemigo4;
+                        clon.GetComponent<EnemyKnight>().AtaqueEnemigo = AtaqueEnemigo4;
+                        clon.GetComponent<EnemyKnight>().DefensaEnemigo = DefensaEnemigo4;
+                    }
                 }
                 else if (enemyType == 2)                                        // Si el enemigo elegido es un Healer
                 {
@@ -358,6 +451,52 @@ public class CombatBackground : MonoBehaviour
                     clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
                     clon.GetComponent<EnemyHealer>()._CombatBackground = _CombatBackground;  // Almacena el combate
                     Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
+
+                    //UI ENEMIGO
+                    if (i == 0)
+                    {
+                        VidaEnemigo1.text = VariablesGlobales.instance.HealerVidaActual + " / " + VariablesGlobales.instance.HealerVidaTotal;
+                        AtaqueEnemigo1.text = VariablesGlobales.instance.HealerAtaqueActual + " / " + VariablesGlobales.instance.HealerAtaqueMax;
+                        DefensaEnemigo1.text = VariablesGlobales.instance.HealerDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyHealer>().UIEnemigo = UIEnemigo1;
+                        clon.GetComponent<EnemyHealer>().VidaEnemigo = VidaEnemigo1;
+                        clon.GetComponent<EnemyHealer>().AtaqueEnemigo = AtaqueEnemigo1;
+                        clon.GetComponent<EnemyHealer>().DefensaEnemigo = DefensaEnemigo1;
+                    }
+                    else if (i == 1)
+                    {
+                        VidaEnemigo2.text = VariablesGlobales.instance.HealerVidaActual + " / " + VariablesGlobales.instance.HealerVidaTotal;
+                        AtaqueEnemigo2.text = VariablesGlobales.instance.HealerAtaqueActual + " / " + VariablesGlobales.instance.HealerAtaqueMax;
+                        DefensaEnemigo2.text = VariablesGlobales.instance.HealerDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyHealer>().UIEnemigo = UIEnemigo2;
+                        clon.GetComponent<EnemyHealer>().VidaEnemigo = VidaEnemigo2;
+                        clon.GetComponent<EnemyHealer>().AtaqueEnemigo = AtaqueEnemigo2;
+                        clon.GetComponent<EnemyHealer>().DefensaEnemigo = DefensaEnemigo2;
+                    }
+                    else if (i == 2)
+                    {
+                        VidaEnemigo3.text = VariablesGlobales.instance.HealerVidaActual + " / " + VariablesGlobales.instance.HealerVidaTotal;
+                        AtaqueEnemigo3.text = VariablesGlobales.instance.HealerAtaqueActual + " / " + VariablesGlobales.instance.HealerAtaqueMax;
+                        DefensaEnemigo3.text = VariablesGlobales.instance.HealerDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyHealer>().UIEnemigo = UIEnemigo3;
+                        clon.GetComponent<EnemyHealer>().VidaEnemigo = VidaEnemigo3;
+                        clon.GetComponent<EnemyHealer>().AtaqueEnemigo = AtaqueEnemigo3;
+                        clon.GetComponent<EnemyHealer>().DefensaEnemigo = DefensaEnemigo3;
+                    }
+                    else
+                    {
+                        VidaEnemigo4.text = VariablesGlobales.instance.HealerVidaActual + " / " + VariablesGlobales.instance.HealerVidaTotal;
+                        AtaqueEnemigo4.text = VariablesGlobales.instance.HealerAtaqueActual + " / " + VariablesGlobales.instance.HealerAtaqueMax;
+                        DefensaEnemigo4.text = VariablesGlobales.instance.HealerDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyHealer>().UIEnemigo = UIEnemigo4;
+                        clon.GetComponent<EnemyHealer>().VidaEnemigo = VidaEnemigo4;
+                        clon.GetComponent<EnemyHealer>().AtaqueEnemigo = AtaqueEnemigo4;
+                        clon.GetComponent<EnemyHealer>().DefensaEnemigo = DefensaEnemigo4;
+                    }
                 }
                 else if (enemyType == 3)                                        // Si el enemigo elegido es un Slime
                 {
@@ -375,6 +514,52 @@ public class CombatBackground : MonoBehaviour
                     clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
                     clon.GetComponent<EnemySlime>()._CombatBackground = _CombatBackground;   // Almacena el combate
                     Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
+
+                    //UI ENEMIGO
+                    if (i == 0)
+                    {
+                        VidaEnemigo1.text = VariablesGlobales.instance.SlimeVidaActual + " / " + VariablesGlobales.instance.SlimeVidaTotal;
+                        AtaqueEnemigo1.text = VariablesGlobales.instance.SlimeAtaqueActual + " / " + VariablesGlobales.instance.SlimeAtaqueMax;
+                        DefensaEnemigo1.text = VariablesGlobales.instance.SlimeDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemySlime>().UIEnemigo = UIEnemigo1;
+                        clon.GetComponent<EnemySlime>().VidaEnemigo = VidaEnemigo1;
+                        clon.GetComponent<EnemySlime>().AtaqueEnemigo = AtaqueEnemigo1;
+                        clon.GetComponent<EnemySlime>().DefensaEnemigo = DefensaEnemigo1;
+                    }
+                    else if (i == 1)
+                    {
+                        VidaEnemigo2.text = VariablesGlobales.instance.SlimeVidaActual + " / " + VariablesGlobales.instance.SlimeVidaTotal;
+                        AtaqueEnemigo2.text = VariablesGlobales.instance.SlimeAtaqueActual + " / " + VariablesGlobales.instance.SlimeAtaqueMax;
+                        DefensaEnemigo2.text = VariablesGlobales.instance.SlimeDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemySlime>().UIEnemigo = UIEnemigo2;
+                        clon.GetComponent<EnemySlime>().VidaEnemigo = VidaEnemigo2;
+                        clon.GetComponent<EnemySlime>().AtaqueEnemigo = AtaqueEnemigo2;
+                        clon.GetComponent<EnemySlime>().DefensaEnemigo = DefensaEnemigo2;
+                    }
+                    else if (i == 2)
+                    {
+                        VidaEnemigo3.text = VariablesGlobales.instance.SlimeVidaActual + " / " + VariablesGlobales.instance.SlimeVidaTotal;
+                        AtaqueEnemigo3.text = VariablesGlobales.instance.SlimeAtaqueActual + " / " + VariablesGlobales.instance.SlimeAtaqueMax;
+                        DefensaEnemigo3.text = VariablesGlobales.instance.SlimeDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemySlime>().UIEnemigo = UIEnemigo3;
+                        clon.GetComponent<EnemySlime>().VidaEnemigo = VidaEnemigo3;
+                        clon.GetComponent<EnemySlime>().AtaqueEnemigo = AtaqueEnemigo3;
+                        clon.GetComponent<EnemySlime>().DefensaEnemigo = DefensaEnemigo3;
+                    }
+                    else
+                    {
+                        VidaEnemigo4.text = VariablesGlobales.instance.SlimeVidaActual + " / " + VariablesGlobales.instance.SlimeVidaTotal;
+                        AtaqueEnemigo4.text = VariablesGlobales.instance.SlimeAtaqueActual + " / " + VariablesGlobales.instance.SlimeAtaqueMax;
+                        DefensaEnemigo4.text = VariablesGlobales.instance.SlimeDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemySlime>().UIEnemigo = UIEnemigo4;
+                        clon.GetComponent<EnemySlime>().VidaEnemigo = VidaEnemigo4;
+                        clon.GetComponent<EnemySlime>().AtaqueEnemigo = AtaqueEnemigo4;
+                        clon.GetComponent<EnemySlime>().DefensaEnemigo = DefensaEnemigo4;
+                    }
                 }
                 else                                                            // Si el enemigo elegido es un Mage
                 {
@@ -392,12 +577,60 @@ public class CombatBackground : MonoBehaviour
                     clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
                     clon.GetComponent<EnemyMage>()._CombatBackground = _CombatBackground;    // Almacena el combate
                     Enemies[i] = clon;                                          // Mete el clon en el array de enemigos
+
+                    //UI ENEMIGO
+                    if (i == 0)
+                    {
+                        VidaEnemigo1.text = VariablesGlobales.instance.MageVidaActual + " / " + VariablesGlobales.instance.MageVidaTotal;
+                        AtaqueEnemigo1.text = VariablesGlobales.instance.MageAtaqueActual + " / " + VariablesGlobales.instance.MageAtaqueMax;
+                        DefensaEnemigo1.text = VariablesGlobales.instance.MageDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyMage>().UIEnemigo = UIEnemigo1;
+                        clon.GetComponent<EnemyMage>().VidaEnemigo = VidaEnemigo1;
+                        clon.GetComponent<EnemyMage>().AtaqueEnemigo = AtaqueEnemigo1;
+                        clon.GetComponent<EnemyMage>().DefensaEnemigo = DefensaEnemigo1;
+                    }
+                    else if (i == 1)
+                    {
+                        VidaEnemigo2.text = VariablesGlobales.instance.MageVidaActual + " / " + VariablesGlobales.instance.MageVidaTotal;
+                        AtaqueEnemigo2.text = VariablesGlobales.instance.MageAtaqueActual + " / " + VariablesGlobales.instance.MageAtaqueMax;
+                        DefensaEnemigo2.text = VariablesGlobales.instance.MageDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyMage>().UIEnemigo = UIEnemigo2;
+                        clon.GetComponent<EnemyMage>().VidaEnemigo = VidaEnemigo2;
+                        clon.GetComponent<EnemyMage>().AtaqueEnemigo = AtaqueEnemigo2;
+                        clon.GetComponent<EnemyMage>().DefensaEnemigo = DefensaEnemigo2;
+                    }
+                    else if (i == 2)
+                    {
+                        VidaEnemigo3.text = VariablesGlobales.instance.MageVidaActual + " / " + VariablesGlobales.instance.MageVidaTotal;
+                        AtaqueEnemigo3.text = VariablesGlobales.instance.MageAtaqueActual + " / " + VariablesGlobales.instance.MageAtaqueMax;
+                        DefensaEnemigo3.text = VariablesGlobales.instance.MageDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyMage>().UIEnemigo = UIEnemigo3;
+                        clon.GetComponent<EnemyMage>().VidaEnemigo = VidaEnemigo3;
+                        clon.GetComponent<EnemyMage>().AtaqueEnemigo = AtaqueEnemigo3;
+                        clon.GetComponent<EnemyMage>().DefensaEnemigo = DefensaEnemigo3;
+                    }
+                    else
+                    {
+                        VidaEnemigo4.text = VariablesGlobales.instance.MageVidaActual + " / " + VariablesGlobales.instance.MageVidaTotal;
+                        AtaqueEnemigo4.text = VariablesGlobales.instance.MageAtaqueActual + " / " + VariablesGlobales.instance.MageAtaqueMax;
+                        DefensaEnemigo4.text = VariablesGlobales.instance.MageDefensaActualPercentage + "% / 50%";
+
+                        clon.GetComponent<EnemyMage>().UIEnemigo = UIEnemigo4;
+                        clon.GetComponent<EnemyMage>().VidaEnemigo = VidaEnemigo4;
+                        clon.GetComponent<EnemyMage>().AtaqueEnemigo = AtaqueEnemigo4;
+                        clon.GetComponent<EnemyMage>().DefensaEnemigo = DefensaEnemigo4;
+                    }
                 }
             }
 
             // Bucle para almacenar en cada enemigo el array de enemigos
             for (int j = 0; j < Enemies.Length; j++)
                 Enemies[j].GetComponent<GeneralEnemy>().Enemies = Enemies;
+
+            NumEnemigos = numEnemies;
         }
         else // Si es el combate contra el boss
         {
@@ -427,6 +660,18 @@ public class CombatBackground : MonoBehaviour
             clon.GetComponent<Boss>()._CombatBackground = _CombatBackground; // Almacena el combate
             clon.GetComponent<Boss>()._CombatBackground = _CombatBackground;  // Almacena el combate
             Enemies[0] = clon;
+
+            //UI ENEMIGO
+            VidaEnemigo1.text = clon.GetComponent<Boss>().VidaActual + " / " + clon.GetComponent<Boss>().VidaTotal;
+            AtaqueEnemigo1.text = clon.GetComponent<Boss>().AtaqueActual + " / " + clon.GetComponent<Boss>().AtaqueMax;
+            DefensaEnemigo1.text = clon.GetComponent<Boss>().DefensePercentage() + "% / 50%";
+
+            clon.GetComponent<Boss>().UIEnemigo = UIEnemigo1;
+            clon.GetComponent<Boss>().VidaEnemigo = VidaEnemigo1;
+            clon.GetComponent<Boss>().AtaqueEnemigo = AtaqueEnemigo1;
+            clon.GetComponent<Boss>().DefensaEnemigo = DefensaEnemigo1;
+
+            NumEnemigos = 1;
         }
     }
 
@@ -480,6 +725,9 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
                 aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
                 aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
                 aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
                 aliadoColocar.GetComponent<PlayerKnight>()._CombatBackground = _CombatBackground;         // Almacena el combate
@@ -508,6 +756,9 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
                 aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
                 aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
                 aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
                 aliadoColocar.GetComponent<PlayerHealer>()._CombatBackground = _CombatBackground;         // Almacena el combate
@@ -536,6 +787,9 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
                 aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
                 aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
                 aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
                 aliadoColocar.GetComponent<PlayerSlime>()._CombatBackground = _CombatBackground;          // Almacena el combate
@@ -564,6 +818,9 @@ public class CombatBackground : MonoBehaviour
                 aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
                 aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
                 aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
+                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
                 aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
                 aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
                 aliadoColocar.GetComponent<PlayerMage>()._CombatBackground = _CombatBackground;           // Almacena el combate
@@ -584,6 +841,38 @@ public class CombatBackground : MonoBehaviour
     {
         ClonStartBattleButton = Instantiate(PrefabStartBattleButton);                 // Crea un clon del prefab del botón StartBattleButton
         ClonStartBattleButton.GetComponent<RectTransform>().position = new Vector3(0, -5.5f, 0); // Lo coloca abajo de la interfaz
+
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigo1 = UIEnemigo1;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigo2 = UIEnemigo2;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigo3 = UIEnemigo3;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigo4 = UIEnemigo4;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().NumEnemigos = NumEnemigos;
+
+        ClonStartBattleButton.GetComponent<StartBattleButton>().BorderUIEnemigo = BorderUIEnemigo;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().ContainerUIEnemigo = ContainerUIEnemigo;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigoKnight = UIEnemigoKnight;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigoHealer = UIEnemigoHealer;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigoSlime = UIEnemigoSlime;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigoMage = UIEnemigoMage;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigoBoss = UIEnemigoBoss;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigoCorazon = UIEnemigoCorazon;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigoEspada = UIEnemigoEspada;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEnemigoEscudo = UIEnemigoEscudo;
+
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaVidaEnemy1 = UIEstadisticaVidaEnemy1;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaAtaqueEnemy1 = UIEstadisticaAtaqueEnemy1;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaDefensaEnemy1 = UIEstadisticaDefensaEnemy1;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaVidaEnemy2 = UIEstadisticaVidaEnemy2;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaAtaqueEnemy2 = UIEstadisticaAtaqueEnemy2;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaDefensaEnemy2 = UIEstadisticaDefensaEnemy2;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaVidaEnemy3 = UIEstadisticaVidaEnemy3;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaAtaqueEnemy3 = UIEstadisticaAtaqueEnemy3;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaDefensaEnemy3 = UIEstadisticaDefensaEnemy3;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaVidaEnemy4 = UIEstadisticaVidaEnemy4;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaAtaqueEnemy4 = UIEstadisticaAtaqueEnemy4;
+        ClonStartBattleButton.GetComponent<StartBattleButton>().UIEstadisticaDefensaEnemy4 = UIEstadisticaDefensaEnemy4;
+
+        ClonStartBattleButton.GetComponent<StartBattleButton>().Enemies = Enemies;
     }
 
     /****************************************************************************************
@@ -605,6 +894,10 @@ public class CombatBackground : MonoBehaviour
             /************************************************************************************************************************/
             _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("");
             /************************************************************************************************************************/
+
+            EstadisticaVida.SetActive(false);
+            EstadisticaAtaque.SetActive(false);
+            EstadisticaDefensa.SetActive(false);
 
             TurnoBatalla = "Enemigo";                                           // El turno pasa a ser del Enemigo
         }
@@ -939,6 +1232,11 @@ public class CombatBackground : MonoBehaviour
                         {
                             Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
                             Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
+                            Enemies[i].GetComponent<EnemyKnight>().UIEnemigo.SetActive(false);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoImagen);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoCorazon);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoEspada);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoEscudo);
                             Destroy(Enemies[i].GetComponent<EnemyKnight>().ClonHealthbar);                                          // Destruye su Healthbar asociada
                             Destroy(Enemies[i]);                                          // Lo destruye
                             ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
@@ -950,6 +1248,11 @@ public class CombatBackground : MonoBehaviour
                         {
                             Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
                             Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
+                            Enemies[i].GetComponent<EnemyHealer>().UIEnemigo.SetActive(false);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoImagen);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoCorazon);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoEspada);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoEscudo);
                             Destroy(Enemies[i].GetComponent<EnemyHealer>().ClonHealthbar);                                        // Destruye su Healthbar asociada
                             Destroy(Enemies[i]);                                          // Lo destruye
                             ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
@@ -961,6 +1264,11 @@ public class CombatBackground : MonoBehaviour
                         {
                             Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
                             Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
+                            Enemies[i].GetComponent<EnemySlime>().UIEnemigo.SetActive(false);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoImagen);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoCorazon);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoEspada);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoEscudo);
                             Destroy(Enemies[i].GetComponent<EnemySlime>().ClonHealthbar);                                        // Destruye su Healthbar asociada
                             Destroy(Enemies[i]);                                          // Lo destruye
                             ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
@@ -972,6 +1280,11 @@ public class CombatBackground : MonoBehaviour
                         {
                             Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
                             Enemies[i].GetComponent<GeneralEnemy>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
+                            Enemies[i].GetComponent<EnemyMage>().UIEnemigo.SetActive(false);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoImagen);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoCorazon);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoEspada);
+                            Destroy(Enemies[i].GetComponent<GeneralEnemy>().UIEnemigoEscudo);
                             Destroy(Enemies[i].GetComponent<EnemyMage>().ClonHealthbar);                                        // Destruye su Healthbar asociada
                             Destroy(Enemies[i]);                                          // Lo destruye
                             ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
@@ -987,6 +1300,11 @@ public class CombatBackground : MonoBehaviour
                     {
                         Enemies[i].GetComponent<Boss>().EnemyPosition.GetComponent<CombatPosition>().CharacterType = 0; // Establece que su posición pasa a estar vacía
                         Enemies[i].GetComponent<Boss>().EnemyPosition.GetComponent<CombatPosition>().Occupied = false;  // Establece que su posición pasa a estar vacía
+                        Enemies[i].GetComponent<Boss>().UIEnemigo.SetActive(false);
+                        Destroy(Enemies[i].GetComponent<Boss>().UIEnemigoImagen);
+                        Destroy(Enemies[i].GetComponent<Boss>().UIEnemigoCorazon);
+                        Destroy(Enemies[i].GetComponent<Boss>().UIEnemigoEspada);
+                        Destroy(Enemies[i].GetComponent<Boss>().UIEnemigoEscudo);
                         Destroy(Enemies[i].GetComponent<Boss>().ClonHealthbar);                                        // Destruye su Healthbar asociada
                         Destroy(Enemies[i]);                                          // Lo destruye
                         ContEnemigos--;                                               // Reduce el´contador de enemigos en Combate
