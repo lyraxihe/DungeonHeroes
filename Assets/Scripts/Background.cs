@@ -14,10 +14,10 @@ public class Background : MonoBehaviour
 
 
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-    public int Money; //usar este al terminar la batalla para que le de al jugador (sumarle 100 como ejemplo)
-    public string MoneyName = "Money";
-    public int HpKnight;
-    public string HpName = "HpKnight";
+    //public int Money; //usar este al terminar la batalla para que le de al jugador (sumarle 100 como ejemplo)
+    //public string MoneyName = "Money";
+    //public int HpKnight;
+    //public string HpName = "HpKnight";
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
 
@@ -47,38 +47,53 @@ public class Background : MonoBehaviour
     }
 
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+<<<<<<< Updated upstream
     private void Awake() //carga los datos guardados
     {
         LoadData();
        
       
     }
+=======
+    //private void Awake() //carga los datos guardados
+    //{
+    //    LoadData();
+    //    if (Instance != null && instance != this)
+    //    {
+    //        Destroy(gameObject);
+    //        return;
+    //    }
 
-    private void OnDestroy()
-    {
-        SaveData();
-    }
-    private void RefreshUI()
-    {
+    //    instance = this;
+    //    DontDestroyOnLoad(this.gameObject);
+    //}
+>>>>>>> Stashed changes
+
+    //private void OnDestroy()
+    //{
+    //    SaveData();
+    //}
+    //private void RefreshUI()
+    //{
        
-        //userInterface.RefreshMoney(Money);
-        //userInterface.RefreshHpKnight(HpKnight);
-    }
+    //    //userInterface.RefreshMoney(Money);
+    //    //userInterface.RefreshHpKnight(HpKnight);
+    //}
 
-    private void SaveData()
-    {
+    //private void SaveData()
+    //{
 
-        PlayerPrefs.SetInt(MoneyName, Money); //(primero el string y luego el int)
-        PlayerPrefs.SetInt(HpName, HpKnight);
+    //    PlayerPrefs.SetInt(MoneyName, Money); //(primero el string y luego el int)
+    //    PlayerPrefs.SetInt(HpName, HpKnight);
 
-    }
+    //}
 
-    private void LoadData()
-    {
-        Money = PlayerPrefs.GetInt(MoneyName, Money);
-        HpKnight = PlayerPrefs.GetInt(HpName, HpKnight);
+    //private void LoadData()
+    //{
+    //    Money = PlayerPrefs.GetInt(MoneyName, Money);
+    //    HpKnight = PlayerPrefs.GetInt(HpName, HpKnight);
 
-    }
+    //}
     // - - - - - - - - - - - - - - - - - - lyrita intento - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
     //private void SetPositions(int numPositions)
@@ -177,8 +192,16 @@ public class Background : MonoBehaviour
     //    if (position.GetComponent<RoomsPosition>().Occupied == true) // Si la variable "Occupied" es "true" es que está ocupada
     //        return true;                                             // Devuelve "true" por que la posición está ocupada
 
+<<<<<<< Updated upstream
     //    return false;                                                // Devuelve "false" si "Occupied" es "false" y por tanto está libre
     //}
+=======
+        return false;                                                // Devuelve "false" si "Occupied" es "false" y por tanto está libre
+    }
+
+    //private static Background instance = null;
+    //public static Background Instance { get { return instance; } } //creo el Singletons
+>>>>>>> Stashed changes
 
     
     

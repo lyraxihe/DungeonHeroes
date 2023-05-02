@@ -219,8 +219,13 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+<<<<<<< Updated upstream
   m_PresetInfoIsWorld: 1
 --- !u!114 &8120673568417212759
+=======
+  m_PresetInfoIsWorld: 0
+--- !u!114 &9181417631684566115
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
