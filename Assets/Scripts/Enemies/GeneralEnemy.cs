@@ -126,24 +126,28 @@ public class GeneralEnemy : MonoBehaviour
                 if (Index == 1)       // Si el enemigo elegido es un Knight
                 {
                     Enemy.GetComponent<EnemyKnight>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemyKnight>().DefensaActualReal -= 3;
                     Enemy.GetComponent<EnemyKnight>().HabilidadSlime = true;
                     _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                 }
                 else if (Index == 2) // Si el enemigo elegido es un Healer
                 {
                     Enemy.GetComponent<EnemyHealer>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemyHealer>().DefensaActualReal -= 3;
                     Enemy.GetComponent<EnemyHealer>().HabilidadSlime = true;
                     _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                 }
                 else if (Index == 3) // Si el enemigo elegido es un Slime
                 {
                     Enemy.GetComponent<EnemySlime>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemySlime>().DefensaActualReal -= 3;
                     Enemy.GetComponent<EnemySlime>().HabilidadSlime = true;
                     _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                 }
                 else                 // Si el enemigo elegido es un Mage
                 {
                     Enemy.GetComponent<EnemyMage>().DefensaActual -= 3;
+                    Enemy.GetComponent<EnemyMage>().DefensaActualReal -= 3;
                     Enemy.GetComponent<EnemyMage>().HabilidadSlime = true;
                     _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                 }

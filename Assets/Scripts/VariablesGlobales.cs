@@ -143,7 +143,7 @@ public class VariablesGlobales : MonoBehaviour
         BossAtaqueMax = 50;
         BossDefensaActual = 5;
         BossDefensaMax = 10;
-        BossDefensaActualPercentage = MageDefensaActual * 5;
+        BossDefensaActualPercentage = BossDefensaActual * 5;
     }
     private void Update()
     {

@@ -31,6 +31,7 @@ public class Boss : MonoBehaviour
     public int DefensaActual;           // Defensa actual del personaje
     public int DefensaMax;              // Defensa máxima del personaje
     public int DefensaActualPercentage; // Porcentaje de defensa del personaje
+    public int DefensaActualReal;
 
     //UI ENEMIGOS
     public GameObject UIEnemigo;
@@ -70,6 +71,7 @@ public class Boss : MonoBehaviour
         DefensaActual = VariablesGlobales.instance.BossDefensaActual;
         DefensaMax = VariablesGlobales.instance.BossDefensaMax;
         DefensaActualPercentage = VariablesGlobales.instance.BossDefensaActualPercentage;
+        DefensaActualReal = VariablesGlobales.instance.BossDefensaActual;
 
         HabilidadSlime = false;
 
@@ -91,6 +93,7 @@ public class Boss : MonoBehaviour
 
         ControlAtributos();                                                                 // Controla cada frame que los valores de los atributos sean correctos
         ControlSlimeAbility();                                                              // Controla la duración de la habilidad del Slime
+        DefensePercentage();
         ControlUI();
     }
 
@@ -166,24 +169,28 @@ public class Boss : MonoBehaviour
                     if (Index == 1)       // Si el enemigo elegido es un Knight
                     {
                         Enemy.GetComponent<EnemyKnight>().DefensaActual -= 3;
+                        Enemy.GetComponent<EnemyKnight>().DefensaActualReal -= 3;
                         Enemy.GetComponent<EnemyKnight>().HabilidadSlime = true;
                         _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                     }
                     else if (Index == 2) // Si el enemigo elegido es un Healer
                     {
                         Enemy.GetComponent<EnemyHealer>().DefensaActual -= 3;
+                        Enemy.GetComponent<EnemyHealer>().DefensaActualReal -= 3;
                         Enemy.GetComponent<EnemyHealer>().HabilidadSlime = true;
                         _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                     }
                     else if (Index == 3) // Si el enemigo elegido es un Slime
                     {
                         Enemy.GetComponent<EnemySlime>().DefensaActual -= 3;
+                        Enemy.GetComponent<EnemySlime>().DefensaActualReal -= 3;
                         Enemy.GetComponent<EnemySlime>().HabilidadSlime = true;
                         _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                     }
                     else                 // Si el enemigo elegido es un Mage
                     {
                         Enemy.GetComponent<EnemyMage>().DefensaActual -= 3;
+                        Enemy.GetComponent<EnemyMage>().DefensaActualReal -= 3;
                         Enemy.GetComponent<EnemyMage>().HabilidadSlime = true;
                         _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                     }
@@ -191,6 +198,7 @@ public class Boss : MonoBehaviour
                 else
                 {
                     Enemy.GetComponent<Boss>().DefensaActual -= 3;
+                    Enemy.GetComponent<Boss>().DefensaActualReal -= 3;
                     Enemy.GetComponent<Boss>().HabilidadSlime = true;
                     _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;
                 }
@@ -374,7 +382,9 @@ public class Boss : MonoBehaviour
      ****************************************************************************************/
     public int DefensePercentage()
     {
-        if (DefensaActual == 1)
+        if (DefensaActual == 0)
+            return 0;
+        else if (DefensaActual == 1)
             return 5;
         else if (DefensaActual == 2)
             return 10;
@@ -434,7 +444,8 @@ public class Boss : MonoBehaviour
             if (_CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime >= 3) // Si ya han pasado dos o más turnos
             {
                 HabilidadSlime = false;                                                     // Inhabilita la habilidad del Slime
-                DefensaActual += 3;                                                         // Devuelve la defensa perdida
+                DefensaActualReal += 3;
+                DefensaActual = DefensaActualReal;                                          // Devuelve la defensa perdida
                 _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;  // Reinicia el contador
 
                 // Indica al Slime del Jugador que ya puede usar de nuevo su habilidad
@@ -477,15 +488,15 @@ public class Boss : MonoBehaviour
 
         if (DefensaActual < VariablesGlobales.instance.BossDefensaActual)
         {
-            DefensaEnemigo.text = "<color=red>" + DefensaActualPercentage + "%</color> / 50%";
+            DefensaEnemigo.text = "<color=red>" + DefensaActual * 5 + "%</color> / 50%";
         }
         else if (DefensaActual > VariablesGlobales.instance.BossDefensaActual)
         {
-            DefensaEnemigo.text = "<color=green>" + DefensaActualPercentage + "%</color> / 50%";
+            DefensaEnemigo.text = "<color=green>" + DefensaActual * 5 + "%</color> / 50%";
         }
         else
         {
-            DefensaEnemigo.text = DefensaActualPercentage + "% / 50%";
+            DefensaEnemigo.text = DefensaActual * 5 + "% / 50%";
         }
     }
 }

@@ -19,6 +19,7 @@ public class EnemySlime : MonoBehaviour
     public int DefensaActual; // Defensa actual del personaje
     public int DefensaMax;    // Defensa máxima del personaje
     public int DefensaActualPercentage; // Porcentaje de defensa del personaje
+    public int DefensaActualReal;
 
     public GameObject PrefabHealthbar; // Prefab Healthbar
     public GameObject ClonHealthbar;  // Clon del prefab Healthbar
@@ -35,13 +36,14 @@ public class EnemySlime : MonoBehaviour
     void Start()
     {
         // Establece los atributos del personaje
-        VidaTotal = VariablesGlobales.instance.SlimeVidaTotal;
-        VidaActual = VariablesGlobales.instance.SlimeVidaActual;
-        AtaqueActual = VariablesGlobales.instance.SlimeAtaqueActual;
-        AtaqueMax = VariablesGlobales.instance.SlimeAtaqueMax;
-        DefensaActual = VariablesGlobales.instance.SlimeDefensaActual;
-        DefensaMax = VariablesGlobales.instance.SlimeDefensaMax;
-        DefensaActualPercentage = VariablesGlobales.instance.SlimeDefensaActualPercentage;
+        VidaTotal = 150;
+        VidaActual = 150;
+        AtaqueActual = 20;
+        AtaqueMax = 50;
+        DefensaActual = 2;
+        DefensaMax = 10;
+        DefensaActualPercentage = DefensaActual * 5;
+        DefensaActualReal = DefensaActual;
 
         HabilidadSlime = false;
 
@@ -208,7 +210,9 @@ public class EnemySlime : MonoBehaviour
      ****************************************************************************************/
     public int DefensePercentage()
     {
-        if (DefensaActual == 1)
+        if (DefensaActual == 0)
+            return 0;
+        else if (DefensaActual == 1)
             return 5;
         else if (DefensaActual == 2)
             return 10;
@@ -268,7 +272,8 @@ public class EnemySlime : MonoBehaviour
             if (_CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime >= 3) // Si ya han pasado dos o más turnos
             {
                 HabilidadSlime = false;                                                     // Inhabilita la habilidad del Slime
-                DefensaActual += 3;                                                         // Devuelve la defensa perdida
+                DefensaActualReal += 3;
+                DefensaActual = DefensaActualReal;                                          // Devuelve la defensa perdida
                 _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;  // Reinicia el contador
 
                 // Indica al Slime del Jugador que ya puede usar de nuevo su habilidad
@@ -311,15 +316,15 @@ public class EnemySlime : MonoBehaviour
 
         if (DefensaActual < VariablesGlobales.instance.SlimeDefensaActual)
         {
-            DefensaEnemigo.text = "<color=red>" + DefensaActualPercentage + "%</color> / 50%";
+            DefensaEnemigo.text = "<color=red>" + DefensaActual * 5 + "%</color> / 50%";
         }
         else if (DefensaActual > VariablesGlobales.instance.SlimeDefensaActual)
         {
-            DefensaEnemigo.text = "<color=green>" + DefensaActualPercentage + "%</color> / 50%";
+            DefensaEnemigo.text = "<color=green>" + DefensaActual * 5 + "%</color> / 50%";
         }
         else
         {
-            DefensaEnemigo.text = DefensaActualPercentage + "% / 50%";
+            DefensaEnemigo.text = DefensaActual * 5 + "% / 50%";
         }
     }
 }

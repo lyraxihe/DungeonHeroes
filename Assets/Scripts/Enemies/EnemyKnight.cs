@@ -19,6 +19,7 @@ public class EnemyKnight : MonoBehaviour
     public int DefensaActual; // Defensa actual del personaje
     public int DefensaMax;    // Defensa máxima del personaje
     public int DefensaActualPercentage; // Porcentaje de defensa del personaje
+    public int DefensaActualReal;
 
     public GameObject PrefabHealthbar; // Prefab Healthbar
     public GameObject ClonHealthbar;   // Clon del prefab Healthbar
@@ -35,13 +36,14 @@ public class EnemyKnight : MonoBehaviour
     void Start()
     {
         // Establece los atributos del personaje
-        VidaTotal = VariablesGlobales.instance.KnightVidaTotal;
-        VidaActual = VariablesGlobales.instance.KnightVidaActual;
-        AtaqueActual = VariablesGlobales.instance.KnightAtaqueActual;
-        AtaqueMax = VariablesGlobales.instance.KnightAtaqueMax;
-        DefensaActual = VariablesGlobales.instance.KnightDefensaActual;
-        DefensaMax = VariablesGlobales.instance.KnightDefensaMax;
-        DefensaActualPercentage = VariablesGlobales.instance.KnightDefensaActualPercentage;
+        VidaTotal = 75;
+        VidaActual = 75;
+        AtaqueActual = 30;
+        AtaqueMax = 50;
+        DefensaActual = 5;
+        DefensaMax = 10;
+        DefensaActualPercentage = DefensaActual * 5;
+        DefensaActualReal = DefensaActual;
 
         HabilidadSlime = false;
 
@@ -208,7 +210,9 @@ public class EnemyKnight : MonoBehaviour
      ****************************************************************************************/
     public int DefensePercentage()
     {
-        if (DefensaActual == 1)
+        if (DefensaActual == 0)
+            return 0;
+        else if (DefensaActual == 1)
             return 5;
         else if (DefensaActual == 2)
             return 10;
@@ -268,7 +272,8 @@ public class EnemyKnight : MonoBehaviour
             if (_CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime >= 3) // Si ya han pasado dos o más turnos
             {
                 HabilidadSlime = false;                                                     // Inhabilita la habilidad del Slime
-                DefensaActual += 3;                                                         // Devuelve la defensa perdida
+                DefensaActualReal += 3;
+                DefensaActual = DefensaActualReal;                                          // Devuelve la defensa perdida
                 _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;  // Reinicia el contador
 
                 // Indica al Slime del Jugador que ya puede usar de nuevo su habilidad
@@ -311,15 +316,15 @@ public class EnemyKnight : MonoBehaviour
         
         if(DefensaActual < VariablesGlobales.instance.KnightDefensaActual)
         {
-            DefensaEnemigo.text = "<color=red>" + DefensaActualPercentage + "%</color> / 50%";
+            DefensaEnemigo.text = "<color=red>" + DefensaActual * 5 + "%</color> / 50%";
         }
         else if (DefensaActual > VariablesGlobales.instance.KnightDefensaActual)
         {
-            DefensaEnemigo.text = "<color=green>" + DefensaActualPercentage + "%</color> / 50%";
+            DefensaEnemigo.text = "<color=green>" + DefensaActual * 5 + "%</color> / 50%";
         }
         else
         {
-            DefensaEnemigo.text = DefensaActualPercentage + "% / 50%";
+            DefensaEnemigo.text = DefensaActual * 5 + "% / 50%";
         }
     }
 }
