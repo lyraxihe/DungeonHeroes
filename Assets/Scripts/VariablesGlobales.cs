@@ -106,22 +106,30 @@ public class VariablesGlobales : MonoBehaviour
 
     private void Awake() //carga los datos guardados
     {
-        instance = this;
-
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("VariablesGlobales");
-
-        if (objs.Length > 1)
+        Debug.Log("Entrando en Awake");
+        if (instance == null)
         {
+            Debug.Log("Awake: No destruyo nada.");
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+        else
+        {
+            if (!EscPressed)
+            {
+                if (instance != this)
+                {
+                    Debug.Log("Awake: Destruyo el GameObject: " + gameObject);
+                    Destroy(gameObject);
+                }   
+            }
+        }
+
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Debug.Log("Awake: La escena es Main Menu");
             Destroy(this.gameObject);
         }
-        //if (instance != null && instance != this)
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
-
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
@@ -218,7 +226,7 @@ public class VariablesGlobales : MonoBehaviour
         //if (/*SceneManager.GetActiveScene().ToString()*/ escenaactual == "Main")
 
         string CurrentSceneName = SceneManager.GetActiveScene().name;
-     if (CurrentSceneName == "Main") // comprueba si la escena actual es la del mapa
+        if (CurrentSceneName == "Main") // comprueba si la escena actual es la del mapa
         {
             RoomCanvas.SetActive(true); //se activan y muestran los botones de las salas al no estar en la escena del mapa
         }
@@ -295,13 +303,7 @@ public class VariablesGlobales : MonoBehaviour
                 position.GetComponent<RoomsPosition>().Occupied = true; // Cambia esa posición a "ocupada"
                 RoomsAmount[1] -= 1;
             }
-            bool IsPositionOccupied(GameObject position)
-            {
-                if (position.GetComponent<RoomsPosition>().Occupied == true) // Si la variable "Occupied" es "true" es que está ocupada
-                    return true;                                             // Devuelve "true" por que la posición está ocupada
-
-                return false;                                                // Devuelve "false" si "Occupied" es "false" y por tanto está libre
-            }
+            
             //public void MenuPausa()
             //{
             //    EscPressed = true;
@@ -334,20 +336,29 @@ public class VariablesGlobales : MonoBehaviour
             //    ////SalirButtonText.GetComponent<TextMeshPro>().enabled = true;
             //    canvas.GetComponent<Canvas>().enabled = true;
             //}
-            void SalirPausa()
-            {
-                EscPressed = false;
-                canvas.SetActive(!canvas.activeSelf);
-                SceneManager.LoadScene("MainMenu"); //abre la escena
-            }
-
-            ////private static Background instance = null;
-            ////public static Background Instance { get { return instance; } } //creo el Singletons
         }
     }
+
+    bool IsPositionOccupied(GameObject position)
+    {
+        if (position.GetComponent<RoomsPosition>().Occupied == true) // Si la variable "Occupied" es "true" es que está ocupada
+            return true;                                             // Devuelve "true" por que la posición está ocupada
+
+        return false;                                                // Devuelve "false" si "Occupied" es "false" y por tanto está libre
+    }
+
+    void SalirPausa()
+    {
+        EscPressed = false;
+        canvas.SetActive(!canvas.activeSelf);
+        SceneManager.LoadScene("MainMenu"); //abre la escena
+    }
+
+    ////private static Background instance = null;
+    ////public static Background Instance { get { return instance; } } //creo el Singletons
 }
 
-   
 
-   
+
+
 
