@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class modificarvida : MonoBehaviour
 {
-    public Text Moneytxt; //creo un public text para poder modificar el valor en pantalla
+    //public Text Moneytxt; //creo un public text para poder modificar el valor en pantalla
 
-    public GameObject _Control;
+    //public GameObject _Control;
     
-    public int HpCost = 5; //declaro las variables del costo de corazones para curar
-    public int HpHeal = 25; //declaro las variables de la cantidad de cura
+    //public int HpCost = 5; //declaro las variables del costo de corazones para curar
+    //public int HpHeal = 25; //declaro las variables de la cantidad de cura
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +27,11 @@ public class modificarvida : MonoBehaviour
     }
     public void masvida() //suma vida y resta dinero
     {
-        if (_Control.GetComponent<Control>().Money >= HpCost)
-        {
-            _Control.GetComponent<Control>().HpKnight += HpHeal;
-            _Control.GetComponent<Control>().Money -= HpCost;
-        }
+        //if (_Control.GetComponent<Control>().Money >= HpCost)
+        //{
+        //    _Control.GetComponent<Control>().HpKnight += HpHeal;
+        //    _Control.GetComponent<Control>().Money -= HpCost;
+        //}
 
     }
 

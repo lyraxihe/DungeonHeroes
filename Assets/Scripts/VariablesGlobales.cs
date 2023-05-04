@@ -53,6 +53,12 @@ public class VariablesGlobales : MonoBehaviour
     // BOSS
     public bool Boss;
 
+    //objetos y estadísticas generales
+    public int Money;
+    public int AtaqueMax;
+    public int DefensaMax;
+
+
     // ESTADÍSTICAS DEL KNIGHT
     public int KnightVidaTotal;               // Vida máxima del personaje
     public int KnightVidaActual;              // Vida actual del personaje
@@ -127,6 +133,11 @@ public class VariablesGlobales : MonoBehaviour
 
         Boss = false;
         EscPressed = false;
+
+        // Establece los atributos y valores generales
+        Money = 200; // modificar luego !!!!!!
+        AtaqueMax = 50;
+        DefensaMax = 10;
 
         // Establece los atributos del Knight
         KnightVidaTotal = 75;
