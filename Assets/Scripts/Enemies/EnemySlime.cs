@@ -301,11 +301,11 @@ public class EnemySlime : MonoBehaviour
             VidaEnemigo.text = VidaActual + " / " + VidaTotal;
         }
 
-        if (AtaqueActual < VariablesGlobales.instance.SlimeAtaqueActual)
+        if (AtaqueActual < 20)
         {
             AtaqueEnemigo.text = "<color=red>" + AtaqueActual + "</color> / " + AtaqueMax;
         }
-        else if (AtaqueActual > VariablesGlobales.instance.SlimeAtaqueActual)
+        else if (AtaqueActual > 20)
         {
             AtaqueEnemigo.text = "<color=green>" + AtaqueActual + "</color> / " + AtaqueMax;
         }
@@ -314,11 +314,11 @@ public class EnemySlime : MonoBehaviour
             AtaqueEnemigo.text = AtaqueActual + " / " + AtaqueMax;
         }
 
-        if (DefensaActual < VariablesGlobales.instance.SlimeDefensaActual)
+        if (DefensaActual < 2)
         {
             DefensaEnemigo.text = "<color=red>" + DefensaActual * 5 + "%</color> / 50%";
         }
-        else if (DefensaActual > VariablesGlobales.instance.SlimeDefensaActual)
+        else if (DefensaActual > 2)
         {
             DefensaEnemigo.text = "<color=green>" + DefensaActual * 5 + "%</color> / 50%";
         }

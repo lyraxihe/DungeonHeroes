@@ -301,11 +301,11 @@ public class EnemyKnight : MonoBehaviour
             VidaEnemigo.text = VidaActual + " / " + VidaTotal;
         }
 
-        if (AtaqueActual < VariablesGlobales.instance.KnightAtaqueActual)
+        if (AtaqueActual < 30)
         {
             AtaqueEnemigo.text = "<color=red>" + AtaqueActual + "</color> / " + AtaqueMax;
         }
-        else if (AtaqueActual > VariablesGlobales.instance.KnightAtaqueActual)
+        else if (AtaqueActual > 30)
         {
             AtaqueEnemigo.text = "<color=green>" + AtaqueActual + "</color> / " + AtaqueMax;
         }
@@ -314,11 +314,11 @@ public class EnemyKnight : MonoBehaviour
             AtaqueEnemigo.text = AtaqueActual + " / " + AtaqueMax;
         }
         
-        if(DefensaActual < VariablesGlobales.instance.KnightDefensaActual)
+        if(DefensaActual < 5)
         {
             DefensaEnemigo.text = "<color=red>" + DefensaActual * 5 + "%</color> / 50%";
         }
-        else if (DefensaActual > VariablesGlobales.instance.KnightDefensaActual)
+        else if (DefensaActual > 5)
         {
             DefensaEnemigo.text = "<color=green>" + DefensaActual * 5 + "%</color> / 50%";
         }

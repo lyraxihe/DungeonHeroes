@@ -302,11 +302,11 @@ public class EnemyHealer : MonoBehaviour
             VidaEnemigo.text = VidaActual + " / " + VidaTotal;
         }
 
-        if (AtaqueActual < VariablesGlobales.instance.HealerAtaqueActual)
+        if (AtaqueActual < 5)
         {
             AtaqueEnemigo.text = "<color=red>" + AtaqueActual + "</color> / " + AtaqueMax;
         }
-        else if (AtaqueActual > VariablesGlobales.instance.HealerAtaqueActual)
+        else if (AtaqueActual > 5)
         {
             AtaqueEnemigo.text = "<color=green>" + AtaqueActual + "</color> / " + AtaqueMax;
         }
@@ -315,11 +315,11 @@ public class EnemyHealer : MonoBehaviour
             AtaqueEnemigo.text = AtaqueActual + " / " + AtaqueMax;
         }
 
-        if (DefensaActual < VariablesGlobales.instance.HealerDefensaActual)
+        if (DefensaActual < 5)
         {
             DefensaEnemigo.text = "<color=red>" + DefensaActual * 5 + "%</color> / 50%";
         }
-        else if (DefensaActual > VariablesGlobales.instance.HealerDefensaActual)
+        else if (DefensaActual > 5)
         {
             DefensaEnemigo.text = "<color=green>" + DefensaActual * 5 + "%</color> / 50%";
         }

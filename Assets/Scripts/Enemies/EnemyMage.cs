@@ -239,11 +239,11 @@ public class EnemyMage : MonoBehaviour
             VidaEnemigo.text = VidaActual + " / " + VidaTotal;
         }
 
-        if (AtaqueActual < VariablesGlobales.instance.MageAtaqueActual)
+        if (AtaqueActual < 10)
         {
             AtaqueEnemigo.text = "<color=red>" + AtaqueActual + "</color> / " + AtaqueMax;
         }
-        else if (AtaqueActual > VariablesGlobales.instance.MageAtaqueActual)
+        else if (AtaqueActual > 10)
         {
             AtaqueEnemigo.text = "<color=green>" + AtaqueActual + "</color> / " + AtaqueMax;
         }
@@ -252,11 +252,11 @@ public class EnemyMage : MonoBehaviour
             AtaqueEnemigo.text = AtaqueActual + " / " + AtaqueMax;
         }
 
-        if (DefensaActual < VariablesGlobales.instance.MageDefensaActual)
+        if (DefensaActual < 7)
         {
             DefensaEnemigo.text = "<color=red>" + DefensaActual * 5 + "%</color> / 50%";
         }
-        else if (DefensaActual > VariablesGlobales.instance.MageDefensaActual)
+        else if (DefensaActual > 7)
         {
             DefensaEnemigo.text = "<color=green>" + DefensaActual * 5 + "%</color> / 50%";
         }

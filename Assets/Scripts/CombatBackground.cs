@@ -126,7 +126,7 @@ public class CombatBackground : MonoBehaviour
     public bool StartBattle;                                               // Booleano que controla cuando el botón de ¡Comenzar Batalla! es pulsado
     public string TurnoBatalla;                                            // Nombre del turno del Jugador o el Enemigo
     private bool BoolTurnoBatalla;                                         // Booleano que controla que el texto "Turno de Batalla" se cree una sóla vez
-    private bool[] AliadosPositionStatus = { false, false, false, false }; // Array de booleanos para ver que todos los aliados han sido colocados en el mapa de combate
+    private bool[] AliadosPositionStatus = new bool[4]; // Array de booleanos para ver que todos los aliados han sido colocados en el mapa de combate
     private bool CambiarTurno = true;
     public bool EnemigoParaAtacar = false;
     public int ContHabilidadSlime;                                         // Contador para saber cuántos turnos faltan para que termine la habilidad del Slime
@@ -168,13 +168,13 @@ public class CombatBackground : MonoBehaviour
         //ClonMenuPausaContainer.GetComponent<SpriteRenderer>().enabled = false;
 
         // RESTO
-        Positions = new GameObject[PositionsX.Length]; // Crea el array de prefabs CombatPosition en base al tamaño del array de Coordenadas
-        Lines = new GameObject[LinesX.Length];         // Crea el array de prefabs CombatLine en base al tamaño del array de Coordenadas
-        Aliados = new GameObject[4];                   // Crea el array de personajes del jugador con tamaño 4 
-        StartBattle = false;                           // El combate se incializa primero en fase de planificación
-        TurnoBatalla = "Jugador";                      // Establece que el primer turno de la batalla será para el jugador
-        BoolTurnoBatalla = false;                      // De momento se puede crear el Texto "Turno de Batalla"
-        CharacterInterface = new GameObject[10];       // Incializa el array de info del Personaje del JUgador
+        Positions = new GameObject[PositionsX.Length];                      // Crea el array de prefabs CombatPosition en base al tamaño del array de Coordenadas
+        Lines = new GameObject[LinesX.Length];                              // Crea el array de prefabs CombatLine en base al tamaño del array de Coordenadas
+        Aliados = new GameObject[4];                                        // Crea el array de personajes del jugador con tamaño 4 
+        StartBattle = false;                                                // El combate se incializa primero en fase de planificación
+        TurnoBatalla = "Jugador";                                           // Establece que el primer turno de la batalla será para el jugador
+        BoolTurnoBatalla = false;                                           // De momento se puede crear el Texto "Turno de Batalla"
+        CharacterInterface = new GameObject[10];                            // Incializa el array de info del Personaje del Jugador
 
         ContHabilidadSlime = 0;
 
@@ -704,130 +704,148 @@ public class CombatBackground : MonoBehaviour
         {
             if (i == 0)                                                                                   // Si el personaje es un Knight
             {
-                GameObject aliadoColocar = Instantiate(PrefabPlayerKnight);                               // Crea un clon del Knight
-                aliadoColocar.transform.position = new Vector3(AliadoColocarX[i], AliadoColocarY[i], -1); // Coloca el clon es la posición de la interfaz
-                aliadoColocar.GetComponent<DragDrop>().GetPositions(Positions);                           // Pasa el array de posiciones de combate al Aliado que acaba de colocar
-                aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
-                aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 1;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
-                aliadoColocar.GetComponent<GeneralPlayer>().UIMover = UIMover;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarConRango = UIAtacarConRango;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarSinRango = UIAtacarSinRango;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadKnight = UIHabilidadKnight;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadHealer = UIHabilidadHealer;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadSlime = UIHabilidadSlime;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadMage = UIHabilidadMage;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoVida = TextoVida;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoAtaque = TextoAtaque;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoDefensa = TextoDefensa;
-                aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
-                aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
-                aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
-                aliadoColocar.GetComponent<PlayerKnight>()._CombatBackground = _CombatBackground;         // Almacena el combate
-                Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
+                if (VariablesGlobales.instance.KnightVivo)
+                {
+                    GameObject aliadoColocar = Instantiate(PrefabPlayerKnight);                               // Crea un clon del Knight
+                    aliadoColocar.transform.position = new Vector3(AliadoColocarX[i], AliadoColocarY[i], -1); // Coloca el clon es la posición de la interfaz
+                    aliadoColocar.GetComponent<DragDrop>().GetPositions(Positions);                           // Pasa el array de posiciones de combate al Aliado que acaba de colocar
+                    aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
+                    aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
+                    aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 1;                            // Almacena el tipo de enemigo
+                    aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIMover = UIMover;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarConRango = UIAtacarConRango;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarSinRango = UIAtacarSinRango;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadKnight = UIHabilidadKnight;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadHealer = UIHabilidadHealer;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadSlime = UIHabilidadSlime;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadMage = UIHabilidadMage;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoVida = TextoVida;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoAtaque = TextoAtaque;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoDefensa = TextoDefensa;
+                    aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
+                    aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                    aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
+                    aliadoColocar.GetComponent<PlayerKnight>()._CombatBackground = _CombatBackground;         // Almacena el combate
+                    Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
+
+                    ContAliados++;                                                                                // Aumenta el contador de aliados en combate
+                }
             }
             else if (i == 1)                                                                              // Si el enemigo es un Healer
             {
-                GameObject aliadoColocar = Instantiate(PrefabPlayerHealer);                               // Crea un clon del Healer
-                aliadoColocar.transform.position = new Vector3(AliadoColocarX[i], AliadoColocarY[i], -1); // Coloca el clon es la posición de la interfaz
-                aliadoColocar.GetComponent<DragDrop>().GetPositions(Positions);                           // Pasa el array de posiciones de combate al Aliado que acaba de colocar
-                aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
-                aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 2;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
-                aliadoColocar.GetComponent<GeneralPlayer>().UIMover = UIMover;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarConRango = UIAtacarConRango;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarSinRango = UIAtacarSinRango;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadKnight = UIHabilidadKnight;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadHealer = UIHabilidadHealer;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadSlime = UIHabilidadSlime;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadMage = UIHabilidadMage;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoVida = TextoVida;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoAtaque = TextoAtaque;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoDefensa = TextoDefensa;
-                aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
-                aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
-                aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
-                aliadoColocar.GetComponent<PlayerHealer>()._CombatBackground = _CombatBackground;         // Almacena el combate
-                Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
+                if (VariablesGlobales.instance.HealerVivo)
+                {
+                    GameObject aliadoColocar = Instantiate(PrefabPlayerHealer);                               // Crea un clon del Healer
+                    aliadoColocar.transform.position = new Vector3(AliadoColocarX[i], AliadoColocarY[i], -1); // Coloca el clon es la posición de la interfaz
+                    aliadoColocar.GetComponent<DragDrop>().GetPositions(Positions);                           // Pasa el array de posiciones de combate al Aliado que acaba de colocar
+                    aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
+                    aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
+                    aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 2;                            // Almacena el tipo de enemigo
+                    aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIMover = UIMover;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarConRango = UIAtacarConRango;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarSinRango = UIAtacarSinRango;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadKnight = UIHabilidadKnight;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadHealer = UIHabilidadHealer;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadSlime = UIHabilidadSlime;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadMage = UIHabilidadMage;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoVida = TextoVida;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoAtaque = TextoAtaque;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoDefensa = TextoDefensa;
+                    aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
+                    aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                    aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
+                    aliadoColocar.GetComponent<PlayerHealer>()._CombatBackground = _CombatBackground;         // Almacena el combate
+                    Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
+
+                    ContAliados++;                                                                                // Aumenta el contador de aliados en combate
+                }
             }
             else if (i == 2)                                                                              // Si el enemigo es un Slime
             {
-                GameObject aliadoColocar = Instantiate(PrefabPlayerSlime);                                // Crea un clon del Slime
-                aliadoColocar.transform.position = new Vector3(AliadoColocarX[i], AliadoColocarY[i], -1); // Coloca el clon es la posición de la interfaz
-                aliadoColocar.GetComponent<DragDrop>().GetPositions(Positions);                           // Pasa el array de posiciones de combate al Aliado que acaba de colocar
-                aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
-                aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 3;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
-                aliadoColocar.GetComponent<GeneralPlayer>().UIMover = UIMover;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarConRango = UIAtacarConRango;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarSinRango = UIAtacarSinRango;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadKnight = UIHabilidadKnight;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadHealer = UIHabilidadHealer;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadSlime = UIHabilidadSlime;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadMage = UIHabilidadMage;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoVida = TextoVida;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoAtaque = TextoAtaque;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoDefensa = TextoDefensa;
-                aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
-                aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
-                aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
-                aliadoColocar.GetComponent<PlayerSlime>()._CombatBackground = _CombatBackground;          // Almacena el combate
-                Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
+                if (VariablesGlobales.instance.SlimeVivo)
+                {
+                    GameObject aliadoColocar = Instantiate(PrefabPlayerSlime);                                // Crea un clon del Slime
+                    aliadoColocar.transform.position = new Vector3(AliadoColocarX[i], AliadoColocarY[i], -1); // Coloca el clon es la posición de la interfaz
+                    aliadoColocar.GetComponent<DragDrop>().GetPositions(Positions);                           // Pasa el array de posiciones de combate al Aliado que acaba de colocar
+                    aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
+                    aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
+                    aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 3;                            // Almacena el tipo de enemigo
+                    aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIMover = UIMover;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarConRango = UIAtacarConRango;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarSinRango = UIAtacarSinRango;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadKnight = UIHabilidadKnight;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadHealer = UIHabilidadHealer;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadSlime = UIHabilidadSlime;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadMage = UIHabilidadMage;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoVida = TextoVida;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoAtaque = TextoAtaque;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoDefensa = TextoDefensa;
+                    aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
+                    aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                    aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
+                    aliadoColocar.GetComponent<PlayerSlime>()._CombatBackground = _CombatBackground;          // Almacena el combate
+                    Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
+
+                    ContAliados++;                                                                                // Aumenta el contador de aliados en combate
+                }
             }
             else                                                                                          // Si el enemigo es un Mage
             {
-                GameObject aliadoColocar = Instantiate(PrefabPlayerMage);                                 // Crea un clon del Mage
-                aliadoColocar.transform.position = new Vector3(AliadoColocarX[i], AliadoColocarY[i], -1); // Coloca el clon es la posición de la interfaz
-                aliadoColocar.GetComponent<DragDrop>().GetPositions(Positions);                           // Pasa el array de posiciones de combate al Aliado que acaba de colocar
-                aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
-                aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
-                aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 4;                            // Almacena el tipo de enemigo
-                aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
-                aliadoColocar.GetComponent<GeneralPlayer>().UIMover = UIMover;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarConRango = UIAtacarConRango;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarSinRango = UIAtacarSinRango;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadKnight = UIHabilidadKnight;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadHealer = UIHabilidadHealer;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadSlime = UIHabilidadSlime;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadMage = UIHabilidadMage;
-                aliadoColocar.GetComponent<GeneralPlayer>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoVida = TextoVida;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoAtaque = TextoAtaque;
-                aliadoColocar.GetComponent<GeneralPlayer>().TextoDefensa = TextoDefensa;
-                aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
-                aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
-                aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
-                aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
-                aliadoColocar.GetComponent<PlayerMage>()._CombatBackground = _CombatBackground;           // Almacena el combate
-                Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
-            }
+                if (VariablesGlobales.instance.MageVivo)
+                {
+                    GameObject aliadoColocar = Instantiate(PrefabPlayerMage);                                 // Crea un clon del Mage
+                    aliadoColocar.transform.position = new Vector3(AliadoColocarX[i], AliadoColocarY[i], -1); // Coloca el clon es la posición de la interfaz
+                    aliadoColocar.GetComponent<DragDrop>().GetPositions(Positions);                           // Pasa el array de posiciones de combate al Aliado que acaba de colocar
+                    aliadoColocar.GetComponent<GeneralPlayer>().Positions = Positions;                        // Almacena en el personaje el array de posiciones de combate
+                    aliadoColocar.GetComponent<GeneralPlayer>().Character = aliadoColocar;                    // Almacena el personaje creado
+                    aliadoColocar.GetComponent<GeneralPlayer>().CharacterType = 4;                            // Almacena el tipo de enemigo
+                    aliadoColocar.GetComponent<GeneralPlayer>().Enemies = Enemies;                            // Almacena el array de enemigos del combate
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIMover = UIMover;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarConRango = UIAtacarConRango;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIAtacarSinRango = UIAtacarSinRango;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadKnight = UIHabilidadKnight;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadHealer = UIHabilidadHealer;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadSlime = UIHabilidadSlime;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIHabilidadMage = UIHabilidadMage;
+                    aliadoColocar.GetComponent<GeneralPlayer>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoVida = TextoVida;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoAtaque = TextoAtaque;
+                    aliadoColocar.GetComponent<GeneralPlayer>().TextoDefensa = TextoDefensa;
+                    aliadoColocar.GetComponent<GeneralPlayer>().VidaImagen = VidaImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().AtaqueImagen = AtaqueImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().DefensaImagen = DefensaImagen;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaVida = EstadisticaVida;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaAtaque = EstadisticaAtaque;
+                    aliadoColocar.GetComponent<GeneralPlayer>().EstadisticaDefensa = EstadisticaDefensa;
+                    aliadoColocar.GetComponent<GeneralPlayer>()._CombatBackground = _CombatBackground;        // Almacena el combate
+                    aliadoColocar.GetComponent<DragDrop>()._CombatBackground = _CombatBackground;             // Almacena el combate
+                    aliadoColocar.GetComponent<PlayerMage>()._CombatBackground = _CombatBackground;           // Almacena el combate
+                    Aliados[i] = aliadoColocar;                                                               // Mete el clon en el array de personajes del jugador
 
-            ContAliados++;                                                                                // Aumenta el contador de aliados en combate
+                    ContAliados++;                                                                                // Aumenta el contador de aliados en combate
+                }
+            }
         }
     }
 
@@ -1022,7 +1040,8 @@ public class CombatBackground : MonoBehaviour
 
                 for (int i = 0; i < Aliados.Length; i++)                           // Recorre el array de los personajes del jugador
                 {
-                    Aliados[i].GetComponent<DragDrop>().enabled = false;           // Desactiva el script que permite arrastrarlos durante la fase de preparación del combate
+                    if (Aliados[i] != null)
+                        Aliados[i].GetComponent<DragDrop>().enabled = false;       // Desactiva el script que permite arrastrarlos durante la fase de preparación del combate
                 }
 
                 ClonTextoTurno = Instantiate(PrefabTextoTurno);                    // Crea el Texto del Turno

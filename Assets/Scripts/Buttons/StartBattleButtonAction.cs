@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartBattleButtonAction : MonoBehaviour
 {
-    public bool[] AliadosPositionStatus; // Array de booleanos para comprobar que todos los personajes del Jugador éstán colocados en el mapa de combate
+    public bool[] AliadosPositionStatus; // Array de booleanos para comprobar que todos los personajes del Jugador están colocados en el mapa de combate
     public bool Activated = false;       // Booleano que controla si el botón ha sido activado cuando todos los personajes del Jugador estaban colocados en el mapa de combate
     public GameObject[] Enemies;
 
@@ -511,9 +511,9 @@ public class StartBattleButtonAction : MonoBehaviour
                 contador++;                                    // +1 al contador
         }
 
-        if (contador == 4)                                     // Si los 4 personajes están colocados en el mapa de combate
-            return true;                                       // Devuelve true
-        else                                                   // Si no están los 4 colocados
-            return false;                                      // Devuelve false
+        if (contador == VariablesGlobales.instance.NumPersonajes) // Si los 4 personajes están colocados en el mapa de combate
+            return true;                                          // Devuelve true
+        else                                                      // Si no están los 4 colocados
+            return false;                                         // Devuelve false
     }
 }

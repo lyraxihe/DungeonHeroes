@@ -135,10 +135,10 @@ public class StartBattleButton : MonoBehaviour
                 contador++;                                    // +1 al contador
         }
 
-        if (contador == 4)                                     // Si los 4 personajes están colocados en el mapa de combate
-            return true;                                       // Devuelve true
-        else                                                   // Si no están los 4 colocados
-            return false;                                      // Devuelve false
+        if (contador == VariablesGlobales.instance.NumPersonajes) // Si los 4 personajes están colocados en el mapa de combate
+            return true;                                          // Devuelve true
+        else                                                      // Si no están los 4 colocados
+            return false;                                         // Devuelve false
     }
 
     /****************************************************************************************

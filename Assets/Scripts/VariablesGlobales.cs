@@ -58,6 +58,8 @@ public class VariablesGlobales : MonoBehaviour
     public int AtaqueMax;
     public int DefensaMax;
 
+    //Control Personajes Jugador
+    public int NumPersonajes; // Número de personajes del Jugador
 
     // ESTADÍSTICAS DEL KNIGHT
     public int KnightVidaTotal;               // Vida máxima del personaje
@@ -67,6 +69,7 @@ public class VariablesGlobales : MonoBehaviour
     public int KnightDefensaActual;           // Defensa actual del personaje
     public int KnightDefensaMax;              // Defensa máxima del personaje
     public int KnightDefensaActualPercentage; // Porcentaje de defensa actual del personaje
+    public bool KnightVivo;
 
     // ESTADÍSTICAS DEL HEALER
     public int HealerVidaTotal;               // Vida máxima del personaje
@@ -76,6 +79,7 @@ public class VariablesGlobales : MonoBehaviour
     public int HealerDefensaActual;           // Defensa actual del personaje
     public int HealerDefensaMax;              // Defensa máxima del personaje
     public int HealerDefensaActualPercentage; // Porcentaje de defensa actual del personaje
+    public bool HealerVivo;
 
     // ESTADÍSTICAS DEL SLIME
     public int SlimeVidaTotal;               // Vida máxima del personaje
@@ -85,6 +89,7 @@ public class VariablesGlobales : MonoBehaviour
     public int SlimeDefensaActual;           // Defensa actual del personaje
     public int SlimeDefensaMax;              // Defensa máxima del personaje
     public int SlimeDefensaActualPercentage; // Porcentaje de defensa actual del personaje
+    public bool SlimeVivo;
 
     // ESTADÍSTICAS DEL MAGE
     public int MageVidaTotal;               // Vida máxima del personaje
@@ -94,6 +99,7 @@ public class VariablesGlobales : MonoBehaviour
     public int MageDefensaActual;           // Defensa actual del personaje
     public int MageDefensaMax;              // Defensa máxima del personaje
     public int MageDefensaActualPercentage; // Porcentaje de defensa actual del personaje
+    public bool MageVivo;
 
     // ESTADÍSTICAS DEL BOSS
     public int BossVidaTotal;               // Vida máxima del personaje
@@ -106,28 +112,21 @@ public class VariablesGlobales : MonoBehaviour
 
     private void Awake() //carga los datos guardados
     {
-        Debug.Log("Entrando en Awake");
         if (instance == null)
         {
-            Debug.Log("Awake: No destruyo nada.");
             DontDestroyOnLoad(gameObject);
             instance = this;
         }
         else
         {
-            if (!EscPressed)
+            if (instance != this)
             {
-                if (instance != this)
-                {
-                    Debug.Log("Awake: Destruyo el GameObject: " + gameObject);
-                    Destroy(gameObject);
-                }   
+                Destroy(gameObject);
             }
         }
 
         if(SceneManager.GetActiveScene().name == "MainMenu")
         {
-            Debug.Log("Awake: La escena es Main Menu");
             Destroy(this.gameObject);
         }
     }
@@ -147,6 +146,9 @@ public class VariablesGlobales : MonoBehaviour
         AtaqueMax = 50;
         DefensaMax = 10;
 
+        // Establece el número de personajes del Jugador
+        NumPersonajes = 4;
+
         // Establece los atributos del Knight
         KnightVidaTotal = 75;
         KnightVidaActual = KnightVidaTotal;
@@ -155,8 +157,9 @@ public class VariablesGlobales : MonoBehaviour
         KnightDefensaActual = 5;
         KnightDefensaMax = 10;
         KnightDefensaActualPercentage = KnightDefensaActual * 5;
+        KnightVivo = true;
 
-        // Establece los atributos del Healer
+    // Establece los atributos del Healer
         HealerVidaTotal = 100;
         HealerVidaActual = 100;
         HealerAtaqueActual = 5;
@@ -164,6 +167,7 @@ public class VariablesGlobales : MonoBehaviour
         HealerDefensaActual = 5;
         HealerDefensaMax = 10;
         HealerDefensaActualPercentage = HealerDefensaActual * 5;
+        HealerVivo = true;
 
         // Establece los atributos del Slime
         SlimeVidaTotal = 150;
@@ -173,6 +177,7 @@ public class VariablesGlobales : MonoBehaviour
         SlimeDefensaActual = 2;
         SlimeDefensaMax = 10;
         SlimeDefensaActualPercentage = SlimeDefensaActual * 5;
+        SlimeVivo = true;
 
         // Establece los atributos del Mage
         MageVidaTotal = 100;
@@ -182,6 +187,7 @@ public class VariablesGlobales : MonoBehaviour
         MageDefensaActual = 7;
         MageDefensaMax = 10;
         MageDefensaActualPercentage = MageDefensaActual * 5;
+        MageVivo = true;
 
         // Establece los atributos del Boss
         BossVidaTotal = 200;
@@ -237,11 +243,6 @@ public class VariablesGlobales : MonoBehaviour
       
     }
 
-    public void ContinuarPausa()
-    {
-        EscPressed = false;
-        canvas.SetActive(!canvas.activeSelf);
-    }
     private void SetPositions(int numPositions)
     {
         for (int i = 0; i < numPositions; i++) // Bucle for desde 0 al número de posiciones que debe haber para ir colocándolas
@@ -345,13 +346,6 @@ public class VariablesGlobales : MonoBehaviour
             return true;                                             // Devuelve "true" por que la posición está ocupada
 
         return false;                                                // Devuelve "false" si "Occupied" es "false" y por tanto está libre
-    }
-
-    void SalirPausa()
-    {
-        EscPressed = false;
-        canvas.SetActive(!canvas.activeSelf);
-        SceneManager.LoadScene("MainMenu"); //abre la escena
     }
 
     ////private static Background instance = null;

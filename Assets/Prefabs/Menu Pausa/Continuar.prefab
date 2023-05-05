@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8995814409180042074}
   - component: {fileID: 8995814409180042073}
   - component: {fileID: 8995814409180042075}
-  - component: {fileID: -9008368454240171430}
   m_Layer: 5
   m_Name: Continuar
   m_TagString: Untagged
@@ -123,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -9008368454240171430}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VariablesGlobales, Assembly-CSharp
         m_MethodName: ContinuarPausa
         m_Mode: 1
@@ -135,28 +134,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-9008368454240171430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8995814409180042087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9ebfba33c8511408ac65ab9deffbfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabMenuPausaBroder: {fileID: 0}
-  PrefabMenuPausaContainer: {fileID: 0}
-  ClonMenuPausaBorder: {fileID: 0}
-  ClonMenuPausaContainer: {fileID: 0}
-  PausaText: {fileID: 0}
-  ContinuarButton: {fileID: 0}
-  ContinuarButtonText: {fileID: 0}
-  SalirButton: {fileID: 0}
-  SalirButtonText: {fileID: 0}
-  EscPressed: 0
 --- !u!1001 &1098671849034756360
 PrefabInstance:
   m_ObjectHideFlags: 0
