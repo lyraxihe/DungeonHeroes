@@ -115,13 +115,13 @@ public class Ability2ButtonAction : MonoBehaviour
         }
         else if(Character.GetComponent<GeneralPlayer>().CharacterType == 3) // Si el personaje es un Slime
         {
-            // TEXTO EXPLICACIÓN
-            /************************************************************************************************************************/
-            _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona un enemigo al que bajarle la defensa");
-            /************************************************************************************************************************/
-
             if (Character.GetComponent<PlayerSlime>().UsedAbility != true)
             {
+                // TEXTO EXPLICACIÓN
+                /************************************************************************************************************************/
+                _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona un enemigo al que bajarle la defensa");
+                /************************************************************************************************************************/
+
                 for (int i = 0; i < Enemies.Length; i++)                    // Blucle que hace seleccionables a todos los enemigos del combate
                 {
                     if (Enemies[i] != null)
@@ -146,13 +146,13 @@ public class Ability2ButtonAction : MonoBehaviour
         }
         else                                                                                                                         // Si el personaje es un Mage
         {
-            // TEXTO EXPLICACIÓN
-            /************************************************************************************************************************/
-            _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona un heroe aliado al que aumentarle la defensa");
-            /************************************************************************************************************************/
-
             if (Character.GetComponent<PlayerMage>().UsedAbility != true)                                                          // Si puede usar su habilidad
             {
+                // TEXTO EXPLICACIÓN
+                /************************************************************************************************************************/
+                _CombatBackground.GetComponent<CombatBackground>().ClonTextoExplicacion.GetComponent<TextoTurno>().ChangeText("Selecciona un heroe aliado al que aumentarle la defensa");
+                /************************************************************************************************************************/
+
                 for (int i = 0; i < Aliados.Length; i++)                                                                             // Bucle para recorrer los aliados del combate
                 {
                     Aliados[i].GetComponent<GeneralPlayer>().Action = 2;                                                             // Indica que la acción es la habilidad del Slime

@@ -487,7 +487,7 @@ public class GeneralPlayer : MonoBehaviour
 
                     _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[8] = ClonAbility2; // Lo alamcena en el array de info del Personaje del Jugador
 
-                    ClonTextoAbility2 = Instantiate(PrefabTexto);                                      // Crea el Texto Ability 2
+                    ClonTextoAbility2 = Instantiate(PrefabTexto);                                         // Crea el Texto Ability 2
 
                     if (CharacterType == 1)                                                               // Si es el Knight
                     {
@@ -505,7 +505,7 @@ public class GeneralPlayer : MonoBehaviour
                     else if (CharacterType == 2)                                                         // Si es el Healer
                     {
                         ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);               // Lo coloca en la interfaz
-                        ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Curar (+20 hp)");       // Cambia el texto
+                        ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Curar (+30 hp)");       // Cambia el texto
                     }
                     else if (CharacterType == 3)                                                         // Si es el Slime
                     {

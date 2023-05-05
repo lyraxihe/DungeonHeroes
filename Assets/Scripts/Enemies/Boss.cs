@@ -83,10 +83,13 @@ public class Boss : MonoBehaviour
     {
         if (SelectedToAttack)                                                // Si el enemigo puede ser atacado
         {
-            if(PlayerAttacking.GetComponent<GeneralPlayer>().Atacando || PlayerAttacking.GetComponent<GeneralPlayer>().Habilidad2)
+            if (PlayerAttacking != null)
             {
-                if (Vibrate)                                                     // Si vibrar es true
-                    ScaleUpPositionBecauseSelected();                            // Empieza la animación para indicar que el enemjigo puede ser atacado
+                if (PlayerAttacking.GetComponent<GeneralPlayer>().Atacando || PlayerAttacking.GetComponent<GeneralPlayer>().Habilidad2)
+                {
+                    if (Vibrate)                                                     // Si vibrar es true
+                        ScaleUpPositionBecauseSelected();                            // Empieza la animación para indicar que el enemjigo puede ser atacado
+                }
             }
         }
 

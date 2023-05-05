@@ -10,6 +10,7 @@ public class VictoriaDerrotaButtonAction : MonoBehaviour
 {
     public GameObject _CombatBackground;
     public TMP_Text Texto;
+    public int Money;
 
     /****************************************************************************************
       * Función: OnClicked                                                                   *
@@ -113,6 +114,7 @@ public class VictoriaDerrotaButtonAction : MonoBehaviour
                     }
                 }
             }
+            VariablesGlobales.instance.Money += Money;
         }
 
         //VariablesGlobales.instance.KnightVidaActual = 30;
