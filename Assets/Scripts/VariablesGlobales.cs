@@ -240,6 +240,10 @@ public class VariablesGlobales : MonoBehaviour
         {
             RoomCanvas.SetActive(false); //se desactivan y muestran los botones de las salas al no estar en la escena del mapa
         }
+        if (CurrentSceneName == "MainMenu")
+        {
+            Destroy(this.gameObject);
+        }
       
     }
 
@@ -350,6 +354,10 @@ public class VariablesGlobales : MonoBehaviour
 
     ////private static Background instance = null;
     ////public static Background Instance { get { return instance; } } //creo el Singletons
+
+   
+    
+   
 }
 
 

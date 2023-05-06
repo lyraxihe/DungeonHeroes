@@ -20,7 +20,10 @@ public class ControlScenes : MonoBehaviour
     }
     public Button CombatButton;
     public Button BossButton;
-   
+    public Button ShopButton;
+    public Color blue;
+    public Color lightblue;
+
     public void CombatRoom()
     {
         
@@ -35,7 +38,11 @@ public class ControlScenes : MonoBehaviour
     }
     public void ShopRoom()
     {
-        SceneManager.LoadScene("Shop"); //abre la escena
+        ColorBlock cb = ShopButton.colors;
+        cb.normalColor = blue;
+        cb.highlightedColor = lightblue;
+        ShopButton.colors = cb;
+    SceneManager.LoadScene("Shop"); //abre la escena
         
     }
     public void BossRoom()

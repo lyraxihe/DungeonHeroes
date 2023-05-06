@@ -99,8 +99,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.7783019, g: 1, b: 0.9644924, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -149,3 +149,5 @@ MonoBehaviour:
   CombatButton: {fileID: 0}
   BossButton: {fileID: 0}
   ShopButton: {fileID: 6212407063030524774}
+  blue: {r: 0.23632964, g: 0.56155026, b: 0.6698113, a: 1}
+  lightblue: {r: 0.62655747, g: 0.90499157, b: 0.9433962, a: 1}

@@ -26,24 +26,22 @@ public class CaballeroBotones : MonoBehaviour
     public int Money;                   // Dinero actual del jugador
 
     //variables del Caballero
-    public int VidaActualCaballero;              // Vida actual del personaje
+  
     public int VidaMaxCaballero;                 // Vida máxima del personaje
-    public int AtaqueActualCaballero;            // Ataque actual del personaje
-    public int DefensaActualCaballero;           // Defensa actual del personaje
+  
 
     void Start()
     {
 
         //tomo los valores asignados en variables globales para todos los personajes
         AtaqueMax = VariablesGlobales.instance.AtaqueMax;
-        DefensaMax = VariablesGlobales.instance.DefensaMax * 5;
+        DefensaMax = VariablesGlobales.instance.DefensaMax;
         Money = VariablesGlobales.instance.Money;
 
         //tomo los valores asignados en variables globales para el caballero
-        VidaActualCaballero = VariablesGlobales.instance.KnightVidaActual;
+       
         VidaMaxCaballero = VariablesGlobales.instance.KnightVidaTotal;
-        AtaqueActualCaballero = VariablesGlobales.instance.KnightAtaqueActual;
-        DefensaActualCaballero = VariablesGlobales.instance.KnightDefensaActual * 5;
+      
 
     }
 
@@ -52,31 +50,31 @@ public class CaballeroBotones : MonoBehaviour
     {
 
         //actualiza el valor de la moneda
-        MoneyText.text = "" + Money;
+        MoneyText.text = "" + VariablesGlobales.instance.Money;
 
         //actualiza los valores del caballero
-        HPActualCaballero.text = "" + VidaActualCaballero + "/" + VidaMaxCaballero;
-        ATQActualCaballero.text = "" + AtaqueActualCaballero + "/" + AtaqueMax;
-        DEFActualCaballero.text = "" + DefensaActualCaballero + "%/" + DefensaMax + "%";
+        HPActualCaballero.text = "" + VariablesGlobales.instance.KnightVidaActual + "/" + VidaMaxCaballero;
+        ATQActualCaballero.text = "" + VariablesGlobales.instance.KnightAtaqueActual + "/" + AtaqueMax;
+        DEFActualCaballero.text = "" + (VariablesGlobales.instance.KnightDefensaActual * 5) + "%/" + DefensaMax * 5 + "%";
     }
 
     public void SumarHPCaballero()
     {
-
-        if (Money >= 10 & VidaActualCaballero < VidaMaxCaballero)
+        
+        if (VariablesGlobales.instance.Money >= 10 & VariablesGlobales.instance.KnightVidaActual < VidaMaxCaballero)
         {
             HpCaballeroButton.interactable = true; //creo que así hago que el boton solo sea interactuable al tener menos vida que la vida máxima
-            VidaActualCaballero += 10;
-            HPActualCaballero.text = "" + VidaActualCaballero + "/" + VidaMaxCaballero;
-            Money -= 10;
-            MoneyText.text = "" + Money;
+            VariablesGlobales.instance.KnightVidaActual += 10;
+            HPActualCaballero.text = "" + VariablesGlobales.instance.KnightVidaActual + "/" + VidaMaxCaballero;
+            VariablesGlobales.instance.Money -= 10;
+            MoneyText.text = "" + VariablesGlobales.instance.Money;
            
-            if (VidaActualCaballero > VidaMaxCaballero)
+            if (VariablesGlobales.instance.KnightVidaActual > VidaMaxCaballero)
             {
-                VidaActualCaballero = VidaMaxCaballero;
+                VariablesGlobales.instance.KnightVidaActual = VidaMaxCaballero;
             }
         }
-        else if (VidaActualCaballero == VidaMaxCaballero)
+        else if (VariablesGlobales.instance.KnightVidaActual == VidaMaxCaballero)
         {
             HpCaballeroButton.interactable = false;
         }
@@ -84,41 +82,42 @@ public class CaballeroBotones : MonoBehaviour
     }
     public void SumarATQCaballero()
     {
-        if (Money >= 20 & AtaqueActualCaballero < AtaqueMax)
+       
+        if (VariablesGlobales.instance.Money >= 20 & VariablesGlobales.instance.KnightAtaqueActual < AtaqueMax)
         {
             ATQCaballeroButton.interactable = true;
-            Money -= 20;
-            AtaqueActualCaballero += 5;
-            ATQActualCaballero.text = "" + AtaqueActualCaballero + "/" + AtaqueMax;
-            MoneyText.text = "" + Money;
-            if (AtaqueActualCaballero > AtaqueMax)
+            VariablesGlobales.instance.Money -= 20;
+            VariablesGlobales.instance.KnightAtaqueActual += 5;
+            ATQActualCaballero.text = "" + VariablesGlobales.instance.KnightAtaqueActual + "/" + AtaqueMax;
+            MoneyText.text = "" + VariablesGlobales.instance.Money;
+            if (VariablesGlobales.instance.KnightAtaqueActual > AtaqueMax)
             {
-                AtaqueActualCaballero = AtaqueMax;
+                VariablesGlobales.instance.KnightAtaqueActual = AtaqueMax;
             }
         }
-        else if (AtaqueActualCaballero == AtaqueMax)
+        else if (VariablesGlobales.instance.KnightAtaqueActual == VariablesGlobales.instance.AtaqueMax)
         {
             ATQCaballeroButton.interactable = false;
         }
         else { return; }
 
     }
-    public void SumardDEFCaballero()
+    public void SumarDEFCaballero()
     {
-        if (Money >= 15 & DefensaActualCaballero < DefensaMax)
+        if (VariablesGlobales.instance.Money >= 15 & VariablesGlobales.instance.KnightDefensaActual < DefensaMax)
         {
             DEFCaballeroButton.interactable = true;
-            Money -= 15;
-            DefensaActualCaballero += 5;
-            DEFActualCaballero.text = "" + DefensaActualCaballero + "%/" + DefensaMax + "%";
-            MoneyText.text = "" + Money;
+            VariablesGlobales.instance.Money -= 15;
+            VariablesGlobales.instance.KnightDefensaActual += 1;
+            DEFActualCaballero.text = "" + (VariablesGlobales.instance.KnightDefensaActual * 5 )+ "%/" + DefensaMax * 5 + "%";
+            MoneyText.text = "" + VariablesGlobales.instance.Money;
 
-            if (DefensaActualCaballero > DefensaMax)
+            if (VariablesGlobales.instance.KnightDefensaActual > DefensaMax)
             {
-                DefensaActualCaballero = DefensaMax;
+                VariablesGlobales.instance.KnightDefensaActual = DefensaMax;
             }
         }
-        else if (DefensaActualCaballero == DefensaMax)
+        else if (VariablesGlobales.instance.KnightDefensaActual == DefensaMax)
         {
             DEFCaballeroButton.interactable = false;
         }

@@ -358,10 +358,7 @@ MonoBehaviour:
   AtaqueMax: 0
   DefensaMax: 0
   Money: 0
-  VidaActualCaballero: 0
   VidaMaxCaballero: 0
-  AtaqueActualCaballero: 0
-  DefensaActualCaballero: 0
 --- !u!1 &20642819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1027,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 147985298}
         m_TargetAssemblyTypeName: CaballeroBotones, Assembly-CSharp
-        m_MethodName: SumardDEFCaballero
+        m_MethodName: SumarDEFCaballero
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1100,10 +1097,7 @@ MonoBehaviour:
   AtaqueMax: 0
   DefensaMax: 0
   Money: 0
-  VidaActualCaballero: 0
   VidaMaxCaballero: 0
-  AtaqueActualCaballero: 0
-  DefensaActualCaballero: 0
 --- !u!1 &153916205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,10 +1470,7 @@ MonoBehaviour:
   AtaqueMax: 0
   DefensaMax: 0
   Money: 0
-  VidaActualCaballero: 0
   VidaMaxCaballero: 0
-  AtaqueActualCaballero: 0
-  DefensaActualCaballero: 0
 --- !u!1 &303824898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2923,6 +2914,7 @@ GameObject:
   - component: {fileID: 921500034}
   - component: {fileID: 921500033}
   - component: {fileID: 921500032}
+  - component: {fileID: 921500035}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -2994,7 +2986,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 921500033}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 921500035}
+        m_TargetAssemblyTypeName: HadaBotones, Assembly-CSharp
+        m_MethodName: SumarDEFCaballero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &921500033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3033,6 +3037,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921500030}
   m_CullTransparentMesh: 1
+--- !u!114 &921500035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921500030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b29e77d8b5d944e90d7903ae18fde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyText: {fileID: 390758245}
+  HpHadaButton: {fileID: 1556058266}
+  ATQHadaButton: {fileID: 1688179590}
+  DEFHadaButton: {fileID: 921500032}
+  HPActualHada: {fileID: 1424264650}
+  ATQActualHada: {fileID: 1965080369}
+  DEFActualHada: {fileID: 1550834705}
+  AtaqueMax: 0
+  DefensaMax: 0
+  Money: 0
+  VidaMaxHada: 0
 --- !u!1 &923035109
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,6 +3151,7 @@ GameObject:
   - component: {fileID: 944840266}
   - component: {fileID: 944840265}
   - component: {fileID: 944840264}
+  - component: {fileID: 944840267}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -3195,7 +3223,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 944840265}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 944840267}
+        m_TargetAssemblyTypeName: ArqueroBotones, Assembly-CSharp
+        m_MethodName: SumarDEFArquero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &944840265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3234,6 +3274,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944840262}
   m_CullTransparentMesh: 1
+--- !u!114 &944840267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944840262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1416b081b6a188245b5b35667b092d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyText: {fileID: 390758245}
+  HpArqueroButton: {fileID: 1289726075}
+  ATQArqueroButton: {fileID: 1240947397}
+  DEFArqueroButton: {fileID: 944840264}
+  HPActualArquero: {fileID: 1775632091}
+  ATQActualArquero: {fileID: 1599873188}
+  DEFActualArquero: {fileID: 303824900}
+  AtaqueMax: 0
+  DefensaMax: 0
+  Money: 0
+  VidaMaxArquero: 0
 --- !u!1 &996105775
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,6 +3714,7 @@ GameObject:
   - component: {fileID: 1240947399}
   - component: {fileID: 1240947398}
   - component: {fileID: 1240947397}
+  - component: {fileID: 1240947400}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -3722,7 +3786,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1240947398}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1240947400}
+        m_TargetAssemblyTypeName: ArqueroBotones, Assembly-CSharp
+        m_MethodName: SumarATQArquero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1240947398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3761,6 +3837,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240947395}
   m_CullTransparentMesh: 1
+--- !u!114 &1240947400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240947395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1416b081b6a188245b5b35667b092d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyText: {fileID: 390758245}
+  HpArqueroButton: {fileID: 1289726075}
+  ATQArqueroButton: {fileID: 1240947397}
+  DEFArqueroButton: {fileID: 944840264}
+  HPActualArquero: {fileID: 1775632091}
+  ATQActualArquero: {fileID: 1599873188}
+  DEFActualArquero: {fileID: 303824900}
+  AtaqueMax: 0
+  DefensaMax: 0
+  Money: 0
+  VidaMaxArquero: 0
 --- !u!1 &1260436827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3992,6 +4091,7 @@ GameObject:
   - component: {fileID: 1289726077}
   - component: {fileID: 1289726076}
   - component: {fileID: 1289726075}
+  - component: {fileID: 1289726078}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -4063,7 +4163,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1289726076}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1289726078}
+        m_TargetAssemblyTypeName: ArqueroBotones, Assembly-CSharp
+        m_MethodName: SumarHPArquero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1289726076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4102,6 +4214,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289726073}
   m_CullTransparentMesh: 1
+--- !u!114 &1289726078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289726073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1416b081b6a188245b5b35667b092d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyText: {fileID: 390758245}
+  HpArqueroButton: {fileID: 1289726075}
+  ATQArqueroButton: {fileID: 1240947397}
+  DEFArqueroButton: {fileID: 944840264}
+  HPActualArquero: {fileID: 1775632091}
+  ATQActualArquero: {fileID: 1599873188}
+  DEFActualArquero: {fileID: 303824900}
+  AtaqueMax: 0
+  DefensaMax: 0
+  Money: 0
+  VidaMaxArquero: 0
 --- !u!1 &1294637141
 GameObject:
   m_ObjectHideFlags: 0
@@ -4335,10 +4470,7 @@ MonoBehaviour:
   AtaqueMax: 0
   DefensaMax: 0
   Money: 0
-  VidaActualBruja: 0
   VidaMaxBruja: 0
-  AtaqueActualBruja: 0
-  DefensaActualBruja: 0
 --- !u!1 &1406070767
 GameObject:
   m_ObjectHideFlags: 0
@@ -4426,7 +4558,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1406070772}
         m_TargetAssemblyTypeName: BrujaBotones, Assembly-CSharp
-        m_MethodName: SumardDEFBruja
+        m_MethodName: SumarDEFBruja
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4496,10 +4628,7 @@ MonoBehaviour:
   AtaqueMax: 0
   DefensaMax: 0
   Money: 0
-  VidaActualBruja: 0
   VidaMaxBruja: 0
-  AtaqueActualBruja: 0
-  DefensaActualBruja: 0
 --- !u!1 &1424264648
 GameObject:
   m_ObjectHideFlags: 0
@@ -4748,30 +4877,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6f3e2ca478c5a43a9e1d0a218f3b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HpCaballeroButton: {fileID: 284187899}
+  ATQCaballeroButton: {fileID: 7236550}
+  DEFCaballeroButton: {fileID: 147985295}
+  HpBrujaButton: {fileID: 1402206110}
+  ATQBrujaButton: {fileID: 2092525534}
+  DEFBrujaButton: {fileID: 1406070769}
   HpArqueroButton: {fileID: 1289726075}
   ATQArqueroButton: {fileID: 1240947397}
   DEFArqueroButton: {fileID: 944840264}
   HpHadaButton: {fileID: 1556058266}
   ATQHadaButton: {fileID: 1688179590}
   DEFHadaButton: {fileID: 921500032}
-  MoneyText: {fileID: 390758245}
-  HPActualArquero: {fileID: 1775632091}
-  ATQActualArquero: {fileID: 1599873188}
-  DEFActualArquero: {fileID: 303824900}
-  HPActualHada: {fileID: 1424264650}
-  ATQActualHada: {fileID: 1965080369}
-  DEFActualHada: {fileID: 1550834705}
-  AtaqueMax: 0
-  DefensaMax: 0
-  Money: 0
-  VidaActualArquero: 0
-  VidaMaxArquero: 0
-  AtaqueActualArquero: 0
-  DefensaActualArquero: 0
-  VidaActualHada: 0
-  VidaMaxHada: 0
-  AtaqueActualHada: 0
-  DefensaActualHada: 0
 --- !u!4 &1455930281
 Transform:
   m_ObjectHideFlags: 0
@@ -5246,6 +5363,7 @@ GameObject:
   - component: {fileID: 1556058268}
   - component: {fileID: 1556058267}
   - component: {fileID: 1556058266}
+  - component: {fileID: 1556058269}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5317,7 +5435,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1556058267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1556058269}
+        m_TargetAssemblyTypeName: HadaBotones, Assembly-CSharp
+        m_MethodName: SumarHPHada
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1556058267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5356,6 +5486,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556058264}
   m_CullTransparentMesh: 1
+--- !u!114 &1556058269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556058264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b29e77d8b5d944e90d7903ae18fde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyText: {fileID: 390758245}
+  HpHadaButton: {fileID: 1556058266}
+  ATQHadaButton: {fileID: 1688179590}
+  DEFHadaButton: {fileID: 921500032}
+  HPActualHada: {fileID: 1424264650}
+  ATQActualHada: {fileID: 1965080369}
+  DEFActualHada: {fileID: 1550834705}
+  AtaqueMax: 0
+  DefensaMax: 0
+  Money: 0
+  VidaMaxHada: 0
 --- !u!1 &1599873186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5661,6 +5814,7 @@ GameObject:
   - component: {fileID: 1688179592}
   - component: {fileID: 1688179591}
   - component: {fileID: 1688179590}
+  - component: {fileID: 1688179593}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -5732,7 +5886,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1688179591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1688179593}
+        m_TargetAssemblyTypeName: HadaBotones, Assembly-CSharp
+        m_MethodName: SumarATQHada
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1688179591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5771,6 +5937,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688179588}
   m_CullTransparentMesh: 1
+--- !u!114 &1688179593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688179588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b29e77d8b5d944e90d7903ae18fde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyText: {fileID: 390758245}
+  HpHadaButton: {fileID: 1556058266}
+  ATQHadaButton: {fileID: 1688179590}
+  DEFHadaButton: {fileID: 921500032}
+  HPActualHada: {fileID: 1424264650}
+  ATQActualHada: {fileID: 1965080369}
+  DEFActualHada: {fileID: 1550834705}
+  AtaqueMax: 0
+  DefensaMax: 0
+  Money: 0
+  VidaMaxHada: 0
 --- !u!1 &1692977256
 GameObject:
   m_ObjectHideFlags: 0
@@ -7801,10 +7990,7 @@ MonoBehaviour:
   AtaqueMax: 0
   DefensaMax: 0
   Money: 0
-  VidaActualBruja: 0
   VidaMaxBruja: 0
-  AtaqueActualBruja: 0
-  DefensaActualBruja: 0
 --- !u!1 &2117344419
 GameObject:
   m_ObjectHideFlags: 0

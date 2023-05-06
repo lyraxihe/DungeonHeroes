@@ -25,10 +25,9 @@ public class BrujaBotones : MonoBehaviour
     public int Money;                   // Dinero actual del jugador
 
     //variables del Bruja
-    public int VidaActualBruja;              // Vida actual del personaje
+
     public int VidaMaxBruja;                 // Vida máxima del personaje
-    public int AtaqueActualBruja;            // Ataque actual del personaje
-    public int DefensaActualBruja;           // Defensa actual del personaje
+
 
 
 
@@ -37,46 +36,46 @@ public class BrujaBotones : MonoBehaviour
 
         //tomo los valores asignados en variables globales para todos los personajes
         AtaqueMax = VariablesGlobales.instance.AtaqueMax;
-        DefensaMax = VariablesGlobales.instance.DefensaMax * 5;
+        DefensaMax = VariablesGlobales.instance.DefensaMax;
         Money = VariablesGlobales.instance.Money;
 
         //tomo los valores asignados en variables globales para la Bruja
-        VidaActualBruja = VariablesGlobales.instance.SlimeVidaActual;
+      
         VidaMaxBruja = VariablesGlobales.instance.SlimeVidaTotal;
-        AtaqueActualBruja = VariablesGlobales.instance.SlimeAtaqueActual;
-        DefensaActualBruja = VariablesGlobales.instance.SlimeDefensaActual * 5;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //actualiza el valor de la moneda
-        MoneyText.text = "" + Money;
+        MoneyText.text = "" + VariablesGlobales.instance.Money;
 
         //actualiza los valores de la bruja
-        HPActualBruja.text = "" + VidaActualBruja + "/" + VidaMaxBruja;
-        ATQActualBruja.text = "" + AtaqueActualBruja + "/" + AtaqueMax;
-        DEFActualBruja.text = "" + DefensaActualBruja + "%/" + DefensaMax + "%";
+        HPActualBruja.text = "" + VariablesGlobales.instance.SlimeVidaActual + "/" + VidaMaxBruja;
+        ATQActualBruja.text = "" + VariablesGlobales.instance.SlimeAtaqueActual + "/" + AtaqueMax;
+        DEFActualBruja.text = "" + VariablesGlobales.instance.SlimeDefensaActual * 5 + "%/" + DefensaMax * 5 + "%";
 
     }
 
     public void SumarHPBruja()
     {
 
-        if (Money >= 10 & VidaActualBruja < VidaMaxBruja)
+        if (VariablesGlobales.instance.Money >= 10 & VariablesGlobales.instance.SlimeVidaActual < VidaMaxBruja)
         {
             HpBrujaButton.interactable = true; //creo que así hago que el boton solo sea interactuable al tener menos vida que la vida máxima
-            VidaActualBruja += 10;
-            HPActualBruja.text = "" + VidaActualBruja + "/" + VidaMaxBruja;
-            Money -= 10;
-            MoneyText.text = "" + Money;
+            VariablesGlobales.instance.SlimeVidaActual += 10;
+            HPActualBruja.text = "" + VariablesGlobales.instance.SlimeVidaActual + "/" + VidaMaxBruja;
+            VariablesGlobales.instance.Money -= 10;
+            MoneyText.text = "" + VariablesGlobales.instance.Money;
 
-            if (VidaActualBruja > VidaMaxBruja)
+            if (VariablesGlobales.instance.SlimeVidaActual > VidaMaxBruja)
             {
-                VidaActualBruja = VidaMaxBruja;
+                VariablesGlobales.instance.SlimeVidaActual = VidaMaxBruja;
+                HpBrujaButton.interactable = false;
             }
         }
-        else if (VidaActualBruja == VidaMaxBruja)
+        else if (VariablesGlobales.instance.SlimeVidaActual == VidaMaxBruja)
         {
             HpBrujaButton.interactable = false;
         }
@@ -84,44 +83,48 @@ public class BrujaBotones : MonoBehaviour
     }
     public void SumarATQBruja()
     {
-        if (Money >= 20 & AtaqueActualBruja < AtaqueMax)
+        if (VariablesGlobales.instance.Money >= 20 & VariablesGlobales.instance.SlimeAtaqueActual < AtaqueMax)
         {
             ATQBrujaButton.interactable = true;
-            Money -= 20;
-            AtaqueActualBruja += 5;
-            ATQActualBruja.text = "" + AtaqueActualBruja + "/" + AtaqueMax;
-            MoneyText.text = "" + Money;
-            if (AtaqueActualBruja > AtaqueMax)
+            VariablesGlobales.instance.Money -= 20;
+            VariablesGlobales.instance.SlimeAtaqueActual += 5;
+            ATQActualBruja.text = "" + VariablesGlobales.instance.SlimeAtaqueActual + "/" + AtaqueMax;
+            MoneyText.text = "" + VariablesGlobales.instance.Money;
+            if (VariablesGlobales.instance.SlimeAtaqueActual > AtaqueMax)
             {
-                AtaqueActualBruja = AtaqueMax;
+                VariablesGlobales.instance.SlimeAtaqueActual = AtaqueMax;
+                ATQBrujaButton.interactable = false;
             }
         }
-        else if (AtaqueActualBruja == AtaqueMax)
+        else if (VariablesGlobales.instance.SlimeAtaqueActual == AtaqueMax)
         {
             ATQBrujaButton.interactable = false;
         }
         else { return; }
-
     }
-    public void SumardDEFBruja()
+    public void SumarDEFBruja()
     {
-        if (Money >= 15 & DefensaActualBruja < DefensaMax)
+        
+        if (VariablesGlobales.instance.Money >= 15 & VariablesGlobales.instance.SlimeDefensaActual < DefensaMax)
         {
             DEFBrujaButton.interactable = true;
-            Money -= 15;
-            DefensaActualBruja += 5;
-            DEFActualBruja.text = "" + DefensaActualBruja + "%/" + DefensaMax + "%";
-            MoneyText.text = "" + Money;
+            VariablesGlobales.instance.Money -= 15;
+            VariablesGlobales.instance.SlimeDefensaActual += 1;
+            DEFActualBruja.text = "" + VariablesGlobales.instance.SlimeDefensaActual * 5 + "%/" + DefensaMax * 5 + "%";
+            MoneyText.text = "" + VariablesGlobales.instance.Money;
 
-            if (DefensaActualBruja > DefensaMax)
+            if (VariablesGlobales.instance.SlimeDefensaActual > DefensaMax)
             {
-                DefensaActualBruja = DefensaMax;
+              
+                VariablesGlobales.instance.SlimeDefensaActual = DefensaMax;
+                DEFBrujaButton.interactable = false;
             }
         }
-        else if (DefensaActualBruja == DefensaMax)
+        else if (VariablesGlobales.instance.SlimeDefensaActual == DefensaMax)
         {
             DEFBrujaButton.interactable = false;
         }
+
         else { return; }
 
     }
