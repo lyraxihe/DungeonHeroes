@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5679135979035018070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.215768, y: -1.2863071, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2135585597343286014, guid: 3b74d60d50132164699a4ad8a2bf0c51, type: 3}
-  m_Color: {r: 1, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 465b3dfd20318c3449523fcf82fd3861, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -106,12 +106,23 @@ MonoBehaviour:
   Index: 0
   Atacar: 0
   PlayerAttacking: {fileID: 0}
+  UIEstadisticasPersonaje: {fileID: 0}
   VidaTotal: 0
   VidaActual: 0
   AtaqueActual: 0
   AtaqueMax: 0
   DefensaActual: 0
   DefensaMax: 0
+  DefensaActualPercentage: 0
+  DefensaActualReal: 0
+  UIEnemigo: {fileID: 0}
+  VidaEnemigo: {fileID: 0}
+  AtaqueEnemigo: {fileID: 0}
+  DefensaEnemigo: {fileID: 0}
+  UIEnemigoImagen: {fileID: 0}
+  UIEnemigoCorazon: {fileID: 0}
+  UIEnemigoEspada: {fileID: 0}
+  UIEnemigoEscudo: {fileID: 0}
   PrefabHealthbar: {fileID: 3672013936490356647, guid: 4a6377cec6ca47d49b2e48bcec0cbd18, type: 3}
   ClonHealthbar: {fileID: 0}
   HabilidadSlime: 0
@@ -134,16 +145,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0060447454, y: -0.033246577}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8828125, y: 1}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.8828125, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8828125, y: 1}
+  m_Size: {x: 0.7075126, y: 0.8005208}
   m_EdgeRadius: 0

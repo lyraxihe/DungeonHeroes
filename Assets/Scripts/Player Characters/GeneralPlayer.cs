@@ -28,6 +28,11 @@ public class GeneralPlayer : MonoBehaviour
     public GameObject UIHabilidadSlime;
     public GameObject UIHabilidadMage;
 
+    public Sprite ImagenHabilidadKnight;
+    public Sprite ImagenHabilidadHealer;
+    public Sprite ImagenHabilidadSlime;
+    public Sprite ImagenHabilidadMage;
+
     public GameObject EstadisticaVida;
     public GameObject EstadisticaAtaque;
     public GameObject EstadisticaDefensa;
@@ -462,14 +467,20 @@ public class GeneralPlayer : MonoBehaviour
 
                     if (CharacterType == 1)                                                                                                                   // Si es un Knight
                     {
+                        ClonAbility2.GetComponent<Ability2Button>()._Button.GetComponent<Image>().sprite = ImagenHabilidadKnight;
                         if (Character.GetComponent<PlayerKnight>().Invencible == true)                                                                        // Está en modo invencible
                         {
                             ClonAbility2.GetComponent<Ability2Button>()._Button.GetComponent<Image>().color = new Color(0.5882353f, 0.5882353f, 0.5882353f);  // Desactiva el botón de "Habilidad 2"
                             ClonAbility2.GetComponent<Ability2Button>()._Button.GetComponent<Button>().transition = Selectable.Transition.None;
                         }
                     }
+                    else if (CharacterType == 2)
+                    {
+                        ClonAbility2.GetComponent<Ability2Button>()._Button.GetComponent<Image>().sprite = ImagenHabilidadHealer;
+                    }
                     else if (CharacterType == 3)                                                                                                              // Si es un Slime
                     {
+                        ClonAbility2.GetComponent<Ability2Button>()._Button.GetComponent<Image>().sprite = ImagenHabilidadSlime;
                         if (Character.GetComponent<PlayerSlime>().UsedAbility == true)                                                                        // Ha usado su habilidad
                         {
                             ClonAbility2.GetComponent<Ability2Button>()._Button.GetComponent<Image>().color = new Color(0.5882353f, 0.5882353f, 0.5882353f);  // Desactiva el botón de "Habilidad 2"
@@ -478,6 +489,7 @@ public class GeneralPlayer : MonoBehaviour
                     }
                     else if (CharacterType == 4)                                                                                                              // Si es un Slime
                     {
+                        ClonAbility2.GetComponent<Ability2Button>()._Button.GetComponent<Image>().sprite = ImagenHabilidadMage;
                         if (Character.GetComponent<PlayerMage>().UsedAbility == true)                                                                         // Ha usado su habilidad
                         {
                             ClonAbility2.GetComponent<Ability2Button>()._Button.GetComponent<Image>().color = new Color(0.5882353f, 0.5882353f, 0.5882353f);  // Desactiva el botón de "Habilidad 2"
@@ -494,17 +506,20 @@ public class GeneralPlayer : MonoBehaviour
                         if (Character.GetComponent<PlayerKnight>().Invencible == true)                    // Si el Knight está en modo invencible
                         {
                             ClonTextoAbility2.transform.position = new Vector3(-9.35f, -4, 0);            // Lo coloca en la interfaz
+                            ClonTextoAbility2.GetComponent<TextoTurno>().ChangeColor(0.5882353f, 0.5882353f, 0.5882353f);
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Invencible (" + (3 - Character.GetComponent<PlayerKnight>().PlayerKnightInvencibleCont) + " t.)"); // Cambia el texto
                         }
                         else                                                                              // Si no
                         {
                             ClonTextoAbility2.transform.position = new Vector3(-9.35f, -4, 0);            // Lo coloca en la interfaz
+                            ClonTextoAbility2.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Invencible (3 t.)"); // Cambia el texto
                         }
                     }
                     else if (CharacterType == 2)                                                         // Si es el Healer
                     {
                         ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);               // Lo coloca en la interfaz
+                        ClonTextoAbility2.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);
                         ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Curar (+30 hp)");       // Cambia el texto
                     }
                     else if (CharacterType == 3)                                                         // Si es el Slime
@@ -512,11 +527,13 @@ public class GeneralPlayer : MonoBehaviour
                         if (Character.GetComponent<PlayerSlime>().UsedAbility == true)                   // Si el Slime ha usado su habilidad
                         {
                             ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);           // Lo coloca en la interfaz
+                            ClonTextoAbility2.GetComponent<TextoTurno>().ChangeColor(0.5882353f, 0.5882353f, 0.5882353f);
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Red. Def. (" + (3 - _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime) + " t.)"); // Cambia el texto
                         }
                         else                                                                             // Si no
                         {
                             ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);           // Lo coloca en la interfaz
+                            ClonTextoAbility2.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Red. Def. (3 t.)"); // Cambia el texto
                         }
                     }
@@ -525,17 +542,19 @@ public class GeneralPlayer : MonoBehaviour
                         if (Character.GetComponent<PlayerMage>().UsedAbility == true)                     // Si el Slime ha usado su habilidad
                         {
                             ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);            // Lo coloca en la interfaz
+                            ClonTextoAbility2.GetComponent<TextoTurno>().ChangeColor(0.5882353f, 0.5882353f, 0.5882353f);
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Aum. Def. (" + (3 - _CombatBackground.GetComponent<CombatBackground>().ContHabilidadMage) + " t.)"); // Cambia el texto
                         }
                         else
                         {
                             ClonTextoAbility2.transform.position = new Vector3(-9.45f, -4, 0);            // Lo coloca en la interfaz
+                            ClonTextoAbility2.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);
                             ClonTextoAbility2.GetComponent<TextoTurno>().ChangeText("Aum. Def. (3 t.)");  // Cambia el texto
                         }
                     }
 
                     ClonTextoAbility2.GetComponent<TextoTurno>().ChangeFontSize(0.6f);                 // Cambio el tamaño de la fuente del texto
-                    ClonTextoAbility2.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);                 // Cambia el color del texto a blanco
+                    //ClonTextoAbility2.GetComponent<TextoTurno>().ChangeColor(1, 1, 1);                 // Cambia el color del texto a blanco
                     _CombatBackground.GetComponent<CombatBackground>().CharacterInterface[9] = ClonTextoAbility2; // Lo alamcena en el array de info del Personaje del Jugador
 
                     ClickOnce = true;                                                                  // Booleano para controlar que la interfaz sólo se cree una vez al clicar en el personaje
