@@ -159,10 +159,10 @@ MonoBehaviour:
   UIHabilidadHealer: {fileID: 0}
   UIHabilidadSlime: {fileID: 0}
   UIHabilidadMage: {fileID: 0}
-  ImagenHabilidadKnight: {fileID: 21300000, guid: 432d59ee33f46494b97e7eb7f1132b52, type: 3}
-  ImagenHabilidadHealer: {fileID: 21300000, guid: bf9218c02029caa4abd531631b220151, type: 3}
-  ImagenHabilidadSlime: {fileID: 21300000, guid: f15a2852841eaa2469eaf26550d103db, type: 3}
-  ImagenHabilidadMage: {fileID: 21300000, guid: 3bbede9ee73b22f498af4ff1fc99bc00, type: 3}
+  ImagenHabilidadKnight: {fileID: 21300000, guid: 4f88787e01c56f1499607a1acc4d1cce, type: 3}
+  ImagenHabilidadHealer: {fileID: 21300000, guid: e1fcfcae3bfbf184da5de8bf28c4c374, type: 3}
+  ImagenHabilidadSlime: {fileID: 21300000, guid: 89e38d8ee370e6f4c83a69c45132cdd1, type: 3}
+  ImagenHabilidadMage: {fileID: 21300000, guid: 745c65ac7c2c20e4985e951f227b617b, type: 3}
   EstadisticaVida: {fileID: 0}
   EstadisticaAtaque: {fileID: 0}
   EstadisticaDefensa: {fileID: 0}
