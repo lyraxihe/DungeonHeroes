@@ -15,7 +15,7 @@ C:/Users/lyrax/OneDrive/Escritorio/jueguito/DungeonHeroes
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51312
+53423
 Successfully changed project path to: C:/Users/lyrax/OneDrive/Escritorio/jueguito/DungeonHeroes
 C:/Users/lyrax/OneDrive/Escritorio/jueguito/DungeonHeroes
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/lyrax/OneDrive/Escritorio/jueguito/DungeonHeroes
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 69.93 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 77.60 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.2f1 (d6360bedb9a0)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity 2021.3.2f1/Editor/Data/Resources/UnitySubsystems
@@ -63,89 +63,89 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity 2021.3.2f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity 2021.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity 2021.3.2f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56620
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56804
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity 2021.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003258 seconds.
+Registered in 0.003050 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 67.66 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 63.47 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.520 seconds
+- Completed reload, in  0.498 seconds
 Domain Reload Profiling:
-	ReloadAssembly (521ms)
-		BeginReloadAssembly (69ms)
+	ReloadAssembly (498ms)
+		BeginReloadAssembly (57ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (364ms)
-			LoadAssemblies (67ms)
+		EndReloadAssembly (358ms)
+			LoadAssemblies (54ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
 			SetupTypeCache (78ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (23ms)
-			SetupLoadedEditorAssemblies (222ms)
+			SetupLoadedEditorAssemblies (218ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (68ms)
+				RefreshPlugins (64ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (110ms)
-				ProcessInitializeOnLoadMethodAttributes (37ms)
+				ProcessInitializeOnLoadAttributes (109ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007322 seconds.
+Registered in 0.007107 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\lyrax\OneDrive\Escritorio\jueguito\DungeonHeroes\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\lyrax\OneDrive\Escritorio\jueguito\DungeonHeroes\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 65.61 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 64.77 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.924 seconds
+- Completed reload, in  0.931 seconds
 Domain Reload Profiling:
-	ReloadAssembly (924ms)
-		BeginReloadAssembly (91ms)
+	ReloadAssembly (932ms)
+		BeginReloadAssembly (89ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (15ms)
-		EndReloadAssembly (739ms)
-			LoadAssemblies (78ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (752ms)
+			LoadAssemblies (81ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
 			SetupTypeCache (180ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (396ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (46ms)
+			SetupLoadedEditorAssemblies (406ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (66ms)
-				BeforeProcessingInitializeOnLoad (80ms)
-				ProcessInitializeOnLoadAttributes (204ms)
-				ProcessInitializeOnLoadMethodAttributes (37ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				RefreshPlugins (65ms)
+				BeforeProcessingInitializeOnLoad (82ms)
+				ProcessInitializeOnLoadAttributes (212ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
+				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.58 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.54 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4103 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 37 unused Assets / (55.7 KB). Loaded Objects now: 4563.
 Memory consumption went from 154.6 MB to 154.5 MB.
-Total: 2.864500 ms (FindLiveObjects: 0.236600 ms CreateObjectMapping: 0.124000 ms MarkObjects: 2.436300 ms  DeleteObjects: 0.066100 ms)
+Total: 2.852700 ms (FindLiveObjects: 0.214000 ms CreateObjectMapping: 0.111000 ms MarkObjects: 2.471200 ms  DeleteObjects: 0.055700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -160,877 +160,85 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 2003901.677760 seconds.
-  path: Assets/Sprites/Personajes
-  artifactKey: Guid(4a48eff4f0e1ca44a82f2d5749997b1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes using Guid(4a48eff4f0e1ca44a82f2d5749997b1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36bcf4467598998e619c38199789f63c') in 0.015372 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Sprites/Personajes/Boss
-  artifactKey: Guid(fd395399438d396488d6fb7e5932fc2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss using Guid(fd395399438d396488d6fb7e5932fc2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bdf3d2aa260b607f26cdb22850f2aac') in 0.010492 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.008561 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\lyrax\OneDrive\Escritorio\jueguito\DungeonHeroes\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\lyrax\OneDrive\Escritorio\jueguito\DungeonHeroes\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.89 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.937 seconds
-Domain Reload Profiling:
-	ReloadAssembly (938ms)
-		BeginReloadAssembly (117ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (35ms)
-		EndReloadAssembly (738ms)
-			LoadAssemblies (80ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (235ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (43ms)
-			SetupLoadedEditorAssemblies (340ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (70ms)
-				ProcessInitializeOnLoadAttributes (213ms)
-				ProcessInitializeOnLoadMethodAttributes (39ms)
-				AfterProcessingInitializeOnLoad (6ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (9ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.68 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4079 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 24 unused Assets / (24.6 KB). Loaded Objects now: 4566.
-Memory consumption went from 152.7 MB to 152.6 MB.
-Total: 2.764500 ms (FindLiveObjects: 0.230300 ms CreateObjectMapping: 0.116100 ms MarkObjects: 2.389900 ms  DeleteObjects: 0.027400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 186.489909 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss daño.png
-  artifactKey: Guid(4873bbf3a09a53d48805bdc0459007e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss daño.png using Guid(4873bbf3a09a53d48805bdc0459007e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd39baefc6d5c8933bc157fd5ae07cf9e') in 0.112473 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 35.563269 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss idle.png
-  artifactKey: Guid(ecef065f264f1fb4d862067289676332) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss idle.png using Guid(ecef065f264f1fb4d862067289676332) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96b05e5487b83713d2a706a516354dd6') in 0.013536 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 164.816428 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss idle.png
-  artifactKey: Guid(ecef065f264f1fb4d862067289676332) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss idle.png using Guid(ecef065f264f1fb4d862067289676332) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbd7937af246205d146c5684d81697fe') in 0.020691 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 16.335608 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss daño.png
-  artifactKey: Guid(4873bbf3a09a53d48805bdc0459007e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss daño.png using Guid(4873bbf3a09a53d48805bdc0459007e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dac9dbfeb44be46fa718548a8612e55d') in 0.013868 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.752175 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss daño.png
-  artifactKey: Guid(4873bbf3a09a53d48805bdc0459007e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss daño.png using Guid(4873bbf3a09a53d48805bdc0459007e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb48431cb5c5bbc4f7e52afff66eb32d') in 0.024215 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 106.070045 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss idle.png
-  artifactKey: Guid(ecef065f264f1fb4d862067289676332) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss idle.png using Guid(ecef065f264f1fb4d862067289676332) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75ac4fdadb7380e849c7fc8e6f544827') in 0.025910 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 26.999280 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss daño.png
-  artifactKey: Guid(4873bbf3a09a53d48805bdc0459007e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss daño.png using Guid(4873bbf3a09a53d48805bdc0459007e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '256113d7815e15a3971261763a3abf08') in 0.021843 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 53.799048 seconds.
-  path: Assets/Animaciones/Main Menu
-  artifactKey: Guid(1112621c0f35b5245962ebade4bd58ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Main Menu using Guid(1112621c0f35b5245962ebade4bd58ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43b69dd24ab4d0af6c5997d94191509d') in 0.010547 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.436185 seconds.
-  path: Assets/Animaciones/Personajes/Hada
-  artifactKey: Guid(6d11ed43920362845b832bd8fca15137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Hada using Guid(6d11ed43920362845b832bd8fca15137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25300067b072c6cd878e0cad6e02f3b3') in 0.011368 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 83.193539 seconds.
-  path: Assets/Sprites/Personajes/Enemigos/Arquero/Arquero Enemigo.png
-  artifactKey: Guid(e2c6f3c5d12997f418e79fb882ff80db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Enemigos/Arquero/Arquero Enemigo.png using Guid(e2c6f3c5d12997f418e79fb882ff80db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3335089379989071051916b7375f8f42') in 0.027827 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Sprites/UI Personajes/Aumento defensa.png
-  artifactKey: Guid(3bbede9ee73b22f498af4ff1fc99bc00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/UI Personajes/Aumento defensa.png using Guid(3bbede9ee73b22f498af4ff1fc99bc00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe712d28f4188ed865dbd63897690de0') in 0.027856 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 12.126069 seconds.
-  path: Assets/Sprites/Personajes/Enemigos/Bruja/Bruja Enemigo.png
-  artifactKey: Guid(944b64dc217a4e04586849464ce11959) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Enemigos/Bruja/Bruja Enemigo.png using Guid(944b64dc217a4e04586849464ce11959) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de3d4836ab09420853de56666b3d0a7e') in 0.019891 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 51.661678 seconds.
-  path: Assets/Sprites/Personajes/Enemigos/Hada/Hada Enemigo.png
-  artifactKey: Guid(6134ac254c9f3fb4691847f9380cf8ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Enemigos/Hada/Hada Enemigo.png using Guid(6134ac254c9f3fb4691847f9380cf8ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '522a1b90c64632177513f977a13ce654') in 0.025421 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 10.610587 seconds.
-  path: Assets/Sprites/Personajes/Caballero/Caballero.png
-  artifactKey: Guid(94fbc97f2f02d3e4b827f5c217554394) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Caballero/Caballero.png using Guid(94fbc97f2f02d3e4b827f5c217554394) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91c7d8901c7f097543f60f8fabce77c6') in 0.020664 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009016 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\lyrax\OneDrive\Escritorio\jueguito\DungeonHeroes\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\lyrax\OneDrive\Escritorio\jueguito\DungeonHeroes\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.53 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.813 seconds
-Domain Reload Profiling:
-	ReloadAssembly (814ms)
-		BeginReloadAssembly (113ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (32ms)
-		EndReloadAssembly (624ms)
-			LoadAssemblies (81ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (185ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (37ms)
-			SetupLoadedEditorAssemblies (285ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (61ms)
-				ProcessInitializeOnLoadAttributes (173ms)
-				ProcessInitializeOnLoadMethodAttributes (34ms)
-				AfterProcessingInitializeOnLoad (6ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.64 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4079 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 24 unused Assets / (24.7 KB). Loaded Objects now: 4578.
-Memory consumption went from 157.0 MB to 157.0 MB.
-Total: 3.150600 ms (FindLiveObjects: 0.240800 ms CreateObjectMapping: 0.178600 ms MarkObjects: 2.700300 ms  DeleteObjects: 0.029500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 642.054195 seconds.
-  path: Assets/Sprites/Personajes/Boss/IdleBoss.anim
-  artifactKey: Guid(d2989441f81475247ba7fdcc56c7b758) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/IdleBoss.anim using Guid(d2989441f81475247ba7fdcc56c7b758) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77bc1f70f3c54798d24ca15730fa0574') in 0.032560 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 83.781104 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss idle_0.controller
-  artifactKey: Guid(bc167f21b05658847899ace547b702e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss idle_0.controller using Guid(bc167f21b05658847899ace547b702e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa4e51d14ce5cc3414d03256de362bfe') in 0.010499 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.134299 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss daño_0.controller
-  artifactKey: Guid(ade7529f770e14544908966814a2ab84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss daño_0.controller using Guid(ade7529f770e14544908966814a2ab84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0027de3306b6c679cb4ee9372fa1e3a5') in 0.012210 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 23.328769 seconds.
-  path: Assets/Animaciones/Personajes/Hada/HADA-ATAQUE_0.controller
-  artifactKey: Guid(ac50946eb561aea43914aa4a88c9d3d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Hada/HADA-ATAQUE_0.controller using Guid(ac50946eb561aea43914aa4a88c9d3d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd35824ec15d16f5ed4c01d97efb30b14') in 0.011148 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.922993 seconds.
-  path: Assets/Animaciones/Personajes/Hada/HADA IDLE.anim
-  artifactKey: Guid(1353ab0c9b8b61a4aa8cf7bfefacb561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Hada/HADA IDLE.anim using Guid(1353ab0c9b8b61a4aa8cf7bfefacb561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc0215655ed7e5a46456df4b21106fb8') in 0.008885 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.745848 seconds.
-  path: Assets/Animaciones/Personajes/Hada/HADA DAÑO.anim
-  artifactKey: Guid(432136c23932b494899fdaed1b73dff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Hada/HADA DAÑO.anim using Guid(432136c23932b494899fdaed1b73dff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6426a39964ece9e51a79b0617212d5b') in 0.009653 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.825749 seconds.
-  path: Assets/Animaciones/Personajes/Hada/HADA ATAQUE.anim
-  artifactKey: Guid(95bda1f1b8cf0484fa36d6a2e16eac54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Hada/HADA ATAQUE.anim using Guid(95bda1f1b8cf0484fa36d6a2e16eac54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f71142b5bbc15f8cd0065cf9e035c92') in 0.009832 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 30.302067 seconds.
-  path: Assets/Sprites/Personajes/Boss/DañoBoss.anim
-  artifactKey: Guid(c8b940f02c01ac94ca066875059f017c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/DañoBoss.anim using Guid(c8b940f02c01ac94ca066875059f017c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b097203235c18318cba678aabe701ad') in 0.008940 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 362.345917 seconds.
-  path: Assets/Sprites/Personajes/Boss/AnimacionBoss.anim
-  artifactKey: Guid(090635936b819d84f95a2e6559537cb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/AnimacionBoss.anim using Guid(090635936b819d84f95a2e6559537cb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '724ef32be97e1eb08d31e2a3cdae2970') in 0.010931 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 291.728919 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss idle_0 (1).controller
-  artifactKey: Guid(3bc2f8f2ccd7d104ab88bba36fb6e107) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss idle_0 (1).controller using Guid(3bc2f8f2ccd7d104ab88bba36fb6e107) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '885d94f5cd99032aa7d098414c40de9d') in 0.011182 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 52.679539 seconds.
-  path: Assets/Sprites/Personajes/Boss/BossIdle.anim
-  artifactKey: Guid(80448b6b977c5b746bd082385de5e158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/BossIdle.anim using Guid(80448b6b977c5b746bd082385de5e158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00def570137d638fa6f15c0e42583dd6') in 0.007180 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 40.644912 seconds.
-  path: Assets/Animaciones/Personajes/Bruja/BRUJA-IDLE_0.controller
-  artifactKey: Guid(436fbc67f5523a64bb8db5cbb26ab5e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Bruja/BRUJA-IDLE_0.controller using Guid(436fbc67f5523a64bb8db5cbb26ab5e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c83e3f4e9b619d31b27a2b0b6427b10') in 0.011588 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 534.357833 seconds.
-  path: Assets/Sprites/Personajes/Boss/boss idle_0 (1).controller
-  artifactKey: Guid(3bc2f8f2ccd7d104ab88bba36fb6e107) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/boss idle_0 (1).controller using Guid(3bc2f8f2ccd7d104ab88bba36fb6e107) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91609a3bd95a1fca6c86400a5389181d') in 0.004790 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.577491 seconds.
-  path: Assets/Sprites/Personajes/Boss/AnimacionDaño.anim
-  artifactKey: Guid(bcef20f81da84cc47944550c49c60878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/AnimacionDaño.anim using Guid(bcef20f81da84cc47944550c49c60878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b8cda8b02f025f37fcf785ea86d762f') in 0.010512 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 313.622136 seconds.
-  path: Assets/Scripts/CombatBackground.cs
-  artifactKey: Guid(17241f1f389d5a54fa96aed23484a639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/CombatBackground.cs using Guid(17241f1f389d5a54fa96aed23484a639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c36aca42758267a2afa985acc360f99') in 0.016783 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3618.915087 seconds.
-  path: Assets/Sprites/UI Personajes
-  artifactKey: Guid(cd6fd513776ed2243b116ae53e4f1c46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/UI Personajes using Guid(cd6fd513776ed2243b116ae53e4f1c46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fd6e3ca59bc9fed8c982b3732956a2c') in 0.011571 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.645844 seconds.
-  path: Assets/Sprites/Personajes/Boss/AnimacionDaño.anim
-  artifactKey: Guid(bcef20f81da84cc47944550c49c60878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Boss/AnimacionDaño.anim using Guid(bcef20f81da84cc47944550c49c60878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '961e05d9aa007fa24264721c5eb664a6') in 0.007050 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.345808 seconds.
-  path: Assets/Sprites/Personajes/Bruja
-  artifactKey: Guid(bfbaf5dae8b84ae4c852812a0a08347e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Bruja using Guid(bfbaf5dae8b84ae4c852812a0a08347e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f7a95fb8cbc456c18ac04c0fd42699d') in 0.011217 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 21.456914 seconds.
-  path: Assets/Sprites/Personajes/Caballero
-  artifactKey: Guid(60d523742e937db48a9271e7e28d1ff6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Caballero using Guid(60d523742e937db48a9271e7e28d1ff6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f051e992e19dd51728e689655a5ed20') in 0.012051 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 27.576692 seconds.
-  path: Assets/Animaciones/Enemigos
-  artifactKey: Guid(738f0437d2ae7ff45986495004a0a973) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos using Guid(738f0437d2ae7ff45986495004a0a973) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afb0490f8bc42934b7dc5b115825f4ce') in 0.010885 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.432361 seconds.
-  path: Assets/Animaciones/Enemigos/Boss
-  artifactKey: Guid(dd5d428dc46fd184480779d4e973d3a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Boss using Guid(dd5d428dc46fd184480779d4e973d3a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a42ac3d1d7edb7bdfd91c6c13289055d') in 0.010478 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 12.158661 seconds.
-  path: Assets/Sprites/Personajes/Enemigos
-  artifactKey: Guid(f1dd1cded1be4cc4db5bde3a0df29ddb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Enemigos using Guid(f1dd1cded1be4cc4db5bde3a0df29ddb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d9dfe069b45b22f2e93904022dd8459') in 0.002521 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.173906 seconds.
-  path: Assets/Sprites/Personajes/Enemigos/Bruja
-  artifactKey: Guid(db8a11fe08481aa4d8d7a6541c52ac5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Enemigos/Bruja using Guid(db8a11fe08481aa4d8d7a6541c52ac5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '974c24b5e573c10c5f23ca1026a2de7c') in 0.002337 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.811706 seconds.
-  path: Assets/Sprites/Personajes/Enemigos/Caballero
-  artifactKey: Guid(f931573dd4c452d41bb583612526f525) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Enemigos/Caballero using Guid(f931573dd4c452d41bb583612526f525) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6599419c198ac067c73fe9968e9b39fe') in 0.002144 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.540482 seconds.
-  path: Assets/Sprites/Personajes/Enemigos/Hada
-  artifactKey: Guid(85fddd5d99ad87f40960e41b5d6f7387) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Enemigos/Hada using Guid(85fddd5d99ad87f40960e41b5d6f7387) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fca63bd4ec68c3c9f16848b30ecfce3b') in 0.009954 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 31.567171 seconds.
-  path: Assets/Animaciones/Main Camera.controller
-  artifactKey: Guid(c68a56785e35e1a42a41cf1e5d596659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Main Camera.controller using Guid(c68a56785e35e1a42a41cf1e5d596659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd6c4af432373887b7c27ec89cc07b5c') in 0.012091 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.176012 seconds.
-  path: Assets/Animaciones/AnimacionesBoss.anim
-  artifactKey: Guid(a8943f1432f5cf84fb1c40709395e84d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/AnimacionesBoss.anim using Guid(a8943f1432f5cf84fb1c40709395e84d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82734f100a2609553fdf20b7eb5044b7') in 0.008508 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 30.333530 seconds.
-  path: Assets/Animaciones/Personajes/Caballero
-  artifactKey: Guid(aef749ccae8c74740a7b0a8b31e22383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero using Guid(aef749ccae8c74740a7b0a8b31e22383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0ddc4fe6e7d1956884e87e807572bcc') in 0.003346 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 570.408264 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroATAQUE.png
-  artifactKey: Guid(26693ab71d69012448203fa651734c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroATAQUE.png using Guid(26693ab71d69012448203fa651734c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3eec80d0eafa9a7441322d7796e5a507') in 0.214532 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroIDLE.png
-  artifactKey: Guid(08d8ad81ca42c24499625b8eb0af1b35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroIDLE.png using Guid(08d8ad81ca42c24499625b8eb0af1b35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7180c32486359c3ecf2710b781b29742') in 0.021790 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 37.302664 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroIDLE.png
-  artifactKey: Guid(08d8ad81ca42c24499625b8eb0af1b35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroIDLE.png using Guid(08d8ad81ca42c24499625b8eb0af1b35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e419e5b19503ae88f1bff91ade5855c3') in 0.015710 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 49.552011 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroIDLE.png
-  artifactKey: Guid(08d8ad81ca42c24499625b8eb0af1b35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroIDLE.png using Guid(08d8ad81ca42c24499625b8eb0af1b35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09fdebf6efb2f986a33320bf77d0bcbe') in 0.031509 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.512508 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroDAÑO.png
-  artifactKey: Guid(2eba874e11787e24b86f394421a07a80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroDAÑO.png using Guid(2eba874e11787e24b86f394421a07a80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a12200bfd6b8ccb7e3587b11ee7735e') in 0.015942 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 9.217949 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroDAÑO.png
-  artifactKey: Guid(2eba874e11787e24b86f394421a07a80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroDAÑO.png using Guid(2eba874e11787e24b86f394421a07a80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e08ad9a2824614431ecb3af24267955') in 0.021405 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.387537 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroATAQUE.png
-  artifactKey: Guid(26693ab71d69012448203fa651734c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroATAQUE.png using Guid(26693ab71d69012448203fa651734c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f39684edf20609a77a19ca3a38419f45') in 0.015529 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 12.191025 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroATAQUE.png
-  artifactKey: Guid(26693ab71d69012448203fa651734c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroATAQUE.png using Guid(26693ab71d69012448203fa651734c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8f5ff0e7717bede87c75904fc1629d6') in 0.031440 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 34.075978 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroATAQUE.png
-  artifactKey: Guid(26693ab71d69012448203fa651734c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroATAQUE.png using Guid(26693ab71d69012448203fa651734c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6881e882bf5af702fd98973c9ba3cbe6') in 0.034371 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.232544 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroDAÑO.png
-  artifactKey: Guid(2eba874e11787e24b86f394421a07a80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroDAÑO.png using Guid(2eba874e11787e24b86f394421a07a80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f7d29bb9a67125e57f4a6c6fe8a211d') in 0.019961 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.254251 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroIDLE.png
-  artifactKey: Guid(08d8ad81ca42c24499625b8eb0af1b35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroIDLE.png using Guid(08d8ad81ca42c24499625b8eb0af1b35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd04549c3aa5ac88a61f86c079bdeab77') in 0.034129 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 52.356960 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroIDLE_0.controller
-  artifactKey: Guid(1ebe1dc3ac575144f84545b11fe93dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroIDLE_0.controller using Guid(1ebe1dc3ac575144f84545b11fe93dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f3d2b928c4fdcef5df62add3d0e3101') in 0.008873 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.288718 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/CaballeroIdle.anim
-  artifactKey: Guid(59436f506679b2842b6f5420def5c2c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/CaballeroIdle.anim using Guid(59436f506679b2842b6f5420def5c2c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '020a211b84998e63951d3869a561d576') in 0.011209 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 155.965758 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroIDLE_0 (1).controller
-  artifactKey: Guid(bc7c33c6351e71a4abbc361750cf6f55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroIDLE_0 (1).controller using Guid(bc7c33c6351e71a4abbc361750cf6f55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4742966d73373053624cf736765bdbb') in 0.006074 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 139.066795 seconds.
-  path: Assets/Animaciones/Personajes/Caballero/caballeroIDLE_0 (1).controller
-  artifactKey: Guid(bc7c33c6351e71a4abbc361750cf6f55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Caballero/caballeroIDLE_0 (1).controller using Guid(bc7c33c6351e71a4abbc361750cf6f55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b9c1b1ccbdf56d5834b0eaac65d1aaa') in 0.004807 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 20.335049 seconds.
-  path: Assets/Animaciones/Personajes/Arquero
-  artifactKey: Guid(07d6969a965e6564a984230fb68adee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Personajes/Arquero using Guid(07d6969a965e6564a984230fb68adee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab1dfd3783ca5e3e9e81c24b0772892f') in 0.006753 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 310.727369 seconds.
-  path: Assets/Animaciones/Enemigos/Espada
-  artifactKey: Guid(a0e5f69616e972d489cafe20c0da9c9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada using Guid(a0e5f69616e972d489cafe20c0da9c9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6fb5f6af3b62b6c4cddc12047397175') in 0.011044 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 11.641505 seconds.
-  path: Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png
-  artifactKey: Guid(7b19d7005eda68f44b2d3c28f531021f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png using Guid(7b19d7005eda68f44b2d3c28f531021f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '322ee9c2bc94d18ddc9cb76cd0bdebe4') in 0.036344 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
+  Time since last request: 2014673.041908 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png
-  artifactKey: Guid(869bc07875ff27b43b6e322f7a1981c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png using Guid(869bc07875ff27b43b6e322f7a1981c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '999cc870571a1e089c6021c3fb114ced') in 0.021110 seconds 
+  artifactKey: Guid(1e1001313e91746459ad01820a698c2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png using Guid(1e1001313e91746459ad01820a698c2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0652faf6cf6902fd6a08b99b567eb9f2') in 0.100142 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 87.533466 seconds.
+  Time since last request: 153.799217 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png
-  artifactKey: Guid(869bc07875ff27b43b6e322f7a1981c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png using Guid(869bc07875ff27b43b6e322f7a1981c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd62f5db1af8923a299404c99b259bd5') in 0.020209 seconds 
+  artifactKey: Guid(1e1001313e91746459ad01820a698c2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png using Guid(1e1001313e91746459ad01820a698c2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '764e702ebcb342019235187e4e78f0a9') in 0.012378 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.759050 seconds.
+  Time since last request: 27.312378 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png
-  artifactKey: Guid(869bc07875ff27b43b6e322f7a1981c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png using Guid(869bc07875ff27b43b6e322f7a1981c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f4f616c57cc4a1a7c8337a64dba1ebb') in 0.027582 seconds 
+  artifactKey: Guid(1e1001313e91746459ad01820a698c2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png using Guid(1e1001313e91746459ad01820a698c2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f12b2ec659d2630e7da6ba8bea0d108f') in 0.026082 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.369204 seconds.
+  Time since last request: 6.163462 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png
-  artifactKey: Guid(869bc07875ff27b43b6e322f7a1981c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png using Guid(869bc07875ff27b43b6e322f7a1981c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df245d12790719d004d57d9953eab0ba') in 0.028961 seconds 
+  artifactKey: Guid(1e1001313e91746459ad01820a698c2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA.png using Guid(1e1001313e91746459ad01820a698c2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3af4886c50b453f0ba857aaabc9b3620') in 0.027392 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.731481 seconds.
+  Time since last request: 4.413291 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosDAÑO.png
-  artifactKey: Guid(d0d0938a49058254896d9ee8e0e1dd22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosDAÑO.png using Guid(d0d0938a49058254896d9ee8e0e1dd22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5849e355f3d36431d31879872f213fdb') in 0.014789 seconds 
+  artifactKey: Guid(c739bea49fb22dd4dbcf5d351055ef54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosDAÑO.png using Guid(c739bea49fb22dd4dbcf5d351055ef54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43551e1a7b44d09d10c72894c79c52cc') in 0.011277 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.930081 seconds.
+  Time since last request: 6.305137 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosDAÑO.png
-  artifactKey: Guid(d0d0938a49058254896d9ee8e0e1dd22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosDAÑO.png using Guid(d0d0938a49058254896d9ee8e0e1dd22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4479772b612c4f101a0401359cfc2276') in 0.022904 seconds 
+  artifactKey: Guid(c739bea49fb22dd4dbcf5d351055ef54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosDAÑO.png using Guid(c739bea49fb22dd4dbcf5d351055ef54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5cfcc212f1a20f411417baa868f8256') in 0.021566 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.964197 seconds.
+  Time since last request: 4.739328 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosDAÑO.png
-  artifactKey: Guid(d0d0938a49058254896d9ee8e0e1dd22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosDAÑO.png using Guid(d0d0938a49058254896d9ee8e0e1dd22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be7b8da68b5070c58fc2e482ca67795b') in 0.024405 seconds 
+  artifactKey: Guid(c739bea49fb22dd4dbcf5d351055ef54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosDAÑO.png using Guid(c739bea49fb22dd4dbcf5d351055ef54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14dbd1f55985a97d9c36c2b885d3f5ee') in 0.022754 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.275622 seconds.
+  Time since last request: 5.193502 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png
-  artifactKey: Guid(7b19d7005eda68f44b2d3c28f531021f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png using Guid(7b19d7005eda68f44b2d3c28f531021f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e504b38b23bb4ff4a514c16b69a555b') in 0.015299 seconds 
+  artifactKey: Guid(4de1a3f242f5d334a88ba4ad71fb17de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png using Guid(4de1a3f242f5d334a88ba4ad71fb17de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a741b01e5e1f57a2d2cce84e650f6b1') in 0.007701 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 49.152149 seconds.
+  Time since last request: 6.024856 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png
-  artifactKey: Guid(7b19d7005eda68f44b2d3c28f531021f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png using Guid(7b19d7005eda68f44b2d3c28f531021f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b775552fb3d1e81979e9c928265755a2') in 0.019642 seconds 
+  artifactKey: Guid(4de1a3f242f5d334a88ba4ad71fb17de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png using Guid(4de1a3f242f5d334a88ba4ad71fb17de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41439419a283b86e258ecf4c67a11506') in 0.024464 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.308281 seconds.
+  Time since last request: 3.225434 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png
-  artifactKey: Guid(7b19d7005eda68f44b2d3c28f531021f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png using Guid(7b19d7005eda68f44b2d3c28f531021f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b87f5966f20a8f1e2b177344144145b7') in 0.031555 seconds 
+  artifactKey: Guid(4de1a3f242f5d334a88ba4ad71fb17de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png using Guid(4de1a3f242f5d334a88ba4ad71fb17de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86c23f817dc11a2154b25364c716e06e') in 0.024577 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.529193 seconds.
-  path: Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png
-  artifactKey: Guid(7b19d7005eda68f44b2d3c28f531021f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosATAQUEESPADA.png using Guid(7b19d7005eda68f44b2d3c28f531021f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '744a87586cdf633f87933145f5ad6e10') in 0.025720 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 89.960300 seconds.
+  Time since last request: 42.853244 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA_0.controller
-  artifactKey: Guid(7018d7343d176704890ef1cb6a285069) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA_0.controller using Guid(7018d7343d176704890ef1cb6a285069) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a64d95e87aff153c3724896514568f0f') in 0.011845 seconds 
+  artifactKey: Guid(1a570e57508a5104d9d193ff8760344b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA_0.controller using Guid(1a570e57508a5104d9d193ff8760344b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41e6476e6aaa6598c3f6e08451d2b381') in 0.013905 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 16.779318 seconds.
-  path: Assets/Animaciones/Enemigos/Espada/EspadaAtaque.anim
-  artifactKey: Guid(c4767ead96ee4164295811899cac2470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/EspadaAtaque.anim using Guid(c4767ead96ee4164295811899cac2470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '382c58117980b43fae9fc72b38519fa7') in 0.010728 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 252.219211 seconds.
-  path: Assets/Animaciones/Enemigos/New Folder
-  artifactKey: Guid(67731491d1e0a444ea1935a0c5130508) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/New Folder using Guid(67731491d1e0a444ea1935a0c5130508) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee700e1c5b3a29f0710bfe6aa14c3a8b') in 0.008469 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.749432 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego
-  artifactKey: Guid(67731491d1e0a444ea1935a0c5130508) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego using Guid(67731491d1e0a444ea1935a0c5130508) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5cc491804e67bcfaca4b0b9a458d00e') in 0.008784 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 165.304289 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosATAQUEFUEGO.png
-  artifactKey: Guid(f3f8de33f672ccf4cb1d7265aee20d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosATAQUEFUEGO.png using Guid(f3f8de33f672ccf4cb1d7265aee20d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e590a09091ec47978031b0f0395518d8') in 0.028982 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 13.347911 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO.png
-  artifactKey: Guid(89321336d1c699e4a88ab5c44141bb9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO.png using Guid(89321336d1c699e4a88ab5c44141bb9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd38bd3850d4f578fcac4c32b409fa780') in 0.015032 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.237116 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO.png
-  artifactKey: Guid(89321336d1c699e4a88ab5c44141bb9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO.png using Guid(89321336d1c699e4a88ab5c44141bb9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec9c72cf2f7d5d6c3c50a762c05e8316') in 0.024274 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.554535 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO.png
-  artifactKey: Guid(89321336d1c699e4a88ab5c44141bb9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO.png using Guid(89321336d1c699e4a88ab5c44141bb9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7b55c845228dcea2c849cd65100fa0d') in 0.018891 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.690660 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosDAÑO.png
-  artifactKey: Guid(f58ab73cfe57d0345ae690adf3cb9ef9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosDAÑO.png using Guid(f58ab73cfe57d0345ae690adf3cb9ef9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1d31e953298e842eae84667d8d77f1f') in 0.007771 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.938115 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosDAÑO.png
-  artifactKey: Guid(f58ab73cfe57d0345ae690adf3cb9ef9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosDAÑO.png using Guid(f58ab73cfe57d0345ae690adf3cb9ef9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acea874a57123f1e6e3f0a97e6eacc72') in 0.020387 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.699934 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosDAÑO.png
-  artifactKey: Guid(f58ab73cfe57d0345ae690adf3cb9ef9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosDAÑO.png using Guid(f58ab73cfe57d0345ae690adf3cb9ef9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b1b4c583f52b5d09c3a56adf8573d20') in 0.022311 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.156443 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosATAQUEFUEGO.png
-  artifactKey: Guid(f3f8de33f672ccf4cb1d7265aee20d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosATAQUEFUEGO.png using Guid(f3f8de33f672ccf4cb1d7265aee20d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9499e359dde142b829e66ffa95d9558') in 0.014391 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 10.519876 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosATAQUEFUEGO.png
-  artifactKey: Guid(f3f8de33f672ccf4cb1d7265aee20d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosATAQUEFUEGO.png using Guid(f3f8de33f672ccf4cb1d7265aee20d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c438fc78bbfbf2f076340f4a6a4caaf4') in 0.031279 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.767101 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosATAQUEFUEGO.png
-  artifactKey: Guid(f3f8de33f672ccf4cb1d7265aee20d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosATAQUEFUEGO.png using Guid(f3f8de33f672ccf4cb1d7265aee20d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be2d1463dd530f80b47e866fcb71c828') in 0.033455 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 81.877263 seconds.
+  Time since last request: 50.741513 seconds.
   path: Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA_0.controller
-  artifactKey: Guid(7018d7343d176704890ef1cb6a285069) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA_0.controller using Guid(7018d7343d176704890ef1cb6a285069) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3772a5520689394a5617fca4379be017') in 0.006485 seconds 
+  artifactKey: Guid(1a570e57508a5104d9d193ff8760344b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Espada/enemigosIDLEESPADA_0.controller using Guid(1a570e57508a5104d9d193ff8760344b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7668cc65e5c140d009e522b7de57ad4d') in 0.004314 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 100.156962 seconds.
-  path: Assets/Animaciones/Enemigos/Espada/EspadaAtaque.anim
-  artifactKey: Guid(c4767ead96ee4164295811899cac2470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/EspadaAtaque.anim using Guid(c4767ead96ee4164295811899cac2470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d552860164690451dab66d41b2c1392') in 0.003564 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.619675 seconds.
-  path: Assets/Animaciones/Enemigos/Espada/EspadaDanho.anim
-  artifactKey: Guid(270f28e17ece6514ca6d5ee2d326bf3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/EspadaDanho.anim using Guid(270f28e17ece6514ca6d5ee2d326bf3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48a1c723d618987bb0b842da760e4e01') in 0.012503 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.913130 seconds.
-  path: Assets/Animaciones/Enemigos/Espada/EspadaIdle.anim
-  artifactKey: Guid(a63a5e932778a874897dab4ccf7c73db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Espada/EspadaIdle.anim using Guid(a63a5e932778a874897dab4ccf7c73db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba0e3d7f1d582530cc5fee01a3eeb958') in 0.009275 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 94.509783 seconds.
+  Time since last request: 94.028300 seconds.
   path: Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO_0.controller
-  artifactKey: Guid(685852623486c7f46b71f80d42dd2fb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO_0.controller using Guid(685852623486c7f46b71f80d42dd2fb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7b73bed5750d36e45d3d98c078f09c8') in 0.011578 seconds 
+  artifactKey: Guid(7c577a72f64f73f44bbe8154d40e8170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO_0.controller using Guid(7c577a72f64f73f44bbe8154d40e8170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'caf7183c02ff3c5ae942ef1743e1c8d3') in 0.004165 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.161693 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/FuegoAtaque.anim
-  artifactKey: Guid(69b65899da7fe7746b5359f223fb14ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/FuegoAtaque.anim using Guid(69b65899da7fe7746b5359f223fb14ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cecc088a964346e202999321ec3c1b3') in 0.010593 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 56.989240 seconds.
+  Time since last request: 45.463116 seconds.
   path: Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO_0.controller
-  artifactKey: Guid(685852623486c7f46b71f80d42dd2fb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO_0.controller using Guid(685852623486c7f46b71f80d42dd2fb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '105feb6a2116026430100859434a4a5a') in 0.003460 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 51.743049 seconds.
-  path: Assets/Animaciones/Enemigos/New Folder
-  artifactKey: Guid(6f07bf35d4273c34fbf3ea11458d13b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/New Folder using Guid(6f07bf35d4273c34fbf3ea11458d13b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b8cf2961d7a9811e54d627f0470a7c8') in 0.002869 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 9.655412 seconds.
-  path: Assets/Animaciones/Enemigos/Arco
-  artifactKey: Guid(6f07bf35d4273c34fbf3ea11458d13b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco using Guid(6f07bf35d4273c34fbf3ea11458d13b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19cf2db176508861498a82f743606e90') in 0.011457 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 56.445151 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosATAQUEARCO.png
-  artifactKey: Guid(1c2c065fbbaebe54a9c944a7a9cce79e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosATAQUEARCO.png using Guid(1c2c065fbbaebe54a9c944a7a9cce79e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29502b3f795ef3a1d36d077aeb22e806') in 0.023053 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.716940 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosDAÑO.png
-  artifactKey: Guid(60b5af055ba2b9e4194d8572d4f8d2ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosDAÑO.png using Guid(60b5af055ba2b9e4194d8572d4f8d2ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee238693e328790070bf6183d9247da5') in 0.019464 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.746304 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosIDLEARCO.png
-  artifactKey: Guid(84aff443099e61540b59f8559175fcfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosIDLEARCO.png using Guid(84aff443099e61540b59f8559175fcfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '526b1f01c76939116c65974a9038b38d') in 0.013967 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.217918 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosIDLEARCO.png
-  artifactKey: Guid(84aff443099e61540b59f8559175fcfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosIDLEARCO.png using Guid(84aff443099e61540b59f8559175fcfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fccfcb48319f6b1fda7a913225267416') in 0.028280 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.981212 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosIDLEARCO.png
-  artifactKey: Guid(84aff443099e61540b59f8559175fcfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosIDLEARCO.png using Guid(84aff443099e61540b59f8559175fcfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '125a5bef77ec02c885b6d5a6cb8e1688') in 0.028936 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.563900 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosDAÑO.png
-  artifactKey: Guid(60b5af055ba2b9e4194d8572d4f8d2ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosDAÑO.png using Guid(60b5af055ba2b9e4194d8572d4f8d2ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f317657b22bd0c243c7eb5b52c2eb0e') in 0.011747 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.761930 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosDAÑO.png
-  artifactKey: Guid(60b5af055ba2b9e4194d8572d4f8d2ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosDAÑO.png using Guid(60b5af055ba2b9e4194d8572d4f8d2ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ed27e333e41dca6af8fbdd7bab4e9cb') in 0.022663 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.147758 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosDAÑO.png
-  artifactKey: Guid(60b5af055ba2b9e4194d8572d4f8d2ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosDAÑO.png using Guid(60b5af055ba2b9e4194d8572d4f8d2ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2f197a18ccf55d1572c564f6ad8c57f') in 0.025843 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 18.231459 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosATAQUEARCO.png
-  artifactKey: Guid(1c2c065fbbaebe54a9c944a7a9cce79e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosATAQUEARCO.png using Guid(1c2c065fbbaebe54a9c944a7a9cce79e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f52efba73e63c024bc84c42a73c2faef') in 0.013263 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 15.517342 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosATAQUEARCO.png
-  artifactKey: Guid(1c2c065fbbaebe54a9c944a7a9cce79e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosATAQUEARCO.png using Guid(1c2c065fbbaebe54a9c944a7a9cce79e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3917a21a9aceffcdfcaa643d5bd7fdf') in 0.029728 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.008205 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosATAQUEARCO.png
-  artifactKey: Guid(1c2c065fbbaebe54a9c944a7a9cce79e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosATAQUEARCO.png using Guid(1c2c065fbbaebe54a9c944a7a9cce79e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '819a809f4052bc8f23c5af05d824b141') in 0.035709 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 97.954121 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/FuegoAtaque.anim
-  artifactKey: Guid(fa03980e308661247a09d1f58b2099a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/FuegoAtaque.anim using Guid(fa03980e308661247a09d1f58b2099a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7a18680e5afb65c480e79151c005159') in 0.004094 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.008572 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/FuegoDanho.anim
-  artifactKey: Guid(378c89f831bdc2a468d9dcd1b6c29ea5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/FuegoDanho.anim using Guid(378c89f831bdc2a468d9dcd1b6c29ea5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cf2990398e5cf389dec11bca18b0c0a') in 0.010164 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.820555 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/FuegoIdle.anim
-  artifactKey: Guid(6fc82a0b3a5fabc498dcd93f9d260066) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/FuegoIdle.anim using Guid(6fc82a0b3a5fabc498dcd93f9d260066) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7f0c2e23066ec881b0e2c4134fdccce') in 0.013645 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.044215 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosIDLEARCO_0.controller
-  artifactKey: Guid(a22f75917e29172448829cd5d966753e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosIDLEARCO_0.controller using Guid(a22f75917e29172448829cd5d966753e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5654414a5f8c5d18323e11f21eee0bc4') in 0.011200 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 96.027117 seconds.
-  path: Assets/Animaciones/Enemigos/Arco/enemigosIDLEARCO_0.controller
-  artifactKey: Guid(a22f75917e29172448829cd5d966753e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Arco/enemigosIDLEARCO_0.controller using Guid(a22f75917e29172448829cd5d966753e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55d6a7f08ce5c580a848380dd6a021f7') in 0.004954 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 22.213252 seconds.
-  path: Assets/Sprites/Personajes/Enemigos/Arquero
-  artifactKey: Guid(e78f122389671e24f926b307cfefd22a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Personajes/Enemigos/Arquero using Guid(e78f122389671e24f926b307cfefd22a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '396719078404835bd42635e4337b5146') in 0.003058 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 25.615496 seconds.
-  path: Assets/Animaciones/Enemigos/Magia
-  artifactKey: Guid(faad9d5be6e4be145bcbf013c7643ff5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Magia using Guid(faad9d5be6e4be145bcbf013c7643ff5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd61dd02a14d40bfd7ce2da681f7fd532') in 0.012014 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 202.355476 seconds.
-  path: Assets/Animaciones/Enemigos/Magia/enemigoIDLEMAGIA.png
-  artifactKey: Guid(3b036c3f7d4088546a994d7d5e709d4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Magia/enemigoIDLEMAGIA.png using Guid(3b036c3f7d4088546a994d7d5e709d4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfdfbc64b7dd7573c65c8c6682d99a71') in 0.029869 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.959597 seconds.
-  path: Assets/Animaciones/Enemigos/Magia/enemigoIDLEMAGIA.png
-  artifactKey: Guid(3b036c3f7d4088546a994d7d5e709d4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Magia/enemigoIDLEMAGIA.png using Guid(3b036c3f7d4088546a994d7d5e709d4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3a0b6ccf172e4c84505e6606d897d51') in 0.014448 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.924172 seconds.
-  path: Assets/Animaciones/Enemigos/Magia/enemigoIDLEMAGIA.png
-  artifactKey: Guid(3b036c3f7d4088546a994d7d5e709d4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Magia/enemigoIDLEMAGIA.png using Guid(3b036c3f7d4088546a994d7d5e709d4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a01b04f970419d9d1fb85712629fc09') in 0.024560 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.527963 seconds.
-  path: Assets/Animaciones/Enemigos/Magia/enemigoIDLEMAGIA.png
-  artifactKey: Guid(3b036c3f7d4088546a994d7d5e709d4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Magia/enemigoIDLEMAGIA.png using Guid(3b036c3f7d4088546a994d7d5e709d4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98aabd15f0dacf20f66e6b68e595bf4c') in 0.020313 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 42.299066 seconds.
-  path: Assets/Animaciones/Enemigos/Magia/enemigosDAÑO.png
-  artifactKey: Guid(80ef805266809cd47bfbe747ba112b1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Magia/enemigosDAÑO.png using Guid(80ef805266809cd47bfbe747ba112b1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ae77a2ce42726e8a8549662faeae772') in 0.024366 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.117124 seconds.
-  path: Assets/Animaciones/Enemigos/Magia/enemigosDAÑO.png
-  artifactKey: Guid(80ef805266809cd47bfbe747ba112b1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Magia/enemigosDAÑO.png using Guid(80ef805266809cd47bfbe747ba112b1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b7d4d4b33017ec30ca3a636af951862') in 0.010469 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.319842 seconds.
-  path: Assets/Animaciones/Enemigos/Magia/enemigosDAÑO.png
-  artifactKey: Guid(80ef805266809cd47bfbe747ba112b1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Magia/enemigosDAÑO.png using Guid(80ef805266809cd47bfbe747ba112b1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2705f64039e1e97009980fe474349043') in 0.025059 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.441537 seconds.
-  path: Assets/Animaciones/Enemigos/Magia/enemigosDAÑO.png
-  artifactKey: Guid(80ef805266809cd47bfbe747ba112b1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Magia/enemigosDAÑO.png using Guid(80ef805266809cd47bfbe747ba112b1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80a64225fff5624edf5858f787675a27') in 0.018678 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 33.029128 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/FuegoAtaque.anim
-  artifactKey: Guid(69b65899da7fe7746b5359f223fb14ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/FuegoAtaque.anim using Guid(69b65899da7fe7746b5359f223fb14ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aeaed2493d62a1e5edfa8d23c5c2bed0') in 0.003431 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.950579 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/FuegoDanho.anim
-  artifactKey: Guid(7aceffa3bb18b544095bf753d6fcc73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/FuegoDanho.anim using Guid(7aceffa3bb18b544095bf753d6fcc73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '020a19c2193e26f700c2c8f305598784') in 0.003095 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.807148 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/FuegoIdle.anim
-  artifactKey: Guid(e5d2b0f054980224d86806fc78aeecd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/FuegoIdle.anim using Guid(e5d2b0f054980224d86806fc78aeecd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83b3dc088d05011e2579353268690bbb') in 0.003449 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 108.399187 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/FuegoDanho.anim
-  artifactKey: Guid(7aceffa3bb18b544095bf753d6fcc73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/FuegoDanho.anim using Guid(7aceffa3bb18b544095bf753d6fcc73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4efebd9903af1fc107a27838077d0ee8') in 0.003477 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 46.334696 seconds.
-  path: Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO_0.controller
-  artifactKey: Guid(685852623486c7f46b71f80d42dd2fb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO_0.controller using Guid(685852623486c7f46b71f80d42dd2fb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c4adcbd4cd87be0b06c8fae15014b06') in 0.004475 seconds 
+  artifactKey: Guid(7c577a72f64f73f44bbe8154d40e8170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animaciones/Enemigos/Fuego/enemigosIDLEFUEGO_0.controller using Guid(7c577a72f64f73f44bbe8154d40e8170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa774ab8682b318409cb92930519e4d1') in 0.003593 seconds 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3849799735749868846}
   - component: {fileID: -2111215976919052425}
   - component: {fileID: -5548429084816615559}
+  - component: {fileID: 8960129000358178467}
   m_Layer: 0
   m_Name: Player Knight
   m_TagString: Untagged
@@ -215,3 +216,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.7}
   m_EdgeRadius: 0
+--- !u!95 &8960129000358178467
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3473415735690536374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc7c33c6351e71a4abbc361750cf6f55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
