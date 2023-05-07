@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5656641225117751915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.5, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 047bf68b6913a9d41aaecdb7c19a1367, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e2c6f3c5d12997f418e79fb882ff80db, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c212f420f50d741ba22764814c90ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CombatBackground: {fileID: 0}
   EnemyPosition: {fileID: 0}
   Positions: []
   VidaTotal: 0
@@ -107,7 +108,15 @@ MonoBehaviour:
   AtaqueMax: 0
   DefensaActual: 0
   DefensaMax: 0
+  DefensaActualPercentage: 0
+  DefensaActualReal: 0
   PrefabHealthbar: {fileID: 3672013936490356647, guid: 4a6377cec6ca47d49b2e48bcec0cbd18, type: 3}
+  ClonHealthbar: {fileID: 0}
+  HabilidadSlime: 0
+  UIEnemigo: {fileID: 0}
+  VidaEnemigo: {fileID: 0}
+  AtaqueEnemigo: {fileID: 0}
+  DefensaEnemigo: {fileID: 0}
 --- !u!114 &4219788921088392220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +138,15 @@ MonoBehaviour:
   SelectedToAttack: 0
   Down: 0
   Vibrate: 0
+  MinTam: {x: 0, y: 0}
+  MaxTam: {x: 0, y: 0}
   PlayerAttacking: {fileID: 0}
+  Action: 0
+  UIEstadisticasPersonaje: {fileID: 0}
+  UIEnemigoImagen: {fileID: 0}
+  UIEnemigoCorazon: {fileID: 0}
+  UIEnemigoEspada: {fileID: 0}
+  UIEnemigoEscudo: {fileID: 0}
 --- !u!61 &5576875241616312779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +164,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
