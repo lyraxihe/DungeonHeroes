@@ -190,9 +190,9 @@ public class VariablesGlobales : MonoBehaviour
         MageVivo = true;
 
         // Establece los atributos del Boss
-        BossVidaTotal = 200;
-        BossVidaActual = 200;
-        BossAtaqueActual = 30;
+        BossVidaTotal = 500;
+        BossVidaActual = 500;
+        BossAtaqueActual = 50;
         BossAtaqueMax = 50;
         BossDefensaActual = 5;
         BossDefensaMax = 10;

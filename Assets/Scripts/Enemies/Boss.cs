@@ -286,9 +286,12 @@ public class Boss : MonoBehaviour
                 if (position.GetComponent<CombatPosition>().CharacterType == 2)                                                 // Si la posición están ocuapada por un personaje del Jugador
                 {
                     attack = true;
-                    if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)    // Si la posición está ocupada por un Knight
-                        if (position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().Invencible == true) // Si está en modo invencible
-                            attack = false;                                                                                    // No puede atacar esa posición
+                    if (position.GetComponent<CombatPosition>().Character != null)
+                    {
+                        if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)    // Si la posición está ocupada por un Knight
+                            if (position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().Invencible == true) // Si está en modo invencible
+                                attack = false;                                                                                    // No puede atacar esa posición
+                    }
                 }
             } while (!attack);
             
