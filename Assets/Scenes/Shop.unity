@@ -1716,7 +1716,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 825015807}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2678,8 +2678,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 153916206}
-  - {fileID: 2049340546}
   - {fileID: 390758244}
+  - {fileID: 2049340546}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3287,6 +3287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 390758245}
+  CartelDineroInsuficiente: {fileID: 6771924454965763940, guid: f4987cdab49e79b43bfe6e606d1f8856, type: 3}
+  canvas: {fileID: 825015807}
   HpArqueroButton: {fileID: 1289726075}
   ATQArqueroButton: {fileID: 1240947397}
   DEFArqueroButton: {fileID: 944840264}
@@ -3850,6 +3852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 390758245}
+  CartelDineroInsuficiente: {fileID: 6771924454965763940, guid: f4987cdab49e79b43bfe6e606d1f8856, type: 3}
+  canvas: {fileID: 825015807}
   HpArqueroButton: {fileID: 1289726075}
   ATQArqueroButton: {fileID: 1240947397}
   DEFArqueroButton: {fileID: 944840264}
@@ -4227,6 +4231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 390758245}
+  CartelDineroInsuficiente: {fileID: 6771924454965763940, guid: f4987cdab49e79b43bfe6e606d1f8856, type: 3}
+  canvas: {fileID: 825015807}
   HpArqueroButton: {fileID: 1289726075}
   ATQArqueroButton: {fileID: 1240947397}
   DEFArqueroButton: {fileID: 944840264}
@@ -7482,7 +7488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3526421655897815903, guid: 97179754a32b6c847977e52e4cc45efc, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3526421655897815903, guid: 97179754a32b6c847977e52e4cc45efc, type: 3}
       propertyPath: m_AnchorMax.x

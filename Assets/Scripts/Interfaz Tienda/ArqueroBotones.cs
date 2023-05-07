@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.TextCore.Text;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
+using Unity.VisualScripting;
 
 public class ArqueroBotones : MonoBehaviour
 {
     //texto de money
     public TMP_Text MoneyText;
+
+    //cartel de Dinero Insuficiente
+    public GameObject CartelDineroInsuficiente;
+
+    //canva
+    public RectTransform canvas;
 
     //botones del Arquero
     public Button HpArqueroButton;
@@ -38,6 +48,7 @@ public class ArqueroBotones : MonoBehaviour
         //tomo los valores asignados en variables globales para el Arquero
         VidaMaxArquero = VariablesGlobales.instance.MageVidaTotal;
 
+        StartCoroutine(WaitBeforeShow());
     }
 
     // Update is called once per frame
@@ -72,8 +83,13 @@ public class ArqueroBotones : MonoBehaviour
         {   
             HpArqueroButton.interactable = false;
         }
-        else { return; }
+        if (VariablesGlobales.instance.Money < 10)
+        {
+            WaitBeforeShow();
+
+        }
     }
+   
     public void SumarATQArquero()
     {
         if (VariablesGlobales.instance.Money >= 20 & VariablesGlobales.instance.MageAtaqueActual < AtaqueMax)
@@ -92,7 +108,11 @@ public class ArqueroBotones : MonoBehaviour
         {
             ATQArqueroButton.interactable = false;
         }
-        else { return; }
+        if (VariablesGlobales.instance.Money < 20)
+        {
+            WaitBeforeShow();
+
+        }
     }
     public void SumarDEFArquero()
     {
@@ -115,7 +135,20 @@ public class ArqueroBotones : MonoBehaviour
         {
             DEFArqueroButton.interactable = false;
         }
-        else { return; }
+        if (VariablesGlobales.instance.Money < 15)
+        {
+            WaitBeforeShow();
+
+        }
 
     }
+    private IEnumerator WaitBeforeShow()
+    {
+        GameObject clon = Instantiate(CartelDineroInsuficiente);
+        clon.transform.position = new Vector3 (0, 201, 0);
+        clon.transform.parent = canvas;
+        yield return new WaitForSeconds(2);
+        Destroy(clon);
+    }
+
 }
