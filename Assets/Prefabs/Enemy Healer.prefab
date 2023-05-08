@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7634568586312832611}
   - component: {fileID: 4175699865028309291}
   - component: {fileID: 3845690866350168864}
-  - component: {fileID: 8611982687570404820}
+  - component: {fileID: -3934371129850937338}
   m_Layer: 0
   m_Name: Enemy Healer
   m_TagString: Untagged
@@ -174,7 +174,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
---- !u!95 &8611982687570404820
+--- !u!95 &-3934371129850937338
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ Animator:
   m_GameObject: {fileID: 8545878255188267697}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 490295f4ea2cf37479af08b2a913d115, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4f138842256f2704bbf54cdaa52c7c0c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

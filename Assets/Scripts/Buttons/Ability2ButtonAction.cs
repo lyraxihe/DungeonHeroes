@@ -88,6 +88,8 @@ public class Ability2ButtonAction : MonoBehaviour
                 Character.GetComponent<GeneralPlayer>()._CombatBackground.GetComponent<CombatBackground>().ChangeTurn(); // Tras la acción, cambia el turno de la partida
                 Character.GetComponent<GeneralPlayer>().Habilidad2 = false;
 
+                Character.GetComponent<Animator>().SetTrigger("ataque");
+
                 UIHabilidadKnight.SetActive(false);
                 UIEstadisticasPersonaje.SetActive(false);
             }

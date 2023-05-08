@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8848232364142412176}
   - component: {fileID: 2099010675059389250}
   - component: {fileID: 8294353343879589540}
-  - component: {fileID: -4424035748476963730}
+  - component: {fileID: -1388444203803840051}
   m_Layer: 0
   m_Name: Enemy Slime
   m_TagString: Untagged
@@ -174,7 +174,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!95 &-4424035748476963730
+--- !u!95 &-1388444203803840051
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ Animator:
   m_GameObject: {fileID: 1649466272934880807}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7c577a72f64f73f44bbe8154d40e8170, type: 2}
+  m_Controller: {fileID: 9100000, guid: 399e7df57b537c5428d86b361bbabb01, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7896820246574080274}
   - component: {fileID: 4219788921088392220}
   - component: {fileID: 5576875241616312779}
-  - component: {fileID: 4790681182942161705}
+  - component: {fileID: -5795720980491558043}
   m_Layer: 0
   m_Name: Enemy Mage
   m_TagString: Untagged
@@ -174,7 +174,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!95 &4790681182942161705
+--- !u!95 &-5795720980491558043
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ Animator:
   m_GameObject: {fileID: 5656641225117751915}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a22f75917e29172448829cd5d966753e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 96820b11b064e3949bd1a7a1a0fc9b27, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

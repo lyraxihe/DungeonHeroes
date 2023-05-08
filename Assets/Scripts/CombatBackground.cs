@@ -384,6 +384,7 @@ public class CombatBackground : MonoBehaviour
                     clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
                     clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
                     clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
+                    clon.GetComponent<EnemyKnight>().Enemy = clon;             // Almacena el enemigo
                     clon.GetComponent<GeneralEnemy>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
                     clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
                     clon.GetComponent<EnemyKnight>()._CombatBackground = _CombatBackground;  // Almacena el combate
@@ -447,6 +448,7 @@ public class CombatBackground : MonoBehaviour
                     clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
                     clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
                     clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
+                    clon.GetComponent<EnemyHealer>().Enemy = clon;             // Almacena el enemigo
                     clon.GetComponent<GeneralEnemy>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
                     clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
                     clon.GetComponent<EnemyHealer>()._CombatBackground = _CombatBackground;  // Almacena el combate
@@ -510,6 +512,7 @@ public class CombatBackground : MonoBehaviour
                     clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
                     clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
                     clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
+                    clon.GetComponent<EnemySlime>().Enemy = clon;             // Almacena el enemigo
                     clon.GetComponent<GeneralEnemy>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
                     clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
                     clon.GetComponent<EnemySlime>()._CombatBackground = _CombatBackground;   // Almacena el combate
@@ -573,6 +576,7 @@ public class CombatBackground : MonoBehaviour
                     clon.GetComponent<GeneralEnemy>().Index = enemyType;        // Almacena el tipo de enemigo que es
                     clon.GetComponent<GeneralEnemy>().EnemyPosition = position; // Alamcena la posición del enemigo
                     clon.GetComponent<GeneralEnemy>().Enemy = clon;             // Almacena el enemigo
+                    clon.GetComponent<EnemyMage>().Enemy = clon;             // Almacena el enemigo
                     clon.GetComponent<GeneralEnemy>().UIEstadisticasPersonaje = UIEstadisticasPersonaje;
                     clon.GetComponent<GeneralEnemy>()._CombatBackground = _CombatBackground; // Almacena el combate
                     clon.GetComponent<EnemyMage>()._CombatBackground = _CombatBackground;    // Almacena el combate

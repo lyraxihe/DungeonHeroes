@@ -47,8 +47,6 @@ public class ArqueroBotones : MonoBehaviour
 
         //tomo los valores asignados en variables globales para el Arquero
         VidaMaxArquero = VariablesGlobales.instance.MageVidaTotal;
-
-        StartCoroutine(WaitBeforeShow());
     }
 
     // Update is called once per frame
@@ -80,16 +78,17 @@ public class ArqueroBotones : MonoBehaviour
             }
         }
         else if (VariablesGlobales.instance.MageVidaActual == VidaMaxArquero)
-        {   
+        {
             HpArqueroButton.interactable = false;
         }
-        if (VariablesGlobales.instance.Money < 10)
-        {
-            WaitBeforeShow();
 
+        else
+        {
+            //return;
+            StartCoroutine(Esperar());
         }
     }
-   
+
     public void SumarATQArquero()
     {
         if (VariablesGlobales.instance.Money >= 20 & VariablesGlobales.instance.MageAtaqueActual < AtaqueMax)
@@ -106,13 +105,15 @@ public class ArqueroBotones : MonoBehaviour
         }
         else if (VariablesGlobales.instance.MageAtaqueActual == AtaqueMax)
         {
-            ATQArqueroButton.interactable = false;
+            DEFArqueroButton.interactable = false;
         }
-        if (VariablesGlobales.instance.Money < 20)
+        else
         {
-            WaitBeforeShow();
-
+            //return;
+            StartCoroutine(Esperar());
         }
+
+
     }
     public void SumarDEFArquero()
     {
@@ -126,29 +127,28 @@ public class ArqueroBotones : MonoBehaviour
 
             if (VariablesGlobales.instance.MageDefensaActual > DefensaMax)
             {
-               
+
                 VariablesGlobales.instance.MageDefensaActual = DefensaMax;
             }
-        
+
         }
         else if (VariablesGlobales.instance.MageDefensaActual == DefensaMax)
         {
             DEFArqueroButton.interactable = false;
         }
-        if (VariablesGlobales.instance.Money < 15)
+        else
         {
-            WaitBeforeShow();
-
+            //return;
+            StartCoroutine(Esperar());
         }
 
     }
-    private IEnumerator WaitBeforeShow()
-    {
-        GameObject clon = Instantiate(CartelDineroInsuficiente);
-        clon.transform.position = new Vector3 (0, 201, 0);
-        clon.transform.parent = canvas;
-        yield return new WaitForSeconds(2);
-        Destroy(clon);
-    }
 
+    IEnumerator Esperar()
+    {
+        CartelDineroInsuficiente.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        CartelDineroInsuficiente.SetActive(false);
+    }
+  
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6750346196856710100}
   - component: {fileID: -8598235859075804696}
   - component: {fileID: 8896274090609882791}
-  - component: {fileID: -2265278122337148564}
+  - component: {fileID: -107842324084264867}
   m_Layer: 0
   m_Name: Enemy Knight
   m_TagString: Untagged
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CombatBackground: {fileID: 0}
+  Enemy: {fileID: 0}
   EnemyPosition: {fileID: 0}
   Positions: []
   VidaTotal: 0
@@ -174,7 +175,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!95 &-2265278122337148564
+--- !u!95 &-107842324084264867
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ Animator:
   m_GameObject: {fileID: 3473415735690536374}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a570e57508a5104d9d193ff8760344b, type: 2}
+  m_Controller: {fileID: 9100000, guid: d404e99a788644b499afc89dc8df104c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
