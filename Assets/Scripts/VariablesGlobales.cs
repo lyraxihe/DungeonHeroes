@@ -142,7 +142,7 @@ public class VariablesGlobales : MonoBehaviour
         EscPressed = false;
 
         // Establece los atributos y valores generales
-        Money = 200; // modificar luego !!!!!!
+        Money = 100; // modificar luego !!!!!!
         AtaqueMax = 50;
         DefensaMax = 10;
 

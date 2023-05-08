@@ -3987,3 +3987,55 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2591.505384 seconds.
+  path: Assets/Sprites/Main Menu/Mouse.png
+  artifactKey: Guid(188ef622a25e1644f8d5a4296e20b295) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Main Menu/Mouse.png using Guid(188ef622a25e1644f8d5a4296e20b295) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22e5783710eaa0b9e081218bfa70d087') in 0.089101 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 55.309733 seconds.
+  path: Assets/Sprites/UI Personajes/Boton SubirDefensa Combate.png
+  artifactKey: Guid(745c65ac7c2c20e4985e951f227b617b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI Personajes/Boton SubirDefensa Combate.png using Guid(745c65ac7c2c20e4985e951f227b617b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5d331733f73fc40e7523e123d64d1a6') in 0.043967 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Sprites/Interfaz Personajes/Botón Mejoras Tienda.png
+  artifactKey: Guid(d37778e06dd9bc841b0ed3083c12c9e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Interfaz Personajes/Botón Mejoras Tienda.png using Guid(d37778e06dd9bc841b0ed3083c12c9e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c4be4217d27f491f87cd5cbd5b1778b') in 0.025464 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.741692 seconds.
+  path: Assets/Sprites/UI Personajes/Boton Invulnerabilidad Combate.png
+  artifactKey: Guid(4f88787e01c56f1499607a1acc4d1cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI Personajes/Boton Invulnerabilidad Combate.png using Guid(4f88787e01c56f1499607a1acc4d1cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a54af1b1bceb9c063be7cad3d41831d6') in 0.024756 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.505069 seconds.
+  path: Assets/Sprites/UI Personajes/Boton BajarDefensa Combate.png
+  artifactKey: Guid(89e38d8ee370e6f4c83a69c45132cdd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI Personajes/Boton BajarDefensa Combate.png using Guid(89e38d8ee370e6f4c83a69c45132cdd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fda991fed0a0fd07d2850347cf70019f') in 0.030867 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.843909 seconds.
+  path: Assets/Sprites/UI Personajes/Atacar.png
+  artifactKey: Guid(4af6949ca30d5094d9b1c6095a761e51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI Personajes/Atacar.png using Guid(4af6949ca30d5094d9b1c6095a761e51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d72b51e88932aac6e7fed7253b5e50d') in 0.097317 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/Sprites/Personajes/Arquero/Arquero-Ataque 64x64.png
+  artifactKey: Guid(deed79bbddd7fa94180cce2ef265de32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Personajes/Arquero/Arquero-Ataque 64x64.png using Guid(deed79bbddd7fa94180cce2ef265de32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34e18ab73638a9ba535ed1c6f6cab94b') in 0.106520 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.050676 seconds.
+  path: Assets/Sprites/Personajes/Arquero/Arquero-Daño 64x64.png
+  artifactKey: Guid(95322321d46b74b409452d24629b328b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Personajes/Arquero/Arquero-Daño 64x64.png using Guid(95322321d46b74b409452d24629b328b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f95befc829f6d3974b02460a0aadace6') in 0.043002 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

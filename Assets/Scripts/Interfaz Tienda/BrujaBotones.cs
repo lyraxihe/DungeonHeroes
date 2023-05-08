@@ -9,6 +9,9 @@ public class BrujaBotones : MonoBehaviour
     //texto de money
     public TMP_Text MoneyText;
 
+    //cartel de Dinero Insuficiente
+    public GameObject CartelDineroInsuficiente;
+
     //botones de la Bruja
     public Button HpBrujaButton;
     public Button ATQBrujaButton;
@@ -79,7 +82,7 @@ public class BrujaBotones : MonoBehaviour
         {
             HpBrujaButton.interactable = false;
         }
-        else { return; }
+        else { StartCoroutine(Esperar()); }
     }
     public void SumarATQBruja()
     {
@@ -100,7 +103,7 @@ public class BrujaBotones : MonoBehaviour
         {
             ATQBrujaButton.interactable = false;
         }
-        else { return; }
+        else { StartCoroutine(Esperar()); }
     }
     public void SumarDEFBruja()
     {
@@ -125,8 +128,15 @@ public class BrujaBotones : MonoBehaviour
             DEFBrujaButton.interactable = false;
         }
 
-        else { return; }
+        else { StartCoroutine(Esperar()); }
 
+    }
+
+    IEnumerator Esperar()
+    {
+        CartelDineroInsuficiente.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        CartelDineroInsuficiente.SetActive(false);
     }
 }
 

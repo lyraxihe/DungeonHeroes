@@ -9,6 +9,9 @@ public class HadaBotones : MonoBehaviour
     //texto de money
     public TMP_Text MoneyText;
 
+    //cartel de Dinero Insuficiente
+    public GameObject CartelDineroInsuficiente;
+
     //botones del Hada
     public Button HpHadaButton;
     public Button ATQHadaButton;
@@ -74,7 +77,7 @@ public class HadaBotones : MonoBehaviour
         {
             HpHadaButton.interactable = false;
         }
-        else { return; }
+        else { StartCoroutine(Esperar()); }
     }
     public void SumarATQHada()
     {
@@ -94,7 +97,7 @@ public class HadaBotones : MonoBehaviour
         {
             ATQHadaButton.interactable = false;
         }
-        else { return; }
+        else { StartCoroutine(Esperar()); }
 
     }
     public void SumarDEFCaballero()
@@ -116,7 +119,15 @@ public class HadaBotones : MonoBehaviour
         {
             DEFHadaButton.interactable = false;
         }
-        else { return; }
+        else { StartCoroutine(Esperar()); }
 
     }
+
+    IEnumerator Esperar()
+    {
+        CartelDineroInsuficiente.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        CartelDineroInsuficiente.SetActive(false);
+    }
+
 }

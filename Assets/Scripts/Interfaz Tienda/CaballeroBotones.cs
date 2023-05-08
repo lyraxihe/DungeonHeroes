@@ -12,6 +12,9 @@ public class CaballeroBotones : MonoBehaviour
     public Button ATQCaballeroButton;
     public Button DEFCaballeroButton;
 
+    //cartel de Dinero Insuficiente
+    public GameObject CartelDineroInsuficiente;
+
     //texto de money
     public TMP_Text MoneyText;
 
@@ -78,7 +81,10 @@ public class CaballeroBotones : MonoBehaviour
         {
             HpCaballeroButton.interactable = false;
         }
-        else { return; }
+        else 
+        {
+            StartCoroutine(Esperar());
+        }
     }
     public void SumarATQCaballero()
     {
@@ -99,7 +105,7 @@ public class CaballeroBotones : MonoBehaviour
         {
             ATQCaballeroButton.interactable = false;
         }
-        else { return; }
+        else { StartCoroutine(Esperar()); }
 
     }
     public void SumarDEFCaballero()
@@ -121,7 +127,14 @@ public class CaballeroBotones : MonoBehaviour
         {
             DEFCaballeroButton.interactable = false;
         }
-        else { return; }
+        else { StartCoroutine(Esperar()); }
 
+    }
+
+    IEnumerator Esperar()
+    {
+        CartelDineroInsuficiente.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        CartelDineroInsuficiente.SetActive(false);
     }
 }
