@@ -173,11 +173,12 @@ public class GeneralEnemy : MonoBehaviour
                         Enemies[i].GetComponent<Boss>().Atacar = true;
                 }
             }
+            
+            UIEstadisticasPersonaje.SetActive(false);
 
             Action = 0;                                                                        // Indica que ya no se realiza ninguna acción
             _CombatBackground.GetComponent<CombatBackground>().EnemigoParaAtacar = true;
         }
-        UIEstadisticasPersonaje.SetActive(false);
     }
 
     /****************************************************************************************
