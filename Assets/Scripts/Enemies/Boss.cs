@@ -460,8 +460,11 @@ public class Boss : MonoBehaviour
                 // Indica al Slime del Jugador que ya puede usar de nuevo su habilidad
                 for (int i = 0; i < _CombatBackground.GetComponent<CombatBackground>().Aliados.Length; i++)
                 {
-                    if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 3)
-                        _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerSlime>().UsedAbility = false;
+                    if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i] != null)
+                    {
+                        if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 3)
+                            _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerSlime>().UsedAbility = false;
+                    }
                 }
             }
         }

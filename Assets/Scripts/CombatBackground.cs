@@ -936,65 +936,143 @@ public class CombatBackground : MonoBehaviour
                             Aliados[i].GetComponent<PlayerKnight>().PlayerKnightInvencibleCont++; // Aumenta el contador
 
             // Actualiza el contador de la habilidad del Slime del Jugador
-            for(int i = 0; i < Enemies.Length; i++)
+            //for(int i = 0; i < Enemies.Length; i++)
+            //{
+            //    if (Enemies[i] != null)
+            //    {
+            //        if (!VariablesGlobales.instance.Boss)
+            //        {
+            //            if (Enemies[i].GetComponent<GeneralEnemy>().Index == 1)
+            //            {
+            //                if (Enemies[i].GetComponent<EnemyKnight>().HabilidadSlime == true)
+            //                    ContHabilidadSlime++;
+            //            }
+            //            else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 2)
+            //            {
+            //                if (Enemies[i].GetComponent<EnemyHealer>().HabilidadSlime == true)
+            //                    ContHabilidadSlime++;
+            //            }
+            //            else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 3)
+            //            {
+            //                if (Enemies[i].GetComponent<EnemySlime>().HabilidadSlime == true)
+            //                    ContHabilidadSlime++;
+            //            }
+            //            else
+            //            {
+            //                if (Enemies[i].GetComponent<EnemyMage>().HabilidadSlime == true)
+            //                    ContHabilidadSlime++;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            if (Enemies[i].GetComponent<Boss>().HabilidadSlime == true)
+            //                ContHabilidadSlime++;
+            //        }
+            //    }
+            //}
+
+            //// Actualiza el contador de la habilidad del Mage del Jugador
+            //for (int i = 0; i < Aliados.Length; i++)
+            //{
+            //    if (Aliados[i] != null)
+            //    {
+            //        if (Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 1)
+            //        {
+            //            if (Aliados[i].GetComponent<PlayerKnight>().HabilidadMage == true)
+            //                ContHabilidadMage++;
+            //        }
+            //        else if (Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 2)
+            //        {
+            //            if (Aliados[i].GetComponent<PlayerHealer>().HabilidadMage == true)
+            //                ContHabilidadMage++;
+            //        }
+            //        else if (Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 3)
+            //        {
+            //            if (Aliados[i].GetComponent<PlayerSlime>().HabilidadMage == true)
+            //                ContHabilidadMage++;
+            //        }
+            //        else
+            //        {
+            //            if (Aliados[i].GetComponent<PlayerMage>().HabilidadMage == true)
+            //                ContHabilidadMage++;
+            //        }
+            //    }
+            //}
+
+            if (Aliados[2] != null)
             {
-                if (Enemies[i] != null)
+                if (Aliados[2].GetComponent<PlayerSlime>().UsedAbility == true)
+                    ContHabilidadSlime ++;
+            }
+            else
+            {
+                for (int k = 0; k < Enemies.Length; k++)
                 {
-                    if (!VariablesGlobales.instance.Boss)
+                    if (Enemies[k] != null)
                     {
-                        if (Enemies[i].GetComponent<GeneralEnemy>().Index == 1)
+                        if (!VariablesGlobales.instance.Boss)
                         {
-                            if (Enemies[i].GetComponent<EnemyKnight>().HabilidadSlime == true)
-                                ContHabilidadSlime++;
-                        }
-                        else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 2)
-                        {
-                            if (Enemies[i].GetComponent<EnemyHealer>().HabilidadSlime == true)
-                                ContHabilidadSlime++;
-                        }
-                        else if (Enemies[i].GetComponent<GeneralEnemy>().Index == 3)
-                        {
-                            if (Enemies[i].GetComponent<EnemySlime>().HabilidadSlime == true)
-                                ContHabilidadSlime++;
+                            if (Enemies[k].GetComponent<GeneralEnemy>().Index == 1)
+                            {
+                                if (Enemies[k].GetComponent<EnemyKnight>().HabilidadSlime == true)
+                                    ContHabilidadSlime++;
+                            }
+                            else if (Enemies[k].GetComponent<GeneralEnemy>().Index == 2)
+                            {
+                                if (Enemies[k].GetComponent<EnemyHealer>().HabilidadSlime == true)
+                                    ContHabilidadSlime++;
+                            }
+                            else if (Enemies[k].GetComponent<GeneralEnemy>().Index == 3)
+                            {
+                                if (Enemies[k].GetComponent<EnemySlime>().HabilidadSlime == true)
+                                    ContHabilidadSlime++;
+                            }
+                            else
+                            {
+                                if (Enemies[k].GetComponent<EnemyMage>().HabilidadSlime == true)
+                                    ContHabilidadSlime++;
+                            }
                         }
                         else
                         {
-                            if (Enemies[i].GetComponent<EnemyMage>().HabilidadSlime == true)
+                            if (Enemies[k].GetComponent<Boss>().HabilidadSlime == true)
                                 ContHabilidadSlime++;
                         }
-                    }
-                    else
-                    {
-                        if (Enemies[i].GetComponent<Boss>().HabilidadSlime == true)
-                            ContHabilidadSlime++;
                     }
                 }
             }
 
-            // Actualiza el contador de la habilidad del Mage del Jugador
-            for (int i = 0; i < Aliados.Length; i++)
+            if (Aliados[3] != null)
             {
-                if (Aliados[i] != null)
+                if (Aliados[3].GetComponent<PlayerMage>().UsedAbility == true)
+                    ContHabilidadMage++;
+            }
+            else
+            {
+                for (int k = 0; k < Aliados.Length; k++)
                 {
-                    if (Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 1)
+                    if (Aliados[k] != null)
                     {
-                        if (Aliados[i].GetComponent<PlayerKnight>().HabilidadMage == true)
-                            ContHabilidadMage++;
-                    }
-                    else if (Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 2)
-                    {
-                        if (Aliados[i].GetComponent<PlayerHealer>().HabilidadMage == true)
-                            ContHabilidadMage++;
-                    }
-                    else if (Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 3)
-                    {
-                        if (Aliados[i].GetComponent<PlayerSlime>().HabilidadMage == true)
-                            ContHabilidadMage++;
-                    }
-                    else
-                    {
-                        if (Aliados[i].GetComponent<PlayerMage>().HabilidadMage == true)
-                            ContHabilidadMage++;
+                        if (Aliados[k].GetComponent<GeneralPlayer>().CharacterType == 1)
+                        {
+                            if (Aliados[k].GetComponent<PlayerKnight>().HabilidadMage == true)
+                                ContHabilidadMage++;
+                        }
+                        else if (Aliados[k].GetComponent<GeneralPlayer>().CharacterType == 2)
+                        {
+                            if (Aliados[k].GetComponent<PlayerHealer>().HabilidadMage == true)
+                                ContHabilidadMage++;
+                        }
+                        else if (Aliados[k].GetComponent<GeneralPlayer>().CharacterType == 3)
+                        {
+                            if (Aliados[k].GetComponent<PlayerSlime>().HabilidadMage == true)
+                                ContHabilidadMage++;
+                        }
+                        else
+                        {
+                            if (Aliados[k].GetComponent<PlayerMage>().HabilidadMage == true)
+                                ContHabilidadMage++;
+                        }
                     }
                 }
             }

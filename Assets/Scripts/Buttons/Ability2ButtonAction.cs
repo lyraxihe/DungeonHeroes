@@ -106,10 +106,13 @@ public class Ability2ButtonAction : MonoBehaviour
             {
                 for (int i = 0; i < Aliados.Length; i++)                                                                             // Bucle para recorrer los aliados del combate
                 {
-                    Aliados[i].GetComponent<GeneralPlayer>().Action = 1;                                                             // Indica que la acción es la habilidad del Slime
-                    Aliados[i].GetComponent<GeneralPlayer>().Selected = true;                                                        // Indica que el personaje puede ser atacado
-                    Aliados[i].GetComponent<GeneralPlayer>().Vibrate = true;                                                         // Indica que el personaje puede vibrar
-                    Aliados[i].GetComponent<GeneralPlayer>().PlayerUsingAbility = Character.GetComponent<GeneralPlayer>().Character; // Indica el personaje del Jugador que le ha seleccionado
+                    if (Aliados[i] != null)
+                    {
+                        Aliados[i].GetComponent<GeneralPlayer>().Action = 1;                                                             // Indica que la acción es la habilidad del Slime
+                        Aliados[i].GetComponent<GeneralPlayer>().Selected = true;                                                        // Indica que el personaje puede ser atacado
+                        Aliados[i].GetComponent<GeneralPlayer>().Vibrate = true;                                                         // Indica que el personaje puede vibrar
+                        Aliados[i].GetComponent<GeneralPlayer>().PlayerUsingAbility = Character.GetComponent<GeneralPlayer>().Character; // Indica el personaje del Jugador que le ha seleccionado
+                    }
                 }
             }
         }
@@ -155,10 +158,13 @@ public class Ability2ButtonAction : MonoBehaviour
 
                 for (int i = 0; i < Aliados.Length; i++)                                                                             // Bucle para recorrer los aliados del combate
                 {
-                    Aliados[i].GetComponent<GeneralPlayer>().Action = 2;                                                             // Indica que la acción es la habilidad del Slime
-                    Aliados[i].GetComponent<GeneralPlayer>().Selected = true;                                                        // Indica que el personaje puede ser atacado
-                    Aliados[i].GetComponent<GeneralPlayer>().Vibrate = true;                                                         // Indica que el personaje puede vibrar
-                    Aliados[i].GetComponent<GeneralPlayer>().PlayerUsingAbility = Character.GetComponent<GeneralPlayer>().Character; // Indica el personaje del Jugador que le ha seleccionado
+                    if (Aliados[i] != null)
+                    {
+                        Aliados[i].GetComponent<GeneralPlayer>().Action = 2;                                                             // Indica que la acción es la habilidad del Slime
+                        Aliados[i].GetComponent<GeneralPlayer>().Selected = true;                                                        // Indica que el personaje puede ser atacado
+                        Aliados[i].GetComponent<GeneralPlayer>().Vibrate = true;                                                         // Indica que el personaje puede vibrar
+                        Aliados[i].GetComponent<GeneralPlayer>().PlayerUsingAbility = Character.GetComponent<GeneralPlayer>().Character; // Indica el personaje del Jugador que le ha seleccionado
+                    }
                 }
             }
         }

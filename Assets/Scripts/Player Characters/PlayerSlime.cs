@@ -53,6 +53,7 @@ public class PlayerSlime : MonoBehaviour
 
         ControlAtributos();                                                                 // Controla cada frame que los valores de los atributos sean correctos
         ControlMageAbility();                                                               // Controla la duración de la habilidad del Mage
+        ControlSlimeAbility();
     }
 
     /****************************************************************************************
@@ -88,26 +89,7 @@ public class PlayerSlime : MonoBehaviour
      ****************************************************************************************/
     public int DefensePercentage()
     {
-        if (DefensaActual == 1)
-            return 5;
-        else if (DefensaActual == 2)
-            return 10;
-        else if (DefensaActual == 3)
-            return 15;
-        else if (DefensaActual == 4)
-            return 20;
-        else if (DefensaActual == 5)
-            return 25;
-        else if (DefensaActual == 6)
-            return 30;
-        else if (DefensaActual == 7)
-            return 35;
-        else if (DefensaActual == 8)
-            return 40;
-        else if (DefensaActual == 9)
-            return 45;
-        else
-            return 50;
+        return DefensaActual * 5;
     }
 
     /****************************************************************************************
@@ -129,10 +111,13 @@ public class PlayerSlime : MonoBehaviour
         if (AtaqueActual > AtaqueMax)
             AtaqueActual = AtaqueMax;
 
-        if (DefensaActual < 0)
-            DefensaActual = 0;
-        if (DefensaActual > DefensaMax)
-            DefensaActual = DefensaMax;
+        if (HabilidadMage == false)
+        {
+            if (DefensaActual < 0)
+                DefensaActual = 0;
+            if (DefensaActual > DefensaMax)
+                DefensaActual = DefensaMax;
+        }
     }
 
     /****************************************************************************************
@@ -154,9 +139,27 @@ public class PlayerSlime : MonoBehaviour
                 // Indica al Mage del Jugador que ya puede usar de nuevo su habilidad
                 for (int i = 0; i < _CombatBackground.GetComponent<CombatBackground>().Aliados.Length; i++)
                 {
-                    if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 4)
-                        _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerMage>().UsedAbility = false;
+                    if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i] != null)
+                    {
+                        if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i] != null)
+                        {
+                            if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 4)
+                                _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerMage>().UsedAbility = false;
+                        }
+                    }
                 }
+            }
+        }
+    }
+
+    private void ControlSlimeAbility()
+    {
+        if (UsedAbility == true)
+        {
+            if (_CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime >= 3) // Si ya han pasado dos o más turnos
+            {
+                UsedAbility = false;                                                     // Inhabilita la habilidad del Slime
+                _CombatBackground.GetComponent<CombatBackground>().ContHabilidadSlime = 0;  // Reinicia el contador
             }
         }
     }

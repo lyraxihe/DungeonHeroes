@@ -140,23 +140,28 @@ public class EnemySlime : MonoBehaviour
                 if (position.GetComponent<CombatPosition>().CharacterType == 2) // Si la posición están ocuapada por un personaje del Jugador
                 {
                     attack = true;
-                    if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)    // Si la posición está ocupada por un Knight
-                        if (position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().Invencible == true) // Si está en modo invencible
+                    if (position.GetComponent<CombatPosition>().Character != null)
+                    {
+                        if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)    // Si la posición está ocupada por un Knight
                         {
-                            for (i = 0; i < 4; i++)
+                            if (position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().Invencible == true) // Si está en modo invencible
                             {
-                                if (indexNotValid[i] == 0)
+                                for (i = 0; i < 4; i++)
                                 {
-                                    indexNotValid[i] = index + 1;
-                                    break;
+                                    if (indexNotValid[i] == 0)
+                                    {
+                                        indexNotValid[i] = index + 1;
+                                        break;
+                                    }
                                 }
+
+                                if (i == 3)
+                                    noPositions = true;
+
+                                attack = false;                                                                                    // No puede atacar esa posición
                             }
-
-                            if (i == 3)
-                                noPositions = true;
-
-                            attack = false;                                                                                    // No puede atacar esa posición
                         }
+                    }
                 }
                 else
                 {
@@ -279,8 +284,11 @@ public class EnemySlime : MonoBehaviour
                 // Indica al Slime del Jugador que ya puede usar de nuevo su habilidad
                 for (int i = 0; i < _CombatBackground.GetComponent<CombatBackground>().Aliados.Length; i++)
                 {
-                    if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 3)
-                        _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerSlime>().UsedAbility = false;
+                    if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i] != null)
+                    {
+                        if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 3)
+                            _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerSlime>().UsedAbility = false;
+                    }
                 }
             }
         }

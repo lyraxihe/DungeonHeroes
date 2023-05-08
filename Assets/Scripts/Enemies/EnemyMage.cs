@@ -109,9 +109,12 @@ public class EnemyMage : MonoBehaviour
                 if (position.GetComponent<CombatPosition>().CharacterType == 2)                                                 // Si la posición están ocuapada por un personaje del Jugador
                 {
                     attack = true;
-                    if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)    // Si la posición está ocupada por un Knight
-                        if (position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().Invencible == true) // Si está en modo invencible
-                            attack = false;                                                                                    // No puede atacar esa posición
+                    if (position.GetComponent<CombatPosition>().Character != null)
+                    {
+                        if (position.GetComponent<CombatPosition>().Character.GetComponent<GeneralPlayer>().CharacterType == 1)    // Si la posición está ocupada por un Knight
+                            if (position.GetComponent<CombatPosition>().Character.GetComponent<PlayerKnight>().Invencible == true) // Si está en modo invencible
+                                attack = false;                                                                                    // No puede atacar esa posición
+                    }
                 }
 
             } while (!attack);                                                                                  // Repite hasta que la posción seleccionada esté ocupada por un personaje del Jugador
@@ -217,8 +220,11 @@ public class EnemyMage : MonoBehaviour
                 // Indica al Slime del Jugador que ya puede usar de nuevo su habilidad
                 for (int i = 0; i < _CombatBackground.GetComponent<CombatBackground>().Aliados.Length; i++)
                 {
-                    if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 3)
-                        _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerSlime>().UsedAbility = false;
+                    if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i] != null)
+                    {
+                        if (_CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<GeneralPlayer>().CharacterType == 3)
+                            _CombatBackground.GetComponent<CombatBackground>().Aliados[i].GetComponent<PlayerSlime>().UsedAbility = false;
+                    }
                 }
             }
         }
